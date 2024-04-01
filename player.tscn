@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7t2km6oqfkhf"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_xros8"]
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_y5n3g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x18m5"]
+radius = 5.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 15
+floor_constant_speed = true
+floor_snap_length = 2.0
+script = ExtResource("1_xros8")
+
+[node name="ZozoJump1" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_y5n3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_x18m5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.0
+drag_bottom_margin = 0.6
+editor_draw_drag_margin = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -1)
+target_position = Vector2(0, -4)
+collision_mask = 7
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(0, 8)
+collision_mask = 7

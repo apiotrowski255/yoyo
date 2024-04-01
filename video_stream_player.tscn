@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://o3621cyy23sj"]
+
+[ext_resource type="VideoStream" path="res://output.ogv" id="1_gjgjk"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.167, 0.167)
+stream = ExtResource("1_gjgjk")
+autoplay = true

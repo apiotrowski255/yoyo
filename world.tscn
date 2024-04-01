@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwnrnblhxsnek"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_bfgiu"]
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="2_yx3pr"]
+[ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="3_ugvn2"]
+[ext_resource type="PackedScene" uid="uid://2y87tlmp11qn" path="res://jump_pad.tscn" id="4_6s486"]
+[ext_resource type="PackedScene" uid="uid://dcfcmkbkud2ph" path="res://climb.tscn" id="5_s5e8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puo6"]
+size = Vector2(72, 6)
+
+[node name="World" type="Node2D"]
+position = Vector2(-57, -32)
+script = ExtResource("1_bfgiu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 24, 0, 24, 136, 56, 136, 96, 152, 128, 152, 152, 128, 176, 128, 176, 176, 200, 176, 200, 128, 232, 128, 232, 152, 256, 152, 296, 128, 312, 128, 312, 8, 336, 8, 336, 208, 0, 208)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_yx3pr")]
+position = Vector2(48, 120)
+platform_floor_layers = 4278190088
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(188, 1)
+emitting = false
+amount = 200
+lifetime = 0.6
+speed_scale = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(15, 1)
+
+[node name="Portal" parent="." instance=ExtResource("3_ugvn2")]
+position = Vector2(296, 111)
+
+[node name="jump pad" parent="." instance=ExtResource("4_6s486")]
+position = Vector2(164, 128)
+strength = Vector2(0, -400)
+
+[node name="climb" parent="." instance=ExtResource("5_s5e8u")]
+position = Vector2(23, 136)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(151, 103)
+shape = SubResource("RectangleShape2D_5puo6")
+one_way_collision = true

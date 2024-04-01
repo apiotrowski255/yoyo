@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd8gyopbmk7fv"]
+
+[ext_resource type="Script" path="res://simple_enemy.gd" id="1_0peks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0dss"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tad6"]
+size = Vector2(8, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prwvk"]
+size = Vector2(16, 4)
+
+[node name="simple_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_0peks")
+
+[node name="kill zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill zone"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_f0dss")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_3tad6")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="stomp" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stomp"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_prwvk")
+
+[node name="Rightcast" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 4)
+collision_mask = 7
+
+[node name="Leftcast" type="RayCast2D" parent="."]
+position = Vector2(-8, 8)
+target_position = Vector2(0, 4)
+collision_mask = 7
+
+[connection signal="body_entered" from="kill zone" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="stomp" to="." method="_on_stomp_body_entered"]

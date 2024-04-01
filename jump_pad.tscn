@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2y87tlmp11qn"]
+
+[ext_resource type="Script" path="res://jump_pad.gd" id="1_0rbo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd2tv"]
+size = Vector2(16, 8)
+
+[node name="jump pad" type="Area2D"]
+script = ExtResource("1_0rbo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_fd2tv")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

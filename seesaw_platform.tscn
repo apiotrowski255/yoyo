@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjglh6xyt6v3u"]
+
+[ext_resource type="Script" path="res://seesaw_platform.gd" id="1_lw8xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6405"]
+size = Vector2(112, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqpib"]
+size = Vector2(44, 4)
+
+[node name="seesaw" type="Node2D"]
+script = ExtResource("1_lw8xy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 16, 0, 8, -16)
+
+[node name="RigidBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(8, -16)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_k6405")
+
+[node name="Left_area" type="Area2D" parent="RigidBody2D"]
+position = Vector2(-56, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Left_area"]
+position = Vector2(22, -2)
+shape = SubResource("RectangleShape2D_yqpib")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Right_area" type="Area2D" parent="RigidBody2D"]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Right_area"]
+position = Vector2(34, -2)
+shape = SubResource("RectangleShape2D_yqpib")
+debug_color = Color(0, 1, 1, 0.419608)
+
+[connection signal="body_entered" from="RigidBody2D/Left_area" to="." method="_on_left_area_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/Left_area" to="." method="_on_left_area_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/Right_area" to="." method="_on_right_area_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/Right_area" to="." method="_on_right_area_body_exited"]
