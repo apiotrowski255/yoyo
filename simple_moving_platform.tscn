@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgyolk7d8wbg1"]
+
+[ext_resource type="Script" path="res://AnimatableBody2D.gd" id="1_mqxjl"]
+[ext_resource type="Texture2D" uid="uid://bcnw232hts0ce" path="res://sprites/rotating_side.png" id="2_8sab7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb1ut"]
+size = Vector2(96, 16)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_mqxjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb1ut")
+debug_color = Color(0, 0.541176, 0.952941, 0.419608)
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="RotatingSide" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 0.25)
+texture = ExtResource("2_8sab7")
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

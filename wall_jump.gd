@@ -16,7 +16,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		body.current_state = state_to_transfer
-		body.gravity = body.gravity / 10
+		body.gravity_modifier = body.gravity_modifier / 10
 		body.velocity.x = 0
 		body.velocity.y = 0
 
@@ -24,5 +24,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.get_class() == "CharacterBody2D":
 		body.current_state = body.state.in_air
-		body.gravity = body.gravity * 10
+		body.gravity_modifier = body.gravity_modifier * 10
 

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr6hjsp48ff4e"]
+
+[ext_resource type="Texture2D" uid="uid://vjtkqy8qgog" path="res://environment/space_background_pack/layers/parallax-space-backgound.png" id="1_3a26x"]
+[ext_resource type="Texture2D" uid="uid://qisp5dw5tsha" path="res://environment/space_background_pack/layers/parallax-space-big-planet.png" id="2_i2a6t"]
+[ext_resource type="Texture2D" uid="uid://cg1uls8je1xkr" path="res://environment/space_background_pack/layers/parallax-space-far-planets.png" id="3_nmxsx"]
+[ext_resource type="Texture2D" uid="uid://cdo5lefxhwifi" path="res://environment/space_background_pack/layers/parallax-space-ring-planet.png" id="4_uaacg"]
+[ext_resource type="Texture2D" uid="uid://bjf3s7v3w8t0g" path="res://environment/space_background_pack/layers/parallax-space-stars.png" id="5_gkpd2"]
+
+[node name="SpaceParallaxBackground" type="ParallaxBackground"]
+
+[node name="1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="1"]
+scale = Vector2(1.76471, 1.7)
+texture = ExtResource("1_3a26x")
+centered = false
+
+[node name="2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(480, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="2"]
+position = Vector2(32, 16)
+texture = ExtResource("2_i2a6t")
+centered = false
+
+[node name="3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(480, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="3"]
+position = Vector2(248, 0)
+texture = ExtResource("4_uaacg")
+centered = false
+
+[node name="4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(480, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="4"]
+position = Vector2(-3.8147e-06, 0)
+scale = Vector2(1.76471, 1.7)
+texture = ExtResource("3_nmxsx")
+centered = false
+
+[node name="5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(480, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="5"]
+scale = Vector2(1.76471, 1.7)
+texture = ExtResource("5_gkpd2")
+centered = false

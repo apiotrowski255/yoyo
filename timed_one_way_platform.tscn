@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh851k0f7p28x"]
+
+[ext_resource type="Script" path="res://timed_one_way_platform.gd" id="1_hckj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwb83"]
+size = Vector2(64, 4)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_hckj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_mwb83")
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

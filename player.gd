@@ -4,31 +4,61 @@ extends CharacterBody2D
 @export var coyote_time : float = 0.15
 const SPEED = 100.0
 var ACCELERATION = 1000.0
-var JUMP_VELOCITY = -300.0
+
 var push_force = 80.0
 
 var platform_velocity = Vector2.ZERO
 
 var camera : Camera2D 
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-enum state {normal, climb, dying, sliding, in_air, jumping, wall_jump_left, wall_jump_right, teleporting}
+enum state {normal, climb, dying, sliding, in_air, jumping, wall_jump_left, wall_jump_right, teleporting, gliding, shell}
 # teleporting = pipe travelling?
+# invincible mode?
 var current_state = state.normal
 
 var coyote_timer : float  = 0.0
 var raycast_up : RayCast2D
 var raycast_down : RayCast2D
+var timer : Timer
+var cooldown_timer : Timer
+var jump_particles : CPUParticles2D
+
+var noDown : bool # boolean variable to determine if the player can move through a one way platform. 
+var noShellMode : bool
+
+var zozosprite : Sprite2D
+
+
+# https://www.youtube.com/watch?v=IOe1aGY6hXA
+@export var jump_height : float = 50.0
+@export var jump_time_to_peak : float = 0.5
+@export var jump_time_to_descent : float = 0.4
+
+@onready var jump_velocity :float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+@onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+@onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
+var gravity_modifier : float = 1.0
 
 func _process(delta):
 	coyote_timer -= delta
+
+func calculate_jump_parameters() -> void:
+	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+	jump_gravity  = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+	fall_gravity  = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 func _ready():
 	# gravity = 300
 	camera = $Camera2D
 	raycast_up = $RayCast2D
 	raycast_down = $RayCast2D2
+	zozosprite = $"Zozo Sprite"
+	timer = get_node("Timer")
+	cooldown_timer = get_node("cooldown_timer")
+	noDown = false
+	noShellMode = false
+	jump_particles = $CPUParticles2D
 	randomize()
 
 func set_camera():
@@ -36,53 +66,31 @@ func set_camera():
 	camera.drag_horizontal_enabled = false
 	camera.drag_vertical_enabled = false
 
+func get_gravity() -> float:
+	if velocity.y < 0.0:
+		return jump_gravity * gravity_modifier
+	else:
+		return fall_gravity * gravity_modifier
 
 func _physics_process(delta):
-
 	if current_state == state.climb:
-		apply_friction(delta)
-		handle_jump()
-		move_down()
-		
-		var direction = Input.get_axis("ui_left", "ui_right")
-		if direction != 0:
-			velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION * delta)
-		else:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-
-		move_and_slide()
+		climb_state_process(delta)
 		return
 	if current_state == state.wall_jump_right:
-		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = JUMP_VELOCITY
-			velocity.x = 100
-		elif Input.is_action_pressed("ui_right"):
-			velocity.x = move_toward(velocity.x, SPEED * 1, ACCELERATION * delta)
-		apply_gravity(delta)
-		move_and_slide()
+		wall_jump_right_state_process(delta)
 		return
 	if current_state == state.wall_jump_left:
-		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = JUMP_VELOCITY
-			velocity.x = -100
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = move_toward(velocity.x, SPEED * -1, ACCELERATION * delta)
-		apply_gravity(delta)
-		move_and_slide()
+		wall_jump_left_state_process(delta)
 		return
-	
 	elif current_state == state.dying:
-		
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta / 4)
-		velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta / 4)
-		move_and_slide()
+		dying_state_process(delta)
+		return
 	elif current_state == state.in_air:
 		if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0 and velocity.y > 0:
-			velocity.y = JUMP_VELOCITY
+			velocity.y = jump_velocity
+		elif Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
+			change_state(state.shell)
 		apply_gravity(delta)
-		
-
-
 		
 		var direction = Input.get_axis("ui_left", "ui_right")
 		if direction != 0 and abs(velocity.x) < SPEED:
@@ -95,17 +103,14 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 		
 		move_and_slide()
-
 		
 		if is_on_floor():
 			current_state = state.normal
 		elif raycast_down.get_collider() != null:
 			current_state = state.sliding
 
-		for i in get_slide_collision_count():
-			var c = get_slide_collision(i)
-			if c.get_collider() is RigidBody2D:
-				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+		handle_collision_with_RigidBodies()
 		
 	elif current_state == state.sliding:
 		if is_on_floor():
@@ -120,8 +125,24 @@ func _physics_process(delta):
 				#velocity.x -= 175
 		apply_gravity(delta)
 		move_and_slide()
-		
+	elif current_state == state.gliding:
+		apply_gravity(delta)
+		velocity.y = clamp(velocity.y, -80, 80)
+		var direction = Input.get_axis("ui_left", "ui_right")
+		if direction != 0:
+			velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta * 0.04)
+		move_and_slide()
+	elif current_state == state.shell:
+		apply_gravity(delta)
+		move_and_slide()
 	else:
+		if Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
+			print("go into shell mode!")
+			change_state(state.shell)
+			return
+		
 		if not is_on_floor():
 			current_state = state.in_air
 			coyote_timer = coyote_time
@@ -145,15 +166,12 @@ func _physics_process(delta):
 
 		move_and_slide()
 		
-		if Input.is_action_just_pressed("ui_down"):
+		# go through a one way platform. 
+		if Input.is_action_just_pressed("ui_down") and noDown == false:
 			position.y += 1
 			
-		# https://www.youtube.com/watch?v=SJuScDavstM
-
-		for i in get_slide_collision_count():
-			var c = get_slide_collision(i)
-			if c.get_collider() is RigidBody2D:
-				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		
+		handle_collision_with_RigidBodies()
 		
 		if raycast_up.get_collider():
 			if raycast_up.get_collider().get_class() == "RigidBody2D":
@@ -164,33 +182,170 @@ func _physics_process(delta):
 		
 		if raycast_down.get_collider():
 			if raycast_down.get_collider().get_class() == "RigidBody2D":
-				print("here")
+				print("player is on top of a RigidBody2D")
 				var tmp_x = position.x - raycast_down.get_collider().position.x
 				var tmp_y = position.y - raycast_down.get_collider().position.y
 				raycast_down.get_collider().apply_impulse(Vector2.DOWN * push_force / 4, Vector2(tmp_x, tmp_y))
+	handle_sprite_rotation_and_scale()
+	
+	# I might have to remove this part
+	# if is_on_floor_only():
+	# 	zozosprite.rotation = get_floor_normal().angle() + PI/2
+
+func change_state(state_change):
+	if state_change == state.shell:
+		current_state = state.shell
+		$CPUParticles2D2.emitting = true
+		zozosprite.self_modulate = Color(0, 0, 0)
+		jump_time_to_descent = 0.2
+		velocity.x = 0
+		velocity.y = 0
+		calculate_jump_parameters()
+		timer.start(1.0)
+		noShellMode = true
+	# TODO - FIX THIS SHIT BELOW
+	# HOW CAN SOMETHING BE IN TWO STATES?
+	if state_change == state.gliding and current_state == state.shell:
+		current_state = state.gliding
+		zozosprite.self_modulate = Color(1, 1, 1)
+		jump_time_to_descent = 0.4
+		calculate_jump_parameters()
+	else:
+		current_state = state_change
+	return
+
+func wall_jump_left_state_process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		velocity.y = jump_velocity
+		velocity.x = -100
+	elif Input.is_action_pressed("ui_left"):
+		velocity.x = move_toward(velocity.x, SPEED * -1, ACCELERATION * delta)
+	reset_sprite_scale()
+	apply_gravity(delta)
+	move_and_slide()
+
+func wall_jump_right_state_process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		velocity.y = jump_velocity
+		velocity.x = 100
+	elif Input.is_action_pressed("ui_right"):
+		velocity.x = move_toward(velocity.x, SPEED * 1, ACCELERATION * delta)
+	reset_sprite_scale()
+	apply_gravity(delta)
+	move_and_slide()
+
+func dying_state_process(delta):
+	velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta / 4)
+	velocity.y = move_toward(velocity.y, 0, ACCELERATION * delta / 4)
+	move_and_slide()
+
+func handle_collision_with_RigidBodies():
+	# Sauce
+	# https://www.youtube.com/watch?v=SJuScDavstM
+	# Seems to work well! For pushing objects. 
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+func climb_state_process(delta):
+	apply_friction(delta)
+	handle_jump()
+	move_down()
+	
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction != 0:
+		velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
+	handle_sprite_rotation_and_scale()
+	zozosprite.rotation = 0
+	move_and_slide()
+	return
+
+func handle_sprite_rotation_and_scale():
+	
+	var scale_strength = 0.025
+	if velocity.length() > 90:
+		scale_strength = 0.025
+	elif velocity.length() > 60:
+		scale_strength = 0.02
+	else:
+		scale_strength = 0.01
+	if velocity != Vector2.ZERO:
+		if velocity.y > 0 and velocity.x == 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = 0.25 - scale_strength
+			zozosprite.rotation = 0
+		elif velocity.y < 0 and velocity.x == 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = 0.25 - scale_strength
+			zozosprite.rotation = 0
+		elif velocity.y > 0 and velocity.x > 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = 0.25 - scale_strength
+			zozosprite.rotation = velocity.angle() / 8
+		elif velocity.y < 0 and velocity.x > 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = 0.25 - scale_strength
+			zozosprite.rotation = velocity.angle() / 8
+		elif velocity.y > 0 and velocity.x < 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = -0.25 + scale_strength
+			var tmp_velocity = velocity
+			tmp_velocity.y = -tmp_velocity.y
+			tmp_velocity.x = -tmp_velocity.x
+			zozosprite.rotation = (tmp_velocity.angle())/8
+		elif velocity.y < 0 and velocity.x < 0:
+			zozosprite.scale.y = 0.25 + scale_strength
+			zozosprite.scale.x = -0.25 + scale_strength
+			var tmp_velocity = velocity
+			tmp_velocity.y = -tmp_velocity.y
+			tmp_velocity.x = -tmp_velocity.x
+			zozosprite.rotation = (tmp_velocity.angle())/8
+		elif velocity.x < 0 and velocity.y == 0:
+			zozosprite.scale.y = 0.25 - scale_strength
+			zozosprite.scale.x = -0.25 - scale_strength
+			zozosprite.rotation = 0
+		elif velocity.x > 0 and velocity.y == 0:
+			zozosprite.scale.y = 0.25 - scale_strength
+			zozosprite.scale.x = 0.25 + scale_strength
+			zozosprite.rotation = 0
+	else:
+		reset_sprite_scale()
+		zozosprite.rotation = 0
+
+func reset_sprite_scale():
+	zozosprite.scale.y = 0.25
+	if zozosprite.scale.x < 0:
+		zozosprite.scale.x = -0.25
+	else:
+		zozosprite.scale.x = 0.25
+	# zozosprite.scale.x = 0.25
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += get_gravity() * delta
 
 func apply_friction(delta):
 	if velocity.y != 0:
-		velocity.y += gravity * delta
+		velocity.y += get_gravity() * delta
 	if velocity.y > 0:
 		velocity.y = 0
 
+# Used for the climb process
 func move_down():
 	if Input.is_action_pressed("ui_down"):
-		velocity.y = -JUMP_VELOCITY
+		velocity.y = -jump_velocity
 
 func handle_jump():
 	if current_state == state.climb:
 		if Input.is_action_pressed("ui_accept"):
-			velocity.y = JUMP_VELOCITY
+			velocity.y = jump_velocity
 			return
 	if is_on_floor() or (coyote_timer > 0 and not velocity.y < 0):
 		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = JUMP_VELOCITY
+			velocity.y = jump_velocity
 
 func die():
 	print("play death glitch animation")
@@ -198,9 +353,36 @@ func die():
 	var random_scale = 1
 	velocity.x = -velocity.x * random_scale
 	velocity.y = -velocity.y * random_scale
-	velocity = Vector2.UP * 175
+	velocity = velocity.normalized() * 175
+	# velocity = Vector2.UP * 175
 	current_state = state.dying
 	
 func do_a_flip():
 	var tween = self.get_tree().create_tween()
 	tween.tween_property(self, "rotation_degrees", 360, .75)
+
+func set_camera_bottom_margin(value):
+	camera.drag_bottom_margin = value
+
+func _on_timer_timeout():
+	# Exit the shell state
+	if current_state == state.shell:
+		current_state = state.normal
+		zozosprite.self_modulate = Color(1, 1, 1)
+		jump_time_to_descent = 0.4
+		calculate_jump_parameters()
+		cooldown_timer.start(2.0)
+	#elif particles.emitting == true:
+	#	particles.emitting = false
+	timer.stop()
+	
+
+
+
+func _on_cooldown_timer_timeout():
+	# Allow the player to go into the shell state.
+	$CPUParticles2D3.emitting = true
+	noShellMode = false
+	cooldown_timer.stop()
+
+

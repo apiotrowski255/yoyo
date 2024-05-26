@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7lcwv3ubnjle"]
+
+[ext_resource type="Texture2D" uid="uid://dtltp5ivqhwaj" path="res://sprites/vine.png" id="1_8e45w"]
+[ext_resource type="Script" path="res://chain.gd" id="1_a0oak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmah"]
+size = Vector2(4, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3e7f"]
+size = Vector2(4, 16)
+
+[node name="chain" type="RigidBody2D"]
+z_index = 2
+position = Vector2(0, -8)
+collision_layer = 0
+script = ExtResource("1_a0oak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8nmah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8e45w")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e3e7f")
+debug_color = Color(0.71741, 0.253487, 1, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

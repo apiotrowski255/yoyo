@@ -15,4 +15,3 @@ func _on_body_entered(body):
 		body.velocity = target_velocity
 		if do_a_flip:
 			body.do_a_flip()
-			print("do a flip!")

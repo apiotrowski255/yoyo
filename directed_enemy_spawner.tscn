@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwt85esugxmkw"]
+
+[ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="1_rdsxb"]
+[ext_resource type="Script" path="res://directed_enemy_spawner.gd" id="1_siq8d"]
+[ext_resource type="Texture2D" uid="uid://dpaknhql1i6vo" path="res://sprites/cannon.png" id="3_7i6xc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbbsi"]
+size = Vector2(320, 320)
+
+[sub_resource type="Animation" id="Animation_p5lha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xhb7c"]
+resource_name = "line_color_change"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uvhyc"]
+_data = {
+"RESET": SubResource("Animation_p5lha"),
+"line_color_change": SubResource("Animation_xhb7c")
+}
+
+[sub_resource type="Gradient" id="Gradient_s1ylo"]
+offsets = PackedFloat32Array(0.472393, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_js2qt"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[node name="directed_enemy_spawner" type="Node2D"]
+script = ExtResource("1_siq8d")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xbbsi")
+
+[node name="timed_enemy_spawner" parent="." instance=ExtResource("1_rdsxb")]
+timed_enemy_speed = 256.0
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0)
+width = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uvhyc")
+}
+
+[node name="Cannon" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_7i6xc")
+offset = Vector2(0, 32)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Cannon"]
+z_index = -1
+scale = Vector2(4, 4)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(0, 1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 119.17
+initial_velocity_max = 119.17
+scale_amount_max = 3.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_s1ylo")
+
+[node name="absorb_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 2.0
+explosiveness = 1.0
+emission_shape = 2
+emission_sphere_radius = 32.0
+spread = 0.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = -0.1
+radial_accel_min = -60.0
+radial_accel_max = -60.0
+damping_min = 30.0
+damping_max = 30.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(1, 0.572549, 0, 1)
+color_ramp = SubResource("Gradient_js2qt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timed_enemy_spawned" from="timed_enemy_spawner" to="." method="_on_timed_enemy_spawner_timed_enemy_spawned"]

@@ -1,28 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7t2km6oqfkhf"]
+[gd_scene load_steps=8 format=3 uid="uid://b7t2km6oqfkhf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_xros8"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_y5n3g"]
+
+[sub_resource type="Gradient" id="Gradient_6jxxe"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_ctwqa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.39152), -1.81938, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_y3o5g"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.215686)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x18m5"]
 radius = 5.0
 height = 12.0
 
+[sub_resource type="Gradient" id="Gradient_tglur"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -8)
 collision_mask = 15
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_xros8")
 
-[node name="ZozoJump1" type="Sprite2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 0.75
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(6, 1)
+direction = Vector2(0, 1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 102.05
+initial_velocity_max = 102.05
+angle_min = -5.0
+angle_max = 5.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color = Color(0, 1, 0, 1)
+color_ramp = SubResource("Gradient_6jxxe")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ctwqa")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("Gradient_y3o5g")
+
+[node name="Zozo Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_y5n3g")
+offset = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_x18m5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -39,3 +89,65 @@ collision_mask = 7
 position = Vector2(0, 5)
 target_position = Vector2(0, 8)
 collision_mask = 7
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 64
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 2
+emission_sphere_radius = 25.0
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -50.0
+orbit_velocity_min = -0.1
+linear_accel_min = -10.0
+linear_accel_max = -10.0
+radial_accel_min = -100.0
+radial_accel_max = -50.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_tglur")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -16.0
+offset_right = -18.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -408.0
+offset_top = -254.0
+offset_right = 422.0
+offset_bottom = 266.0
+color = Color(0, 0, 0, 0)
+
+[node name="rain_snow particles" type="CPUParticles2D" parent="."]
+position = Vector2(2, -256)
+emitting = false
+amount = 512
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+gravity = Vector2(0, 98)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+
+[node name="cooldown_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

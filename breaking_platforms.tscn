@@ -1,12 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://msmhrilho24l"]
+[gd_scene load_steps=8 format=3 uid="uid://msmhrilho24l"]
 
 [ext_resource type="Script" path="res://breaking_platforms.gd" id="1_1fslx"]
+[ext_resource type="Texture2D" uid="uid://bcnw232hts0ce" path="res://sprites/rotating_side.png" id="2_h0ilu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trke5"]
 size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3hwj"]
 size = Vector2(32, 4)
+
+[sub_resource type="Animation" id="Animation_3snm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotatingSide:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_gcxk0"]
+resource_name = "sprite_shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotatingSide:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 8), Vector2(15, 7), Vector2(17, 7), Vector2(15, 9), Vector2(16, 6), Vector2(17, 9), Vector2(15, 7), Vector2(14, 10), Vector2(17, 7), Vector2(16, 9), Vector2(16, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pv45n"]
+_data = {
+"RESET": SubResource("Animation_3snm3"),
+"sprite_shake": SubResource("Animation_gcxk0")
+}
 
 [node name="breaking_platforms" type="Node2D"]
 script = ExtResource("1_1fslx")
@@ -26,6 +63,16 @@ shape = SubResource("RectangleShape2D_r3hwj")
 debug_color = Color(0.976471, 0, 0.4, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="RotatingSide" type="Sprite2D" parent="."]
+position = Vector2(16, 8)
+scale = Vector2(0.5, 0.25)
+texture = ExtResource("2_h0ilu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pv45n")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

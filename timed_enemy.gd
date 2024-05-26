@@ -5,11 +5,20 @@ extends Area2D
 @export var direction : Vector2 = Vector2.DOWN
 
 var timer : Timer
-# Called when the node enters the scene tree for the first time.
+var sprite_change_timer : Timer
+
+var sprite : Sprite2D
+
+var texture_1 = load("res://sprites/timed_enemy_1_1.png")
+var texture_2 = load("res://sprites/timed_enemy_1_2.png")
+var change_texture_time = 0.5
+
 func _ready():
 	timer = $Timer
 	timer.start(time_to_die)
-	pass # Replace with function body.
+	sprite_change_timer = $sprite_change_timer
+	sprite_change_timer.start(change_texture_time)
+	sprite = $Sprite2D
 
 func _physics_process(delta):
 	position += direction * speed * delta
@@ -22,4 +31,10 @@ func _on_timer_timeout():
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		print("Character has been hit by timed enemy")
-	pass # Replace with function body.
+
+func _on_sprite_change_timer_timeout():
+	if sprite.texture == texture_1:
+		sprite.texture = load("res://sprites/timed_enemy_1_2.png")
+	else:
+		sprite.texture = load("res://sprites/timed_enemy_1_1.png")
+	sprite_change_timer.start(change_texture_time)

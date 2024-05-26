@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://nltvatrwqi3i"]
+[gd_scene load_steps=5 format=3 uid="uid://nltvatrwqi3i"]
 
 [ext_resource type="Script" path="res://rotating_platform.gd" id="1_1p4iy"]
+[ext_resource type="Texture2D" uid="uid://dcp02wfc5qrpp" path="res://sprites/rotating_center_1.png" id="2_qn3xo"]
+[ext_resource type="Texture2D" uid="uid://e0sauurjuqgs" path="res://sprites/rotating_side_1.png" id="3_lw7bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hov2n"]
 size = Vector2(96, 16)
@@ -14,3 +16,29 @@ shape = SubResource("RectangleShape2D_hov2n")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_hov2n")
+
+[node name="RotatingCenter" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qn3xo")
+
+[node name="RotatingSide" type="Sprite2D" parent="."]
+position = Vector2(-28, 0)
+scale = Vector2(0.625, 0.25)
+texture = ExtResource("3_lw7bg")
+
+[node name="RotatingSide2" type="Sprite2D" parent="."]
+position = Vector2(28, 0)
+scale = Vector2(0.625, 0.25)
+texture = ExtResource("3_lw7bg")
+
+[node name="RotatingSide3" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+rotation = 1.5708
+scale = Vector2(0.625, 0.25)
+texture = ExtResource("3_lw7bg")
+
+[node name="RotatingSide4" type="Sprite2D" parent="."]
+position = Vector2(0, 28)
+rotation = 1.5708
+scale = Vector2(0.625, 0.25)
+texture = ExtResource("3_lw7bg")

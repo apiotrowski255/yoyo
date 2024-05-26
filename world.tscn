@@ -38,7 +38,7 @@ position = Vector2(296, 111)
 
 [node name="jump pad" parent="." instance=ExtResource("4_6s486")]
 position = Vector2(164, 128)
-strength = Vector2(0, -400)
+strength = Vector2(0, 1.5)
 
 [node name="climb" parent="." instance=ExtResource("5_s5e8u")]
 position = Vector2(23, 136)

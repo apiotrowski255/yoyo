@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq0e3xs4aan06"]
+
+[ext_resource type="PackedScene" uid="uid://c7lcwv3ubnjle" path="res://chain.tscn" id="1_8wlpf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f4b3"]
+radius = 4.0
+
+[node name="vine" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_8f4b3")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 4)
+node_a = NodePath("../StaticBody2D2")
+node_b = NodePath("../chain")
+bias = 0.9
+
+[node name="chain" parent="." instance=ExtResource("1_8wlpf")]
+position = Vector2(0, 12)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 20)
+node_a = NodePath("../chain")
+node_b = NodePath("../chain2")
+bias = 0.9
+
+[node name="chain2" parent="." instance=ExtResource("1_8wlpf")]
+position = Vector2(0, 28)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 36)
+node_a = NodePath("../chain2")
+node_b = NodePath("../chain3")
+bias = 0.9
+
+[node name="chain3" parent="." instance=ExtResource("1_8wlpf")]
+position = Vector2(0, 44)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 52)
+node_a = NodePath("../chain3")
+node_b = NodePath("../chain4")
+bias = 0.9
+
+[node name="chain4" parent="." instance=ExtResource("1_8wlpf")]
+position = Vector2(0, 60)
+mass = 4.0

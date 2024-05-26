@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dha1ehnay5h7e"]
 
 [ext_resource type="Script" path="res://enemy_rotating_around_platform.gd" id="1_ht3mp"]
+[ext_resource type="PackedScene" uid="uid://cocn87vfesomo" path="res://mine.tscn" id="2_3x3wr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyxn5"]
 size = Vector2(32, 16)
@@ -10,9 +11,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -8, -8, 0, 0, 0, 0, 40, -8, 0, 0, 0, 0, 40, 24, 0, 0, 0, 0, -8, 24, 0, 0, 0, 0, -8, -8)
 }
 point_count = 5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc52w"]
-size = Vector2(8, 8)
 
 [node name="enemy_rotating_around_platform" type="Node2D"]
 script = ExtResource("1_ht3mp")
@@ -30,10 +28,6 @@ curve = SubResource("Curve2D_15ema")
 position = Vector2(-8, -8)
 rotates = false
 
-[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
-shape = SubResource("RectangleShape2D_jc52w")
-debug_color = Color(0.933333, 0, 0, 0.419608)
+[node name="Area2D" parent="Path2D/PathFollow2D" instance=ExtResource("2_3x3wr")]
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]

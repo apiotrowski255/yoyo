@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b60hy845mdb4"]
+
+[ext_resource type="Texture2D" uid="uid://cl1lr12qd54ed" path="res://sprites/wall_jump1.png" id="1_pgqks"]
+[ext_resource type="Script" path="res://environment/interactive_wall_jump.gd" id="1_vucd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nic3"]
+size = Vector2(4, 16)
+
+[node name="interactive_wall_jump" type="Area2D"]
+script = ExtResource("1_vucd0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_pgqks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -8)
+shape = SubResource("RectangleShape2D_4nic3")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
