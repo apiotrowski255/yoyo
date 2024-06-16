@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://0f5ad8cx84en"]
+[gd_scene load_steps=50 format=3 uid="uid://0f5ad8cx84en"]
 
 [ext_resource type="Texture2D" uid="uid://cbyiqtyhmie81" path="res://sprites/lindsei/LineseiCatch_frame1.png" id="1_0incn"]
 [ext_resource type="Script" path="res://lindsei.gd" id="1_647ex"]
@@ -35,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://dk5cd0jdlp12u" path="res://sprites/lindsei/final-0007.png" id="32_4potx"]
 [ext_resource type="Texture2D" uid="uid://byvs12cyenlml" path="res://sprites/lindsei/final-0008.png" id="33_5t77h"]
 [ext_resource type="Texture2D" uid="uid://dov3inlvx5ubk" path="res://sprites/lindsei/final-0009.png" id="34_h2e7b"]
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="35_v5x0y"]
 [ext_resource type="Texture2D" uid="uid://ptqf0gm5uaux" path="res://sprites/lindsei/Hand_frame11.png" id="36_32i27"]
 [ext_resource type="Texture2D" uid="uid://d2vx0rftkmhf8" path="res://sprites/lindsei/Hand_frame12-14.png" id="37_5m1pf"]
 [ext_resource type="Texture2D" uid="uid://b8tmr6weljkkg" path="res://sprites/lindsei/Hand_frame15.png" id="38_a1xb2"]
@@ -267,11 +266,8 @@ script = ExtResource("1_647ex")
 position = Vector2(0, -36)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_n0yur")
-animation = &"catch"
-
-[node name="Player" parent="." instance=ExtResource("35_v5x0y")]
-process_mode = 4
-position = Vector2(24, -46)
+frame = 8
+frame_progress = 0.176937
 
 [node name="lindsei_sprite_hand" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -36)

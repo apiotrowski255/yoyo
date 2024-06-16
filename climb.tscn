@@ -20,37 +20,37 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -23)
+position = Vector2(0, -24)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(0, -38)
+position = Vector2(0, -40)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(0, -53)
+position = Vector2(0, -56)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(0, -68)
+position = Vector2(0, -72)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_iw50y")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(0, -88)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(0, -83)
+position = Vector2(0, -104)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(0, -98)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_iw50y")
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(0, -113)
+position = Vector2(0, -120)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_iw50y")
 

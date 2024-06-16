@@ -7,13 +7,20 @@ var timer : Timer
 @export var spawn_direction : Vector2 = Vector2.DOWN
 @export var timed_enemy_speed : float = 32.0
 
+@export var first_wait_timer : float = 0.0 # This variable will put a delay at the beginning of the spawn
+
 var exiting = false
 
 signal timed_enemy_spawned
 
 func _ready():
 	timer = $Timer
-	timer.start(repeat_time)
+	if first_wait_timer != 0:
+		get_node("wait_timer").start(first_wait_timer)
+	else:
+		_on_timer_timeout()
+		timer.start(repeat_time)
+		timer.autostart = true
 
 func stop_spawning():
 	timer.stop()
@@ -50,3 +57,9 @@ func _on_child_exiting_tree(node):
 		self.queue_free()
 
 
+
+
+func _on_wait_timer_timeout():
+	_on_timer_timeout()
+	timer.start(repeat_time)
+	timer.autostart = true

@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://uivxy33u8rid"]
+
+[ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="1_8fa1b"]
+[ext_resource type="PackedScene" uid="uid://dcfcmkbkud2ph" path="res://climb.tscn" id="2_ux0ye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjv1a"]
+size = Vector2(352, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul7sr"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naksx"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri07v"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e78bc"]
+size = Vector2(32, 4)
+
+[node name="jump_tutorial" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176, 120)
+shape = SubResource("RectangleShape2D_fjv1a")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_ul7sr")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(152, 8)
+shape = SubResource("RectangleShape2D_ul7sr")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, 8)
+shape = SubResource("RectangleShape2D_ul7sr")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 56)
+shape = SubResource("RectangleShape2D_naksx")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(344, 56)
+shape = SubResource("RectangleShape2D_ri07v")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(32, 2)
+shape = SubResource("RectangleShape2D_e78bc")
+one_way_collision = true
+
+[node name="OneWayPlatform29" type="Sprite2D" parent="."]
+position = Vector2(24, -4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8fa1b")
+
+[node name="OneWayPlatform30" type="Sprite2D" parent="."]
+position = Vector2(40, -4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8fa1b")
+
+[node name="climb3" parent="." instance=ExtResource("2_ux0ye")]
+position = Vector2(24, 112)
+scale = Vector2(1, 0.871)

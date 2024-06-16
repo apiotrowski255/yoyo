@@ -5,10 +5,9 @@
 [node name="radial_timed_enemy_spawner" type="Node2D"]
 script = ExtResource("1_oq5jg")
 rays = 8
-repeat_time = 0.5
-time_to_die = 5
-master_time_to_die = 8
-rotate_spawn = true
+repeat_time = 1.0
+time_to_die = 8
+master_time_to_die = 2
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfldecja4cixb"]
+
+[ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="1_22qhh"]
+[ext_resource type="PackedScene" uid="uid://bh851k0f7p28x" path="res://timed_one_way_platform.tscn" id="2_lnni5"]
+
+[node name="moving_platforms_01" type="Node2D"]
+
+[node name="timed_enemy_spawner17" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(352, 0)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner18" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(288, 160)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner19" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(224, 0)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner20" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(160, 160)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner21" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(96, 0)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner22" parent="." instance=ExtResource("1_22qhh")]
+position = Vector2(32, 160)
+enemy_scene = ExtResource("2_lnni5")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(32, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(96, 0)
+time_to_die = 5.5
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(160, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(224, 0)
+time_to_die = 5.5
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(288, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("2_lnni5")]
+position = Vector2(352, 0)
+time_to_die = 5.5

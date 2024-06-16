@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjglh6xyt6v3u"]
+[gd_scene load_steps=6 format=3 uid="uid://bjglh6xyt6v3u"]
 
 [ext_resource type="Script" path="res://seesaw_platform.gd" id="1_lw8xy"]
+[ext_resource type="Texture2D" uid="uid://d2ompnqy7e15n" path="res://sprites/triangle.png" id="2_2eatt"]
+[ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="3_c2p2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6405"]
 size = Vector2(112, 4)
@@ -10,6 +12,11 @@ size = Vector2(44, 4)
 
 [node name="seesaw" type="Node2D"]
 script = ExtResource("1_lw8xy")
+
+[node name="Triangle" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2eatt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -42,6 +49,41 @@ position = Vector2(0, -4)
 position = Vector2(34, -2)
 shape = SubResource("RectangleShape2D_yqpib")
 debug_color = Color(0, 1, 1, 0.419608)
+
+[node name="OneWayPlatform" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform2" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-16, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform3" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-32, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform4" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-48, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform5" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(16, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform6" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(32, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
+
+[node name="OneWayPlatform7" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(48, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_c2p2s")
 
 [connection signal="body_entered" from="RigidBody2D/Left_area" to="." method="_on_left_area_body_entered"]
 [connection signal="body_exited" from="RigidBody2D/Left_area" to="." method="_on_left_area_body_exited"]

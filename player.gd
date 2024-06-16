@@ -11,7 +11,9 @@ var platform_velocity = Vector2.ZERO
 
 var camera : Camera2D 
 
-enum state {normal, climb, dying, sliding, in_air, jumping, wall_jump_left, wall_jump_right, teleporting, gliding, shell}
+enum state {normal, climb, dying, sliding, in_air, jumping, 
+			wall_jump_left, wall_jump_right, teleporting, gliding, shell, cutscene
+			, wall_stick_left, wall_stick_right}
 # teleporting = pipe travelling?
 # invincible mode?
 var current_state = state.normal
@@ -113,18 +115,11 @@ func _physics_process(delta):
 		handle_collision_with_RigidBodies()
 		
 	elif current_state == state.sliding:
-		if is_on_floor():
-			current_state = state.normal
-		elif raycast_down.get_collider() == null:
-			current_state = state.in_air
-		#if Input.is_action_just_pressed("ui_accept"):
-			#velocity.y -= 550
-			#if velocity.x >= 0:
-				#velocity.x += 175
-			#elif velocity.x < 0:
-				#velocity.x -= 175
-		apply_gravity(delta)
-		move_and_slide()
+		sliding_state_process(delta)
+		return
+	elif current_state == state.cutscene:
+		pass
+		return
 	elif current_state == state.gliding:
 		apply_gravity(delta)
 		velocity.y = clamp(velocity.y, -80, 80)
@@ -262,6 +257,21 @@ func climb_state_process(delta):
 	zozosprite.rotation = 0
 	move_and_slide()
 	return
+
+func sliding_state_process(delta):
+	if is_on_floor():
+			current_state = state.normal
+	elif raycast_down.get_collider() == null:
+		current_state = state.in_air
+	# Stuff below is to allow/test jumping while sliding
+	#if Input.is_action_just_pressed("ui_accept"):
+		#velocity.y -= 550
+		#if velocity.x >= 0:
+			#velocity.x += 175
+		#elif velocity.x < 0:
+			#velocity.x -= 175
+	apply_gravity(delta)
+	move_and_slide()
 
 func handle_sprite_rotation_and_scale():
 	

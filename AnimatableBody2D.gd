@@ -7,7 +7,7 @@ var direction = Vector2.RIGHT
 @export var speed = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start_position = global_position
+	start_position = position
 	# timer = $Timer2
 	# timer.start(2.0)
 	direction = start_position.direction_to(end_position)

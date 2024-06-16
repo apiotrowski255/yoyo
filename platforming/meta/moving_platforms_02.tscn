@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://5cntbbypvrxp"]
+
+[ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="1_2hgre"]
+[ext_resource type="PackedScene" uid="uid://bh851k0f7p28x" path="res://timed_one_way_platform.tscn" id="2_rnrpu"]
+
+[node name="moving_platforms_02" type="Node2D"]
+
+[node name="timed_enemy_spawner17" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(512, 0)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner18" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(416, 160)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner19" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(320, 0)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner20" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(224, 160)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner21" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(128, 0)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 6.0
+first_wait_timer = 2.0
+
+[node name="timed_enemy_spawner22" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(32, 160)
+enemy_scene = ExtResource("2_rnrpu")
+time_to_die = 5.5
+spawn_direction = Vector2(0, -1)
+first_wait_timer = 2.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(32, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(128, 0)
+time_to_die = 5.5
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(224, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(320, 0)
+time_to_die = 5.5
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(416, 160)
+time_to_die = 5.5
+direction = Vector2(0, -1)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("2_rnrpu")]
+position = Vector2(512, 0)
+time_to_die = 5.5
+
+[node name="timed_enemy_spawner" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(80, 0)
+time_to_die = 5.5
+first_wait_timer = 1.0
+
+[node name="timed_enemy_spawner2" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(176, 0)
+time_to_die = 5.5
+first_wait_timer = 1.0
+
+[node name="timed_enemy_spawner3" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(272, 0)
+time_to_die = 5.5
+first_wait_timer = 1.0
+
+[node name="timed_enemy_spawner4" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(368, 0)
+time_to_die = 5.5
+first_wait_timer = 1.0
+
+[node name="timed_enemy_spawner5" parent="." instance=ExtResource("1_2hgre")]
+position = Vector2(464, 0)
+time_to_die = 5.5
+first_wait_timer = 1.0

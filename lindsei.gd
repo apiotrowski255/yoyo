@@ -10,9 +10,9 @@ func _ready():
 	print(lindsei_sprite.frame)
 	print(lindsei_sprite_hand.frame)
 	lindsei_sprite_hand.visible = false
-	play_pat_animation()
+	# play_pat_animation()
 	# play_catch_animation()
-	# play_idle_animation()
+	play_idle_animation()
 
 
 
