@@ -118,7 +118,6 @@ func _physics_process(delta):
 		sliding_state_process(delta)
 		return
 	elif current_state == state.cutscene:
-		pass
 		return
 	elif current_state == state.gliding:
 		apply_gravity(delta)
@@ -208,6 +207,13 @@ func change_state(state_change):
 	else:
 		current_state = state_change
 	return
+
+func set_state_to_cutscene():
+	current_state = state.cutscene
+	scale = Vector2.ONE
+	zozosprite.rotation = 0
+	zozosprite.scale = Vector2(0.25, 0.25)
+	
 
 func wall_jump_left_state_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):

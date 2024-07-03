@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0hy25afg5jyl"]
+[gd_scene load_steps=9 format=3 uid="uid://c0hy25afg5jyl"]
 
+[ext_resource type="Script" path="res://end_scene.gd" id="1_aahp0"]
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_w5tri"]
 [ext_resource type="PackedScene" uid="uid://0f5ad8cx84en" path="res://lindsei.tscn" id="2_r3ifv"]
 
@@ -7,49 +8,7 @@
 size = Vector2(432, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnhhi"]
-size = Vector2(16, 16)
-
-[sub_resource type="Animation" id="Animation_6io32"]
-resource_name = "zozo_jump_to_lindsei"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(280, -8), Vector2(334, -80), Vector2(388, -45)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Lindsei")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_catch_animation"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:process_mode")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
+size = Vector2(4, 8)
 
 [sub_resource type="Animation" id="Animation_my38f"]
 length = 0.001
@@ -63,19 +22,51 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(280, -8)]
+"values": [Vector2(24, -24)]
 }
-tracks/1/type = "value"
+
+[sub_resource type="Animation" id="Animation_6io32"]
+resource_name = "zozo_jump_to_lindsei"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.3, 1.5, 1.6, 1.7, 1.8, 1.9, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(280, -8), Vector2(280, -8), Vector2(298, -40), Vector2(316, -64), Vector2(325, -72), Vector2(334, -80), Vector2(343, -76), Vector2(352, -70), Vector2(370, -60), Vector2(376, -44), Vector2(388, -45)]
+}
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player:process_mode")
+tracks/1/path = NodePath("Lindsei")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_catch_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [{
+"args": [],
+"method": &"set_state_to_cutscene"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mgji"]
@@ -85,6 +76,7 @@ _data = {
 }
 
 [node name="End_Scene" type="Node2D"]
+script = ExtResource("1_aahp0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -94,7 +86,7 @@ shape = SubResource("RectangleShape2D_obywq")
 
 [node name="Player" parent="." instance=ExtResource("1_w5tri")]
 z_index = 2
-position = Vector2(280, -8)
+position = Vector2(24, -24)
 
 [node name="Lindsei" parent="." instance=ExtResource("2_r3ifv")]
 position = Vector2(364, 0)
@@ -102,11 +94,12 @@ position = Vector2(364, 0)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(280, -8)
+position = Vector2(282, -8)
 shape = SubResource("RectangleShape2D_cnhhi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1mgji")
 }
-autoplay = "zozo_jump_to_lindsei"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
