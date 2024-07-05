@@ -222,6 +222,8 @@ func wall_jump_left_state_process(delta):
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = move_toward(velocity.x, SPEED * -1, ACCELERATION * delta)
 	reset_sprite_scale()
+	zozosprite.rotation = 0
+	zozosprite.scale.x = -0.25
 	apply_gravity(delta)
 	move_and_slide()
 
@@ -232,6 +234,8 @@ func wall_jump_right_state_process(delta):
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = move_toward(velocity.x, SPEED * 1, ACCELERATION * delta)
 	reset_sprite_scale()
+	zozosprite.rotation = 0
+	zozosprite.scale.x = 0.25
 	apply_gravity(delta)
 	move_and_slide()
 
@@ -291,11 +295,13 @@ func handle_sprite_rotation_and_scale():
 	if velocity != Vector2.ZERO:
 		if velocity.y > 0 and velocity.x == 0:
 			zozosprite.scale.y = 0.25 + scale_strength
-			zozosprite.scale.x = 0.25 - scale_strength
+			if not Input.is_action_pressed("ui_left"): # This is dumb - but it is to prevent sprite flipping in the air while colliding with platform. 
+				zozosprite.scale.x = 0.25 - scale_strength
 			zozosprite.rotation = 0
 		elif velocity.y < 0 and velocity.x == 0:
 			zozosprite.scale.y = 0.25 + scale_strength
-			zozosprite.scale.x = 0.25 - scale_strength
+			if not Input.is_action_pressed("ui_left"):
+				zozosprite.scale.x = 0.25 - scale_strength
 			zozosprite.rotation = 0
 		elif velocity.y > 0 and velocity.x > 0:
 			zozosprite.scale.y = 0.25 + scale_strength
