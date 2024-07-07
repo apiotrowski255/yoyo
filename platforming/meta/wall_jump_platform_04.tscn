@@ -1,0 +1,193 @@
+[gd_scene load_steps=12 format=3 uid="uid://b83f3oafy4sla"]
+
+[ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_fsvtg"]
+[ext_resource type="Script" path="res://platforming/meta/move_enemy_on_path.gd" id="2_3ug3u"]
+[ext_resource type="PackedScene" uid="uid://cocn87vfesomo" path="res://mine.tscn" id="3_sa0db"]
+
+[sub_resource type="GDScript" id="GDScript_gpvlb"]
+script/source = "extends Area2D
+@export var state_to_transfer = 6
+# 7 = wall_jump_right
+# 6 = wall_jump_left
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_body_entered(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = state_to_transfer
+		body.gravity_modifier = body.gravity_modifier / 10
+		body.velocity.x = 0
+		body.velocity.y = 0
+
+
+func _on_body_exited(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = body.state.in_air
+		body.gravity_modifier = body.gravity_modifier * 10
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.get_class() == \"CharacterBody2D\":
+		print(\"gotta kill the player\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq3gl"]
+size = Vector2(4, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlty6"]
+size = Vector2(4, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kwdu"]
+size = Vector2(208, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj3gr"]
+size = Vector2(16, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgds5"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4llti"]
+size = Vector2(96, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_v86gg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -12, -120, 0, 0, 0, 0, 4, -120, 0, 0, 0, 0, 4, 8, 0, 0, 0, 0, -12, 8, 0, 0, 0, 0, -12, -120)
+}
+point_count = 5
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(190, 240)
+script = SubResource("GDScript_gpvlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_dq3gl")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(114, 192)
+script = SubResource("GDScript_gpvlb")
+state_to_transfer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_qlty6")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 312)
+shape = SubResource("RectangleShape2D_1kwdu")
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 152)
+shape = SubResource("RectangleShape2D_vj3gr")
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 192)
+shape = SubResource("RectangleShape2D_rgds5")
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(48, 136)
+shape = SubResource("RectangleShape2D_4llti")
+
+[node name="sprites" type="Node2D" parent="."]
+visible = false
+
+[node name="interactive_wall_jump" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 304)
+
+[node name="interactive_wall_jump2" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 288)
+
+[node name="interactive_wall_jump3" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 272)
+
+[node name="interactive_wall_jump4" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 256)
+
+[node name="interactive_wall_jump5" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 240)
+
+[node name="interactive_wall_jump6" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 224)
+
+[node name="interactive_wall_jump7" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 208)
+
+[node name="interactive_wall_jump17" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 176)
+
+[node name="interactive_wall_jump18" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 160)
+
+[node name="interactive_wall_jump19" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 144)
+
+[node name="interactive_wall_jump20" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 128)
+
+[node name="interactive_wall_jump21" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 112)
+
+[node name="interactive_wall_jump8" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(192, 192)
+
+[node name="interactive_wall_jump9" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 240)
+rotation = -3.14159
+
+[node name="interactive_wall_jump10" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 224)
+rotation = -3.14159
+
+[node name="interactive_wall_jump11" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 208)
+rotation = -3.14159
+
+[node name="interactive_wall_jump12" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 192)
+rotation = -3.14159
+
+[node name="interactive_wall_jump13" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 176)
+rotation = -3.14159
+
+[node name="interactive_wall_jump14" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 160)
+rotation = -3.14159
+
+[node name="interactive_wall_jump15" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 144)
+rotation = -3.14159
+
+[node name="interactive_wall_jump16" parent="sprites" instance=ExtResource("1_fsvtg")]
+position = Vector2(112, 128)
+rotation = -3.14159
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(156, 248)
+curve = SubResource("Curve2D_v86gg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-12, -120)
+rotates = false
+script = ExtResource("2_3ug3u")
+
+[node name="Area2D" parent="Path2D/PathFollow2D" instance=ExtResource("3_sa0db")]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

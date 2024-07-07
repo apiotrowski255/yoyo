@@ -1,0 +1,177 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhp6xv8fvfkj0"]
+
+[ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_crxy6"]
+
+[sub_resource type="GDScript" id="GDScript_6b7tt"]
+script/source = "extends Area2D
+@export var state_to_transfer = 6
+# 7 = wall_jump_right
+# 6 = wall_jump_left
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_body_entered(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = state_to_transfer
+		body.gravity_modifier = body.gravity_modifier / 10
+		body.velocity.x = 0
+		body.velocity.y = 0
+
+
+func _on_body_exited(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = body.state.in_air
+		body.gravity_modifier = body.gravity_modifier * 10
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.get_class() == \"CharacterBody2D\":
+		print(\"gotta kill the player\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6u5y"]
+size = Vector2(4, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo7re"]
+size = Vector2(4, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x56q1"]
+size = Vector2(208, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl0tj"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a462w"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayvaa"]
+size = Vector2(96, 16)
+
+[node name="wall_jump_platform_05" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(190, 176)
+script = SubResource("GDScript_6b7tt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_w6u5y")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_w6u5y")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(114, 128)
+script = SubResource("GDScript_6b7tt")
+state_to_transfer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_fo7re")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -96)
+shape = SubResource("RectangleShape2D_fo7re")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 248)
+shape = SubResource("RectangleShape2D_x56q1")
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 208)
+shape = SubResource("RectangleShape2D_pl0tj")
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 96)
+shape = SubResource("RectangleShape2D_pl0tj")
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 144)
+shape = SubResource("RectangleShape2D_a462w")
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 32)
+shape = SubResource("RectangleShape2D_a462w")
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240, 8)
+shape = SubResource("RectangleShape2D_ayvaa")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="interactive_wall_jump5" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 240)
+
+[node name="interactive_wall_jump6" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 224)
+
+[node name="interactive_wall_jump7" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 208)
+
+[node name="interactive_wall_jump17" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 96)
+
+[node name="interactive_wall_jump18" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 80)
+
+[node name="interactive_wall_jump20" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 128)
+
+[node name="interactive_wall_jump21" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 112)
+
+[node name="interactive_wall_jump8" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(192, 192)
+
+[node name="interactive_wall_jump9" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 48)
+rotation = -3.14159
+
+[node name="interactive_wall_jump10" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 32)
+rotation = -3.14159
+
+[node name="interactive_wall_jump11" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 16)
+rotation = -3.14159
+
+[node name="interactive_wall_jump12" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 0)
+rotation = -3.14159
+
+[node name="interactive_wall_jump13" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 112)
+rotation = -3.14159
+
+[node name="interactive_wall_jump14" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 160)
+rotation = -3.14159
+
+[node name="interactive_wall_jump15" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 144)
+rotation = -3.14159
+
+[node name="interactive_wall_jump16" parent="sprites" instance=ExtResource("1_crxy6")]
+position = Vector2(112, 128)
+rotation = -3.14159
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

@@ -61,4 +61,6 @@ func _on_area_2d_body_entered(body):
 		fly_direction = fly_direction.normalized()
 		if fly_direction.x > 0:
 			animatedsprite.flip_h = true
+		else:
+			animatedsprite.flip_h = false
 

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bguuyvht5k5sr"]
+
+[ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="1_he053"]
+[ext_resource type="PackedScene" uid="uid://dcfcmkbkud2ph" path="res://climb.tscn" id="2_0ab8e"]
+[ext_resource type="PackedScene" uid="uid://bjglh6xyt6v3u" path="res://seesaw_platform.tscn" id="3_a5rvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4ohx"]
+size = Vector2(112, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln7qx"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkqby"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agoyw"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqk6i"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hca6d"]
+size = Vector2(32, 4)
+
+[node name="seesaw_platform_01" type="Node2D"]
+
+[node name="OneWayPlatform38" type="Sprite2D" parent="."]
+position = Vector2(120, 44)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_he053")
+
+[node name="OneWayPlatform39" type="Sprite2D" parent="."]
+position = Vector2(136, 44)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_he053")
+
+[node name="climb6" parent="." instance=ExtResource("2_0ab8e")]
+position = Vector2(120, 112)
+scale = Vector2(1, 0.5)
+
+[node name="seesaw2" parent="." instance=ExtResource("3_a5rvt")]
+position = Vector2(192, 48)
+max_angle = 17
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(56, 56)
+shape = SubResource("RectangleShape2D_h4ohx")
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176, 56)
+shape = SubResource("RectangleShape2D_ln7qx")
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(296, 64)
+shape = SubResource("RectangleShape2D_hkqby")
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(192, 120)
+shape = SubResource("RectangleShape2D_agoyw")
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 88)
+shape = SubResource("RectangleShape2D_xqk6i")
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(128, 50)
+shape = SubResource("RectangleShape2D_hca6d")
+one_way_collision = true

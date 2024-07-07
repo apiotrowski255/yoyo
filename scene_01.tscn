@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=122 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://scene_01.gd" id="1_sqvp0"]
@@ -48,8 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://dg22kfevxw1jl" path="res://platforming/meta/wall_jump_platform_01.tscn" id="48_6vvbu"]
 [ext_resource type="PackedScene" uid="uid://7krpdqqri11c" path="res://platforming/meta/platform_up_jump.tscn" id="48_dpmoy"]
 [ext_resource type="PackedScene" uid="uid://bfldecja4cixb" path="res://platforming/meta/moving_platforms_01.tscn" id="48_vwave"]
-[ext_resource type="PackedScene" uid="uid://bxul5s8d2a7bo" path="res://platforming/meta/wall_jump_platform_02.tscn" id="49_goyx5"]
-[ext_resource type="PackedScene" uid="uid://db8yxi0v8yf0q" path="res://platforming/meta/wall_jump_platform_03.tscn" id="50_i7jmo"]
+[ext_resource type="PackedScene" uid="uid://bguuyvht5k5sr" path="res://platforming/meta/seesaw_platform_01.tscn" id="49_mgted"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -86,12 +85,6 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3rqr"]
 size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4t58"]
-size = Vector2(112, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b24ad"]
-size = Vector2(64, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i10dr"]
 size = Vector2(320, 16)
@@ -150,15 +143,6 @@ size = Vector2(8, 112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cdsi"]
 size = Vector2(16, 304)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_agswg"]
-size = Vector2(16, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny8qx"]
-size = Vector2(192, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3gkg"]
-size = Vector2(16, 48)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptfi0"]
 size = Vector2(16, 336)
 
@@ -187,7 +171,10 @@ size = Vector2(48, 16)
 size = Vector2(64, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w2ja"]
-size = Vector2(16, 160)
+size = Vector2(16, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evq4g"]
+size = Vector2(16, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uaf4"]
 size = Vector2(16, 80)
@@ -212,9 +199,6 @@ size = Vector2(64, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idqji"]
 size = Vector2(128, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pujl5"]
-size = Vector2(32, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16h5t"]
 size = Vector2(64, 4)
@@ -370,6 +354,9 @@ func _on_area_2d_body_entered(body):
 			animatedsprite.flip_h = true
 
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr2le"]
+size = Vector2(96, 48)
 
 [sub_resource type="GDScript" id="GDScript_sklib"]
 script/source = "extends Node2D
@@ -553,14 +540,6 @@ shape = SubResource("RectangleShape2D_x3rqr")
 position = Vector2(4904, 216)
 shape = SubResource("RectangleShape2D_qfp5f")
 
-[node name="CollisionShape2D68" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4808, 488)
-shape = SubResource("RectangleShape2D_a4t58")
-
-[node name="CollisionShape2D73" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4928, 488)
-shape = SubResource("RectangleShape2D_b24ad")
-
 [node name="CollisionShape2D69" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(5200, 424)
 shape = SubResource("RectangleShape2D_i10dr")
@@ -645,18 +624,6 @@ shape = SubResource("RectangleShape2D_5beer")
 position = Vector2(5672, 88)
 shape = SubResource("RectangleShape2D_0cdsi")
 
-[node name="CollisionShape2D70" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(5048, 496)
-shape = SubResource("RectangleShape2D_agswg")
-
-[node name="CollisionShape2D71" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4944, 552)
-shape = SubResource("RectangleShape2D_ny8qx")
-
-[node name="CollisionShape2D72" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4856, 520)
-shape = SubResource("RectangleShape2D_b3gkg")
-
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(4744, 328)
 shape = SubResource("RectangleShape2D_ptfi0")
@@ -719,10 +686,10 @@ shape = SubResource("RectangleShape2D_8w2ja")
 
 [node name="CollisionShape2D48" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2328, -64)
-shape = SubResource("RectangleShape2D_8w2ja")
+shape = SubResource("RectangleShape2D_evq4g")
 
 [node name="CollisionShape2D49" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2008, 16)
+position = Vector2(2008, 24)
 shape = SubResource("RectangleShape2D_8w2ja")
 
 [node name="Door2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -773,11 +740,6 @@ one_way_collision = true
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(208, 142)
 shape = SubResource("RectangleShape2D_idqji")
-one_way_collision = true
-
-[node name="CollisionShape2D74" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4880, 482)
-shape = SubResource("RectangleShape2D_pujl5")
 one_way_collision = true
 
 [node name="CollisionShape2D81" type="CollisionShape2D" parent="StaticBody2D"]
@@ -978,16 +940,6 @@ texture = ExtResource("33_lne5i")
 
 [node name="OneWayPlatform28" type="Sprite2D" parent="sprites"]
 position = Vector2(264, -68)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("33_lne5i")
-
-[node name="OneWayPlatform38" type="Sprite2D" parent="sprites"]
-position = Vector2(4872, 476)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("33_lne5i")
-
-[node name="OneWayPlatform39" type="Sprite2D" parent="sprites"]
-position = Vector2(4888, 476)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_lne5i")
 
@@ -2619,7 +2571,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(5640, 548)
+position = Vector2(4300, 104)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
@@ -2695,10 +2647,6 @@ debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="climb" parent="climb_group" instance=ExtResource("3_x2o8q")]
 position = Vector2(96, 264)
-
-[node name="climb6" parent="climb_group" instance=ExtResource("3_x2o8q")]
-position = Vector2(4872, 544)
-scale = Vector2(1, 0.5)
 
 [node name="climb7" parent="climb_group" instance=ExtResource("3_x2o8q")]
 position = Vector2(6152, -384)
@@ -2827,10 +2775,6 @@ scale = Vector2(0.703, 1)
 
 [node name="seesaw" parent="." instance=ExtResource("16_rvold")]
 position = Vector2(3836, 160)
-
-[node name="seesaw2" parent="." instance=ExtResource("16_rvold")]
-position = Vector2(4944, 480)
-max_angle = 17
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_r17bt")
@@ -3029,12 +2973,17 @@ position = Vector2(21984, 1664)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass15" parent="Node2D" instance=ExtResource("31_2wlvw")]
-position = Vector2(6624, 1088)
+position = Vector2(8288, 1088)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass25" parent="Node2D" instance=ExtResource("31_2wlvw")]
-position = Vector2(6752, 1088)
+position = Vector2(8416, 1088)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass26" parent="Node2D" instance=ExtResource("31_2wlvw")]
+position = Vector2(8544, 1088)
 scale = Vector2(4, 4)
 type = 2
 
@@ -3052,7 +3001,7 @@ position = Vector2(6496, 1088)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass19" parent="Node2D" instance=ExtResource("31_2wlvw")]
-position = Vector2(6688, 1088)
+position = Vector2(8352, 1088)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass20" parent="Node2D" instance=ExtResource("31_2wlvw")]
@@ -3147,57 +3096,91 @@ emission_rect_extents = Vector2(16, 1)
 scale_amount_max = 2.0
 color = Color(0.243261, 0.594033, 0.769974, 1)
 
-[node name="enemy_kill_zone2" parent="." instance=ExtResource("34_k8wt7")]
+[node name="birds" type="Node2D" parent="."]
 position = Vector2(4976, 232)
 
-[node name="bird1" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(3560, -34)
+[node name="bird1" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-1416, -266)
 script = SubResource("GDScript_b8ssn")
 
-[node name="Area2D" parent="bird1" index="2"]
+[node name="Area2D" parent="birds/bird1" index="2"]
 position = Vector2(-80, 46)
 
-[node name="CollisionShape2D" parent="bird1/Area2D" index="0"]
+[node name="CollisionShape2D" parent="birds/bird1/Area2D" index="0"]
 position = Vector2(24, -10)
 
-[node name="bird2" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(2008, 270)
+[node name="bird2" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-2968, 38)
 fly_direction = Vector2(1, -1)
 
-[node name="Area2D" parent="bird2" index="2"]
+[node name="Area2D" parent="birds/bird2" index="2"]
 position = Vector2(-80, 46)
 
-[node name="CollisionShape2D" parent="bird2/Area2D" index="0"]
+[node name="CollisionShape2D" parent="birds/bird2/Area2D" index="0"]
 position = Vector2(-8, -60)
 
-[node name="bird3" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(2024, 270)
+[node name="bird3" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-2952, 38)
 fly_direction = Vector2(1, -1)
 
-[node name="Area2D" parent="bird3" index="2"]
+[node name="Area2D" parent="birds/bird3" index="2"]
 position = Vector2(-80, 46)
 
-[node name="CollisionShape2D" parent="bird3/Area2D" index="0"]
+[node name="CollisionShape2D" parent="birds/bird3/Area2D" index="0"]
 position = Vector2(-24, -60)
 
-[node name="bird6" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(744, 62)
+[node name="bird11" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-2932, 38)
 fly_direction = Vector2(1, -1)
 
-[node name="bird4" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(5672, -146)
-script = SubResource("GDScript_sklib")
+[node name="AnimatedSprite2D" parent="birds/bird11" index="0"]
+flip_h = true
 
-[node name="Area2D" parent="bird4" index="2"]
+[node name="Area2D" parent="birds/bird11" index="2"]
 position = Vector2(-80, 46)
 
-[node name="CollisionShape2D" parent="bird4/Area2D" index="0"]
+[node name="CollisionShape2D" parent="birds/bird11/Area2D" index="0"]
+position = Vector2(-28, -52)
+shape = SubResource("RectangleShape2D_wr2le")
+
+[node name="bird6" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-4232, -170)
+fly_direction = Vector2(1, -1)
+
+[node name="bird7" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-4696, -362)
+fly_direction = Vector2(1, -1)
+
+[node name="bird8" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-5320, -410)
+fly_direction = Vector2(1, -1)
+
+[node name="bird9" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-5292, -410)
+scale = Vector2(-1, 1)
+fly_direction = Vector2(1, -1)
+
+[node name="bird10" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-5368, -122)
+fly_direction = Vector2(1, -1)
+
+[node name="bird4" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(696, -378)
+script = SubResource("GDScript_sklib")
+
+[node name="Area2D" parent="birds/bird4" index="2"]
+position = Vector2(-80, 46)
+
+[node name="CollisionShape2D" parent="birds/bird4/Area2D" index="0"]
 position = Vector2(96, -32)
 shape = SubResource("RectangleShape2D_irda2")
 
-[node name="bird5" parent="." instance=ExtResource("35_dx1bh")]
-position = Vector2(2008, -50)
+[node name="bird5" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-2968, -282)
 script = SubResource("GDScript_sklib")
+
+[node name="enemy_kill_zone2" parent="." instance=ExtResource("34_k8wt7")]
+position = Vector2(4976, 232)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("39_bqxc3")]
 position = Vector2(7584, -172)
@@ -3206,6 +3189,7 @@ position = Vector2(7584, -172)
 position = Vector2(7184, 68)
 
 [node name="spike container sprites" type="Node2D" parent="."]
+visible = false
 position = Vector2(7184, -144)
 
 [node name="SpikeZone" type="Sprite2D" parent="spike container sprites"]
@@ -3420,11 +3404,8 @@ position = Vector2(6265, -485)
 [node name="wall_jump_platform" parent="." instance=ExtResource("48_6vvbu")]
 position = Vector2(5408, 176)
 
-[node name="wall_jump_plattform_02" parent="." instance=ExtResource("49_goyx5")]
-position = Vector2(5608, 356)
-
-[node name="wall_jump_platform_03" parent="." instance=ExtResource("50_i7jmo")]
-position = Vector2(5816, 196)
+[node name="seesaw_platform_01" parent="." instance=ExtResource("49_mgted")]
+position = Vector2(4752, 432)
 
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
@@ -3432,9 +3413,10 @@ position = Vector2(5816, 196)
 [connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_exited" from="Area2D4" to="." method="_on_area_2d_4_body_exited"]
 
+[editable path="birds/bird1"]
+[editable path="birds/bird2"]
+[editable path="birds/bird3"]
+[editable path="birds/bird11"]
+[editable path="birds/bird4"]
 [editable path="enemy_kill_zone2"]
-[editable path="bird1"]
-[editable path="bird2"]
-[editable path="bird3"]
-[editable path="bird4"]
 [editable path="door"]

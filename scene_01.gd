@@ -4,6 +4,7 @@ var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("test variable is: " + str(GlobalVariables.test))
 	timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)
 	pass # Replace with function body.
@@ -18,6 +19,7 @@ func _on_death_body_entered(body):
 	pass # Replace with function body.
 
 func _on_timer_timeout():
+	GlobalVariables.test = 2
 	get_tree().reload_current_scene()
 
 
