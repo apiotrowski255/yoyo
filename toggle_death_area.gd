@@ -26,5 +26,6 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
-		print("kill player")
+		#print("kill player")
+		pass
 	pass # Replace with function body.

@@ -149,5 +149,8 @@ scale_amount_max = 2.0
 
 [node name="cooldown_timer" type="Timer" parent="."]
 
+[node name="Camera_smoothing_timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="Camera_smoothing_timer" to="." method="_on_camera_smoothing_timer_timeout"]

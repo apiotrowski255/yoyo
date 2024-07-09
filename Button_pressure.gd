@@ -11,18 +11,18 @@ func _ready():
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D" or body.get_class() == "RigidBody2D":
 		number_of_objects += 1
-		print("TODO: Opening door - Animate button")
+		# print("TODO: Opening door - Animate button")
 		if door != null:
 			door.set_deferred("disabled", true)
 		sprite2d.texture = load("res://button_pressed.png")
-	print(number_of_objects)
+	# print(number_of_objects)
 
 
 func _on_body_exited(body):
 	if body.get_class() == "CharacterBody2D" or body.get_class() == "RigidBody2D":
 		number_of_objects -= 1
 		if number_of_objects == 0:
-			print("TODO: closing door - Animate button")
+			# print("TODO: closing door - Animate button")
 			if door != null:
 				door.set_deferred("disabled", false)
 			sprite2d.texture = load("res://button_open.png")

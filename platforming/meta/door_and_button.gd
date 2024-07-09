@@ -9,6 +9,7 @@ func _ready():
 
 
 func _on_button_body_entered(body):
-	if sprite2d.visible == true:
-		print("play sound effect")
-		sprite2d.visible = false
+	if body.get_class() == "CharacterBody2D":
+		if sprite2d.visible == true:
+			# print("play sound effect")
+			sprite2d.visible = false

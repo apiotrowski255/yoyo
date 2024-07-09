@@ -12,7 +12,8 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and opened == false:
-		print("TODO: Opening door - Animate button")
+		# print("TODO: Opening door - Animate button")
+		# Maybe not - just a sprite change to the button is enough i think.
 		if door != null:
 			door.set_deferred("disabled", true)
 		sprite2d.texture = load("res://button_pressed.png")

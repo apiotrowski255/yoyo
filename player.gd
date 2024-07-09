@@ -133,7 +133,7 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		if Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
-			print("go into shell mode!")
+			# print("go into shell mode!")
 			change_state(state.shell)
 			return
 		
@@ -176,7 +176,7 @@ func _physics_process(delta):
 		
 		if raycast_down.get_collider():
 			if raycast_down.get_collider().get_class() == "RigidBody2D":
-				print("player is on top of a RigidBody2D")
+				# print("player is on top of a RigidBody2D")
 				var tmp_x = position.x - raycast_down.get_collider().position.x
 				var tmp_y = position.y - raycast_down.get_collider().position.y
 				raycast_down.get_collider().apply_impulse(Vector2.DOWN * push_force / 4, Vector2(tmp_x, tmp_y))
@@ -370,7 +370,7 @@ func handle_jump():
 			velocity.y = jump_velocity
 
 func die():
-	print("play death glitch animation")
+	# print("play death glitch animation")
 	# var random_scale = (randf() + 1)
 	var random_scale = 1
 	velocity.x = -velocity.x * random_scale
@@ -408,3 +408,11 @@ func _on_cooldown_timer_timeout():
 	cooldown_timer.stop()
 
 
+# disables smoothing on the camera, and then on timeout will re-enable smoothing
+# Might use it for multiple things in the future - but will see
+func start_camera_smoothing_timer():
+	$Camera_smoothing_timer.start(1.0)
+	camera.position_smoothing_enabled = false
+
+func _on_camera_smoothing_timer_timeout():
+	camera.position_smoothing_enabled = true

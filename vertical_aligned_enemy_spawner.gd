@@ -37,7 +37,7 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_timer_timeout():
-	print("spawn timed enemy")
+	# print("spawn timed enemy")
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn_location.position
 	enemy.time_to_die = 6.0

@@ -19,7 +19,7 @@ func _on_body_exited(body):
 	if body.get_class() == "CharacterBody2D" and body.velocity.y < -270.0:
 		body.jump_particles.emitting = true
 		body.timer.start(1.0)
-		print("play jump animation")
+		# print("play jump animation")
 		# body.calculate_jump_parameters()
 		cpuparticles.emitting = true
 		jump_animation()

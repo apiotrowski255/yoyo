@@ -47,6 +47,14 @@ func _on_stomp_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		self.queue_free()
 		print("enemy die animation")
+		# Or we can do a particle effect for when an enemy dies? 
+		var death_particles_scene = preload("res://particle_effects/enemy_die_particle_effect.tscn")
+		var death_particles = death_particles_scene.instantiate()
+		death_particles.position = self.position
+		death_particles.emitting = true
+		print(death_particles.position)
+		# print(get_node("/root/scene_01")) # This will need to change depending on the scene number - TODO for later.
+		get_node("/root/scene_01").add_child(death_particles)
 		body.velocity.y = -250
 		# self.queue_free()
 

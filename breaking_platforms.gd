@@ -17,7 +17,7 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
-		print("play breaking animation - or shake the sprite")
+		# print("play breaking animation - or shake the sprite")
 		timer.start(time_to_break)
 		animationPlayer.play("sprite_shake")
 
