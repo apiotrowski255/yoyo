@@ -18,3 +18,8 @@ func _on_body_entered(body):
 			door.set_deferred("disabled", true)
 		sprite2d.texture = load("res://button_pressed.png")
 		opened = true
+		play_sfx()
+		
+
+func play_sfx():
+	$AudioStreamPlayer2D.play()

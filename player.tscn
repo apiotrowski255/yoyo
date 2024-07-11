@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7t2km6oqfkhf"]
+[gd_scene load_steps=9 format=3 uid="uid://b7t2km6oqfkhf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_xros8"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_y5n3g"]
+[ext_resource type="AudioStream" uid="uid://cetqp8sqrs7do" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/sfx_exp_shortest_soft4.wav" id="3_x1oda"]
 
 [sub_resource type="Gradient" id="Gradient_6jxxe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -151,6 +152,12 @@ scale_amount_max = 2.0
 
 [node name="Camera_smoothing_timer" type="Timer" parent="."]
 
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="enemy_stomped" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("3_x1oda")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="Camera_smoothing_timer" to="." method="_on_camera_smoothing_timer_timeout"]
+[connection signal="finished" from="sfx/enemy_stomped" to="." method="_on_enemy_stomped_finished"]

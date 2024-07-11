@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dadlypc27b3ae"
+path="res://.godot/imported/sfx_menu_select5.wav-6b26569fb8da083004a358ca97efb8a2.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Menu Sounds/sfx_menu_select5.wav"
+dest_files=["res://.godot/imported/sfx_menu_select5.wav-6b26569fb8da083004a358ca97efb8a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

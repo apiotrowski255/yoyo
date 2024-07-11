@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn6t6aj2giv58"
+path="res://.godot/imported/sfx_wpn_cannon3.wav-875f57c13aaaac0341e4d0fdef1872fa.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon3.wav"
+dest_files=["res://.godot/imported/sfx_wpn_cannon3.wav-875f57c13aaaac0341e4d0fdef1872fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

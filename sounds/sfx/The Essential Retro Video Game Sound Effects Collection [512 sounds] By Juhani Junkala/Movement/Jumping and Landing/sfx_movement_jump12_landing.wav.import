@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnasr3d2g22d3"
+path="res://.godot/imported/sfx_movement_jump12_landing.wav-c1449d18a5d5c884fcc984ef487a99fb.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump12_landing.wav"
+dest_files=["res://.godot/imported/sfx_movement_jump12_landing.wav-c1449d18a5d5c884fcc984ef487a99fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://7krpdqqri11c"]
+
+[ext_resource type="PackedScene" uid="uid://bpcv68xo85thi" path="res://down_arrow.tscn" id="2_dyqkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q7cr"]
+size = Vector2(8, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt766"]
+size = Vector2(8, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s03sk"]
+size = Vector2(72, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1tuc"]
+size = Vector2(56, 4)
+
+[node name="platform_up_jump_01" type="Node2D"]
+
+[node name="down_arrow3" parent="." instance=ExtResource("2_dyqkf")]
+position = Vector2(36, 208)
+rotation = 3.14159
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D118" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(68, 116)
+shape = SubResource("RectangleShape2D_7q7cr")
+
+[node name="CollisionShape2D121" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, 96)
+shape = SubResource("RectangleShape2D_mt766")
+
+[node name="CollisionShape2D116" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 238)
+shape = SubResource("RectangleShape2D_s03sk")
+
+[node name="CollisionShape2D108" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 192)
+shape = SubResource("RectangleShape2D_i1tuc")
+one_way_collision = true
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 144)
+shape = SubResource("RectangleShape2D_i1tuc")
+one_way_collision = true
+
+[node name="CollisionShape2D120" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 96)
+shape = SubResource("RectangleShape2D_i1tuc")
+one_way_collision = true
+
+[node name="CollisionShape2D123" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 0)
+shape = SubResource("RectangleShape2D_i1tuc")
+one_way_collision = true
+
+[node name="CollisionShape2D122" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 48)
+shape = SubResource("RectangleShape2D_i1tuc")
+one_way_collision = true

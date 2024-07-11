@@ -45,9 +45,9 @@
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="47_o7tme"]
 [ext_resource type="PackedScene" uid="uid://bp8waip6fdsv8" path="res://platforming/meta/tunnel_platform_01.tscn" id="47_uddt6"]
 [ext_resource type="PackedScene" uid="uid://dg22kfevxw1jl" path="res://platforming/meta/wall_jump_platform_01.tscn" id="48_6vvbu"]
-[ext_resource type="PackedScene" uid="uid://7krpdqqri11c" path="res://platforming/meta/platform_up_jump.tscn" id="48_dpmoy"]
 [ext_resource type="PackedScene" uid="uid://bfldecja4cixb" path="res://platforming/meta/moving_platforms_01.tscn" id="48_vwave"]
 [ext_resource type="PackedScene" uid="uid://bguuyvht5k5sr" path="res://platforming/meta/seesaw_platform_01.tscn" id="49_mgted"]
+[ext_resource type="PackedScene" uid="uid://csy1skfvwfaff" path="res://platforming/meta/platform_up_jump_02.tscn" id="49_moyry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -2165,19 +2165,19 @@ texture = ExtResource("4_nwv15")
 
 [node name="WoodWall61" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(6540, -122)
+position = Vector2(6540, -124)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_nwv15")
 
 [node name="WoodWall62" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(6540, -138)
+position = Vector2(6540, -140)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_nwv15")
 
 [node name="WoodWall63" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(6540, -154)
+position = Vector2(6540, -156)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_nwv15")
 
@@ -2573,7 +2573,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(2492, 12)
+position = Vector2(224, 200)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
@@ -2915,6 +2915,11 @@ scale = Vector2(0.25, 0.25)
 
 [node name="interactive_grass" parent="Node2D" instance=ExtResource("31_2wlvw")]
 position = Vector2(22560, 1024)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass16" parent="Node2D" instance=ExtResource("31_2wlvw")]
+position = Vector2(22688, 1024)
 scale = Vector2(4, 4)
 type = 2
 
@@ -3402,9 +3407,6 @@ position = Vector2(8, -48)
 [node name="tunnel_platform_01" parent="." instance=ExtResource("47_uddt6")]
 position = Vector2(5760, -224)
 
-[node name="platform_up_jump" parent="." instance=ExtResource("48_dpmoy")]
-position = Vector2(6664, -388)
-
 [node name="moving_platforms_01" parent="." instance=ExtResource("48_vwave")]
 position = Vector2(6265, -485)
 
@@ -3450,6 +3452,9 @@ debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
 position = Vector2(6744, -624)
 shape = SubResource("RectangleShape2D_3reyc")
 debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
+
+[node name="platform_up_jump_02" parent="." instance=ExtResource("49_moyry")]
+position = Vector2(6664, -388)
 
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_4_body_entered"]

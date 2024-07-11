@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://2h4181f1veqc"]
+
+[ext_resource type="Script" path="res://global_music_manager.gd" id="1_sqe7r"]
+[ext_resource type="AudioStream" uid="uid://daidum7h07ac6" path="res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3" id="2_urqa6"]
+
+[node name="global_music_manager" type="Node2D"]
+script = ExtResource("1_sqe7r")
+
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_urqa6")

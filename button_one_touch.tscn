@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://kwijy4no3e0r"]
+[gd_scene load_steps=5 format=3 uid="uid://kwijy4no3e0r"]
 
 [ext_resource type="Script" path="res://button.gd" id="1_r81ln"]
 [ext_resource type="Texture2D" uid="uid://c31pd2oc62gfe" path="res://button_open.png" id="2_e7eyo"]
+[ext_resource type="AudioStream" uid="uid://b4f6hs6sb7xqv" path="res://sounds/sfx/UI_SFX_Set/switch1.wav" id="3_83mbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyyea"]
 size = Vector2(8, 4)
@@ -18,5 +19,8 @@ texture = ExtResource("2_e7eyo")
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_uyyea")
 debug_color = Color(0.956863, 0, 0.545098, 0.419608)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_83mbd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

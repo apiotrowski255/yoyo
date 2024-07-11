@@ -38,23 +38,32 @@ func apply_gravity(delta):
 		velocity.y += gravity * delta / 2
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
+		print("collided with player - but player is in shell state")
+	elif body.get_class() == "CharacterBody2D":
 		print("most likely the player - gotta kill the player")
 
 
 
 func _on_stomp_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
-		self.queue_free()
+		
 		print("enemy die animation")
 		# Or we can do a particle effect for when an enemy dies? 
 		var death_particles_scene = preload("res://particle_effects/enemy_die_particle_effect.tscn")
 		var death_particles = death_particles_scene.instantiate()
-		death_particles.position = self.position
+		death_particles.global_position = self.global_position
 		death_particles.emitting = true
 		print(death_particles.position)
 		# print(get_node("/root/scene_01")) # This will need to change depending on the scene number - TODO for later.
 		get_node("/root/scene_01").add_child(death_particles)
-		body.velocity.y = -250
+		if body.current_state != body.state.shell:
+			body.velocity.y = -250
 		# self.queue_free()
+		
 
+		# Play the sfx
+		# sfx has to be played on the player object
+		body.play_stomp_sfx()
+		
+		self.queue_free()

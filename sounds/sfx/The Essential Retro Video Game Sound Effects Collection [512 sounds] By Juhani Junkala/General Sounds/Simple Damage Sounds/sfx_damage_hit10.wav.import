@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://iv4q3faa1cre"
+path="res://.godot/imported/sfx_damage_hit10.wav-f39ffc2b94f08d635bf58d94f6e90376.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Simple Damage Sounds/sfx_damage_hit10.wav"
+dest_files=["res://.godot/imported/sfx_damage_hit10.wav-f39ffc2b94f08d635bf58d94f6e90376.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

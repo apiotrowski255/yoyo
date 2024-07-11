@@ -416,3 +416,15 @@ func start_camera_smoothing_timer():
 
 func _on_camera_smoothing_timer_timeout():
 	camera.position_smoothing_enabled = true
+
+func play_stomp_sfx():
+	$sfx/enemy_stomped.play()
+
+func change_stomp_sfx_random():
+	var i = randi_range(1, 9)
+	var string = "sfx_exp_shortest_soft" + str(i) + ".wav"
+	$'sfx/enemy_stomped'.stream = load("res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/" + string)
+
+
+func _on_enemy_stomped_finished():
+	change_stomp_sfx_random()
