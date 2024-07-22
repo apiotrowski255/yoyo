@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dya7epagu74m5"]
+[gd_scene load_steps=6 format=3 uid="uid://dya7epagu74m5"]
 
 [ext_resource type="Script" path="res://vertical_aligned_enemy_spawner.gd" id="1_e0j46"]
 [ext_resource type="PackedScene" uid="uid://d3njvy425o2f1" path="res://timed_enemy.tscn" id="2_02sav"]
 [ext_resource type="Texture2D" uid="uid://dpaknhql1i6vo" path="res://sprites/cannon.png" id="2_x1a2u"]
+[ext_resource type="AudioStream" uid="uid://cbctywraw6vd4" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon2.wav" id="4_mxm6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dpn"]
 size = Vector2(352, 272)
@@ -11,9 +12,9 @@ size = Vector2(352, 272)
 script = ExtResource("1_e0j46")
 enemy_scene = ExtResource("2_02sav")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="player_detection_area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
 position = Vector2(0, 136)
 shape = SubResource("RectangleShape2D_g1dpn")
 
@@ -21,9 +22,12 @@ shape = SubResource("RectangleShape2D_g1dpn")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_x1a2u")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
+stream = ExtResource("4_mxm6l")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="player_detection_area" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

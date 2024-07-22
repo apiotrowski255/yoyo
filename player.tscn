@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7t2km6oqfkhf"]
+[gd_scene load_steps=18 format=3 uid="uid://b7t2km6oqfkhf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_xros8"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_y5n3g"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="3_igqnk"]
 [ext_resource type="AudioStream" uid="uid://cetqp8sqrs7do" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/sfx_exp_shortest_soft4.wav" id="3_x1oda"]
+[ext_resource type="AudioStream" uid="uid://ikh6cfoxhhcd" path="res://sounds/sfx/Jump 1.wav" id="4_aaq4u"]
+[ext_resource type="AudioStream" uid="uid://rvv136lcowt1" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Climbing Ladder/sfx_movement_ladder1loop.wav" id="5_375rg"]
+[ext_resource type="AudioStream" uid="uid://e6cycr48ww5a" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Long/sfx_exp_long1.wav" id="6_7uquw"]
+[ext_resource type="Shader" path="res://vignette.gdshader" id="8_5mu3r"]
 
 [sub_resource type="Gradient" id="Gradient_6jxxe"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -20,6 +25,28 @@ height = 12.0
 
 [sub_resource type="Gradient" id="Gradient_tglur"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_armnl"]
+shader = ExtResource("3_igqnk")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="Curve" id="Curve_8fiyi"]
+_data = [Vector2(0.0141243, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t0ejd"]
+offsets = PackedFloat32Array(0.00613497, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkww6"]
+shader = ExtResource("8_5mu3r")
+shader_parameter/alpha = 1.055
+shader_parameter/inner_radius = 0.5
+shader_parameter/outer_radius = 1.855
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -8)
@@ -73,14 +100,6 @@ offset = Vector2(0, -32)
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_x18m5")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_top_margin = 0.0
-drag_bottom_margin = 0.6
-editor_draw_drag_margin = true
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -1)
 target_position = Vector2(0, -4)
@@ -130,6 +149,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_armnl")
 layout_mode = 0
 offset_left = -408.0
 offset_top = -254.0
@@ -156,6 +176,47 @@ scale_amount_max = 2.0
 
 [node name="enemy_stomped" type="AudioStreamPlayer2D" parent="sfx"]
 stream = ExtResource("3_x1oda")
+
+[node name="jump" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("4_aaq4u")
+
+[node name="climb" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("5_375rg")
+volume_db = -10.0
+
+[node name="death" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("6_7uquw")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="death_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 128
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 117.65
+initial_velocity_max = 117.65
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8fiyi")
+color = Color(0.290196, 0.815686, 0.341176, 1)
+color_ramp = SubResource("Gradient_t0ejd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.0
+drag_bottom_margin = 0.6
+editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_gkww6")
+offset_right = 480.0
+offset_bottom = 272.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

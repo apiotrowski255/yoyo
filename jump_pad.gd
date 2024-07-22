@@ -23,6 +23,7 @@ func _on_body_exited(body):
 		# body.calculate_jump_parameters()
 		cpuparticles.emitting = true
 		jump_animation()
+		$AudioStreamPlayer2D.play()
 	# This is the case for the player walking off the jump pad
 	if body.get_class() == "CharacterBody2D":
 		body.jump_height = body.jump_height / strength.y # return Jump_Velocity back to normal value.

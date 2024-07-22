@@ -12,6 +12,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		sprite.texture = load("res://sprites/grass_" + str(type) + "_2.png")
+		$AudioStreamPlayer2D.play()
 
 
 func _on_body_exited(body):

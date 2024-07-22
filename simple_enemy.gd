@@ -40,9 +40,10 @@ func apply_gravity(delta):
 func _on_area_2d_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
 		print("collided with player - but player is in shell state")
-	elif body.get_class() == "CharacterBody2D":
+	elif body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+		# need to dynamically get the level the player is on
+		get_node("/root/scene_01")._on_death_body_entered(body)
 		print("most likely the player - gotta kill the player")
-
 
 
 func _on_stomp_body_entered(body):

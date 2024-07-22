@@ -44,3 +44,4 @@ func _on_timer_timeout():
 	enemy.direction = Vector2.DOWN
 	enemy.speed = 32
 	self.add_child(enemy)
+	$Sprite2D/AudioStreamPlayer2D.play()

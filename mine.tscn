@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cocn87vfesomo"]
 
 [ext_resource type="Script" path="res://mine.gd" id="1_1y8ay"]
-[ext_resource type="Texture2D" uid="uid://bdhihsjv4usk2" path="res://sprites/timed_enemy1.png" id="1_ymmgo"]
+[ext_resource type="Texture2D" uid="uid://bchdsd1tb32xs" path="res://sprites/timed_enemy_1_2.png" id="2_nqwls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jc52w"]
 size = Vector2(8, 8)
@@ -15,7 +15,7 @@ debug_color = Color(0.933333, 0, 0, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_ymmgo")
+texture = ExtResource("2_nqwls")
 
 [node name="Timer" type="Timer" parent="."]
 

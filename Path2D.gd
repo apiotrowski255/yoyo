@@ -8,6 +8,8 @@ var path_follow : PathFollow2D
 @export var trans = Tween.TRANS_SINE
 @export var time = 10
 
+signal kill_player
+
 func _ready():
 	path_follow = $PathFollow2D
 	tween = get_tree().create_tween().bind_node(self)
@@ -25,3 +27,9 @@ func _process(delta):
 	# path_follow.progress += delta * speed
 	pass
 
+
+
+func _on_area_2d_body_entered(body):
+	if body.get_class() == "CharacterBody2D" and body.current_state != body.state.dying: # Might conflict with simple enemy
+		emit_signal("kill_player", body)
+	pass # Replace with function body.

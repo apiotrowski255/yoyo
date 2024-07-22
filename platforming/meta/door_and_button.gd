@@ -13,3 +13,4 @@ func _on_button_body_entered(body):
 		if sprite2d.visible == true:
 			# print("play sound effect")
 			sprite2d.visible = false
+			$StaticBody2D/Door/AudioStreamPlayer2D.play()

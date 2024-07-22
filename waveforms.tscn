@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjvnnor63ww6s"]
+
+[ext_resource type="Shader" path="res://audio_visualiser.gdshader" id="1_pmtyx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cl1nr"]
+shader = ExtResource("1_pmtyx")
+shader_parameter/lines = 80
+shader_parameter/amplitude = 0.9
+shader_parameter/frequency = 0.1
+shader_parameter/intensity = 0.75
+shader_parameter/line_sharpness = 0.5
+shader_parameter/line_size = 0.8
+shader_parameter/fade = 0.1
+shader_parameter/rest_size = -0.2
+shader_parameter/edge = 0.05
+shader_parameter/speed = 0.5
+shader_parameter/color = Color(0.8, 0.25, 0.5, 1)
+shader_parameter/dot_matrix = false
+shader_parameter/dot_matriz_size = 80
+shader_parameter/speech_sim = true
+shader_parameter/speech_intensity = 0.8
+shader_parameter/progress = 1.0
+
+[node name="waveforms" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cl1nr")
+layout_mode = 0
+offset_right = 476.0
+offset_bottom = 272.0

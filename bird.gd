@@ -8,6 +8,8 @@ var timer : Timer
 
 @export var fly_direction : Vector2 = Vector2.LEFT
 var fly_speed = 75
+@export var idle_sound_effect = true # If set to true - Player will hear chirping sound when near the bird
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +19,8 @@ func _ready():
 	timer = get_node("Timer")
 	timer.start(3.0)
 	fly_direction = fly_direction.normalized()
+	if idle_sound_effect == true:
+		$idle_chirping.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -63,4 +67,5 @@ func _on_area_2d_body_entered(body):
 			animatedsprite.flip_h = true
 		else:
 			animatedsprite.flip_h = false
+		$fly_away.play()
 

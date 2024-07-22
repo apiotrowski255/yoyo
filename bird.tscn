@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7d0aekf16ipe"]
+[gd_scene load_steps=22 format=3 uid="uid://b7d0aekf16ipe"]
 
 [ext_resource type="Script" path="res://bird.gd" id="1_0odm4"]
 [ext_resource type="Texture2D" uid="uid://doipc12c1uyjj" path="res://bird/BirdSpriteBig.png" id="1_d1n1b"]
+[ext_resource type="AudioStream" uid="uid://c4p6f08u5j65c" path="res://sounds/sfx/bird/075692_bird-flying-awaywav-86143.mp3" id="3_fkh2b"]
+[ext_resource type="AudioStream" uid="uid://bvwu72q2svakx" path="res://sounds/sfx/bird/birds-chirping-75156.mp3" id="4_p6cbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh4kl"]
 atlas = ExtResource("1_d1n1b")
@@ -155,6 +157,13 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_2351c")
+
+[node name="fly_away" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fkh2b")
+
+[node name="idle_chirping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p6cbm")
+max_distance = 300.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

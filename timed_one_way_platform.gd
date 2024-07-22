@@ -4,8 +4,12 @@ extends StaticBody2D
 @export var speed : float = 32.0
 @export var direction : Vector2 = Vector2.DOWN
 
+@export var sprite_number : int = 1 # Depending on the number - Change the sprite
+
 var timer : Timer
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	timer = $Timer
 	timer.start(time_to_die)

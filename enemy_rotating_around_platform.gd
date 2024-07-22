@@ -14,6 +14,9 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
-		print("gotta kill the player")
+	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+		# Again shit code
+		# I basically need to make sure each level has this function...
+		get_node("/root/scene_01")._on_death_body_entered(body)
+		# print("gotta kill the player")
 

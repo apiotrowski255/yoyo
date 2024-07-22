@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://uqnej155cn08"]
+
+[ext_resource type="Script" path="res://checkpoint_flag.gd" id="1_vtqej"]
+[ext_resource type="Texture2D" uid="uid://d28j4fc2m37r" path="res://sprites/flag animation.png" id="1_yl455"]
+[ext_resource type="AudioStream" uid="uid://vpp0agr6x8ek" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Coins/sfx_coin_cluster1.wav" id="3_vff1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8o0c"]
+atlas = ExtResource("1_yl455")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrijo"]
+atlas = ExtResource("1_yl455")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol5iw"]
+atlas = ExtResource("1_yl455")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_750jg"]
+atlas = ExtResource("1_yl455")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rce1k"]
+atlas = ExtResource("1_yl455")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cp43c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8o0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrijo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol5iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_750jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rce1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbp3d"]
+size = Vector2(16, 44)
+
+[sub_resource type="Curve" id="Curve_86e2w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.39152), -1.81938, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_tgbo1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.215686)
+
+[node name="flag" type="Node2D"]
+script = ExtResource("1_vtqej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(28, -28)
+sprite_frames = SubResource("SpriteFrames_cp43c")
+frame = 2
+frame_progress = 0.25554
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -22)
+shape = SubResource("RectangleShape2D_xbp3d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vff1d")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(8, -22)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_86e2w")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("Gradient_tgbo1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

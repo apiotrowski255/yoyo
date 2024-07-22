@@ -10,23 +10,29 @@ size = Vector2(192, 16)
 [node name="timed_enemy_spawner" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(0, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner2" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(16, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner3" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(32, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner4" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(48, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner5" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(64, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner6" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(80, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner7" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(96, 32)
@@ -34,24 +40,30 @@ time_to_die = 8.0
 
 [node name="timed_enemy_spawner8" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(112, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner9" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(128, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner10" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(144, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner11" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(160, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner12" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(176, 0)
+play_spawn_sfx = false
 
 [node name="timed_enemy_spawner13" parent="." instance=ExtResource("1_kyqlx")]
 position = Vector2(192, 32)
 time_to_die = 8.0
+play_spawn_sfx = false
 
 [node name="Area2D" type="Area2D" parent="."]
 

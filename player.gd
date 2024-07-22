@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name player extends CharacterBody2D
 
 
 @export var coyote_time : float = 0.15
@@ -78,14 +78,18 @@ func _physics_process(delta):
 	if current_state == state.climb:
 		climb_state_process(delta)
 		return
-	if current_state == state.wall_jump_right:
+	elif current_state == state.wall_jump_right:
 		wall_jump_right_state_process(delta)
 		return
-	if current_state == state.wall_jump_left:
+	elif current_state == state.wall_jump_left:
 		wall_jump_left_state_process(delta)
 		return
 	elif current_state == state.dying:
 		dying_state_process(delta)
+		return
+	elif current_state == state.teleporting:
+		# Maybe like a slow glide up?
+		print("TODO - teleporting")
 		return
 	elif current_state == state.in_air:
 		if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0 and velocity.y > 0:
@@ -113,7 +117,6 @@ func _physics_process(delta):
 
 
 		handle_collision_with_RigidBodies()
-		
 	elif current_state == state.sliding:
 		sliding_state_process(delta)
 		return
@@ -219,6 +222,7 @@ func wall_jump_left_state_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_velocity
 		velocity.x = -100
+		$sfx/jump.play()
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = move_toward(velocity.x, SPEED * -1, ACCELERATION * delta)
 	reset_sprite_scale()
@@ -231,6 +235,7 @@ func wall_jump_right_state_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_velocity
 		velocity.x = 100
+		$sfx/jump.play()
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = move_toward(velocity.x, SPEED * 1, ACCELERATION * delta)
 	reset_sprite_scale()
@@ -364,20 +369,37 @@ func handle_jump():
 	if current_state == state.climb:
 		if Input.is_action_pressed("ui_accept"):
 			velocity.y = jump_velocity
+			if $sfx/climb.playing == false:
+				$sfx/climb.play()
 			return
+		elif $sfx/climb.playing == true:
+			$sfx/climb.stop()
+	if current_state != state.climb:
+		$sfx/climb.stop()
 	if is_on_floor() or (coyote_timer > 0 and not velocity.y < 0):
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = jump_velocity
+			play_jump_sfx()
 
+# Kill the player and restart the level
+# I think we need the origin the object that killed the player
+# But might be too hard to implement now
 func die():
+	if current_state == state.dying:	# We are already dying damn it!
+		return
 	# print("play death glitch animation")
 	# var random_scale = (randf() + 1)
 	var random_scale = 1
 	velocity.x = -velocity.x * random_scale
 	velocity.y = -velocity.y * random_scale
 	velocity = velocity.normalized() * 175
-	# velocity = Vector2.UP * 175
+	if velocity == Vector2.ZERO:
+		velocity = Vector2.UP * 175
 	current_state = state.dying
+	$sfx/death.play()
+	$Control.visible = true # This is what makes the glitch effect!
+							# Might need to change the Shake Rate
+	$death_particles.emitting = true
 	
 func do_a_flip():
 	var tween = self.get_tree().create_tween()
@@ -397,7 +419,6 @@ func _on_timer_timeout():
 	#elif particles.emitting == true:
 	#	particles.emitting = false
 	timer.stop()
-	
 
 
 
@@ -428,3 +449,6 @@ func change_stomp_sfx_random():
 
 func _on_enemy_stomped_finished():
 	change_stomp_sfx_random()
+
+func play_jump_sfx():
+	$'sfx/jump'.play()

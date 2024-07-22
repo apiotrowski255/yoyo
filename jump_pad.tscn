@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://2y87tlmp11qn"]
+[gd_scene load_steps=9 format=3 uid="uid://2y87tlmp11qn"]
 
 [ext_resource type="Script" path="res://jump_pad.gd" id="1_0rbo0"]
 [ext_resource type="Texture2D" uid="uid://b8ejpfviodoe4" path="res://jump_pad.png" id="2_ibsbf"]
+[ext_resource type="AudioStream" uid="uid://b8w8ikmhfw8vv" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump1.wav" id="3_fhu2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd2tv"]
 size = Vector2(16, 8)
@@ -83,6 +84,10 @@ scale_amount_min = 1.5
 scale_amount_max = 2.5
 color = Color(1, 0.772549, 0.0980392, 1)
 color_ramp = SubResource("Gradient_6g5ce")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fhu2k")
+max_distance = 500.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://1a4ia3od5738"]
+
+[ext_resource type="Texture2D" uid="uid://dxlrc70v6ec6d" path="res://sprites/tree/48x48 trees.png" id="1_6rvr1"]
+[ext_resource type="Shader" path="res://environment/tree_48x_48.gdshader" id="1_m3djq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrrrv"]
+shader = ExtResource("1_m3djq")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlg1l"]
+atlas = ExtResource("1_6rvr1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xou1"]
+atlas = ExtResource("1_6rvr1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me3b5"]
+atlas = ExtResource("1_6rvr1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gda5x"]
+atlas = ExtResource("1_6rvr1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c48yk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlg1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xou1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me3b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gda5x")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="tree_48x48" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_xrrrv")
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_c48yk")

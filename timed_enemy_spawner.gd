@@ -13,6 +13,8 @@ var exiting = false
 
 signal timed_enemy_spawned
 
+@export var play_spawn_sfx : bool = true
+
 func _ready():
 	timer = $Timer
 	if first_wait_timer != 0:
@@ -44,6 +46,8 @@ func _on_timer_timeout():
 	self.add_child(enemy)
 	timer.start(repeat_time)
 	emit_signal("timed_enemy_spawned")
+	if play_spawn_sfx == true:
+		$AudioStreamPlayer2D.play()
 
 func get_number_of_enemies():
 	# minus one because we have a Timer child node. 

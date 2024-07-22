@@ -9,3 +9,7 @@ func _ready():
 	pass
 
 
+func scene_changed(new_scene: PackedScene):
+	# reset variable that is used to hold which checkpoints the player has touched
+	print(new_scene.resource_path)
+	test = 0

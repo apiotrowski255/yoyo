@@ -15,7 +15,9 @@ func _on_body_entered(body):
 		if door != null:
 			door.set_deferred("disabled", true)
 		sprite2d.texture = load("res://button_pressed.png")
+		$sfx/button_on.play()
 	# print(number_of_objects)
+		
 
 
 func _on_body_exited(body):
@@ -26,4 +28,5 @@ func _on_body_exited(body):
 			if door != null:
 				door.set_deferred("disabled", false)
 			sprite2d.texture = load("res://button_open.png")
+			$sfx/button_off.play()
 

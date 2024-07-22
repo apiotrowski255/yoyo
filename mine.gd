@@ -3,8 +3,8 @@ extends Area2D
 var timer : Timer
 var sprite : Sprite2D
 
-var texture_1 = load("res://sprites/timed_enemy1.png")
-var texture_2 = load("res://sprites/timed_enemy2.png")
+var texture_1 = load("res://sprites/timed_enemy_1_1.png")
+var texture_2 = load("res://sprites/timed_enemy_1_2.png")
 
 var change_texture_time : float
 
@@ -18,7 +18,7 @@ func _ready():
 
 func _on_timer_timeout():
 	if sprite.texture == texture_1:
-		sprite.texture = load("res://sprites/timed_enemy2.png")
+		sprite.texture = load("res://sprites/timed_enemy_1_2.png")
 	else:
-		sprite.texture = load("res://sprites/timed_enemy1.png")
+		sprite.texture = load("res://sprites/timed_enemy_1_1.png")
 	timer.start(change_texture_time)
