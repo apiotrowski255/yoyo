@@ -4,7 +4,7 @@ var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("test variable is: " + str(GlobalVariables.test))
+	# print("test variable is: " + str(GlobalVariables.test))
 	'''
 	if GlobalVariables.test == 0:
 		$Player.position = Vector2(-656, -96)

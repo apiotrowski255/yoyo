@@ -42,22 +42,25 @@ func _on_area_2d_body_entered(body):
 		print("collided with player - but player is in shell state")
 	elif body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
 		# need to dynamically get the level the player is on
-		get_node("/root/scene_01")._on_death_body_entered(body)
+		# the number 2 might need to change depending on how many global
+		# scripts there are.
+		get_node("/root").get_child(2)._on_death_body_entered(body)
 		print("most likely the player - gotta kill the player")
 
 
 func _on_stomp_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
 		
-		print("enemy die animation")
+		# print("enemy die animation")
 		# Or we can do a particle effect for when an enemy dies? 
 		var death_particles_scene = preload("res://particle_effects/enemy_die_particle_effect.tscn")
 		var death_particles = death_particles_scene.instantiate()
 		death_particles.global_position = self.global_position
 		death_particles.emitting = true
-		print(death_particles.position)
+		# print(death_particles.position)
 		# print(get_node("/root/scene_01")) # This will need to change depending on the scene number - TODO for later.
-		get_node("/root/scene_01").add_child(death_particles)
+		get_node("/root/").get_child(2).add_child(death_particles)
+		# get_node("/root/scene_01").add_child(death_particles)
 		if body.current_state != body.state.shell:
 			body.velocity.y = -250
 		# self.queue_free()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmlh7gi841i8"]
+
+[ext_resource type="Script" path="res://simple_enemy_once_spawner.gd" id="1_m1t6p"]
+
+[node name="simple_enemy_once_spawner" type="Node2D"]
+script = ExtResource("1_m1t6p")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

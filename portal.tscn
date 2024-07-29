@@ -1,11 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://cad33gervuno6"]
+[gd_scene load_steps=29 format=3 uid="uid://cad33gervuno6"]
 
 [ext_resource type="Script" path="res://portal.gd" id="1_25mo3"]
 [ext_resource type="Texture2D" uid="uid://fa5hjpl8ioxj" path="res://sprites/portal/Green Portal Sprite Sheet.png" id="2_r2vxc"]
 [ext_resource type="AudioStream" uid="uid://dn7vpo7xyyaro" path="res://sounds/sfx/energy-hum-29083.mp3" id="3_5l745"]
+[ext_resource type="AudioStream" uid="uid://cj7a2ynox7m5r" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Portals and Transitions/sfx_movement_portal1.wav" id="4_s3cn0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kje70"]
-radius = 8.0
+radius = 7.0
 height = 36.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjpfo"]
@@ -184,7 +185,7 @@ animations = [{
 script = ExtResource("1_25mo3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_kje70")
 
 [node name="Timer" type="Timer" parent="."]
@@ -192,12 +193,17 @@ shape = SubResource("CapsuleShape2D_kje70")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_d55y2")
-animation = &"appear"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="idle" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5l745")
+volume_db = -5.0
 autoplay = true
+max_distance = 300.0
+
+[node name="teleporting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_s3cn0")
 max_distance = 300.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -16,7 +16,10 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.name == "Player":
 		body.current_state = body.state.teleporting
-		$Timer.start()
+		body.velocity = Vector2.UP * 10
+		body.fade_to_clear()
+		$Timer.start(2)
+		$teleporting.play()
 	pass # Replace with function body.
 
 

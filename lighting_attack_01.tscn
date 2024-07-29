@@ -1,0 +1,118 @@
+[gd_scene load_steps=18 format=3 uid="uid://cmvc26ygr7c4v"]
+
+[ext_resource type="Script" path="res://lighting_attack_01.gd" id="1_l6okp"]
+[ext_resource type="Texture2D" uid="uid://dkaj8keho6lk7" path="res://sprites/Thunder Effect 02/Thunder Strike/Thunderstrike w blur.png" id="1_rnctn"]
+[ext_resource type="PackedScene" uid="uid://g73d0lvrh5ub" path="res://warning_sign.tscn" id="2_gomka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7e38"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk8ot"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfu6"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulf8x"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqnyx"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6pqk"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y7tb"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8nif"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mglrq"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw2ai"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqueg"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32a3f"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf8km"]
+atlas = ExtResource("1_rnctn")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0olv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7e38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk8ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulf8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqnyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6pqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y7tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8nif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mglrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw2ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqueg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32a3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf8km")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="lighting_attack_01" type="Node2D"]
+script = ExtResource("1_l6okp")
+
+[node name="lighting" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_r0olv")
+frame = 12
+frame_progress = 1.0
+
+[node name="warning" parent="." instance=ExtResource("2_gomka")]
+position = Vector2(0, -12)
+frame = 0
+frame_progress = 0.366997

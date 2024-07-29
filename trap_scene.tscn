@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://qv8gy88ne45p"]
+
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_ajf2m"]
+[ext_resource type="Script" path="res://trap_scene.gd" id="1_f47f7"]
+[ext_resource type="Texture2D" uid="uid://cqlt7fqtonfv0" path="res://cage.png" id="2_hmnbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m56bi"]
+size = Vector2(480, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgn33"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_htx13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(352, 144)]
+}
+
+[sub_resource type="Animation" id="Animation_kr2oq"]
+resource_name = "trap"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(352, 144), Vector2(356, 144), Vector2(348, 144), Vector2(352, 140), Vector2(352, 144), Vector2(352, 144), Vector2(352, 148), Vector2(352, 160), Vector2(352, 224)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_state_to_cutscene"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [Vector2(0, -128)],
+"method": &"set_camera_position"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"set_camera_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ysyc"]
+_data = {
+"RESET": SubResource("Animation_htx13"),
+"trap": SubResource("Animation_kr2oq")
+}
+
+[node name="trap_scene" type="Node2D"]
+script = ExtResource("1_f47f7")
+
+[node name="environment" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment"]
+position = Vector2(240, 264)
+shape = SubResource("RectangleShape2D_m56bi")
+
+[node name="detector" type="Area2D" parent="."]
+position = Vector2(352, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("CircleShape2D_mgn33")
+
+[node name="Player" parent="." instance=ExtResource("1_ajf2m")]
+position = Vector2(44, 212)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ysyc")
+}
+
+[node name="Cage" type="Sprite2D" parent="."]
+position = Vector2(352, 144)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("2_hmnbv")
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]

@@ -89,7 +89,8 @@ func _physics_process(delta):
 		return
 	elif current_state == state.teleporting:
 		# Maybe like a slow glide up?
-		print("TODO - teleporting")
+		# print("TODO - teleporting")
+		move_and_slide()
 		return
 	elif current_state == state.in_air:
 		if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0 and velocity.y > 0:
@@ -452,3 +453,14 @@ func _on_enemy_stomped_finished():
 
 func play_jump_sfx():
 	$'sfx/jump'.play()
+
+# fade to clear
+# Used when the player touches a teleporter
+func fade_to_clear():
+	var tween = create_tween()
+	tween.tween_property(zozosprite, "self_modulate", Color(1.0, 1.0, 1.0, 0.0), 2.0)
+
+
+func set_camera_position(new_position : Vector2):
+	camera.position = new_position
+

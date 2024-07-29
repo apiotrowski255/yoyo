@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=120 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="14_tmyis"]
 [ext_resource type="PackedScene" uid="uid://codmxlkvok14y" path="res://toggle_death_area.tscn" id="15_nm5kt"]
 [ext_resource type="PackedScene" uid="uid://bjglh6xyt6v3u" path="res://seesaw_platform.tscn" id="16_rvold"]
-[ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="21_lc8q2"]
 [ext_resource type="PackedScene" uid="uid://bp3pmwluccqnp" path="res://enemies/meta/electric_ball_pathed.tscn" id="22_ohtj5"]
 [ext_resource type="Shader" path="res://enemies/meta/electric_ball.gdshader" id="23_g6o6l"]
 [ext_resource type="AudioStream" uid="uid://djqaf0siduplw" path="res://sounds/sfx/charge.wav" id="24_sa2vn"]
@@ -3049,9 +3048,6 @@ position = Vector2(80, 228)
 shape = SubResource("RectangleShape2D_e7m7k")
 debug_color = Color(0, 1, 0, 0.101961)
 
-[node name="mountainParallaxBackground" parent="." instance=ExtResource("21_lc8q2")]
-visible = false
-
 [node name="SpaceParallaxBackground" parent="." instance=ExtResource("26_qcnjs")]
 visible = false
 
@@ -3364,6 +3360,10 @@ shape = SubResource("RectangleShape2D_wr2le")
 
 [node name="bird6" parent="birds" instance=ExtResource("35_dx1bh")]
 position = Vector2(-4232, -170)
+fly_direction = Vector2(1, -1)
+
+[node name="bird12" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-4304, -58)
 fly_direction = Vector2(1, -1)
 
 [node name="bird7" parent="birds" instance=ExtResource("35_dx1bh")]

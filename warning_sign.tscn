@@ -45,6 +45,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="warning" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_f4lby")
 autoplay = "default"
+frame = 1
+frame_progress = 0.0661213

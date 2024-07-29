@@ -31,7 +31,7 @@ func _on_timer_timeout():
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
 		# Again shit code
-		get_node("/root/scene_01")._on_death_body_entered(body)
-		#print("kill player")
-		pass
-	pass # Replace with function body.
+		# get_node("/root/scene_01")._on_death_body_entered(body)
+		# print("kill player")
+		get_node("/root/").get_child(2)._on_death_body_entered(body)
+		

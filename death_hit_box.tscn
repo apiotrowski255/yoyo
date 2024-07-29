@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://chhqcrmrb3k1n"]
+[gd_scene load_steps=3 format=3 uid="uid://chhqcrmrb3k1n"]
+
+[ext_resource type="Script" path="res://death_hit_box.gd" id="1_qsjrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5i4y"]
 size = Vector2(16, 16)
 
 [node name="death_hit_box" type="Area2D"]
+script = ExtResource("1_qsjrg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u5i4y")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
