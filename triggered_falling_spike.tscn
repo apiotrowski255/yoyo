@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkavimy0fbwa8"]
+
+[ext_resource type="Script" path="res://triggered_falling_spike.gd" id="1_8b2b8"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="1_oaj3p"]
+[ext_resource type="Texture2D" uid="uid://cp6l521m4xlit" path="res://sprites/timed_enemy.png" id="3_arohw"]
+[ext_resource type="AudioStream" uid="uid://qxqj1sk8x26j" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/sfx_exp_shortest_soft1.wav" id="4_amon0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xapf1"]
+size = Vector2(8, 96)
+
+[node name="triggered_falling_spike" type="Node2D"]
+script = ExtResource("1_8b2b8")
+
+[node name="trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_xapf1")
+
+[node name="death_hit_box" parent="." instance=ExtResource("1_oaj3p")]
+position = Vector2(0, -96)
+
+[node name="Sprite2D" type="Sprite2D" parent="death_hit_box"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_arohw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="death_hit_box"]
+position = Vector2(0, 80)
+stream = ExtResource("4_amon0")
+max_distance = 300.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -96)
+amount = 12
+lifetime = 10.0
+explosiveness = 0.25
+randomness = 0.49
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+gravity = Vector2(0, 2)
+
+[connection signal="body_entered" from="trigger" to="." method="_on_trigger_body_entered"]

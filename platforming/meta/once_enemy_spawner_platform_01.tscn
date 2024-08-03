@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bah42xh84su41"]
+
+[ext_resource type="PackedScene" uid="uid://cmlh7gi841i8" path="res://simple_enemy_once_spawner.tscn" id="1_lttob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xx07"]
+size = Vector2(16, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtdr6"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyk0p"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj75q"]
+size = Vector2(64, 4)
+
+[node name="once_enemy_spawner_platform_01" type="Node2D"]
+position = Vector2(168, 8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_0xx07")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(16, 56)
+shape = SubResource("RectangleShape2D_dtdr6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-72, 80)
+shape = SubResource("RectangleShape2D_jyk0p")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-40, -6)
+shape = SubResource("RectangleShape2D_sj75q")
+one_way_collision = true
+
+[node name="simple_enemy_once_spawner" parent="." instance=ExtResource("1_lttob")]
+position = Vector2(0, 72)

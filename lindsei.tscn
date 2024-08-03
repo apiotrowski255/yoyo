@@ -266,8 +266,9 @@ script = ExtResource("1_647ex")
 position = Vector2(0, -36)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_n0yur")
-frame = 8
-frame_progress = 0.176937
+animation = &"catch"
+frame = 20
+frame_progress = 1.0
 
 [node name="lindsei_sprite_hand" type="AnimatedSprite2D" parent="."]
 z_index = 1

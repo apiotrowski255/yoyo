@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=121 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="50_ybnei"]
 [ext_resource type="PackedScene" uid="uid://cgog887ogrwi3" path="res://platforming/meta/pressure_button_platform_01.tscn" id="51_u7at7"]
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="52_ehomu"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="53_1yerg"]
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="53_egukd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
@@ -2786,7 +2787,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(6868, -56)
+position = Vector2(2980, 64)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
@@ -3738,6 +3739,21 @@ position = Vector2(6820, -120)
 [node name="Portal" parent="." instance=ExtResource("52_ehomu")]
 position = Vector2(7232, -20)
 new_scene = ExtResource("53_egukd")
+
+[node name="triggered_falling_spike" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(6952, -8)
+
+[node name="triggered_falling_spike2" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(6968, -8)
+
+[node name="triggered_falling_spike3" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(6984, -8)
+
+[node name="triggered_falling_spike4" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(7000, -8)
+
+[node name="triggered_falling_spike5" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(6936, -8)
 
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]

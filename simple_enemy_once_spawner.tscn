@@ -1,11 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmlh7gi841i8"]
+[gd_scene load_steps=3 format=3 uid="uid://cmlh7gi841i8"]
 
 [ext_resource type="Script" path="res://simple_enemy_once_spawner.gd" id="1_m1t6p"]
+[ext_resource type="Texture2D" uid="uid://c0cer84ulatlr" path="res://red_block.png" id="2_5ehwi"]
 
 [node name="simple_enemy_once_spawner" type="Node2D"]
 script = ExtResource("1_m1t6p")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5ehwi")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 23.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Spawner"
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
