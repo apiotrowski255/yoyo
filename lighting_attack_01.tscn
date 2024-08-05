@@ -1,8 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmvc26ygr7c4v"]
+[gd_scene load_steps=31 format=3 uid="uid://cmvc26ygr7c4v"]
 
 [ext_resource type="Script" path="res://lighting_attack_01.gd" id="1_l6okp"]
 [ext_resource type="Texture2D" uid="uid://dkaj8keho6lk7" path="res://sprites/Thunder Effect 02/Thunder Strike/Thunderstrike w blur.png" id="1_rnctn"]
-[ext_resource type="PackedScene" uid="uid://g73d0lvrh5ub" path="res://warning_sign.tscn" id="2_gomka"]
+[ext_resource type="Texture2D" uid="uid://dlxmn77dj0jcn" path="res://sprites/warning_sign/WarningSign01.png" id="3_ky3sl"]
+[ext_resource type="Texture2D" uid="uid://bkfjk4b47vqdg" path="res://sprites/warning_sign/WarningSign02.png" id="4_763cg"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="4_wf4rb"]
+[ext_resource type="Texture2D" uid="uid://f6q0pkwt5o7q" path="res://sprites/warning_sign/WarningSign03.png" id="5_qdaky"]
+[ext_resource type="AudioStream" uid="uid://d4c410frmx7fe" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Alarms/Low health Alarms/sfx_lowhealth_alarmloop4.wav" id="5_wxoba"]
+[ext_resource type="Texture2D" uid="uid://dwklpo26o8yhm" path="res://sprites/warning_sign/WarningSign04.png" id="6_8j00p"]
+[ext_resource type="Texture2D" uid="uid://dbv6p4c0ao7fa" path="res://sprites/warning_sign/WarningSign05.png" id="7_u5j8u"]
+[ext_resource type="Texture2D" uid="uid://bvpjmhfiiuu0p" path="res://sprites/warning_sign/WarningSign06.png" id="8_32tb7"]
+[ext_resource type="Texture2D" uid="uid://ca7liqg60x2m6" path="res://sprites/warning_sign/WarningSign07.png" id="9_mohi5"]
+[ext_resource type="Texture2D" uid="uid://bakpgq43n5bjr" path="res://sprites/warning_sign/WarningSign08.png" id="10_vs5pv"]
+[ext_resource type="Texture2D" uid="uid://d0cln8raa1qhj" path="res://sprites/warning_sign/WarningSign09.png" id="11_gji2p"]
+[ext_resource type="AudioStream" uid="uid://jh4g0o3iogw5" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Short/sfx_exp_short_hard5.wav" id="14_g1ixm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7e38"]
 atlas = ExtResource("1_rnctn")
@@ -60,6 +71,9 @@ region = Rect2(768, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s7e38")
 }, {
 "duration": 1.0,
@@ -92,16 +106,57 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bqueg")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_32a3f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cf8km")
+}, {
+"duration": 4.0,
+"texture": null
 }],
 "loop": false,
 "name": &"default",
 "speed": 24.0
 }]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utrnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ky3sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_763cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qdaky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8j00p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u5j8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_32tb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mohi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vs5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gji2p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5vre"]
+size = Vector2(40, 64)
 
 [node name="lighting_attack_01" type="Node2D"]
 script = ExtResource("1_l6okp")
@@ -109,10 +164,30 @@ script = ExtResource("1_l6okp")
 [node name="lighting" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_r0olv")
-frame = 12
-frame_progress = 1.0
 
-[node name="warning" parent="." instance=ExtResource("2_gomka")]
-position = Vector2(0, -12)
-frame = 0
-frame_progress = 0.366997
+[node name="warning" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_utrnh")
+autoplay = "default"
+offset = Vector2(0, -16)
+
+[node name="death_hit_box" parent="." instance=ExtResource("4_wf4rb")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" parent="death_hit_box" index="0"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_m5vre")
+
+[node name="warning_sound_effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wxoba")
+autoplay = true
+max_distance = 1000.0
+
+[node name="thunder_sound_effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_g1ixm")
+max_distance = 1000.0
+
+[connection signal="animation_finished" from="lighting" to="." method="_on_lighting_animation_finished"]
+[connection signal="frame_changed" from="lighting" to="." method="_on_lighting_frame_changed"]
+[connection signal="animation_finished" from="warning" to="." method="_on_warning_animation_finished"]
+
+[editable path="death_hit_box"]

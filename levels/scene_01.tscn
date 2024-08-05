@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="52_ehomu"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="53_1yerg"]
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="53_egukd"]
+[ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="54_3h8xj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -194,9 +195,6 @@ size = Vector2(224, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_met8a"]
 size = Vector2(48, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qnvp"]
-size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7eob"]
 size = Vector2(160, 16)
@@ -2563,6 +2561,469 @@ position = Vector2(6820, -72)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_nwv15")
 
+[node name="WoodWall111" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6820, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall112" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6820, -40)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall113" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6820, -24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall114" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6820, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall116" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7108, -88)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall117" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7108, -72)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall118" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7108, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall179" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -120)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall180" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -136)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall181" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -152)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall182" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -168)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall183" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -184)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall184" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -200)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall185" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -216)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall186" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -232)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall187" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -248)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall188" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -264)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall189" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -280)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall190" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -296)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall191" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -312)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall192" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -328)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall193" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -344)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall194" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -360)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall195" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -376)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall196" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -392)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall197" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -408)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall198" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -424)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall199" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -440)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall200" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -456)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall201" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -472)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall202" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -488)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall203" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -504)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall204" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -520)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall205" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -536)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall206" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -552)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall207" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -568)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall208" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -584)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall209" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -600)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall210" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -616)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall211" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -632)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall212" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -648)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall213" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -664)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall214" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -680)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall215" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -696)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall216" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -712)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall217" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -728)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall218" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(6996, -744)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall219" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7008, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall220" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7024, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall221" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7040, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall222" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7056, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall223" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7072, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall224" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7088, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall225" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7104, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall226" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7120, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall227" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7136, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall228" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7152, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall229" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7168, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall230" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7184, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall231" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7200, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall232" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7216, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall233" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7232, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall234" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7248, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall235" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7264, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall236" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7276, -116)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall237" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -104)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall238" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -88)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall239" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -72)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall240" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall241" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -40)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall243" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall244" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall245" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7272, 4)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
+[node name="WoodWall242" type="Sprite2D" parent="sprites"]
+z_index = -1
+position = Vector2(7280, -56)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nwv15")
+
 [node name="WoodWall79" type="Sprite2D" parent="sprites"]
 z_index = -1
 position = Vector2(6820, -88)
@@ -2787,15 +3248,10 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(2980, 64)
+position = Vector2(6844, -12)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
-position = Vector2(-32, 256)
-shape = SubResource("RectangleShape2D_0qnvp")
-debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death"]
 position = Vector2(2240, 296)
@@ -2861,6 +3317,10 @@ debug_color = Color(1, 0, 0, 0.419608)
 position = Vector2(6448, -504)
 shape = SubResource("RectangleShape2D_10fbk")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="death"]
+position = Vector2(-32, 256)
+polygon = PackedVector2Array(-8, 8, 8, 8, 0, -6)
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -3403,7 +3863,7 @@ script = SubResource("GDScript_sklib")
 position = Vector2(4976, 232)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("39_bqxc3")]
-position = Vector2(7584, -172)
+position = Vector2(6936, 44)
 
 [node name="vertical_aligned_enemy_spawner" parent="." instance=ExtResource("40_7f6j5")]
 position = Vector2(7184, 68)
@@ -3754,6 +4214,9 @@ position = Vector2(7000, -8)
 
 [node name="triggered_falling_spike5" parent="." instance=ExtResource("53_1yerg")]
 position = Vector2(6936, -8)
+
+[node name="16-bit-spike" parent="." instance=ExtResource("54_3h8xj")]
+position = Vector2(-32, 256)
 
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]

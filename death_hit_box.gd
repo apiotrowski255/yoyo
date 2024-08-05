@@ -10,6 +10,11 @@ func _ready():
 func _process(delta):
 	pass
 
+func disable():
+	$CollisionShape2D.disabled = true
+	
+func enable():
+	$CollisionShape2D.disabled = false
 
 func _on_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:

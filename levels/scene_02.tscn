@@ -109,10 +109,23 @@ layer_0/tile_data = PackedInt32Array(65533, 196608, 1, 131069, 196608, 2, 196605
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_dgrba")
 offset_right = 480.0
 offset_bottom = 272.0
+
+[node name="rain_particles" type="CPUParticles2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(160, 2)
+amount = 256
+emission_shape = 3
+emission_rect_extents = Vector2(200, 1)
+spread = 0.0
+gravity = Vector2(0, 490)
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color = Color(1, 1, 1, 0.454902)
 
 [node name="simple_enemy" parent="." instance=ExtResource("7_mh8as")]
 position = Vector2(440, 180)
@@ -130,6 +143,30 @@ shape = SubResource("RectangleShape2D_cry1r")
 
 [node name="simple_enemy_once_spawner" parent="." instance=ExtResource("9_ks2fc")]
 position = Vector2(376, 224)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_dgrba")
+offset_left = -18.0
+offset_top = -168.0
+offset_right = 462.0
+offset_bottom = 104.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_dgrba")
+offset_left = 476.0
+offset_top = -80.0
+offset_right = 956.0
+offset_bottom = 192.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_dgrba")
+offset_left = 964.0
+offset_top = -112.0
+offset_right = 1444.0
+offset_bottom = 160.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

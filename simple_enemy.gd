@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var speed = 50.0
+@export var speed = 50.0
 var direction = Vector2.LEFT
 
 var rightcast : RayCast2D

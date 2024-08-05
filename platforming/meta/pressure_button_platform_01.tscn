@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgog887ogrwi3"]
+[gd_scene load_steps=10 format=3 uid="uid://cgog887ogrwi3"]
 
 [ext_resource type="PackedScene" uid="uid://drpnixiitdqx8" path="res://button_pressure.tscn" id="2_kpn4g"]
 [ext_resource type="PackedScene" uid="uid://dol4lp5evah8m" path="res://box.tscn" id="3_56qqs"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkb1m"]
 size = Vector2(460, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_23q7s"]
-size = Vector2(4, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptnu2"]
 size = Vector2(284, 8)
@@ -50,14 +47,6 @@ flip_h = true
 [node name="CollisionShape2D131" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(234, 122)
 shape = SubResource("RectangleShape2D_rkb1m")
-
-[node name="CollisionShape2D137" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(42, 118)
-shape = SubResource("RectangleShape2D_23q7s")
-
-[node name="CollisionShape2D138" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(234, 118)
-shape = SubResource("RectangleShape2D_23q7s")
 
 [node name="CollisionShape2D134" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(322, 4)

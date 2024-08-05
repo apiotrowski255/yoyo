@@ -63,10 +63,13 @@ shape = SubResource("RectangleShape2D_xbbsi")
 
 [node name="timed_enemy_spawner" parent="." instance=ExtResource("1_rdsxb")]
 timed_enemy_speed = 256.0
+first_wait_timer = -1.0
 
 [node name="timed_enemy_spawner2" parent="." instance=ExtResource("1_rdsxb")]
 process_mode = 4
+visible = false
 timed_enemy_speed = 128.0
+first_wait_timer = -1.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0)

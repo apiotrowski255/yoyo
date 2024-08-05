@@ -17,7 +17,9 @@ signal timed_enemy_spawned
 
 func _ready():
 	timer = $Timer
-	if first_wait_timer != 0:
+	if first_wait_timer == -1:
+		pass
+	elif first_wait_timer != 0:
 		get_node("wait_timer").start(first_wait_timer)
 	else:
 		_on_timer_timeout()
@@ -34,6 +36,7 @@ func exit():
 	stop_spawning()
 	exiting = true
 
+# spawn bullet
 func _on_timer_timeout():
 	if exiting == true:
 		return
