@@ -61,6 +61,7 @@ color = Color(0, 0.576471, 1, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PathFollow2D"]
 stream = ExtResource("3_lvl3d")
+volume_db = -10.0
 autoplay = true
 max_distance = 200.0
 

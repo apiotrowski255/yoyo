@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvsmfj6tiuey7"]
+[gd_scene load_steps=8 format=3 uid="uid://dvsmfj6tiuey7"]
 
 [ext_resource type="Texture2D" uid="uid://bfm6kw56nevog" path="res://sprites/16-bit-spike-Sheet.png" id="1_m6ccq"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="2_binkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x776b"]
 atlas = ExtResource("1_m6ccq")
@@ -40,3 +41,8 @@ animations = [{
 
 [node name="16-bit-spike" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_18w37")
+offset = Vector2(0, -8)
+
+[node name="death_hit_box" parent="." instance=ExtResource("2_binkv")]
+position = Vector2(0, -6.5)
+scale = Vector2(1, 0.8)

@@ -7,8 +7,8 @@ var lindsei_sprite_hand : AnimatedSprite2D
 func _ready():
 	lindsei_sprite = get_node("lindsei_sprite")
 	lindsei_sprite_hand = get_node("lindsei_sprite_hand")
-	print(lindsei_sprite.frame)
-	print(lindsei_sprite_hand.frame)
+	# print(lindsei_sprite.frame)
+	# print(lindsei_sprite_hand.frame)
 	lindsei_sprite_hand.visible = false
 	# play_pat_animation()
 	# play_catch_animation()

@@ -17,9 +17,11 @@ func _process(delta):
 
 func _on_child_exiting_tree(node):
 	timer.start(3.0)
+	$AnimationPlayer.play("charge")
 
 
 func _on_timer_timeout():
 	simple_enemy = simple_enemy_scene.instantiate()
 	self.add_child(simple_enemy)
 	timer.stop()
+	$spawn_sfx.play()

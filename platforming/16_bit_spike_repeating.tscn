@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc075rbisueiy"]
+
+[ext_resource type="Script" path="res://platforming/16_bit_spike_repeating.gd" id="1_gotfq"]
+[ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="1_j66fm"]
+[ext_resource type="AudioStream" uid="uid://kxthxw8ftop4" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Footsteps/sfx_movement_footsteps1a.wav" id="3_yyhu2"]
+
+[node name="16_bit_spike_repeating" type="Node2D"]
+script = ExtResource("1_gotfq")
+
+[node name="16-bit-spike" parent="." instance=ExtResource("1_j66fm")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yyhu2")
+max_distance = 300.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

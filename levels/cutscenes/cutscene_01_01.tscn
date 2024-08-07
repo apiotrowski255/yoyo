@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6ws2yivs74cv"]
+
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_01_01.gd" id="1_3qfjm"]
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_g1ehg"]
+[ext_resource type="PackedScene" uid="uid://0f5ad8cx84en" path="res://lindsei.tscn" id="2_6x5pw"]
+[ext_resource type="Texture2D" uid="uid://c3fwu86clgsm6" path="res://environment/city/city 1/10.png" id="2_r87xf"]
+[ext_resource type="AudioStream" uid="uid://b8w8ikmhfw8vv" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump1.wav" id="3_jxbpb"]
+[ext_resource type="PackedScene" uid="uid://dsd6si82l3u2g" path="res://tilesets/brick_tilemap.tscn" id="3_quwix"]
+[ext_resource type="Texture2D" uid="uid://bpr1s03neu7h2" path="res://environment/props/table.png" id="4_hjls3"]
+[ext_resource type="PackedScene" uid="uid://6y05lxpfapwl" path="res://tilesets/stringstar_tilemap.tscn" id="4_jjku3"]
+
+[sub_resource type="Animation" id="Animation_3by26"]
+resource_name = "zozo_jump"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZozoJump1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [296.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZozoJump1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [148.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lindsei")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_pat_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7i2t5"]
+_data = {
+"zozo_jump": SubResource("Animation_3by26")
+}
+
+[node name="cutscene_01_01" type="Node2D"]
+script = ExtResource("1_3qfjm")
+
+[node name="10" type="Sprite2D" parent="."]
+position = Vector2(239.111, 136)
+scale = Vector2(0.209877, 0.209877)
+texture = ExtResource("2_r87xf")
+
+[node name="brick_tilemap" parent="." instance=ExtResource("3_quwix")]
+layer_0/tile_data = PackedInt32Array(6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 5, 65536, 1, 4, 65536, 1, 3, 65536, 1, 2, 65536, 1, 1, 65536, 1, 65534, 65536, 1, 65535, 65536, 1, 0, 65536, 1, 65533, 0, 1, 10, 65536, 1, 11, 65536, 1, -65527, 65536, 0, -65526, 65536, 0, -65525, 65536, 0, -65524, 65536, 0, 12, 65536, 1, -65528, 65536, 0, -65529, 65536, 0, -65530, 65536, 0, -65531, 65536, 0, -65532, 65536, 0, -65533, 65536, 0, -65534, 65536, 0, -65535, 65536, 0, -65536, 65536, 0, -1, 65536, 0, -2, 65536, 0, -3, 0, 0, 13, 65536, 1, 14, 65536, 1, -65522, 65536, 0, -65523, 65536, 0, -65521, 131072, 0, 15, 131072, 1, 65551, 131072, 1, 65550, 65536, 1, 65549, 65536, 1, 65548, 393216, 1, 65547, 65536, 2, 65546, 65536, 2, 65545, 65536, 2, 65544, 65536, 2, 65543, 65536, 2, 65542, 65536, 2, 65541, 65536, 2, 65540, 327680, 1, 65539, 393216, 1, 65538, 65536, 2, 65537, 65536, 2, 65536, 65536, 2, 131071, 65536, 2, 131070, 65536, 2, 131069, 0, 2, 131075, 0, 1, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 393219, 0, 1, 458755, 393216, 2, 458756, 327680, 2, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 458764, 393216, 2, 458765, 65536, 1, 458766, 65536, 1, 458767, 131072, 1, 524303, 131072, 2, 524302, 65536, 2, 524301, 65536, 2, 524300, 65536, 2, 524299, 65536, 2, 524298, 65536, 2, 524297, 65536, 2, 524296, 65536, 2, 524295, 65536, 2, 524294, 65536, 2, 458754, 65536, 0, 458753, 65536, 0, 458752, 65536, 0, 524288, 65536, 2, 524289, 65536, 2, 524290, 65536, 2, 524291, 65536, 2, 524292, 65536, 2, 524293, 65536, 2, 131076, 131072, 1, 196612, 131072, 1, 262148, 131072, 1, 327684, 131072, 1, 393220, 131072, 1, 131087, 131072, 1, 196623, 131072, 1, 262159, 131072, 1, 327695, 131072, 1, 393231, 131072, 1, 393230, 65536, 1, 327694, 65536, 1, 262158, 65536, 1, 196622, 65536, 1, 131086, 65536, 1, 131085, 65536, 1, 196621, 65536, 1, 262157, 65536, 1, 327693, 65536, 1, 393229, 65536, 1, 393228, 0, 1, 327692, 0, 1, 262156, 0, 1, 196620, 0, 1, 131084, 0, 1, 524287, 0, 0, 589823, 0, 2)
+
+[node name="stringstar_tilemap" parent="." instance=ExtResource("4_jjku3")]
+layer_0/tile_data = PackedInt32Array(131085, 131072, 3, 196621, 131072, 3, 262157, 131072, 4, 196624, 131072, 3, 262160, 131072, 3, 327696, 131072, 4, 131088, 131072, 3, 65552, 131072, 3, 65549, 131072, 3, 13, 131072, 2, 16, 131072, 2, 20, 131072, 2, 8, 131072, 2, 3, 131072, 2, 65556, 131072, 3, 131092, 131072, 3, 65544, 131072, 3, 65539, 131072, 3, 131075, 131072, 3, 196611, 131072, 4, 131080, 131072, 4, 196628, 131072, 4, 917525, 327680, 6, 917524, 327680, 6, 917523, 327680, 6, 917522, 327680, 6, 917521, 327680, 6, 917520, 327680, 6, 917519, 327680, 6)
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(140, 212)
+scale = Vector2(0.106538, 0.106538)
+texture = ExtResource("4_hjls3")
+
+[node name="Lindsei" parent="." instance=ExtResource("2_6x5pw")]
+position = Vector2(248, 240)
+scale = Vector2(2, 2)
+
+[node name="ZozoJump1" type="Sprite2D" parent="."]
+position = Vector2(296, 148)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_g1ehg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7i2t5")
+}
+autoplay = "zozo_jump"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jxbpb")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
