@@ -11,9 +11,6 @@ func _ready():
 	# timer = $Timer2
 	# timer.start(2.0)
 	direction = start_position.direction_to(end_position)
-	pass # Replace with function body.
-
-
 
 func _physics_process(delta):
 	move_and_collide(direction * speed * delta)

@@ -40,6 +40,7 @@ func tween_finished():
 	sound.global_position = self.global_position
 	sound.autoplay = true
 	sound.max_distance = 400
+	# sound.play()
 	sound.connect("finished", sound.queue_free)
 	get_node("/root/").get_child(2).add_child(sound)
 	

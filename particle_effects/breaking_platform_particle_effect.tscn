@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds2oun5g67n2"]
+
+[ext_resource type="Script" path="res://particle_effects/breaking_platform_particle_effect.gd" id="1_avtj8"]
+
+[sub_resource type="Gradient" id="Gradient_78apt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="breaking_platform_particle_effect" type="CPUParticles2D"]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.75
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+damping_min = 50.0
+damping_max = 70.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.647059, 0.498039, 0.254902, 1)
+color_ramp = SubResource("Gradient_78apt")
+script = ExtResource("1_avtj8")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

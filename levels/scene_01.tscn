@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=135 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cklbo1yxfrwuo" path="res://sprites/wood_wall.png" id="4_nwv15"]
 [ext_resource type="PackedScene" uid="uid://2y87tlmp11qn" path="res://jump_pad.tscn" id="4_s63ym"]
 [ext_resource type="Texture2D" uid="uid://d2ompnqy7e15n" path="res://sprites/triangle.png" id="5_n2jkw"]
-[ext_resource type="PackedScene" uid="uid://bvkggba3q2agp" path="res://break_falls.tscn" id="6_51eha"]
 [ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="6_aw57j"]
 [ext_resource type="PackedScene" uid="uid://msmhrilho24l" path="res://breaking_platforms.tscn" id="8_3o106"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="9_a62ys"]
@@ -55,12 +54,9 @@
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="53_egukd"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="54_3h8xj"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="55_2gvdk"]
-[ext_resource type="Texture2D" uid="uid://cp6l521m4xlit" path="res://sprites/timed_enemy.png" id="55_e10s1"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="56_m8vvo"]
-[ext_resource type="AudioStream" uid="uid://qxqj1sk8x26j" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/sfx_exp_shortest_soft1.wav" id="56_n75vo"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="57_0egau"]
 [ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="57_yqkq2"]
-[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="59_28xxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -364,58 +360,6 @@ func _on_area_2d_body_entered(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3reyc"]
 size = Vector2(16, 16)
 
-[sub_resource type="GDScript" id="GDScript_cau7a"]
-script/source = "extends Node2D
-
-@onready var death_hit_box = $death_hit_box
-@export var time_to_fall: float = 1.0
-var tween
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_trigger_body_entered(body):
-	if body.get_class() == \"CharacterBody2D\" and body.name == \"Player\" and body.current_state != body.state.dying:
-		# print(\"spike falling down!\")
-		
-		
-		if tween == null:
-			$death_hit_box/Sprite2D.texture = load(\"res://sprites/timed_enemy2.png\")
-			tween = create_tween()
-			tween.tween_property(death_hit_box, \"position\", Vector2(0, 0), time_to_fall).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
-			tween.play()
-			tween.connect(\"finished\", tween_finished)
-			$death_hit_box/AudioStreamPlayer2D.pitch_scale = 2
-			$death_hit_box/AudioStreamPlayer2D.play()
-
-func tween_finished():
-	var death_particles_scene = preload(\"res://particle_effects/enemy_die_particle_effect.tscn\")
-	var death_particles = death_particles_scene.instantiate()
-	death_particles.global_position = self.global_position
-	death_particles.emitting = true
-	get_node(\"/root/\").get_child(2).add_child(death_particles)
-	
-	var sound = AudioStreamPlayer2D.new()
-	sound.name = \"temp_sound\"
-	sound.stream = load(\"res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump9_landing.wav\")
-	sound.global_position = self.global_position
-	sound.autoplay = true
-	sound.max_distance = 400
-	sound.connect(\"finished\", sound.queue_free)
-	get_node(\"/root/\").get_child(2).add_child(sound)
-	
-	self.queue_free()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbvfg"]
-size = Vector2(8, 64)
-
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3mwoo"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uplhw"]
@@ -464,14 +408,14 @@ shader_parameter/noise2 = SubResource("NoiseTexture2D_w7ece")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xxgfd"]
 frequency = 0.03
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2rwh6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s4hef"]
 seamless = true
 noise = SubResource("FastNoiseLite_xxgfd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oh5nm"]
 shader = ExtResource("57_0egau")
 shader_parameter/water_color = Color(0.0962351, 0.186038, 0.344948, 1)
-shader_parameter/wave_noise = SubResource("NoiseTexture2D_2rwh6")
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_s4hef")
 
 [node name="scene_01" type="Node2D"]
 script = ExtResource("1_sqvp0")
@@ -3293,7 +3237,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(640, 272)
+position = Vector2(1688, 240)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
@@ -3373,23 +3317,6 @@ strength = Vector2(0, 2.6)
 
 [node name="jump pad3" parent="." instance=ExtResource("4_s63ym")]
 position = Vector2(4488, 208)
-
-[node name="breaks_falls" type="Node2D" parent="."]
-
-[node name="break_falls" parent="breaks_falls" instance=ExtResource("6_51eha")]
-position = Vector2(-248, 264)
-
-[node name="break_falls3" parent="breaks_falls" instance=ExtResource("6_51eha")]
-position = Vector2(3752, 160)
-
-[node name="break_falls4" parent="breaks_falls" instance=ExtResource("6_51eha")]
-position = Vector2(4760, 480)
-
-[node name="break_falls5" parent="breaks_falls" instance=ExtResource("6_51eha")]
-position = Vector2(-656, 176)
-
-[node name="break_falls6" parent="breaks_falls" instance=ExtResource("6_51eha")]
-position = Vector2(208, 272)
 
 [node name="simple_moving_platform2" parent="." instance=ExtResource("6_aw57j")]
 position = Vector2(2240, 280)
@@ -3740,7 +3667,11 @@ position = Vector2(3936, 1088)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass41" parent="Node2D" instance=ExtResource("31_2wlvw")]
-position = Vector2(3616, 1088)
+position = Vector2(3680, 1088)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass42" parent="Node2D" instance=ExtResource("31_2wlvw")]
+position = Vector2(4000, 1088)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass24" parent="Node2D" instance=ExtResource("31_2wlvw")]
@@ -4087,48 +4018,52 @@ debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
 [node name="platform_up_jump_02" parent="." instance=ExtResource("49_moyry")]
 position = Vector2(6664, -388)
 
-[node name="tree_48x48" parent="." instance=ExtResource("49_sj02g")]
-position = Vector2(2084, 8)
+[node name="trees" type="Node2D" parent="."]
+visible = false
+position = Vector2(6664, -388)
+
+[node name="tree_48x48" parent="trees" instance=ExtResource("49_sj02g")]
+position = Vector2(-4580, 396)
 scale = Vector2(3, 3)
 
-[node name="tree_48x49" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x49" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(592, 202)
+position = Vector2(-6072, 590)
 scale = Vector2(3, 3)
 frame = 2
 
-[node name="tree_48x50" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x50" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(-652, 104)
+position = Vector2(-7316, 492)
 scale = Vector2(3, 3)
 frame = 1
 
-[node name="tree_48x51" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x51" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(-528, 104)
+position = Vector2(-7192, 492)
 scale = Vector2(3, 3)
 frame = 3
 
-[node name="tree_48x52" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x52" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(56, -136)
+position = Vector2(-6608, 252)
 scale = Vector2(3, 3)
 frame = 3
 
-[node name="tree_48x53" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x53" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(2420, 8)
+position = Vector2(-4244, 396)
 scale = Vector2(3, 3)
 frame = 1
 
-[node name="tree_48x54" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x54" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(4840, 412)
+position = Vector2(-1824, 800)
 scale = Vector2(3, 3)
 
-[node name="tree_48x55" parent="." instance=ExtResource("49_sj02g")]
+[node name="tree_48x55" parent="trees" instance=ExtResource("49_sj02g")]
 z_index = -1
-position = Vector2(5696, -136)
+position = Vector2(-968, 252)
 scale = Vector2(3, 3)
 frame = 2
 
@@ -4187,44 +4122,11 @@ position = Vector2(6984, -8)
 [node name="triggered_falling_spike4" parent="." instance=ExtResource("53_1yerg")]
 position = Vector2(7000, -8)
 
-[node name="triggered_falling_spike6" type="Node2D" parent="."]
-position = Vector2(696, 264)
-script = SubResource("GDScript_cau7a")
-
-[node name="trigger" type="Area2D" parent="triggered_falling_spike6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="triggered_falling_spike6/trigger"]
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_kbvfg")
-
-[node name="death_hit_box" parent="triggered_falling_spike6" instance=ExtResource("59_28xxf")]
-position = Vector2(0, -64)
-
-[node name="Sprite2D" type="Sprite2D" parent="triggered_falling_spike6/death_hit_box"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("55_e10s1")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="triggered_falling_spike6/death_hit_box"]
-position = Vector2(0, 80)
-stream = ExtResource("56_n75vo")
-max_distance = 300.0
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="triggered_falling_spike6"]
-position = Vector2(0, -96)
-amount = 12
-lifetime = 10.0
-explosiveness = 0.1
-randomness = 0.49
-local_coords = true
-emission_shape = 3
-emission_rect_extents = Vector2(8, 1)
-direction = Vector2(0, 1)
-spread = 0.0
-gravity = Vector2(0, 2)
-initial_velocity_max = 4.0
-
 [node name="triggered_falling_spike5" parent="." instance=ExtResource("53_1yerg")]
 position = Vector2(6936, -8)
+
+[node name="triggered_falling_spike6" parent="." instance=ExtResource("53_1yerg")]
+position = Vector2(696, 296)
 
 [node name="16-bit-spike" parent="." instance=ExtResource("54_3h8xj")]
 position = Vector2(-32, 264)
@@ -4412,7 +4314,6 @@ texture = ExtResource("33_lne5i")
 [connection signal="body_entered" from="glide_area" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_exited" from="glide_area" to="." method="_on_area_2d_4_body_exited"]
 [connection signal="body_entered" from="checkpoint_areas" to="." method="_on_checkpoint_areas_body_entered"]
-[connection signal="body_entered" from="triggered_falling_spike6/trigger" to="triggered_falling_spike6" method="_on_trigger_body_entered"]
 
 [editable path="birds/bird1"]
 [editable path="birds/bird2"]

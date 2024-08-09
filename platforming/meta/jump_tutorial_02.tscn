@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://bryv25fxnykwg"]
+
+[ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="1_sdhja"]
+[ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="2_as56j"]
+[ext_resource type="Script" path="res://NoDownZone.gd" id="3_d6r7y"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="4_2evot"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xsknr"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2rwh6"]
+seamless = true
+noise = SubResource("FastNoiseLite_xsknr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxmgw"]
+shader = ExtResource("1_sdhja")
+shader_parameter/water_color = Color(0.0962351, 0.186038, 0.344948, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_2rwh6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ry47"]
+size = Vector2(352, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hu16"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00p7t"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k84s"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwjno"]
+size = Vector2(32, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumst"]
+size = Vector2(32, 4)
+
+[node name="jump_tutorial_02" type="Node2D"]
+
+[node name="reflective_water" type="Sprite2D" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_dxmgw")
+position = Vector2(176, 64)
+scale = Vector2(0.625, 0.1875)
+texture = ExtResource("2_as56j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(176, 120)
+shape = SubResource("RectangleShape2D_0ry47")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_6hu16")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(152, 8)
+shape = SubResource("RectangleShape2D_6hu16")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, 8)
+shape = SubResource("RectangleShape2D_6hu16")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 56)
+shape = SubResource("RectangleShape2D_00p7t")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(344, 56)
+shape = SubResource("RectangleShape2D_8k84s")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(32, 2)
+shape = SubResource("RectangleShape2D_kwjno")
+one_way_collision = true
+
+[node name="NoDownZone" type="Area2D" parent="."]
+position = Vector2(32, -2)
+script = ExtResource("3_d6r7y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NoDownZone"]
+shape = SubResource("RectangleShape2D_pumst")
+debug_color = Color(0, 1, 0.415686, 0.419608)
+
+[node name="death_hit_box" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(104, 20)
+
+[node name="death_hit_box2" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(120, 20)
+
+[node name="death_hit_box3" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(184, 20)
+
+[node name="death_hit_box4" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(200, 20)
+
+[node name="death_hit_box5" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(216, 20)
+
+[node name="death_hit_box6" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(280, 20)
+
+[node name="death_hit_box7" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(296, 20)
+
+[node name="death_hit_box8" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(312, 20)
+
+[node name="death_hit_box9" parent="." instance=ExtResource("4_2evot")]
+position = Vector2(328, 20)
+
+[connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
+[connection signal="body_exited" from="NoDownZone" to="NoDownZone" method="_on_body_exited"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://msmhrilho24l"]
 
 [ext_resource type="Script" path="res://breaking_platforms.gd" id="1_1fslx"]
-[ext_resource type="Texture2D" uid="uid://bcnw232hts0ce" path="res://sprites/rotating_side.png" id="2_h0ilu"]
+[ext_resource type="Texture2D" uid="uid://diwyy2jlrpfg3" path="res://sprites/Sprite-0002.png" id="2_br8dr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trke5"]
 size = Vector2(32, 16)
@@ -23,6 +23,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(16, 8)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gcxk0"]
 resource_name = "sprite_shake"
@@ -36,7 +48,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(16, 8), Vector2(15, 7), Vector2(17, 7), Vector2(15, 9), Vector2(16, 6), Vector2(17, 9), Vector2(15, 7), Vector2(14, 10), Vector2(17, 7), Vector2(16, 9), Vector2(16, 8)]
+"values": [Vector2(16, 8), Vector2(15, 8), Vector2(17, 8), Vector2(15, 8), Vector2(16, 8), Vector2(17, 8), Vector2(15, 8), Vector2(14, 8), Vector2(17, 8), Vector2(16, 8), Vector2(16, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.1001, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(-2, 0), Vector2(1, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pv45n"]
@@ -66,8 +90,8 @@ debug_color = Color(0.976471, 0, 0.4, 0.419608)
 
 [node name="RotatingSide" type="Sprite2D" parent="."]
 position = Vector2(16, 8)
-scale = Vector2(0.5, 0.25)
-texture = ExtResource("2_h0ilu")
+scale = Vector2(2, 2)
+texture = ExtResource("2_br8dr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

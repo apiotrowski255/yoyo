@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgyolk7d8wbg1"]
 
 [ext_resource type="Script" path="res://AnimatableBody2D.gd" id="1_mqxjl"]
-[ext_resource type="Texture2D" uid="uid://bcnw232hts0ce" path="res://sprites/rotating_side.png" id="2_8sab7"]
+[ext_resource type="Texture2D" uid="uid://clvhydbswmx0r" path="res://sprites/Sprite-0001.png" id="2_4dbft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb1ut"]
 size = Vector2(96, 16)
@@ -18,7 +18,8 @@ debug_color = Color(0, 0.541176, 0.952941, 0.419608)
 [node name="Timer2" type="Timer" parent="."]
 
 [node name="RotatingSide" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 0.25)
-texture = ExtResource("2_8sab7")
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4dbft")
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
