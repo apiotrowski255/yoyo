@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bp8waip6fdsv8"]
+[gd_scene load_steps=18 format=3 uid="uid://bp8waip6fdsv8"]
 
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="1_t57oa"]
 [ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="2_4o2qf"]
 [ext_resource type="PackedScene" uid="uid://codmxlkvok14y" path="res://toggle_death_area.tscn" id="3_obs0u"]
+[ext_resource type="Texture2D" uid="uid://brepltf7qjbnr" path="res://sprites/Sprite-0003.png" id="4_av1tb"]
 [ext_resource type="Script" path="res://NoDownZone.gd" id="4_dyas1"]
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="5_sedsf"]
 
@@ -154,6 +155,11 @@ rotates = false
 position = Vector2(-6.10352e-05, 4)
 shape = SubResource("RectangleShape2D_81o70")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D5/PathFollow2D/Area2D"]
+position = Vector2(-1.01407e-05, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("4_av1tb")
 
 [node name="_Timer_17749" type="Timer" parent="Path2D5/PathFollow2D"]
 wait_time = 0.2

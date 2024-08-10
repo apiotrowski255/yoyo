@@ -11,7 +11,6 @@ func _ready():
 	$Player.start_camera_smoothing_timer()
 	timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)
-	# print(GlobalVariables.checkpoint_counter)
 	
 	if checkpoints_enabled == false:
 		return

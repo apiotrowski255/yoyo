@@ -25,6 +25,7 @@ func _ready():
 		_on_timer_timeout()
 		timer.start(repeat_time)
 		timer.autostart = true
+	$Sprite2D
 
 func stop_spawning():
 	timer.stop()

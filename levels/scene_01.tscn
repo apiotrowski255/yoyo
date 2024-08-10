@@ -1,9 +1,8 @@
-[gd_scene load_steps=132 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=129 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
 [ext_resource type="PackedScene" uid="uid://dcfcmkbkud2ph" path="res://climb.tscn" id="3_x2o8q"]
-[ext_resource type="Texture2D" uid="uid://b3xlkfcb6d50" path="res://spike_zone.png" id="3_x5o4r"]
 [ext_resource type="Texture2D" uid="uid://cklbo1yxfrwuo" path="res://sprites/wood_wall.png" id="4_nwv15"]
 [ext_resource type="PackedScene" uid="uid://2y87tlmp11qn" path="res://jump_pad.tscn" id="4_s63ym"]
 [ext_resource type="Texture2D" uid="uid://d2ompnqy7e15n" path="res://sprites/triangle.png" id="5_n2jkw"]
@@ -200,12 +199,6 @@ size = Vector2(48, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyyeq"]
 size = Vector2(8, 132)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy2dh"]
-size = Vector2(946, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1ws"]
-size = Vector2(64, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlx2m"]
 size = Vector2(112, 4)
@@ -1590,146 +1583,6 @@ texture = ExtResource("33_lne5i")
 position = Vector2(6808, -308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_lne5i")
-
-[node name="SpikeZone5" type="Sprite2D" parent="sprites"]
-position = Vector2(6984, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone6" type="Sprite2D" parent="sprites"]
-position = Vector2(6968, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone7" type="Sprite2D" parent="sprites"]
-position = Vector2(6952, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone8" type="Sprite2D" parent="sprites"]
-position = Vector2(6936, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone9" type="Sprite2D" parent="sprites"]
-position = Vector2(6880, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone10" type="Sprite2D" parent="sprites"]
-position = Vector2(6864, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone11" type="Sprite2D" parent="sprites"]
-position = Vector2(6848, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone12" type="Sprite2D" parent="sprites"]
-position = Vector2(6832, -120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone13" type="Sprite2D" parent="sprites"]
-position = Vector2(6932, -232)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone14" type="Sprite2D" parent="sprites"]
-position = Vector2(6916, -232)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone15" type="Sprite2D" parent="sprites"]
-position = Vector2(6900, -232)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone16" type="Sprite2D" parent="sprites"]
-position = Vector2(6884, -232)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone17" type="Sprite2D" parent="sprites"]
-position = Vector2(6880, -340)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone18" type="Sprite2D" parent="sprites"]
-position = Vector2(6864, -340)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone19" type="Sprite2D" parent="sprites"]
-position = Vector2(6848, -340)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone20" type="Sprite2D" parent="sprites"]
-position = Vector2(6832, -340)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone21" type="Sprite2D" parent="sprites"]
-position = Vector2(6984, -420)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone22" type="Sprite2D" parent="sprites"]
-position = Vector2(6968, -420)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone23" type="Sprite2D" parent="sprites"]
-position = Vector2(6952, -420)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone24" type="Sprite2D" parent="sprites"]
-position = Vector2(6936, -420)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone25" type="Sprite2D" parent="sprites"]
-position = Vector2(6880, -500)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone26" type="Sprite2D" parent="sprites"]
-position = Vector2(6864, -500)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone27" type="Sprite2D" parent="sprites"]
-position = Vector2(6848, -500)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone28" type="Sprite2D" parent="sprites"]
-position = Vector2(6832, -500)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone29" type="Sprite2D" parent="sprites"]
-position = Vector2(6984, -580)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone30" type="Sprite2D" parent="sprites"]
-position = Vector2(6968, -580)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone31" type="Sprite2D" parent="sprites"]
-position = Vector2(6952, -580)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
-
-[node name="SpikeZone32" type="Sprite2D" parent="sprites"]
-position = Vector2(6936, -580)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_x5o4r")
 
 [node name="WoodWall" type="Sprite2D" parent="sprites"]
 position = Vector2(5812, -72)
@@ -3231,55 +3084,8 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(2072, 220)
+position = Vector2(6008, -88)
 coyote_time = 0.2
-
-[node name="death" type="Area2D" parent="."]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="death"]
-position = Vector2(3060, 272)
-shape = SubResource("RectangleShape2D_cy2dh")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="death"]
-position = Vector2(4264, 272)
-shape = SubResource("RectangleShape2D_cy2dh")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="death"]
-position = Vector2(6960, -576)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="death"]
-position = Vector2(6856, -496)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="death"]
-position = Vector2(6960, -416)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="death"]
-position = Vector2(6856, -336)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="death"]
-position = Vector2(6908, -228)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="death"]
-position = Vector2(6960, -116)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="death"]
-position = Vector2(6856, -116)
-shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -3292,7 +3098,7 @@ position = Vector2(96, 264)
 position = Vector2(6152, -384)
 
 [node name="jump pad" parent="." instance=ExtResource("4_s63ym")]
-position = Vector2(-24, 8)
+position = Vector2(-80, 8)
 strength = Vector2(0, 1.5)
 
 [node name="jump pad2" parent="." instance=ExtResource("4_s63ym")]
@@ -3470,7 +3276,7 @@ position = Vector2(-212, -82)
 position = Vector2(208, -72)
 
 [node name="down_arrow2" parent="." instance=ExtResource("27_mke6a")]
-position = Vector2(-56, -28)
+position = Vector2(-80, -32)
 rotation = 3.14159
 
 [node name="bush_tileset" parent="." instance=ExtResource("28_wwop8")]
@@ -3662,6 +3468,10 @@ scale = Vector2(4, 4)
 position = Vector2(5024, 1088)
 scale = Vector2(4, 4)
 
+[node name="interactive_grass43" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
+position = Vector2(5280, 1088)
+scale = Vector2(4, 4)
+
 [node name="vine" parent="." instance=ExtResource("32_e24so")]
 position = Vector2(5776, -244)
 
@@ -3732,14 +3542,13 @@ color = Color(0.243261, 0.594033, 0.769974, 1)
 [node name="birds" type="Node2D" parent="."]
 position = Vector2(4976, 232)
 
-[node name="bird1" parent="birds" instance=ExtResource("35_dx1bh")]
-position = Vector2(-1416, -266)
+[node name="bird10" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-5368, -122)
+fly_direction = Vector2(1, -1)
 
-[node name="Area2D" parent="birds/bird1" index="2"]
-position = Vector2(-80, 46)
-
-[node name="CollisionShape2D" parent="birds/bird1/Area2D" index="0"]
-position = Vector2(24, -10)
+[node name="bird12" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-4304, -58)
+fly_direction = Vector2(1, -1)
 
 [node name="bird2" parent="birds" instance=ExtResource("35_dx1bh")]
 position = Vector2(-2968, 38)
@@ -3777,12 +3586,27 @@ position = Vector2(-80, 46)
 position = Vector2(-28, -52)
 shape = SubResource("RectangleShape2D_wr2le")
 
+[node name="bird1" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(-1416, -266)
+
+[node name="Area2D" parent="birds/bird1" index="2"]
+position = Vector2(-80, 46)
+
+[node name="CollisionShape2D" parent="birds/bird1/Area2D" index="0"]
+position = Vector2(24, -10)
+
+[node name="bird4" parent="birds" instance=ExtResource("35_dx1bh")]
+position = Vector2(696, -378)
+
+[node name="Area2D" parent="birds/bird4" index="2"]
+position = Vector2(-80, 46)
+
+[node name="CollisionShape2D" parent="birds/bird4/Area2D" index="0"]
+position = Vector2(96, -32)
+shape = SubResource("RectangleShape2D_irda2")
+
 [node name="bird6" parent="birds" instance=ExtResource("35_dx1bh")]
 position = Vector2(-4232, -170)
-fly_direction = Vector2(1, -1)
-
-[node name="bird12" parent="birds" instance=ExtResource("35_dx1bh")]
-position = Vector2(-4304, -58)
 fly_direction = Vector2(1, -1)
 
 [node name="bird7" parent="birds" instance=ExtResource("35_dx1bh")]
@@ -3798,20 +3622,6 @@ idle_sound_effect = false
 position = Vector2(-5292, -410)
 scale = Vector2(-1, 1)
 fly_direction = Vector2(1, -1)
-
-[node name="bird10" parent="birds" instance=ExtResource("35_dx1bh")]
-position = Vector2(-5368, -122)
-fly_direction = Vector2(1, -1)
-
-[node name="bird4" parent="birds" instance=ExtResource("35_dx1bh")]
-position = Vector2(696, -378)
-
-[node name="Area2D" parent="birds/bird4" index="2"]
-position = Vector2(-80, 46)
-
-[node name="CollisionShape2D" parent="birds/bird4/Area2D" index="0"]
-position = Vector2(96, -32)
-shape = SubResource("RectangleShape2D_irda2")
 
 [node name="bird5" parent="birds" instance=ExtResource("35_dx1bh")]
 position = Vector2(-2968, -282)
@@ -3863,6 +3673,20 @@ texture = ExtResource("43_oslh0")
 [node name="SmallPlatform2" type="Sprite2D" parent="."]
 position = Vector2(-72, 140)
 scale = Vector2(8.5, 0.5)
+texture = ExtResource("43_oslh0")
+
+[node name="SmallPlatform6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-236, 72)
+rotation = 0.710051
+scale = Vector2(6.44079, 0.5)
+texture = ExtResource("43_oslh0")
+
+[node name="SmallPlatform7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-272, 76)
+rotation = 0.698132
+scale = Vector2(6.2737, 0.5)
 texture = ExtResource("43_oslh0")
 
 [node name="SmallPlatform3" type="Sprite2D" parent="."]
@@ -4018,6 +3842,7 @@ position = Vector2(696, 296)
 position = Vector2(-32, 264)
 
 [node name="water_shader" type="ColorRect" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 z_index = -1
 material = SubResource("ShaderMaterial_8328a")
@@ -4062,13 +3887,24 @@ Don't touch spikes"
 
 [node name="avoid_spike message2" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = -12.0
-offset_top = -236.0
-offset_right = 105.0
-offset_bottom = -211.0
+offset_left = -56.0
+offset_top = -240.0
+offset_right = 34.0
+offset_bottom = -229.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
-text = "Jump pads increase height jumped"
+text = "Jump pads increase height"
+
+[node name="avoid_spike message3" type="Label" parent="Messages"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = -340.0
+offset_right = 329.0
+offset_bottom = -315.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "Press Down to go through
+One way platforms"
 
 [node name="down_arrow3" parent="." instance=ExtResource("27_mke6a")]
 position = Vector2(64, 214)
@@ -4180,6 +4016,90 @@ position = Vector2(6632, -256)
 
 [node name="16-bit-spike36" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(6648, -256)
+
+[node name="16-bit-spike95" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6832, -112)
+
+[node name="16-bit-spike96" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6848, -112)
+
+[node name="16-bit-spike97" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6864, -112)
+
+[node name="16-bit-spike98" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6880, -112)
+
+[node name="16-bit-spike99" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6936, -112)
+
+[node name="16-bit-spike100" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6952, -112)
+
+[node name="16-bit-spike101" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6968, -112)
+
+[node name="16-bit-spike102" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6984, -112)
+
+[node name="16-bit-spike103" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6888, -224)
+
+[node name="16-bit-spike104" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6904, -224)
+
+[node name="16-bit-spike105" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6920, -224)
+
+[node name="16-bit-spike106" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6936, -224)
+
+[node name="16-bit-spike107" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6832, -332)
+
+[node name="16-bit-spike108" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6848, -332)
+
+[node name="16-bit-spike109" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6864, -332)
+
+[node name="16-bit-spike110" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6880, -332)
+
+[node name="16-bit-spike111" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6936, -412)
+
+[node name="16-bit-spike112" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6952, -412)
+
+[node name="16-bit-spike113" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6968, -412)
+
+[node name="16-bit-spike114" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6984, -412)
+
+[node name="16-bit-spike115" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6832, -492)
+
+[node name="16-bit-spike116" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6848, -492)
+
+[node name="16-bit-spike117" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6864, -492)
+
+[node name="16-bit-spike118" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6880, -492)
+
+[node name="16-bit-spike119" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6936, -572)
+
+[node name="16-bit-spike120" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6952, -572)
+
+[node name="16-bit-spike121" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6968, -572)
+
+[node name="16-bit-spike122" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6984, -572)
 
 [node name="16-bit-spike37" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(6264, -512)
@@ -4386,6 +4306,348 @@ position = Vector2(2296, 304)
 [node name="16-bit-spike11" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(2312, 304)
 
+[node name="16-bit-spike123" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3224, 192)
+
+[node name="16-bit-spike124" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3240, 192)
+
+[node name="16-bit-spike125" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3256, 192)
+
+[node name="16-bit-spike126" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3272, 192)
+
+[node name="16-bit-spike127" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3288, 192)
+
+[node name="16-bit-spike128" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3304, 192)
+
+[node name="16-bit-spike129" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3320, 192)
+
+[node name="16-bit-spike130" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3336, 192)
+
+[node name="16-bit-spike131" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3352, 192)
+
+[node name="16-bit-spike132" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3368, 192)
+
+[node name="16-bit-spike237" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3384, 192)
+
+[node name="16-bit-spike238" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3400, 192)
+
+[node name="16-bit-spike133" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3064, 192)
+
+[node name="16-bit-spike134" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3080, 192)
+
+[node name="16-bit-spike135" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3096, 192)
+
+[node name="16-bit-spike136" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3112, 192)
+
+[node name="16-bit-spike137" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3128, 192)
+
+[node name="16-bit-spike138" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3144, 192)
+
+[node name="16-bit-spike139" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3160, 192)
+
+[node name="16-bit-spike140" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3176, 192)
+
+[node name="16-bit-spike141" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3192, 192)
+
+[node name="16-bit-spike142" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3208, 192)
+
+[node name="16-bit-spike143" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2904, 192)
+
+[node name="16-bit-spike144" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2920, 192)
+
+[node name="16-bit-spike145" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2936, 192)
+
+[node name="16-bit-spike146" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2952, 192)
+
+[node name="16-bit-spike147" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2968, 192)
+
+[node name="16-bit-spike148" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2984, 192)
+
+[node name="16-bit-spike149" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3000, 192)
+
+[node name="16-bit-spike150" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3016, 192)
+
+[node name="16-bit-spike151" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3032, 192)
+
+[node name="16-bit-spike152" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3048, 192)
+
+[node name="16-bit-spike153" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2744, 192)
+
+[node name="16-bit-spike154" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2760, 192)
+
+[node name="16-bit-spike155" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2776, 192)
+
+[node name="16-bit-spike156" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2792, 192)
+
+[node name="16-bit-spike157" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2808, 192)
+
+[node name="16-bit-spike158" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2824, 192)
+
+[node name="16-bit-spike159" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2840, 192)
+
+[node name="16-bit-spike160" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2856, 192)
+
+[node name="16-bit-spike161" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2872, 192)
+
+[node name="16-bit-spike162" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2888, 192)
+
+[node name="16-bit-spike163" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2584, 192)
+
+[node name="16-bit-spike164" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2600, 192)
+
+[node name="16-bit-spike165" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2616, 192)
+
+[node name="16-bit-spike166" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2632, 192)
+
+[node name="16-bit-spike167" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2648, 192)
+
+[node name="16-bit-spike168" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2664, 192)
+
+[node name="16-bit-spike169" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2680, 192)
+
+[node name="16-bit-spike170" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2696, 192)
+
+[node name="16-bit-spike171" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2712, 192)
+
+[node name="16-bit-spike172" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(2728, 192)
+
+[node name="16-bit-spike173" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3848, 256)
+
+[node name="16-bit-spike174" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3864, 256)
+
+[node name="16-bit-spike175" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3880, 256)
+
+[node name="16-bit-spike176" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3896, 256)
+
+[node name="16-bit-spike177" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3912, 256)
+
+[node name="16-bit-spike178" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3928, 256)
+
+[node name="16-bit-spike179" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3944, 256)
+
+[node name="16-bit-spike180" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3960, 256)
+
+[node name="16-bit-spike181" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3976, 256)
+
+[node name="16-bit-spike182" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3992, 256)
+
+[node name="16-bit-spike183" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4008, 256)
+
+[node name="16-bit-spike184" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4024, 256)
+
+[node name="16-bit-spike185" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4040, 256)
+
+[node name="16-bit-spike186" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4056, 256)
+
+[node name="16-bit-spike187" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4072, 256)
+
+[node name="16-bit-spike188" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4088, 256)
+
+[node name="16-bit-spike189" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4104, 256)
+
+[node name="16-bit-spike190" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4120, 256)
+
+[node name="16-bit-spike191" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4136, 256)
+
+[node name="16-bit-spike192" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4152, 256)
+
+[node name="16-bit-spike193" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4168, 256)
+
+[node name="16-bit-spike194" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4184, 256)
+
+[node name="16-bit-spike195" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4200, 256)
+
+[node name="16-bit-spike196" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4216, 256)
+
+[node name="16-bit-spike197" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4232, 256)
+
+[node name="16-bit-spike198" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4248, 256)
+
+[node name="16-bit-spike199" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4264, 256)
+
+[node name="16-bit-spike200" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4280, 256)
+
+[node name="16-bit-spike201" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4296, 256)
+
+[node name="16-bit-spike202" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4312, 256)
+
+[node name="16-bit-spike203" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4328, 256)
+
+[node name="16-bit-spike204" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4344, 256)
+
+[node name="16-bit-spike205" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4360, 256)
+
+[node name="16-bit-spike209" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4600, 256)
+
+[node name="16-bit-spike210" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4616, 256)
+
+[node name="16-bit-spike211" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4632, 256)
+
+[node name="16-bit-spike212" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4648, 256)
+
+[node name="16-bit-spike213" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4664, 256)
+
+[node name="16-bit-spike214" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4680, 256)
+
+[node name="16-bit-spike215" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4696, 256)
+
+[node name="16-bit-spike216" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4712, 256)
+
+[node name="16-bit-spike217" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4472, 256)
+
+[node name="16-bit-spike218" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4488, 256)
+
+[node name="16-bit-spike219" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4504, 256)
+
+[node name="16-bit-spike225" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4424, 256)
+
+[node name="16-bit-spike226" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4440, 256)
+
+[node name="16-bit-spike227" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4456, 256)
+
+[node name="16-bit-spike228" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4376, 256)
+
+[node name="16-bit-spike229" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4392, 256)
+
+[node name="16-bit-spike230" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4408, 256)
+
+[node name="16-bit-spike220" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4520, 256)
+
+[node name="16-bit-spike221" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4536, 256)
+
+[node name="16-bit-spike222" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4552, 256)
+
+[node name="16-bit-spike223" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4568, 256)
+
+[node name="16-bit-spike224" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(4584, 256)
+
+[node name="16-bit-spike206" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3800, 256)
+
+[node name="16-bit-spike207" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3816, 256)
+
+[node name="16-bit-spike208" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3832, 256)
+
+[node name="16-bit-spike231" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3752, 256)
+
+[node name="16-bit-spike232" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3768, 256)
+
+[node name="16-bit-spike233" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3784, 256)
+
+[node name="16-bit-spike236" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(3736, 256)
+
 [node name="OneWayPlatform5" type="Sprite2D" parent="."]
 position = Vector2(6664, -392)
 scale = Vector2(0.5, 0.5)
@@ -4396,7 +4658,6 @@ position = Vector2(6740, -616)
 scale = Vector2(5.25, 0.5)
 texture = ExtResource("43_oslh0")
 
-[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D2" to="." method="_on_path_2d_kill_player"]
@@ -4404,10 +4665,10 @@ texture = ExtResource("43_oslh0")
 [connection signal="body_entered" from="glide_area" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_exited" from="glide_area" to="." method="_on_area_2d_4_body_exited"]
 
-[editable path="birds/bird1"]
 [editable path="birds/bird2"]
 [editable path="birds/bird3"]
 [editable path="birds/bird11"]
+[editable path="birds/bird1"]
 [editable path="birds/bird4"]
 [editable path="enemy_kill_zone2"]
 [editable path="door"]

@@ -5,9 +5,8 @@ var target
 var spawn_location
 var timer : Timer
 @export var enemy_scene: PackedScene
-@export var spawner_move_speed = 1.0
-
-var move_speed = 32.0
+@export var spawner_move_speed = 64.0
+@export var projectile_speed = 256.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,8 +20,26 @@ func _ready():
 func _process(delta):
 	if target == null:
 		return
-	var target_x = target.global_position.x
-	spawn_location.global_position.x = move_toward(spawn_location.global_position.x, target_x,  move_speed * delta)
+	var p1 : Vector2 = target.global_position
+	var p2 : Vector2 = spawn_location.global_position
+	var h : float = p1.distance_to(p2)
+	var angle : float = p2.angle_to_point(p1)
+	var x_modifier : float = h * cos(angle)
+	
+	print("---")
+	print(self.rotation)
+	print(angle)
+	print("---")
+	
+	
+	var target_x = target.position.x
+	
+	
+	
+	
+	# print(target_x)
+	# print(spawn_location.position.x)
+	# spawn_location.global_position.x = move_toward(spawn_location.spawn_location.x, target_x,  spawner_move_speed * delta)
 
 func _on_area_2d_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
@@ -42,6 +59,6 @@ func _on_timer_timeout():
 	enemy.position = spawn_location.position
 	enemy.time_to_die = 6.0
 	enemy.direction = Vector2.DOWN
-	enemy.speed = 32
+	enemy.speed = projectile_speed
 	self.add_child(enemy)
 	$Sprite2D/AudioStreamPlayer2D.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://db75elyqwmday"]
+[gd_scene load_steps=18 format=3 uid="uid://db75elyqwmday"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
 [ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="7_mh8as"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="8_343sh"]
 [ext_resource type="PackedScene" uid="uid://cmlh7gi841i8" path="res://simple_enemy_once_spawner.tscn" id="9_ks2fc"]
+[ext_resource type="PackedScene" uid="uid://cip3ylp004m0l" path="res://danger/horizontal_aligned_enemy_spawner.tscn" id="10_jb82b"]
+[ext_resource type="PackedScene" uid="uid://bwt85esugxmkw" path="res://directed_enemy_spawner.tscn" id="11_m8uvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhone"]
 size = Vector2(16, 256)
@@ -167,6 +169,16 @@ offset_left = 964.0
 offset_top = -112.0
 offset_right = 1444.0
 offset_bottom = 160.0
+
+[node name="horizontal_aligned_enemy_spawner" parent="." instance=ExtResource("10_jb82b")]
+position = Vector2(108, 16)
+rotation = 1.5708
+
+[node name="horizontal_aligned_enemy_spawner3" parent="." instance=ExtResource("10_jb82b")]
+position = Vector2(-116, 160)
+
+[node name="directed_enemy_spawner" parent="." instance=ExtResource("11_m8uvx")]
+position = Vector2(712, 40)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

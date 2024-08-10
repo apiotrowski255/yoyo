@@ -29,9 +29,9 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
-	if body.get_class() == "CharacterBody2D" and body.current_state != body.state.dying:
-		print("Character has been hit by timed enemy")
-		get_node("/root/scene_01")._on_death_body_entered(body)
+	if GlobalVariables.is_player(body):
+		get_node("/root/").get_child(2)._on_death_body_entered(body)
+		# get_node("/root/scene_01")._on_death_body_entered(body)
 
 func _on_sprite_change_timer_timeout():
 	if sprite.texture == texture_1:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckuwxow7aedcn"]
+[gd_scene load_steps=5 format=3 uid="uid://ckuwxow7aedcn"]
 
 [ext_resource type="Script" path="res://timed_enemy_spawner.gd" id="1_niijy"]
 [ext_resource type="PackedScene" uid="uid://d3njvy425o2f1" path="res://timed_enemy.tscn" id="2_ugnnd"]
 [ext_resource type="AudioStream" uid="uid://6k8oxdibkdn6" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon4.wav" id="3_5nmsa"]
+[ext_resource type="Texture2D" uid="uid://dpaknhql1i6vo" path="res://sprites/cannon.png" id="4_3w467"]
 
 [node name="timed_enemy_spawner" type="Node2D"]
 script = ExtResource("1_niijy")
@@ -18,6 +19,10 @@ one_shot = true
 stream = ExtResource("3_5nmsa")
 volume_db = -10.0
 max_distance = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_3w467")
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

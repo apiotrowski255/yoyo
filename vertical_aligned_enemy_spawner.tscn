@@ -24,6 +24,8 @@ texture = ExtResource("2_x1a2u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
 stream = ExtResource("4_mxm6l")
+volume_db = -3.0
+max_distance = 400.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
