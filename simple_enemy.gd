@@ -49,7 +49,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_stomp_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
 		
 		# print("enemy die animation")
 		# Or we can do a particle effect for when an enemy dies? 

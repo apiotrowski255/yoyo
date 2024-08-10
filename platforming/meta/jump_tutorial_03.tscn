@@ -1,0 +1,207 @@
+[gd_scene load_steps=12 format=3 uid="uid://k2dklpkn53sc"]
+
+[ext_resource type="PackedScene" uid="uid://msmhrilho24l" path="res://breaking_platforms.tscn" id="1_rwach"]
+[ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="2_qlnkf"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="3_6i1wh"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="4_i4hwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8fvy"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb2h4"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83poc"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hunm7"]
+size = Vector2(32, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxjvp"]
+size = Vector2(96, 4)
+
+[sub_resource type="GDScript" id="GDScript_7k3xt"]
+script/source = "extends Area2D
+@export var state_to_transfer = 6
+# 7 = wall_jump_right
+# 6 = wall_jump_left
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_body_entered(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = state_to_transfer
+		body.gravity_modifier = body.gravity_modifier / 10
+		body.velocity.x = 0
+		body.velocity.y = 0
+
+
+func _on_body_exited(body):
+	if body.get_class() == \"CharacterBody2D\":
+		body.current_state = body.state.in_air
+		body.gravity_modifier = body.gravity_modifier * 10
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d1as"]
+size = Vector2(4, 76)
+
+[node name="jump_tutorial_03" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 96)
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_d8fvy")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(520, 8)
+shape = SubResource("RectangleShape2D_d8fvy")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_xb2h4")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(600, -56)
+shape = SubResource("RectangleShape2D_83poc")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(32, 2)
+shape = SubResource("RectangleShape2D_hunm7")
+one_way_collision = true
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(544, -94)
+shape = SubResource("RectangleShape2D_fxjvp")
+one_way_collision = true
+
+[node name="breaking_platforms" parent="." instance=ExtResource("1_rwach")]
+position = Vector2(160, 96)
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("2_qlnkf")]
+position = Vector2(288, 104)
+start_position = Vector2(288, 104)
+end_position = Vector2(384, 104)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(590, 42)
+script = SubResource("GDScript_7k3xt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5d1as")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="death_hit_box" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(104, 120)
+
+[node name="death_hit_box2" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(120, 120)
+
+[node name="death_hit_box3" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(136, 120)
+
+[node name="death_hit_box4" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(152, 120)
+
+[node name="death_hit_box5" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(168, 120)
+
+[node name="death_hit_box6" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(184, 120)
+
+[node name="death_hit_box7" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(200, 120)
+
+[node name="death_hit_box8" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(216, 120)
+
+[node name="death_hit_box9" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(232, 120)
+
+[node name="death_hit_box10" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(248, 120)
+
+[node name="death_hit_box11" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(264, 120)
+
+[node name="death_hit_box12" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(280, 120)
+
+[node name="death_hit_box13" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(296, 120)
+
+[node name="death_hit_box14" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(312, 120)
+
+[node name="death_hit_box15" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(328, 120)
+
+[node name="death_hit_box16" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(344, 120)
+
+[node name="death_hit_box17" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(360, 120)
+
+[node name="death_hit_box18" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(376, 120)
+
+[node name="death_hit_box19" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(392, 120)
+
+[node name="death_hit_box20" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(408, 120)
+
+[node name="death_hit_box21" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(424, 120)
+
+[node name="death_hit_box22" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(440, 120)
+
+[node name="death_hit_box23" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(456, 120)
+
+[node name="death_hit_box24" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(472, 120)
+
+[node name="death_hit_box25" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(488, 120)
+
+[node name="death_hit_box26" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(552, 120)
+
+[node name="death_hit_box27" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(568, 120)
+
+[node name="death_hit_box28" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(584, 120)
+
+[node name="death_hit_box29" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(600, 120)
+
+[node name="death_hit_box30" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(600, 104)
+
+[node name="death_hit_box31" parent="." instance=ExtResource("3_6i1wh")]
+position = Vector2(600, 88)
+
+[node name="triggered_falling_spike" parent="." instance=ExtResource("4_i4hwt")]
+position = Vector2(200, 104)
+
+[node name="triggered_falling_spike2" parent="." instance=ExtResource("4_i4hwt")]
+position = Vector2(216, 104)
+
+[node name="triggered_falling_spike3" parent="." instance=ExtResource("4_i4hwt")]
+position = Vector2(232, 104)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

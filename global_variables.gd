@@ -1,7 +1,7 @@
 extends Node
 # I know... I hate this too.
 
-var test = 0
+var checkpoint_counter = 0
 var current_level
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +13,8 @@ func _ready():
 
 func scene_changed(new_scene: PackedScene):
 	# reset variable that is used to hold which checkpoints the player has touched
-	print(new_scene.resource_path)
-	test = 0
+	# print(new_scene.resource_path)
+	checkpoint_counter = 0
 
 # This is some Java shit. 
 func get_current_level():
@@ -23,3 +23,6 @@ func get_current_level():
 	
 func set_current_level():
 	pass
+
+func is_player(body):
+	return body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying

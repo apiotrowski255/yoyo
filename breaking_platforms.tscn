@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://msmhrilho24l"]
 
 [ext_resource type="Script" path="res://breaking_platforms.gd" id="1_1fslx"]
-[ext_resource type="Texture2D" uid="uid://diwyy2jlrpfg3" path="res://sprites/Sprite-0002.png" id="2_br8dr"]
+[ext_resource type="Texture2D" uid="uid://diwyy2jlrpfg3" path="res://sprites/breaking_platform_Sprite-0000.png" id="2_c85lt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trke5"]
 size = Vector2(32, 16)
@@ -91,7 +91,7 @@ debug_color = Color(0.976471, 0, 0.4, 0.419608)
 [node name="RotatingSide" type="Sprite2D" parent="."]
 position = Vector2(16, 8)
 scale = Vector2(2, 2)
-texture = ExtResource("2_br8dr")
+texture = ExtResource("2_c85lt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

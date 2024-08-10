@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=132 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -34,7 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://b7d0aekf16ipe" path="res://bird.tscn" id="35_dx1bh"]
 [ext_resource type="PackedScene" uid="uid://bwt85esugxmkw" path="res://directed_enemy_spawner.tscn" id="39_bqxc3"]
 [ext_resource type="PackedScene" uid="uid://dya7epagu74m5" path="res://vertical_aligned_enemy_spawner.tscn" id="40_7f6j5"]
-[ext_resource type="Texture2D" uid="uid://cq7v8sxlwypla" path="res://sprites/double_spikes.png" id="42_6p1mb"]
 [ext_resource type="Texture2D" uid="uid://fyrcppdw20kr" path="res://sprites/slope_4_4.png" id="42_p8slk"]
 [ext_resource type="Texture2D" uid="uid://ie6cjmyrfakn" path="res://sprites/small_platform.png" id="43_oslh0"]
 [ext_resource type="PackedScene" uid="uid://uivxy33u8rid" path="res://platforming/meta/jump_tutorial.tscn" id="44_2sep5"]
@@ -208,9 +207,6 @@ size = Vector2(946, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hy1ws"]
 size = Vector2(64, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_10fbk"]
-size = Vector2(416, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlx2m"]
 size = Vector2(112, 4)
 
@@ -357,9 +353,6 @@ func _on_area_2d_body_entered(body):
 
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3reyc"]
-size = Vector2(16, 16)
-
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3mwoo"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uplhw"]
@@ -419,6 +412,7 @@ shader_parameter/wave_noise = SubResource("NoiseTexture2D_s4hef")
 
 [node name="scene_01" type="Node2D"]
 script = ExtResource("1_sqvp0")
+checkpoints_enabled = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -3237,7 +3231,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(1688, 240)
+position = Vector2(2072, 220)
 coyote_time = 0.2
 
 [node name="death" type="Area2D" parent="."]
@@ -3249,11 +3243,6 @@ debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="death"]
 position = Vector2(4264, 272)
-shape = SubResource("RectangleShape2D_cy2dh")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="death"]
-position = Vector2(5540, 540)
 shape = SubResource("RectangleShape2D_cy2dh")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -3290,11 +3279,6 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="death"]
 position = Vector2(6856, -116)
 shape = SubResource("RectangleShape2D_hy1ws")
-debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="death"]
-position = Vector2(6448, -504)
-shape = SubResource("RectangleShape2D_10fbk")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
@@ -3495,186 +3479,186 @@ layer_0/tile_data = PackedInt32Array(1114121, 65536, 0, 1114122, 65536, 0, 11141
 
 [node name="walljump_sprite" type="Node2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="interactive_grass_container" type="Node2D" parent="."]
 scale = Vector2(0.25, 0.25)
 
-[node name="interactive_grass" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22560, 1024)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass16" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass16" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22688, 1024)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass2" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass2" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22496, 1024)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass3" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass3" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22432, 1024)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass4" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass4" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22624, 1024)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass5" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass5" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22240, 1664)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass9" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass9" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22048, 1664)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass6" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass6" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22176, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass7" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass7" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22112, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass8" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass8" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(22304, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass10" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass10" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(21920, 1664)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass11" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass11" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(21728, 1664)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass12" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass12" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(21856, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass13" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass13" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(21792, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass14" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass14" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(21984, 1664)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass15" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass15" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8288, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass25" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass25" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8416, 1088)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass26" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass26" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8544, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass17" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass17" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(6560, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass27" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass27" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(6624, 1088)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass28" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass28" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(6688, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass29" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass29" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(6752, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass18" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass18" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(6496, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass19" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass19" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8352, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass30" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass30" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8288, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass36" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass36" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8224, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass31" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass31" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8416, 320)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass32" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass32" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8352, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass33" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass33" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8480, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass34" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass34" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8608, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass35" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass35" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(8544, 320)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass20" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass20" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4960, 1088)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass21" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass21" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4768, 1088)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass22" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass22" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4896, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass23" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass23" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4832, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass37" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass37" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4256, 1088)
 scale = Vector2(4, 4)
 type = 2
 
-[node name="interactive_grass38" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass38" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4384, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass39" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass39" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4320, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass40" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass40" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(3936, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass41" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass41" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(3680, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass42" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass42" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(4000, 1088)
 scale = Vector2(4, 4)
 
-[node name="interactive_grass24" parent="Node2D" instance=ExtResource("31_2wlvw")]
+[node name="interactive_grass24" parent="interactive_grass_container" instance=ExtResource("31_2wlvw")]
 position = Vector2(5024, 1088)
 scale = Vector2(4, 4)
 
@@ -3845,71 +3829,6 @@ position = Vector2(7184, 68)
 [node name="spike container sprites" type="Node2D" parent="."]
 position = Vector2(7184, -144)
 
-[node name="DoubleSpikes" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-544, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes2" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-576, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes3" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-608, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes4" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-640, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes5" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-672, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes6" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-704, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes7" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-736, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes8" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-768, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes9" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-800, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes10" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-832, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes11" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-864, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes12" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-896, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
-[node name="DoubleSpikes13" type="Sprite2D" parent="spike container sprites"]
-position = Vector2(-928, -360)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("42_6p1mb")
-
 [node name="Slope44" type="Sprite2D" parent="."]
 position = Vector2(3656.01, 63.9597)
 scale = Vector2(-2.74975, 3.00135)
@@ -3978,48 +3897,10 @@ position = Vector2(5408, 176)
 [node name="seesaw_platform_01" parent="." instance=ExtResource("49_mgted")]
 position = Vector2(4752, 432)
 
-[node name="checkpoint_areas" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(2120, 264)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(2392, 72)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(3768, 152)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(4744, 136)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(5720, -72)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(6712, -396)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="checkpoint_areas"]
-position = Vector2(6744, -624)
-shape = SubResource("RectangleShape2D_3reyc")
-debug_color = Color(0.94497, 8.47101e-06, 0.594622, 0.42)
-
 [node name="platform_up_jump_02" parent="." instance=ExtResource("49_moyry")]
 position = Vector2(6664, -388)
 
 [node name="trees" type="Node2D" parent="."]
-visible = false
 position = Vector2(6664, -388)
 
 [node name="tree_48x48" parent="trees" instance=ExtResource("49_sj02g")]
@@ -4067,25 +3948,30 @@ position = Vector2(-968, 252)
 scale = Vector2(3, 3)
 frame = 2
 
-[node name="flag" parent="." instance=ExtResource("50_ybnei")]
+[node name="flags" type="Node2D" parent="."]
+
+[node name="flag8" parent="flags" instance=ExtResource("50_ybnei")]
+position = Vector2(-604, 176)
+
+[node name="flag" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(2112, 272)
 
-[node name="flag2" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag2" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(2384, 80)
 
-[node name="flag3" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag3" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(3760, 160)
 
-[node name="flag4" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag4" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(4736, 144)
 
-[node name="flag5" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag5" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(5712, -64)
 
-[node name="flag6" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag6" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(6704, -388)
 
-[node name="flag7" parent="." instance=ExtResource("50_ybnei")]
+[node name="flag7" parent="flags" instance=ExtResource("50_ybnei")]
 position = Vector2(6736, -616)
 
 [node name="door2" parent="." instance=ExtResource("47_o7tme")]
@@ -4211,6 +4097,30 @@ position = Vector2(6312, -256)
 [node name="16-bit-spike16" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(6328, -256)
 
+[node name="16-bit-spike87" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5368, 544)
+
+[node name="16-bit-spike88" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5384, 544)
+
+[node name="16-bit-spike89" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5400, 544)
+
+[node name="16-bit-spike90" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5416, 544)
+
+[node name="16-bit-spike91" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5432, 544)
+
+[node name="16-bit-spike92" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5448, 544)
+
+[node name="16-bit-spike93" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5336, 544)
+
+[node name="16-bit-spike94" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(5352, 544)
+
 [node name="16-bit-spike17" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(6344, -256)
 
@@ -4271,6 +4181,181 @@ position = Vector2(6632, -256)
 [node name="16-bit-spike36" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(6648, -256)
 
+[node name="16-bit-spike37" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6264, -512)
+
+[node name="16-bit-spike38" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6280, -512)
+
+[node name="16-bit-spike39" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6296, -512)
+
+[node name="16-bit-spike40" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6312, -512)
+
+[node name="16-bit-spike41" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6328, -512)
+
+[node name="16-bit-spike42" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6344, -512)
+
+[node name="16-bit-spike43" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6360, -512)
+
+[node name="16-bit-spike44" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6376, -512)
+
+[node name="16-bit-spike45" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6392, -512)
+
+[node name="16-bit-spike46" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6408, -512)
+
+[node name="16-bit-spike47" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6424, -512)
+
+[node name="16-bit-spike48" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6440, -512)
+
+[node name="16-bit-spike49" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6456, -512)
+
+[node name="16-bit-spike50" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6472, -512)
+
+[node name="16-bit-spike51" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6488, -512)
+
+[node name="16-bit-spike52" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6504, -512)
+
+[node name="16-bit-spike53" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6520, -512)
+
+[node name="16-bit-spike54" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6536, -512)
+
+[node name="16-bit-spike55" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6552, -512)
+
+[node name="16-bit-spike56" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6568, -512)
+
+[node name="16-bit-spike57" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6584, -512)
+
+[node name="16-bit-spike58" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6600, -512)
+
+[node name="16-bit-spike59" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6616, -512)
+
+[node name="16-bit-spike60" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6632, -512)
+
+[node name="16-bit-spike61" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6648, -512)
+
+[node name="16-bit-spike62" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6264, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike63" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6280, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike64" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6296, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike65" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6312, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike66" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6328, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike67" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6344, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike68" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6360, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike69" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6376, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike70" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6392, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike71" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6408, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike72" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6424, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike73" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6440, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike74" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6456, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike75" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6472, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike76" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6488, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike77" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6504, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike78" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6520, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike79" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6536, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike80" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6552, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike81" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6568, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike82" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6584, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike83" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6600, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike84" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6616, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike85" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6632, -512)
+rotation = 3.14159
+
+[node name="16-bit-spike86" parent="spikes" instance=ExtResource("54_3h8xj")]
+position = Vector2(6648, -512)
+rotation = 3.14159
+
 [node name="16-bit-spike2" parent="spikes" instance=ExtResource("54_3h8xj")]
 position = Vector2(2168, 304)
 
@@ -4306,6 +4391,11 @@ position = Vector2(6664, -392)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_lne5i")
 
+[node name="SmallPlatform4" type="Sprite2D" parent="."]
+position = Vector2(6740, -616)
+scale = Vector2(5.25, 0.5)
+texture = ExtResource("43_oslh0")
+
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
@@ -4313,7 +4403,6 @@ texture = ExtResource("33_lne5i")
 [connection signal="body_entered" from="Path2D4/PathFollow2D/Area2D" to="Path2D4" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="glide_area" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_exited" from="glide_area" to="." method="_on_area_2d_4_body_exited"]
-[connection signal="body_entered" from="checkpoint_areas" to="." method="_on_checkpoint_areas_body_entered"]
 
 [editable path="birds/bird1"]
 [editable path="birds/bird2"]
