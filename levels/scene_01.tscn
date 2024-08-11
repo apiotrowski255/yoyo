@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=130 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="53_egukd"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="54_3h8xj"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="55_2gvdk"]
+[ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="56_43hpd"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="56_m8vvo"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="57_0egau"]
 [ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="57_yqkq2"]
@@ -3084,7 +3085,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(6008, -88)
+position = Vector2(1240, 240)
 coyote_time = 0.2
 
 [node name="Timer" type="Timer" parent="."]
@@ -4657,6 +4658,12 @@ texture = ExtResource("33_lne5i")
 position = Vector2(6740, -616)
 scale = Vector2(5.25, 0.5)
 texture = ExtResource("43_oslh0")
+
+[node name="triggered_moving_platform" parent="." instance=ExtResource("56_43hpd")]
+position = Vector2(1360, 232)
+start_position = Vector2(1360, 232)
+end_position = Vector2(1488, 232)
+current_type = 2
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]

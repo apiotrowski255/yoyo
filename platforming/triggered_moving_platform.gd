@@ -7,6 +7,11 @@ var direction = Vector2.RIGHT
 @export var start_position = Vector2(0,0)
 @export var end_position = Vector2(0,0)
 @export var speed = 50
+# discontinuous - Means when the player jumps off, the platform stops
+# continous - Means when the player jumps off, the platform keeps moving
+# once - Once platform reaches target, it will stop. 
+enum type {discontiuous, continous, once}
+@export var current_type = type.discontiuous
 enum state {idle, moving}
 var current_state
 
@@ -26,6 +31,8 @@ func _process(delta):
 	else:
 		move_and_collide(direction * speed * delta)
 		if position.distance_to(end_position) < 1:
+			if current_type == type.once:
+				current_state = state.idle
 			var tmp = start_position
 			start_position = end_position
 			end_position = tmp
@@ -34,12 +41,14 @@ func _process(delta):
 
 
 func _on_trigger_area_body_entered(body):
-	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+	if GlobalVariables.is_player(body):
 		current_state = state.moving
 
 
 
 func _on_trigger_area_body_exited(body):
-	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+	if current_type == type.continous:
+		return
+	if GlobalVariables.is_player(body):
 		current_state = state.idle
 

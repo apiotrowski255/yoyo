@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7llb1qw7pveu"]
+
+[ext_resource type="PackedScene" uid="uid://kwijy4no3e0r" path="res://button_one_touch.tscn" id="1_hlak3"]
+[ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="2_g5pi0"]
+
+[node name="moving_platform_and_button_one_touch" type="Node2D"]
+
+[node name="button" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("1_hlak3")]
+position = Vector2(8, 16)
+platform = NodePath("../AnimatableBody2D")
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("2_g5pi0")]
+process_mode = 4
+position = Vector2(80, 8)
+disable_mode = 2
+start_position = Vector2(0, 8)
+end_position = Vector2(128, 8)

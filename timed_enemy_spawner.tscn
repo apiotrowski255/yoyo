@@ -10,7 +10,7 @@ script = ExtResource("1_niijy")
 enemy_scene = ExtResource("2_ugnnd")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="wait_timer" type="Timer" parent="."]
 one_shot = true

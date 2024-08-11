@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var door: CollisionShape2D
+@export var platform: AnimatableBody2D
 
 var sprite2d : Sprite2D
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +17,9 @@ func _on_body_entered(body):
 		# Maybe not - just a sprite change to the button is enough i think.
 		if door != null:
 			door.set_deferred("disabled", true)
+		elif platform != null:
+			platform.process_mode = PROCESS_MODE_INHERIT
+			platform.disable_mode = CollisionObject2D.DISABLE_MODE_REMOVE
 		sprite2d.texture = load("res://button_pressed.png")
 		opened = true
 		play_sfx()

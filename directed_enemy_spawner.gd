@@ -2,7 +2,6 @@ extends Node2D
 
 var target = null
 var timed_enemy_spawner
-var timed_enemy_spawner2
 var line2d : Line2D
 var animationplayer : AnimationPlayer
 var shot_particules : CPUParticles2D
@@ -15,9 +14,8 @@ var absorb_particles : CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timed_enemy_spawner = get_node("timed_enemy_spawner")
-	timed_enemy_spawner2 = get_node("timed_enemy_spawner2")
 	timed_enemy_spawner.stop_spawning()
-	timed_enemy_spawner2.stop_spawning()
+	timed_enemy_spawner.hide_sprite()
 	line2d = get_node("Line2D")
 	animationplayer = get_node("AnimationPlayer")
 	shot_particules = get_node("Cannon/CPUParticles2D")
@@ -38,7 +36,6 @@ func _process(delta):
 		var spawn_direction_vector2 : Vector2 = Vector2.RIGHT.rotated(p1.angle_to_point(p2))
 		if angle_rotate_speed == 0.0:
 			timed_enemy_spawner.spawn_direction = spawn_direction_vector2
-			timed_enemy_spawner2.spawn_direction = spawn_direction_vector2
 			line2d.set_point_position(1, p2 - p1)
 			cannon_sprite.rotation = p1.angle_to_point(p2) - PI/2
 		else:
@@ -49,19 +46,17 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		target = body
 		timed_enemy_spawner.start_spawning()
-		timed_enemy_spawner2.start_spawning()
 		line2d.add_point(target.position - global_position)
 		animationplayer.play("line_color_change")
 		absorb_particles.emitting = true
 
 func _on_area_2d_body_exited(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		target = null
 		timed_enemy_spawner.stop_spawning()
-		timed_enemy_spawner2.stop_spawning()
 		line2d.remove_point(1)
 		animationplayer.stop()
 		absorb_particles.emitting = false

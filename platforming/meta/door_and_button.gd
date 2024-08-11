@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_button_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		if sprite2d.visible == true:
 			# print("play sound effect")
 			sprite2d.visible = false

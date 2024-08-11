@@ -1,4 +1,4 @@
-extends Node2D
+class_name timed_enemy_spawner extends Node2D 
 @export var enemy_scene: PackedScene
 var timer : Timer
 @export var repeat_time : float = 2
@@ -71,3 +71,6 @@ func _on_wait_timer_timeout():
 	_on_timer_timeout()
 	timer.start(repeat_time)
 	timer.autostart = true
+
+func hide_sprite():
+	$Sprite2D.hide()

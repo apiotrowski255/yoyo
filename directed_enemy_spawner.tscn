@@ -65,12 +65,6 @@ shape = SubResource("RectangleShape2D_xbbsi")
 timed_enemy_speed = 256.0
 first_wait_timer = -1.0
 
-[node name="timed_enemy_spawner2" parent="." instance=ExtResource("1_rdsxb")]
-process_mode = 4
-visible = false
-timed_enemy_speed = 128.0
-first_wait_timer = -1.0
-
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0)
 width = 1.0
@@ -123,4 +117,3 @@ color_ramp = SubResource("Gradient_js2qt")
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timed_enemy_spawned" from="timed_enemy_spawner" to="." method="_on_timed_enemy_spawner_timed_enemy_spawned"]
-[connection signal="timed_enemy_spawned" from="timed_enemy_spawner2" to="." method="_on_timed_enemy_spawner_timed_enemy_spawned"]

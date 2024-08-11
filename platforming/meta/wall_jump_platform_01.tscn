@@ -1,37 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dg22kfevxw1jl"]
 
+[ext_resource type="Script" path="res://wall_jump.gd" id="1_6cbep"]
 [ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_dxyr4"]
-
-[sub_resource type="GDScript" id="GDScript_wyd4a"]
-script/source = "extends Area2D
-@export var state_to_transfer = 6
-# 7 = wall_jump_right
-# 6 = wall_jump_left
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_body_entered(body):
-	if body.get_class() == \"CharacterBody2D\":
-		body.current_state = state_to_transfer
-		body.gravity_modifier = body.gravity_modifier / 10
-		body.velocity.x = 0
-		body.velocity.y = 0
-
-
-func _on_body_exited(body):
-	if body.get_class() == \"CharacterBody2D\":
-		body.current_state = body.state.in_air
-		body.gravity_modifier = body.gravity_modifier * 10
-
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayjmv"]
 size = Vector2(4, 128)
@@ -49,7 +19,7 @@ size = Vector2(16, 208)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(190, 176)
-script = SubResource("GDScript_wyd4a")
+script = ExtResource("1_6cbep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ayjmv")
@@ -57,8 +27,8 @@ debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(130, 144)
-script = SubResource("GDScript_wyd4a")
-state_to_transfer = 7
+script = ExtResource("1_6cbep")
+state_to_transfer = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("RectangleShape2D_ayjmv")
@@ -79,6 +49,7 @@ position = Vector2(120, 104)
 shape = SubResource("RectangleShape2D_mxw2n")
 
 [node name="sprites" type="Node2D" parent="."]
+visible = false
 
 [node name="interactive_wall_jump" parent="sprites" instance=ExtResource("1_dxyr4")]
 position = Vector2(192, 240)
