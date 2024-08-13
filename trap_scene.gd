@@ -12,7 +12,5 @@ func _process(delta):
 
 
 func _on_detector_body_entered(body):
-	if body.name == "Player":
-		print("yay")
+	if GlobalVariables.is_player(body):
 		$AnimationPlayer.play("trap")
-	pass # Replace with function body.

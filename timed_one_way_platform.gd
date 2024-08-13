@@ -4,21 +4,19 @@ extends StaticBody2D
 @export var speed : float = 32.0
 @export var direction : Vector2 = Vector2.DOWN
 
-@export var sprite_number : int = 1 # Depending on the number - Change the sprite
+
 
 var timer : Timer
 # Called when the node enters the scene tree for the first time.
+@export var sprite_number : int = 1 # Depending on the number - Change the sprite
+@onready var sprite : Sprite2D 
 
 
 func _ready():
 	timer = $Timer
 	timer.start(time_to_die)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	sprite = get_node("sprite")
+	sprite.texture = load("res://sprites/one_way_platform_0" + str(sprite_number) + ".png")
 
 func _physics_process(delta):
 	position += direction * speed * delta

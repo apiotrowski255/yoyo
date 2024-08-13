@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2flwrhiuj5ou"
+path="res://.godot/imported/Scare.wav-bc9472e97067344305ec44be62784c19.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Scare.wav"
+dest_files=["res://.godot/imported/Scare.wav-bc9472e97067344305ec44be62784c19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -173,11 +173,11 @@ offset_right = 1444.0
 offset_bottom = 160.0
 
 [node name="horizontal_aligned_enemy_spawner" parent="." instance=ExtResource("10_jb82b")]
-position = Vector2(1268, 216)
+position = Vector2(80, 44)
 rotation = 1.5708
 
 [node name="horizontal_aligned_enemy_spawner3" parent="." instance=ExtResource("10_jb82b")]
-position = Vector2(1044, 360)
+position = Vector2(-92, 188)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("11_m8uvx")]
 position = Vector2(560, 0)

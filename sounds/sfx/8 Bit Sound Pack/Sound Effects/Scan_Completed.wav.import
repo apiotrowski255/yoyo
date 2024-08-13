@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chthev7vjj04o"
+path="res://.godot/imported/Scan_Completed.wav-3b6d65d434068bafae45cd5f224c14df.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Scan_Completed.wav"
+dest_files=["res://.godot/imported/Scan_Completed.wav-3b6d65d434068bafae45cd5f224c14df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -14,6 +14,7 @@ var exiting = false
 signal timed_enemy_spawned
 
 @export var play_spawn_sfx : bool = true
+@export var hide_cannon_sprite : bool = false
 
 func _ready():
 	timer = $Timer
@@ -25,7 +26,8 @@ func _ready():
 		_on_timer_timeout()
 		timer.start(repeat_time)
 		timer.autostart = true
-	$Sprite2D
+	if hide_cannon_sprite == true:
+		hide_sprite()
 
 func stop_spawning():
 	timer.stop()

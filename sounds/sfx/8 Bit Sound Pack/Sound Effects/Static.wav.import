@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwwbq1sjfoi7f"
+path="res://.godot/imported/Static.wav-29d418fa123fa20a31dc6ed1adf2d824.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Static.wav"
+dest_files=["res://.godot/imported/Static.wav-29d418fa123fa20a31dc6ed1adf2d824.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

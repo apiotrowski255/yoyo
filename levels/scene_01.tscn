@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://rqspfdco1iri"]
+[gd_scene load_steps=128 format=3 uid="uid://rqspfdco1iri"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_5ced8"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_sqvp0"]
@@ -22,7 +22,6 @@
 [ext_resource type="Shader" path="res://enemies/meta/electric_ball.gdshader" id="23_g6o6l"]
 [ext_resource type="AudioStream" uid="uid://djqaf0siduplw" path="res://sounds/sfx/charge.wav" id="24_sa2vn"]
 [ext_resource type="PackedScene" uid="uid://db1n3ft8f7g2" path="res://enemies/blue_slime.tscn" id="25_0h147"]
-[ext_resource type="PackedScene" uid="uid://dr6hjsp48ff4e" path="res://space_parallax_background.tscn" id="26_qcnjs"]
 [ext_resource type="PackedScene" uid="uid://bpcv68xo85thi" path="res://down_arrow.tscn" id="27_mke6a"]
 [ext_resource type="PackedScene" uid="uid://cstlxbop5s1pp" path="res://mountain_dusk_parallax.tscn" id="27_x7sty"]
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="28_wwop8"]
@@ -52,7 +51,6 @@
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="53_egukd"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="54_3h8xj"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="55_2gvdk"]
-[ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="56_43hpd"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="56_m8vvo"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="57_0egau"]
 [ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="57_yqkq2"]
@@ -406,7 +404,6 @@ shader_parameter/wave_noise = SubResource("NoiseTexture2D_s4hef")
 
 [node name="scene_01" type="Node2D"]
 script = ExtResource("1_sqvp0")
-checkpoints_enabled = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -3085,7 +3082,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(1240, 240)
+position = Vector2(6676, -410)
 coyote_time = 0.2
 
 [node name="Timer" type="Timer" parent="."]
@@ -3248,9 +3245,6 @@ position = Vector2(6828, -592)
 position = Vector2(80, 228)
 shape = SubResource("RectangleShape2D_e7m7k")
 debug_color = Color(0, 1, 0, 0.101961)
-
-[node name="SpaceParallaxBackground" parent="." instance=ExtResource("26_qcnjs")]
-visible = false
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(4504, 144)
@@ -3906,6 +3900,16 @@ theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "Press Down to go through
 One way platforms"
+
+[node name="avoid_spike message4" type="Label" parent="Messages"]
+layout_mode = 0
+offset_left = 2564.0
+offset_top = -172.0
+offset_right = 2696.0
+offset_bottom = -161.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "You can stomp on enemies to kill them"
 
 [node name="down_arrow3" parent="." instance=ExtResource("27_mke6a")]
 position = Vector2(64, 214)
@@ -4658,12 +4662,6 @@ texture = ExtResource("33_lne5i")
 position = Vector2(6740, -616)
 scale = Vector2(5.25, 0.5)
 texture = ExtResource("43_oslh0")
-
-[node name="triggered_moving_platform" parent="." instance=ExtResource("56_43hpd")]
-position = Vector2(1360, 232)
-start_position = Vector2(1360, 232)
-end_position = Vector2(1488, 232)
-current_type = 2
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]

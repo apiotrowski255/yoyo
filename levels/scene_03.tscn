@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://pyrmoi68v5ja"]
+
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_yhi22"]
+[ext_resource type="PackedScene" uid="uid://2wteeq0d1tir" path="res://timed_laser_follow.tscn" id="2_875xq"]
+[ext_resource type="PackedScene" uid="uid://re6tlcy7a7l7" path="res://platforming/meta/area_and_door_close.tscn" id="3_v38je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt06y"]
+size = Vector2(464, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfg56"]
+size = Vector2(480, 16)
+
+[node name="scene_03" type="Node2D"]
+
+[node name="environment" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment"]
+position = Vector2(-232, 264)
+shape = SubResource("RectangleShape2D_yt06y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="environment"]
+position = Vector2(240, 264)
+shape = SubResource("RectangleShape2D_rfg56")
+
+[node name="Player" parent="." instance=ExtResource("1_yhi22")]
+position = Vector2(-350, 98)
+
+[node name="timed_laser_follow" parent="." instance=ExtResource("2_875xq")]
+position = Vector2(-464, -16)
+
+[node name="area_and_door-close" parent="." instance=ExtResource("3_v38je")]
+position = Vector2(0, 192)

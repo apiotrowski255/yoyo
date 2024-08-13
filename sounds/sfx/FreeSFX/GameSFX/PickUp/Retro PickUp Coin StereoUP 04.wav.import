@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cne2v3odyxs6x"
+path="res://.godot/imported/Retro PickUp Coin StereoUP 04.wav-0f5bb608aefd338d315bb185de086505.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/FreeSFX/GameSFX/PickUp/Retro PickUp Coin StereoUP 04.wav"
+dest_files=["res://.godot/imported/Retro PickUp Coin StereoUP 04.wav-0f5bb608aefd338d315bb185de086505.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

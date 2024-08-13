@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmuldkd57n1t3"
+path="res://.godot/imported/Grenade_Timer.wav-9f14508fac57d8fcda508628cee4027c.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Grenade_Timer.wav"
+dest_files=["res://.godot/imported/Grenade_Timer.wav-9f14508fac57d8fcda508628cee4027c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

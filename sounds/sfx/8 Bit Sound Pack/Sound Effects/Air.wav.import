@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://85iyjrvbmonh"
+path="res://.godot/imported/Air.wav-5fe2ad066921981b45e00c5f372d4ffd.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Air.wav"
+dest_files=["res://.godot/imported/Air.wav-5fe2ad066921981b45e00c5f372d4ffd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

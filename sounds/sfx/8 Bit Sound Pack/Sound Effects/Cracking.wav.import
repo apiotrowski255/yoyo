@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dscsffggv285l"
+path="res://.godot/imported/Cracking.wav-67fb7ec2310499d67c942bef64091287.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Cracking.wav"
+dest_files=["res://.godot/imported/Cracking.wav-67fb7ec2310499d67c942bef64091287.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

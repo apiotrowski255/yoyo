@@ -10,18 +10,22 @@ var absorb_particles : CPUParticles2D
 
 @export var shoot_time = 2.0 # probably best to keep this at 2 until we properly figure this out
 @export var angle_rotate_speed = 0.0 # if set to 0.0, then it will lock onto the player
+@export var projectile_speed = 256
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timed_enemy_spawner = get_node("timed_enemy_spawner")
 	timed_enemy_spawner.stop_spawning()
 	timed_enemy_spawner.hide_sprite()
+	timed_enemy_spawner.repeat_time = shoot_time
+	timed_enemy_spawner.timed_enemy_speed = projectile_speed
+	
 	line2d = get_node("Line2D")
 	animationplayer = get_node("AnimationPlayer")
 	shot_particules = get_node("Cannon/CPUParticles2D")
 	cannon_sprite = get_node("Cannon")
 	absorb_particles = get_node("absorb_particles")
-	timed_enemy_spawner.repeat_time = shoot_time
+	
 	absorb_particles.lifetime = shoot_time
 	animationplayer.speed_scale = 2 / shoot_time
 

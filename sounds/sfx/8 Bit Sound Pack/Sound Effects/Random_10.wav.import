@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2igstgjywrid"
+path="res://.godot/imported/Random_10.wav-0eca8c4fdcd433ac5b8ccc395d94c489.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Random_10.wav"
+dest_files=["res://.godot/imported/Random_10.wav-0eca8c4fdcd433ac5b8ccc395d94c489.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

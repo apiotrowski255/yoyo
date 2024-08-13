@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://kc0fu1rkwq1j"]
+
+[ext_resource type="Texture2D" uid="uid://cye72jbwj8a3m" path="res://sprites/Hearts/PNG/health_bar/health_bar_decoration.png" id="1_8marr"]
+[ext_resource type="Script" path="res://danger/evil_wizard_health_bar.gd" id="1_sk8na"]
+[ext_resource type="Texture2D" uid="uid://mdu5yldl3fyv" path="res://sprites/Hearts/PNG/health_bar/health_bar.png" id="2_bos1e"]
+[ext_resource type="Texture2D" uid="uid://cwrltwbs13j5i" path="res://sprites/black_box.png" id="3_t665v"]
+[ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="4_bibxg"]
+[ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="5_4uxjd"]
+
+[node name="health_bar" type="Node2D"]
+position = Vector2(39, 18)
+script = ExtResource("1_sk8na")
+
+[node name="HealthBarDecoration" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_8marr")
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+position = Vector2(5.5, 0)
+texture = ExtResource("2_bos1e")
+
+[node name="BlackBox" type="Sprite2D" parent="."]
+position = Vector2(30, -3.5)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("3_t665v")
+centered = false
+offset = Vector2(-7, 0)
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(-24.5, 0)
+texture = ExtResource("4_bibxg")
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(-24.5, 0)
+texture = ExtResource("5_4uxjd")

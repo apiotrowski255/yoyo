@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c03ou67kdb32h"
+path="res://.godot/imported/Jump_Crack.wav-7cceb88509bcf685bf0f2c3f10993f8a.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Jump_Crack.wav"
+dest_files=["res://.godot/imported/Jump_Crack.wav-7cceb88509bcf685bf0f2c3f10993f8a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

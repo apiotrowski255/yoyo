@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://re6tlcy7a7l7"]
+
+[ext_resource type="Script" path="res://platforming/meta/area_and_door_close.gd" id="1_lywf2"]
+[ext_resource type="AudioStream" uid="uid://c7aviomkjo0n0" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Opening Doors/sfx_movement_dooropen2.wav" id="2_xyidp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep750"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x5mo"]
+size = Vector2(16, 64)
+
+[node name="area_and_door-close" type="Node2D"]
+script = ExtResource("1_lywf2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ep750")
+disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D"]
+stream = ExtResource("2_xyidp")
+max_distance = 500.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 32)
+shape = SubResource("RectangleShape2D_0x5mo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

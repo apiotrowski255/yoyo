@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3ghq1r7taju1"
+path="res://.godot/imported/Wind.wav-f5127f84924b4e4f0a8bb7e291fcbf9a.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Wind.wav"
+dest_files=["res://.godot/imported/Wind.wav-f5127f84924b4e4f0a8bb7e291fcbf9a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

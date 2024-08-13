@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ci74c5l0dmpc"
+path="res://.godot/imported/Distorted.wav-301bfcc4906c6a23618c7ddc5a10c706.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/8 Bit Sound Pack/Sound Effects/Distorted.wav"
+dest_files=["res://.godot/imported/Distorted.wav-301bfcc4906c6a23618c7ddc5a10c706.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
