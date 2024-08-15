@@ -1,7 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://cn4qst15if0y7"]
+[gd_scene load_steps=62 format=3 uid="uid://cn4qst15if0y7"]
 
 [ext_resource type="Texture2D" uid="uid://dr55ei23pq41b" path="res://sprites/EVil Wizard 2/Sprites/Attack1.png" id="1_jkt2a"]
+[ext_resource type="Script" path="res://danger/evil_wizard.gd" id="1_o4vrj"]
 [ext_resource type="Texture2D" uid="uid://crsyuj7ork824" path="res://sprites/EVil Wizard 2/Sprites/Attack2.png" id="2_41wcj"]
+[ext_resource type="Shader" path="res://danger/hit.gdshader" id="2_p4h2t"]
 [ext_resource type="Texture2D" uid="uid://dinbbft2yprnf" path="res://sprites/EVil Wizard 2/Sprites/Death.png" id="3_r1ts6"]
 [ext_resource type="Texture2D" uid="uid://cc2c033skonbx" path="res://sprites/EVil Wizard 2/Sprites/Fall.png" id="4_hpra4"]
 [ext_resource type="Texture2D" uid="uid://w1qqs6ti6w66" path="res://sprites/EVil Wizard 2/Sprites/Idle.png" id="5_4ubxh"]
@@ -9,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://fejy4643cfcf" path="res://sprites/EVil Wizard 2/Sprites/Run.png" id="7_k3f6k"]
 [ext_resource type="Texture2D" uid="uid://kp1be2u0ygnk" path="res://sprites/EVil Wizard 2/Sprites/Take hit.png" id="8_ouwt1"]
 [ext_resource type="PackedScene" uid="uid://kc0fu1rkwq1j" path="res://danger/evil_wizard_health_bar.tscn" id="9_01cml"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0pwsr"]
+resource_local_to_scene = true
+shader = ExtResource("2_p4h2t")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s37gv"]
 atlas = ExtResource("1_jkt2a")
@@ -223,7 +231,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack1",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -252,7 +260,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack2",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -278,7 +286,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -318,7 +326,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -358,7 +366,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -370,7 +378,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rg4s7")
 }],
-"loop": true,
+"loop": false,
 "name": &"Take_hit",
 "speed": 6.0
 }]
@@ -382,13 +390,15 @@ height = 48.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw8sv"]
 size = Vector2(24, 4)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="evil_wizard" type="CharacterBody2D"]
+position = Vector2(72, 20)
+script = ExtResource("1_o4vrj")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0pwsr")
 sprite_frames = SubResource("SpriteFrames_gfcgi")
-animation = &"Idle"
+animation = &"Take_hit"
 autoplay = "Idle"
-frame_progress = 0.165646
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -404,3 +414,6 @@ shape = SubResource("RectangleShape2D_iw8sv")
 
 [node name="health_bar" parent="." instance=ExtResource("9_01cml")]
 position = Vector2(0, -16)
+
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

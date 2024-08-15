@@ -11,8 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("e"):
-		take_hit()
+	pass
 
 
 func take_hit():
@@ -22,5 +21,4 @@ func take_hit():
 	var tween = self.create_tween()
 	tween.tween_property(black_box, "scale", Vector2(black_box.scale.x + 2.5, 1), 1.0)
 	tween.play()
-	print(tween)
 	# black_box.scale.x += 2.5

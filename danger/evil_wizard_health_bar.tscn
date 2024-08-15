@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="5_4uxjd"]
 
 [node name="health_bar" type="Node2D"]
-position = Vector2(39, 18)
 script = ExtResource("1_sk8na")
 
 [node name="HealthBarDecoration" type="Sprite2D" parent="."]

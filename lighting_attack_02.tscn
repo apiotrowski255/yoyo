@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://cjpq1tqrr5rpr"]
+
+[ext_resource type="Texture2D" uid="uid://c23kp28g01ga1" path="res://sprites/Thunder Effect 02/Thunder Splash/Thunder splash wo blur.png" id="1_eq055"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65eun"]
+atlas = ExtResource("1_eq055")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trqu7"]
+atlas = ExtResource("1_eq055")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ion4m"]
+atlas = ExtResource("1_eq055")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hcfe"]
+atlas = ExtResource("1_eq055")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbg8i"]
+atlas = ExtResource("1_eq055")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gomcx"]
+atlas = ExtResource("1_eq055")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik6e6"]
+atlas = ExtResource("1_eq055")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhr5h"]
+atlas = ExtResource("1_eq055")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb3ti"]
+atlas = ExtResource("1_eq055")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fto7d"]
+atlas = ExtResource("1_eq055")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc2l4"]
+atlas = ExtResource("1_eq055")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csxwm"]
+atlas = ExtResource("1_eq055")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qjtj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65eun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trqu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ion4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hcfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbg8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gomcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik6e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhr5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb3ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fto7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc2l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csxwm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="lighting_attack_02" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3qjtj")
+frame = 11
+frame_progress = 1.0
+centered = false
+offset = Vector2(-24, -48)

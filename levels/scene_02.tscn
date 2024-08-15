@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://db75elyqwmday"]
+[gd_scene load_steps=21 format=3 uid="uid://db75elyqwmday"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
 [ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bwt85esugxmkw" path="res://directed_enemy_spawner.tscn" id="11_m8uvx"]
 [ext_resource type="PackedScene" uid="uid://c7llb1qw7pveu" path="res://platforming/meta/moving_platform_and_button_one_touch.tscn" id="12_jisgd"]
 [ext_resource type="PackedScene" uid="uid://bcppq7ab1lt4j" path="res://environment/enemy_kill_zone.tscn" id="13_7qkfr"]
+[ext_resource type="PackedScene" uid="uid://cn4qst15if0y7" path="res://danger/evil_wizard.tscn" id="14_28k50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhone"]
 size = Vector2(16, 256)
@@ -187,6 +188,9 @@ position = Vector2(68, 116)
 
 [node name="enemy_kill_zone" parent="." instance=ExtResource("13_7qkfr")]
 position = Vector2(568, 96)
+
+[node name="evil_wizard" parent="." instance=ExtResource("14_28k50")]
+position = Vector2(712, 152)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
