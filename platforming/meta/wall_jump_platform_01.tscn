@@ -49,7 +49,6 @@ position = Vector2(120, 104)
 shape = SubResource("RectangleShape2D_mxw2n")
 
 [node name="sprites" type="Node2D" parent="."]
-visible = false
 
 [node name="interactive_wall_jump" parent="sprites" instance=ExtResource("1_dxyr4")]
 position = Vector2(192, 240)

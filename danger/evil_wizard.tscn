@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cn4qst15if0y7"]
+[gd_scene load_steps=63 format=3 uid="uid://cn4qst15if0y7"]
 
 [ext_resource type="Texture2D" uid="uid://dr55ei23pq41b" path="res://sprites/EVil Wizard 2/Sprites/Attack1.png" id="1_jkt2a"]
 [ext_resource type="Script" path="res://danger/evil_wizard.gd" id="1_o4vrj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://fejy4643cfcf" path="res://sprites/EVil Wizard 2/Sprites/Run.png" id="7_k3f6k"]
 [ext_resource type="Texture2D" uid="uid://kp1be2u0ygnk" path="res://sprites/EVil Wizard 2/Sprites/Take hit.png" id="8_ouwt1"]
 [ext_resource type="PackedScene" uid="uid://kc0fu1rkwq1j" path="res://danger/evil_wizard_health_bar.tscn" id="9_01cml"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="12_fq1sh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0pwsr"]
 resource_local_to_scene = true
@@ -391,29 +392,330 @@ height = 48.0
 size = Vector2(24, 4)
 
 [node name="evil_wizard" type="CharacterBody2D"]
-position = Vector2(72, 20)
 script = ExtResource("1_o4vrj")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0pwsr")
+position = Vector2(1, -42)
 sprite_frames = SubResource("SpriteFrames_gfcgi")
-animation = &"Take_hit"
+animation = &"Attack1"
 autoplay = "Idle"
+frame = 7
+flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(1, -23)
 shape = SubResource("CapsuleShape2D_jifci")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(1, -51)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_iw8sv")
 
 [node name="health_bar" parent="." instance=ExtResource("9_01cml")]
-position = Vector2(0, -16)
+position = Vector2(1, -59)
+
+[node name="timer_hide_health_bar" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="death_hit_boxes" type="Node2D" parent="."]
+
+[node name="death_hit_box_attack_1_frame_3" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -72)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -56)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-92, -40)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -24)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-64, -24)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-68, -40)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -56)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -62)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-44, -48)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_1_frame_3" instance=ExtResource("12_fq1sh")]
+position = Vector2(-32, -36)
+
+[node name="death_hit_box_attack_1_frame_4" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -100)
+
+[node name="death_hit_box14" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -104)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -88)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-100, -72)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-84, -72)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -56)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -56)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-84, -40)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-68, -72)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -68)
+
+[node name="death_hit_box11" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -55)
+
+[node name="death_hit_box12" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -44)
+
+[node name="death_hit_box13" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -44)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_1_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -88)
+
+[node name="death_hit_box_attack_1_frame_5" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -112)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-92, -96)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -80)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -62)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-84, -62)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-84, -80)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-76, -96)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -76)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_1_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -60)
+
+[node name="death_hit_box_attack_1_frame_6" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -132)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -116)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -84)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-44, -68)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -124)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-76, -108)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_1_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-92, -92)
+
+[node name="death_hit_box_attack_1_frame_7" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_1_frame_7" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -62)
+
+[node name="death_hit_box_attack_2_frame_4" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-104, -40)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-108, -56)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-104, -72)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -88)
+
+[node name="death_hit_box18" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -96)
+
+[node name="death_hit_box19" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -112)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-76, -104)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -88)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -72)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -56)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -32)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -48)
+
+[node name="death_hit_box11" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-100, -32)
+
+[node name="death_hit_box12" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -56)
+
+[node name="death_hit_box13" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -44)
+
+[node name="death_hit_box14" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -72)
+
+[node name="death_hit_box15" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -72)
+
+[node name="death_hit_box16" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -60)
+
+[node name="death_hit_box17" parent="death_hit_boxes/death_hit_box_attack_2_frame_4" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -88)
+
+[node name="death_hit_box_attack_2_frame_5" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -4)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-84, -12)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -24)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-100, -40)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -12)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -23)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -36)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -52)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-80, -67)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-76, -80)
+
+[node name="death_hit_box11" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-96, -59)
+
+[node name="death_hit_box12" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -72)
+
+[node name="death_hit_box13" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-36, -68)
+
+[node name="death_hit_box14" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-28, -49)
+
+[node name="death_hit_box15" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-52, -56)
+
+[node name="death_hit_box16" parent="death_hit_boxes/death_hit_box_attack_2_frame_5" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -49)
+
+[node name="death_hit_box_attack_2_frame_6" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -12)
+
+[node name="death_hit_box5" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, -12)
+
+[node name="death_hit_box6" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-88, -20)
+
+[node name="death_hit_box7" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-72, 0)
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -72)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -68)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, -56)
+
+[node name="death_hit_box11" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-24, -52)
+
+[node name="death_hit_box2" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, -12)
+
+[node name="death_hit_box3" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-40, 4)
+
+[node name="death_hit_box4" parent="death_hit_boxes/death_hit_box_attack_2_frame_6" instance=ExtResource("12_fq1sh")]
+position = Vector2(-56, 4)
+
+[node name="death_hit_box_attack_2_frame_7" type="Node2D" parent="death_hit_boxes"]
+
+[node name="death_hit_box8" parent="death_hit_boxes/death_hit_box_attack_2_frame_7" instance=ExtResource("12_fq1sh")]
+position = Vector2(-36, -72)
+
+[node name="death_hit_box9" parent="death_hit_boxes/death_hit_box_attack_2_frame_7" instance=ExtResource("12_fq1sh")]
+position = Vector2(-20, -68)
+
+[node name="death_hit_box10" parent="death_hit_boxes/death_hit_box_attack_2_frame_7" instance=ExtResource("12_fq1sh")]
+position = Vector2(-36, -56)
+
+[node name="death_hit_box11" parent="death_hit_boxes/death_hit_box_attack_2_frame_7" instance=ExtResource("12_fq1sh")]
+position = Vector2(-20, -52)
 
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="frame_changed" from="sprite" to="." method="_on_sprite_frame_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="timer_hide_health_bar" to="." method="_on_timer_hide_health_bar_timeout"]

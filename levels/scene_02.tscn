@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db75elyqwmday"]
+[gd_scene load_steps=23 format=3 uid="uid://db75elyqwmday"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
 [ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://c7llb1qw7pveu" path="res://platforming/meta/moving_platform_and_button_one_touch.tscn" id="12_jisgd"]
 [ext_resource type="PackedScene" uid="uid://bcppq7ab1lt4j" path="res://environment/enemy_kill_zone.tscn" id="13_7qkfr"]
 [ext_resource type="PackedScene" uid="uid://cn4qst15if0y7" path="res://danger/evil_wizard.tscn" id="14_28k50"]
+[ext_resource type="PackedScene" uid="uid://bryv25fxnykwg" path="res://platforming/meta/jump_tutorial_02.tscn" id="15_pfgx2"]
+[ext_resource type="PackedScene" uid="uid://k2dklpkn53sc" path="res://platforming/meta/jump_tutorial_03.tscn" id="16_sqafb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhone"]
 size = Vector2(16, 256)
@@ -98,7 +100,7 @@ position = Vector2(1440, 48)
 shape = SubResource("RectangleShape2D_c46k6")
 
 [node name="Player" parent="." instance=ExtResource("1_d7u7g")]
-position = Vector2(0, 0)
+position = Vector2(1444, -12)
 
 [node name="Cage" type="Sprite2D" parent="."]
 position = Vector2(112, -8)
@@ -181,7 +183,7 @@ rotation = 1.5708
 position = Vector2(-92, 188)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("11_m8uvx")]
-position = Vector2(560, 0)
+position = Vector2(360, 44)
 
 [node name="moving_platform_and_button_one_touch" parent="." instance=ExtResource("12_jisgd")]
 position = Vector2(68, 116)
@@ -190,7 +192,13 @@ position = Vector2(68, 116)
 position = Vector2(568, 96)
 
 [node name="evil_wizard" parent="." instance=ExtResource("14_28k50")]
-position = Vector2(712, 152)
+position = Vector2(981, 127)
+
+[node name="jump_tutorial_02" parent="." instance=ExtResource("15_pfgx2")]
+position = Vector2(508, 164)
+
+[node name="jump_tutorial_03" parent="." instance=ExtResource("16_sqafb")]
+position = Vector2(1472, -32)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

@@ -18,12 +18,16 @@ size = Vector2(480, 16)
 position = Vector2(-232, 264)
 shape = SubResource("RectangleShape2D_yt06y")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="environment"]
+position = Vector2(-104, 216)
+shape = SubResource("RectangleShape2D_yt06y")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="environment"]
 position = Vector2(240, 264)
 shape = SubResource("RectangleShape2D_rfg56")
 
 [node name="Player" parent="." instance=ExtResource("1_yhi22")]
-position = Vector2(-350, 98)
+position = Vector2(-360, 103)
 
 [node name="timed_laser_follow" parent="." instance=ExtResource("2_875xq")]
 position = Vector2(-464, -16)
