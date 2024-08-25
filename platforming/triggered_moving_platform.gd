@@ -51,4 +51,3 @@ func _on_trigger_area_body_exited(body):
 		return
 	if GlobalVariables.is_player(body):
 		current_state = state.idle
-

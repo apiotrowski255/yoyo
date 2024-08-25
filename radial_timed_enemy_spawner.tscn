@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://radial_timed_enemy_spawner.gd" id="1_oq5jg"]
 
 [node name="radial_timed_enemy_spawner" type="Node2D"]
+position = Vector2(108, 56)
 script = ExtResource("1_oq5jg")
 rays = 8
-repeat_time = 1.0
 time_to_die = 8
 master_time_to_die = 2
 

@@ -18,4 +18,3 @@ func _on_body_exited(body):
 	if body.get_class() == "CharacterBody2D":
 		body.current_state = body.state.in_air
 		body.gravity_modifier = body.gravity_modifier * 10
-

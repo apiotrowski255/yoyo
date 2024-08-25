@@ -13,4 +13,3 @@ func _process(delta):
 func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area.get_class() == "Area2D":
 		area.queue_free()
-

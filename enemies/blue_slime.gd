@@ -87,9 +87,9 @@ func switch_state(new_state : String):
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += get_gravity() * delta
+		velocity.y += get_slime_gravity() * delta
 		
-func get_gravity():
+func get_slime_gravity():
 	return 100.0
 
 func _on_timer_timeout():

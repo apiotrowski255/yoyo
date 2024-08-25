@@ -31,6 +31,9 @@ func _ready():
 		temp.repeat_time = repeat_time
 		temp.time_to_die = time_to_die
 		temp.timed_enemy_speed = timed_enemy_speed
+		temp.play_spawn_sfx = false
+		temp.hide_cannon_sprite = true
+		temp.name = "ray" + str(i)
 		self.add_child(temp)
 		# we only need one signal from one of the emitters
 		if i == rays - 1 and rotate_spawn == true:
@@ -56,3 +59,5 @@ func _timeout():
 func _on_timer_timeout():
 	for ray in rays_array:
 		ray.exit()
+	# self.queue_free()
+	# Figure out this shit

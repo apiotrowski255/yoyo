@@ -25,6 +25,11 @@ func _ready():
 
 	# Set player position to be based off checkpoint_counter
 	$Player.global_position = flag_container.get_child(GlobalVariables.checkpoint_counter).get_player_spawn_position()
+	
+	if GlobalVariables.checkpoint_counter >= 1:
+		get_node("birds/bird11").queue_free()
+		get_node("birds/bird3").queue_free()
+		get_node("birds/bird2").queue_free()
 
 func _on_death_body_entered(body):
 	if body.get_class() == "CharacterBody2D":
@@ -51,4 +56,3 @@ func _on_area_2d_4_body_exited(body):
 
 func _on_path_2d_kill_player(body):
 	_on_death_body_entered(body)
-

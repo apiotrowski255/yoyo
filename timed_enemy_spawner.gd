@@ -57,7 +57,8 @@ func _on_timer_timeout():
 
 func get_number_of_enemies():
 	# minus one because we have a Timer child node. 
-	return get_child_count() - 1
+	# Dumbass fucking code right here please fix.
+	return get_child_count() - 4
 
 func is_empty():
 	return get_number_of_enemies() == 0
@@ -65,9 +66,7 @@ func is_empty():
 func _on_child_exiting_tree(node):
 	if get_number_of_enemies() == 1 and exiting == true:
 		self.queue_free()
-
-
-
+	
 
 func _on_wait_timer_timeout():
 	_on_timer_timeout()

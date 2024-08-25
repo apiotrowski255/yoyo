@@ -68,7 +68,7 @@ func set_camera():
 	camera.drag_horizontal_enabled = false
 	camera.drag_vertical_enabled = false
 
-func get_gravity() -> float:
+func get_player_gravity():
 	if velocity.y < 0.0:
 		return jump_gravity * gravity_modifier
 	else:
@@ -353,11 +353,11 @@ func reset_sprite_scale():
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += get_gravity() * delta
+		velocity.y += get_player_gravity() * delta
 
 func apply_friction(delta):
 	if velocity.y != 0:
-		velocity.y += get_gravity() * delta
+		velocity.y += get_player_gravity() * delta
 	if velocity.y > 0:
 		velocity.y = 0
 
@@ -463,4 +463,3 @@ func fade_to_clear():
 
 func set_camera_position(new_position : Vector2):
 	camera.position = new_position
-
