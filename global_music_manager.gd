@@ -8,10 +8,13 @@ func _ready():
 	
 	if get_node("/root/scene_01") != null:
 		$music_player.play()
-	elif get_node("/root/scene_02") != null:
+	elif get_node("/root/scene_03") != null:
 		$music_player.stream = load("res://sounds/music/City Chase Club Mix.mp3")
 		$music_player.play()
 	pass # Replace with function body.
+
+func stop():
+	$music_player.stop()
 
 func _input(event):
 	if event.is_action_pressed("music_less"):

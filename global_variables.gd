@@ -3,6 +3,7 @@ extends Node
 
 var checkpoint_counter = 0
 var current_level
+var prev_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,9 @@ func scene_changed(new_scene: PackedScene):
 	# reset variable that is used to hold which checkpoints the player has touched
 	# print(new_scene.resource_path)
 	checkpoint_counter = 0
+
+func change_to_new_scene(new_scene: PackedScene):
+	get_tree().change_scene_to_packed(new_scene)
 
 # This is some Java shit. 
 func get_current_level():

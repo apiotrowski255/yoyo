@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg0b712scwmgs"]
+[gd_scene load_steps=12 format=3 uid="uid://cg0b712scwmgs"]
 
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_02_02.gd" id="1_248v5"]
 [ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="1_sk1dv"]
 [ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="2_2kj6a"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="3_j6dfk"]
 [ext_resource type="AudioStream" uid="uid://8c650ot2qq4y" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Neutral Sounds/sfx_sound_neutral1.wav" id="4_m13ro"]
+[ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="6_767cq"]
 
 [sub_resource type="Animation" id="Animation_ab4i6"]
 length = 0.001
@@ -17,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(172, 180)]
+"values": [Vector2(56, 236)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -43,10 +45,94 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Heart2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440, 192)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Heart2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ZozoJump1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 260)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ZozoJump1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Portal/idle:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
 
 [sub_resource type="Animation" id="Animation_ouvm2"]
 resource_name = "zozo_call"
-length = 4.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,7 +143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [172.0, 272.0]
+"values": [48.0, 272.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,7 +155,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2.1),
 "transitions": PackedFloat32Array(0.7, 1.13172, 1),
 "update": 0,
-"values": [180.0, 120.0, 180.0]
+"values": [240.0, 120.0, 180.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -102,34 +188,193 @@ tracks/4/path = NodePath("AudioStreamPlayer2D")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [0.0],
 "method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Heart2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5, 7, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(440, 192), Vector2(328, 104), Vector2(300, 76)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Heart2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(7, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.3]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ZozoJump1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 9.5, 9.8, 10.3333, 10.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(56, 260), Vector2(56, 260), Vector2(92, 260), Vector2(92, 260), Vector2(116, 260)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ZozoJump1:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.2), Vector2(1, 1)]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimationPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(14),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"fade_to_black", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kvyoc"]
+resource_name = "fade_from_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"zozo_call", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rq8nr"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal/idle:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5aq2e"]
 _data = {
 "RESET": SubResource("Animation_ab4i6"),
+"fade_from_black": SubResource("Animation_kvyoc"),
+"fade_to_black": SubResource("Animation_rq8nr"),
 "zozo_call": SubResource("Animation_ouvm2")
 }
 
 [node name="cutscene_02_02" type="Node2D"]
+script = ExtResource("1_248v5")
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(172, 180)
+position = Vector2(56, 236)
 rotation = 0.989602
+scale = Vector2(2, 2)
 texture = ExtResource("1_sk1dv")
 
 [node name="Border" type="Sprite2D" parent="Heart"]
 texture = ExtResource("2_2kj6a")
 
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(440, 192)
+scale = Vector2(2, 2)
+texture = ExtResource("1_sk1dv")
+
+[node name="Border" type="Sprite2D" parent="Heart2"]
+texture = ExtResource("2_2kj6a")
+
 [node name="ZozoJump1" type="Sprite2D" parent="."]
-position = Vector2(168, 176)
-scale = Vector2(0.5, 0.5)
+position = Vector2(56, 260)
 texture = ExtResource("3_j6dfk")
+offset = Vector2(0, -32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 2)
@@ -139,4 +384,19 @@ stream = ExtResource("4_m13ro")
 libraries = {
 "": SubResource("AnimationLibrary_5aq2e")
 }
-autoplay = "zozo_call"
+autoplay = "fade_from_black"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 480.0
+offset_bottom = 272.0
+color = Color(0, 0, 0, 1)
+
+[node name="Portal" parent="." instance=ExtResource("6_767cq")]
+position = Vector2(440, 192)
+scale = Vector2(4, 4)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="Portal"]

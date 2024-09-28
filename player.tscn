@@ -148,13 +148,21 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="glitch_effect" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_armnl")
 layout_mode = 0
 offset_left = -408.0
 offset_top = -254.0
 offset_right = 422.0
 offset_bottom = 266.0
+color = Color(0, 0, 0, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -222.0
+offset_top = -120.0
+offset_right = 258.0
+offset_bottom = 152.0
 color = Color(0, 0, 0, 0)
 
 [node name="rain_snow particles" type="CPUParticles2D" parent="."]

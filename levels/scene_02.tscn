@@ -545,6 +545,10 @@ position = Vector2(508, 164)
 [node name="jump_tutorial_03" parent="." instance=ExtResource("16_sqafb")]
 position = Vector2(1472, -32)
 
+[node name="game_pause_timer" type="Timer" parent="."]
+process_mode = 3
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="game_pause_timer" to="." method="_on_game_pause_timer_timeout"]
 
 [editable path="death_hit_box2"]

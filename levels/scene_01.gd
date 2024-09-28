@@ -56,3 +56,17 @@ func _on_area_2d_4_body_exited(body):
 
 func _on_path_2d_kill_player(body):
 	_on_death_body_entered(body)
+
+
+func _on_start_cutscene_body_entered(body: Node2D) -> void:
+	if GlobalVariables.is_player(body):
+		# start fade to black
+		$AnimationPlayer.play("fade_to_black")
+		$Player.set_state_to_cutscene()
+		# stop global music music
+		GlobalMusicManager.stop()
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_to_black":
+		# print("now play cutscene")
+		get_tree().change_scene_to_file("res://levels/cutscenes/cutscene_02_02.tscn")

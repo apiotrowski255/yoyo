@@ -203,7 +203,7 @@ func change_state(state_change):
 		noShellMode = true
 	# TODO - FIX THIS SHIT BELOW
 	# HOW CAN SOMETHING BE IN TWO STATES?
-	if state_change == state.gliding and current_state == state.shell:
+	elif state_change == state.gliding and current_state == state.shell:
 		current_state = state.gliding
 		zozosprite.self_modulate = Color(1, 1, 1)
 		jump_time_to_descent = 0.4
@@ -214,7 +214,7 @@ func change_state(state_change):
 
 func set_state_to_cutscene():
 	current_state = state.cutscene
-	scale = Vector2.ONE
+	self.scale = Vector2.ONE
 	zozosprite.rotation = 0
 	zozosprite.scale = Vector2(0.25, 0.25)
 	
@@ -223,6 +223,7 @@ func wall_jump_left_state_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_velocity
 		velocity.x = -100
+		$sfx/jump.pitch_scale = randf_range(0.9, 1.1)
 		$sfx/jump.play()
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = move_toward(velocity.x, SPEED * -1, ACCELERATION * delta)
@@ -236,6 +237,7 @@ func wall_jump_right_state_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_velocity
 		velocity.x = 100
+		$sfx/jump.pitch_scale = randf_range(0.9, 1.1)
 		$sfx/jump.play()
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = move_toward(velocity.x, SPEED * 1, ACCELERATION * delta)
@@ -452,6 +454,7 @@ func _on_enemy_stomped_finished():
 	change_stomp_sfx_random()
 
 func play_jump_sfx():
+	$sfx/jump.pitch_scale = randf_range(0.9, 1.1)
 	$'sfx/jump'.play()
 
 # fade to clear
@@ -459,6 +462,7 @@ func play_jump_sfx():
 func fade_to_clear():
 	var tween = create_tween()
 	tween.tween_property(zozosprite, "self_modulate", Color(1.0, 1.0, 1.0, 0.0), 2.0)
+	
 
 
 func set_camera_position(new_position : Vector2):

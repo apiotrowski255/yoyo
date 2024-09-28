@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite : AnimatedSprite2D = $sprite
 @onready var death_hit_boxes : Node2D = $death_hit_boxes
 
+signal evil_wizard_hit
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.visible = false
@@ -28,6 +30,8 @@ func take_hit():
 	var tween = get_tree().create_tween()
 	tween.tween_method(set_shader_blink_intensity, 1.0, 0.0, 0.5)
 	$timer_hide_health_bar.start(3.0)
+	# emit_signal("evil_wizard_hit")
+	get_node("/root/scene_02").short_pause(0.1)
 
 func set_shader_blink_intensity(newValue : float):
 	sprite.material.set_shader_parameter("blink_intensity", newValue)

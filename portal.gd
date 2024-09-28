@@ -1,5 +1,6 @@
 extends Area2D
 
+# New scene to move the player too.
 @export var new_scene : PackedScene
 
 
