@@ -93,10 +93,16 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 	elif current_state == state.in_air:
-		if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0 and velocity.y > 0:
+		if Input.is_action_just_pressed("ui_accept") and coyote_timer > 0 and velocity.y >= 0:
 			velocity.y = jump_velocity
+			play_jump_sfx()
 		elif Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
 			change_state(state.shell)
+		elif Input.is_action_just_pressed("ui_accept"):
+			coyote_timer = coyote_time
+			
+			
+			
 		apply_gravity(delta)
 		
 		var direction = Input.get_axis("ui_left", "ui_right")
@@ -122,6 +128,10 @@ func _physics_process(delta):
 		sliding_state_process(delta)
 		return
 	elif current_state == state.cutscene:
+		# Maybe apply gravity? 
+		apply_gravity(delta)
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
+		move_and_slide()
 		return
 	elif current_state == state.gliding:
 		apply_gravity(delta)
@@ -135,7 +145,18 @@ func _physics_process(delta):
 	elif current_state == state.shell:
 		apply_gravity(delta)
 		move_and_slide()
-	else:
+	else: 
+		# The normal state?
+		
+		# Jump buffer 
+		if coyote_timer > 0:
+			coyote_timer = 0
+			velocity.y = jump_velocity
+			play_jump_sfx()
+			current_state = state.in_air
+			return
+		
+		
 		if Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
 			# print("go into shell mode!")
 			change_state(state.shell)
@@ -144,6 +165,7 @@ func _physics_process(delta):
 		if not is_on_floor():
 			current_state = state.in_air
 			coyote_timer = coyote_time
+			return
 		
 		# Add the gravity.
 		apply_gravity(delta)
@@ -383,6 +405,8 @@ func handle_jump():
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = jump_velocity
 			play_jump_sfx()
+	if is_on_floor() and coyote_timer > 0:
+		pass
 
 # Kill the player and restart the level
 # I think we need the origin the object that killed the player
