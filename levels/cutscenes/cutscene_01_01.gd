@@ -12,4 +12,6 @@ func _process(delta):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	print("animation finished - should return to game")
+	get_tree().change_scene_to_file("res://levels/scene_01_01.tscn")
+	GlobalMusicManager.load_music("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
+	GlobalMusicManager.play()

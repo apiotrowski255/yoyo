@@ -16,6 +16,12 @@ func _ready():
 func stop():
 	$music_player.stop()
 
+func load_music(string : String):
+	$music_player.stream = load(string)
+
+func play():
+	$music_player.play()
+
 func _input(event):
 	if event.is_action_pressed("music_less"):
 		$music_player.volume_db -= 5

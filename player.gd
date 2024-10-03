@@ -19,6 +19,7 @@ enum state {normal, climb, dying, sliding, in_air, jumping,
 var current_state = state.normal
 
 var coyote_timer : float  = 0.0
+var jump_buffer_timer : float = 0.0
 var raycast_up : RayCast2D
 var raycast_down : RayCast2D
 var timer : Timer
@@ -44,6 +45,7 @@ var gravity_modifier : float = 1.0
 
 func _process(delta):
 	coyote_timer -= delta
+	jump_buffer_timer -= delta
 
 func calculate_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
@@ -99,7 +101,7 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("e") and timer.is_stopped() == true and noShellMode == false:
 			change_state(state.shell)
 		elif Input.is_action_just_pressed("ui_accept"):
-			coyote_timer = coyote_time
+			jump_buffer_timer = 0.15
 			
 			
 			
@@ -149,8 +151,8 @@ func _physics_process(delta):
 		# The normal state?
 		
 		# Jump buffer 
-		if coyote_timer > 0:
-			coyote_timer = 0
+		if jump_buffer_timer > 0:
+			jump_buffer_timer = 0
 			velocity.y = jump_velocity
 			play_jump_sfx()
 			current_state = state.in_air

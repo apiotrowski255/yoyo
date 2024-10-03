@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://db75elyqwmday"]
+[gd_scene load_steps=27 format=4 uid="uid://db75elyqwmday"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
 [ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
@@ -29,6 +29,9 @@ size = Vector2(128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c46k6"]
 size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb1ke"]
+size = Vector2(320, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yfm77"]
 texture = ExtResource("6_0804c")
@@ -440,8 +443,12 @@ shape = SubResource("RectangleShape2D_c46k6")
 position = Vector2(1440, 48)
 shape = SubResource("RectangleShape2D_c46k6")
 
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="environment_body"]
+position = Vector2(2592, 240)
+shape = SubResource("RectangleShape2D_eb1ke")
+
 [node name="Player" parent="." instance=ExtResource("1_d7u7g")]
-position = Vector2(1444, -12)
+position = Vector2(2524, 140)
 
 [node name="Cage" type="Sprite2D" parent="."]
 position = Vector2(112, -8)
@@ -499,10 +506,10 @@ position = Vector2(376, 224)
 [node name="ColorRect2" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_dgrba")
-offset_left = -18.0
-offset_top = -168.0
-offset_right = 462.0
-offset_bottom = 104.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = 192.0
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -521,14 +528,14 @@ offset_right = 1444.0
 offset_bottom = 160.0
 
 [node name="horizontal_aligned_enemy_spawner" parent="." instance=ExtResource("10_jb82b")]
-position = Vector2(80, 44)
+position = Vector2(3372, 92)
 rotation = 1.5708
 
 [node name="horizontal_aligned_enemy_spawner3" parent="." instance=ExtResource("10_jb82b")]
-position = Vector2(-92, 188)
+position = Vector2(1416, 328)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("11_m8uvx")]
-position = Vector2(360, 44)
+position = Vector2(2592, 0)
 
 [node name="moving_platform_and_button_one_touch" parent="." instance=ExtResource("12_jisgd")]
 position = Vector2(68, 116)
@@ -540,7 +547,7 @@ position = Vector2(568, 96)
 position = Vector2(981, 127)
 
 [node name="jump_tutorial_02" parent="." instance=ExtResource("15_pfgx2")]
-position = Vector2(508, 164)
+position = Vector2(2080, -32)
 
 [node name="jump_tutorial_03" parent="." instance=ExtResource("16_sqafb")]
 position = Vector2(1472, -32)

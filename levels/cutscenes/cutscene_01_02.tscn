@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg0b712scwmgs"]
+[gd_scene load_steps=14 format=3 uid="uid://dsbicia2s2fsp"]
 
-[ext_resource type="Script" path="res://levels/cutscenes/cutscene_02_02.gd" id="1_248v5"]
-[ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="1_sk1dv"]
-[ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="2_2kj6a"]
-[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="3_j6dfk"]
-[ext_resource type="AudioStream" uid="uid://8c650ot2qq4y" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Neutral Sounds/sfx_sound_neutral1.wav" id="4_m13ro"]
-[ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="6_767cq"]
-[ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="7_v2fri"]
-[ext_resource type="PackedScene" uid="uid://cstlxbop5s1pp" path="res://mountain_dusk_parallax.tscn" id="8_w7sgj"]
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_02_02.gd" id="1_4o7h7"]
+[ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="2_a480s"]
+[ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="3_rt412"]
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="4_r47om"]
+[ext_resource type="AudioStream" uid="uid://8c650ot2qq4y" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Neutral Sounds/sfx_sound_neutral1.wav" id="5_rpbug"]
+[ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="6_egbjo"]
+[ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="7_t0exl"]
+[ext_resource type="PackedScene" uid="uid://cstlxbop5s1pp" path="res://mountain_dusk_parallax.tscn" id="8_0dk1l"]
 
 [sub_resource type="Animation" id="Animation_ab4i6"]
 length = 0.001
@@ -354,33 +354,33 @@ _data = {
 }
 
 [node name="cutscene_02_02" type="Node2D"]
-script = ExtResource("1_248v5")
+script = ExtResource("1_4o7h7")
 
 [node name="Heart" type="Sprite2D" parent="."]
 position = Vector2(56, 236)
 rotation = 0.989602
 scale = Vector2(2, 2)
-texture = ExtResource("1_sk1dv")
+texture = ExtResource("2_a480s")
 
 [node name="Border" type="Sprite2D" parent="Heart"]
-texture = ExtResource("2_2kj6a")
+texture = ExtResource("3_rt412")
 
 [node name="Heart2" type="Sprite2D" parent="."]
 position = Vector2(440, 192)
 scale = Vector2(2, 2)
-texture = ExtResource("1_sk1dv")
+texture = ExtResource("2_a480s")
 
 [node name="Border" type="Sprite2D" parent="Heart2"]
-texture = ExtResource("2_2kj6a")
+texture = ExtResource("3_rt412")
 
 [node name="ZozoJump1" type="Sprite2D" parent="."]
 position = Vector2(56, 260)
-texture = ExtResource("3_j6dfk")
+texture = ExtResource("4_r47om")
 offset = Vector2(0, -32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 2)
-stream = ExtResource("4_m13ro")
+stream = ExtResource("5_rpbug")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -396,16 +396,16 @@ offset_right = 480.0
 offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
 
-[node name="Portal" parent="." instance=ExtResource("6_767cq")]
+[node name="Portal" parent="." instance=ExtResource("6_egbjo")]
 position = Vector2(440, 192)
 scale = Vector2(4, 4)
 
-[node name="bush_tileset" parent="." instance=ExtResource("7_v2fri")]
+[node name="bush_tileset" parent="." instance=ExtResource("7_t0exl")]
 position = Vector2(-540, -316)
 scale = Vector2(2, 2)
 layer_0/tile_data = PackedInt32Array(589824, 0, 0, 589825, 65536, 0, 589826, 65536, 0, 589827, 65536, 0, 589828, 65536, 0, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 589835, 65536, 0, 589836, 65536, 0, 589837, 65536, 0, 589838, 65536, 0, 589839, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 655377, 65536, 2, 655376, 65536, 2, 655375, 65536, 2, 655374, 65536, 2, 655373, 65536, 2, 655372, 65536, 2, 655371, 65536, 2, 655370, 65536, 2, 655369, 65536, 2, 655368, 65536, 2, 655367, 65536, 2, 655366, 65536, 2, 655365, 65536, 2, 655364, 65536, 2, 655363, 65536, 2, 655362, 65536, 2, 655361, 65536, 2, 655360, 0, 2, 589842, 458752, 2, 524306, 196608, 1, 458770, 196608, 1, 393234, 196608, 1, 327698, 196608, 1, 262162, 196608, 1, 196626, 196608, 1, 131090, 196608, 1, 65554, 196608, 1, 18, 196608, 0, 655378, 131072, 2)
 
-[node name="mountain_dusk_parallax" parent="." instance=ExtResource("8_w7sgj")]
+[node name="mountain_dusk_parallax" parent="." instance=ExtResource("8_0dk1l")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

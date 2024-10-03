@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://q4jsyn3matob"]
+
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_01_01.gd" id="1_mbjdl"]
+[ext_resource type="Texture2D" uid="uid://c3fwu86clgsm6" path="res://environment/city/city 1/10.png" id="2_rrdit"]
+[ext_resource type="PackedScene" uid="uid://dsd6si82l3u2g" path="res://tilesets/brick_tilemap.tscn" id="3_6p32n"]
+[ext_resource type="PackedScene" uid="uid://6y05lxpfapwl" path="res://tilesets/stringstar_tilemap.tscn" id="4_sedol"]
+[ext_resource type="Texture2D" uid="uid://bpr1s03neu7h2" path="res://environment/props/table.png" id="5_lb7kt"]
+[ext_resource type="PackedScene" uid="uid://0f5ad8cx84en" path="res://lindsei.tscn" id="6_li6ta"]
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="7_60bm3"]
+[ext_resource type="AudioStream" uid="uid://b8w8ikmhfw8vv" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump1.wav" id="8_v2qga"]
+[ext_resource type="Shader" path="res://levels/cutscenes/vignette_white.gdshader" id="9_2xyt2"]
+
+[sub_resource type="Animation" id="Animation_3by26"]
+resource_name = "zozo_jump"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZozoJump1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [296.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZozoJump1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [148.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lindsei")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_pat_animation"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7i2t5"]
+_data = {
+"zozo_jump": SubResource("Animation_3by26")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7y4c5"]
+shader = ExtResource("9_2xyt2")
+shader_parameter/alpha = 0.595
+shader_parameter/inner_radius = 0.61
+shader_parameter/outer_radius = 1.0
+
+[node name="cutscene_01_01_temp" type="Node2D"]
+script = ExtResource("1_mbjdl")
+
+[node name="10" type="Sprite2D" parent="."]
+position = Vector2(239.111, 136)
+scale = Vector2(0.209877, 0.209877)
+texture = ExtResource("2_rrdit")
+
+[node name="brick_tilemap" parent="." instance=ExtResource("3_6p32n")]
+layer_0/tile_data = PackedInt32Array(0, 65536, 2, 1, 65536, 2, 2, 65536, 2, 3, 393216, 1, 4, 327680, 1, 5, 65536, 2, 6, 65536, 2, 7, 65536, 2, 8, 65536, 2, 9, 65536, 2, 10, 65536, 2, 11, 65536, 2, 12, 393216, 1, 13, 65536, 1, 14, 65536, 1, -65522, 65536, 0, -65523, 65536, 0, -65524, 65536, 0, -65525, 65536, 0, -65526, 65536, 0, -65527, 65536, 0, -65528, 65536, 0, -65529, 65536, 0, -65530, 65536, 0, -65531, 65536, 0, -65532, 65536, 0, -65533, 65536, 0, -65534, 65536, 0, -65535, 65536, 0, -65536, 65536, 0, -1, 0, 0, 65535, 0, 2, -65521, 131072, 0, 15, 131072, 1, 65551, 131072, 1, 131087, 131072, 1, 196623, 131072, 1, 262159, 131072, 1, 327695, 131072, 1, 393231, 131072, 1, 458767, 131072, 1, 458766, 65536, 1, 393230, 65536, 1, 65550, 65536, 1, 131086, 65536, 1, 196622, 65536, 1, 262158, 65536, 1, 327694, 65536, 1, 65549, 65536, 1, 131085, 65536, 1, 196621, 65536, 1, 262157, 65536, 1, 327693, 65536, 1, 393229, 65536, 1, 458765, 65536, 1, 131084, 0, 1, 196620, 0, 1, 262156, 0, 1, 327692, 0, 1, 393228, 0, 1, 458764, 393216, 2, 524299, 65536, 2, 524298, 65536, 2, 524297, 65536, 2, 524296, 65536, 2, 524295, 65536, 2, 524294, 65536, 2, 524293, 65536, 2, 524292, 65536, 2, 524291, 65536, 2, 524290, 65536, 2, 524289, 65536, 2, 524288, 65536, 2, 589823, 0, 2, 458763, 65536, 0, 458762, 65536, 0, 458761, 65536, 0, 458760, 65536, 0, 458759, 65536, 0, 458758, 65536, 0, 458757, 65536, 0, 458756, 327680, 2, 458755, 393216, 2, 458754, 65536, 0, 458753, 65536, 0, 458752, 65536, 0, 524287, 0, 0, 131075, 0, 1, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 393219, 0, 1, 131076, 131072, 1, 196612, 131072, 1, 262148, 131072, 1, 327684, 131072, 1, 393220, 131072, 1, 65539, 0, 1, 65540, 131072, 1, 65548, 0, 1, 524300, 65536, 2, 524301, 65536, 2, 524302, 65536, 2, 524303, 131072, 2)
+
+[node name="stringstar_tilemap" parent="." instance=ExtResource("4_sedol")]
+layer_0/tile_data = PackedInt32Array(2, 0, 2, 8, 0, 2, 15, 131072, 2, 21, 131072, 2, 65551, 131072, 3, 131087, 131072, 3, 196623, 131072, 3, 65557, 131072, 3, 131093, 131072, 3, 65538, 0, 3, 65544, 0, 3, 262159, 131072, 4, 196629, 131072, 4, 12, 65536, 2, 24, 65536, 2, 4, 65536, 2, 917521, 262144, 6, 917522, 262144, 6, 917523, 262144, 6, 917524, 262144, 6, 917525, 262144, 6, 917520, 262144, 6, 917526, 262144, 6, 917519, 262144, 6)
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(140, 212)
+scale = Vector2(0.106538, 0.106538)
+texture = ExtResource("5_lb7kt")
+
+[node name="Lindsei" parent="." instance=ExtResource("6_li6ta")]
+position = Vector2(248, 240)
+scale = Vector2(2, 2)
+
+[node name="ZozoJump1" type="Sprite2D" parent="."]
+position = Vector2(296, 148)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_60bm3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7i2t5")
+}
+autoplay = "zozo_jump"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_v2qga")
+
+[node name="vignette" type="ColorRect" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_7y4c5")
+offset_left = -1.0
+offset_right = 479.0
+offset_bottom = 272.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_right = 480.0
+offset_bottom = 272.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

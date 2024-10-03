@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpaknhql1i6vo" path="res://sprites/cannon.png" id="3_7i6xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbbsi"]
-size = Vector2(320, 320)
+size = Vector2(320, 224)
 
 [sub_resource type="Animation" id="Animation_p5lha"]
 length = 0.001
@@ -59,6 +59,7 @@ script = ExtResource("1_siq8d")
 position = Vector2(0, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_xbbsi")
 
 [node name="timed_enemy_spawner" parent="." instance=ExtResource("1_rdsxb")]

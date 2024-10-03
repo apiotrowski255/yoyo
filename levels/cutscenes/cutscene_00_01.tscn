@@ -33,6 +33,6 @@ autoplay = "cutscene"
 
 [node name="ZozoJump1" type="Sprite2D" parent="."]
 position = Vector2(232, 136)
-rotation = -0.261799
+rotation = 0.785398
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_4w5ks")
