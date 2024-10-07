@@ -8,14 +8,14 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xsknr"]
 frequency = 0.03
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2rwh6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bu5id"]
 seamless = true
 noise = SubResource("FastNoiseLite_xsknr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dxmgw"]
 shader = ExtResource("1_sdhja")
 shader_parameter/water_color = Color(0.0962351, 0.186038, 0.344948, 1)
-shader_parameter/wave_noise = SubResource("NoiseTexture2D_2rwh6")
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_bu5id")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ry47"]
 size = Vector2(352, 16)

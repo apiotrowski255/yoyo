@@ -6,7 +6,12 @@ func _ready():
 	# Default to Earth song
 	$music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
 	
+	print(get_node("/root/scene_02"))
+	
 	if get_node("/root/scene_01") != null:
+		$music_player.play()
+	elif get_node("/root/scene_02") != null:
+		$music_player.stream = load("res://sounds/music/Rainoth Unmissed.mp3")
 		$music_player.play()
 	elif get_node("/root/scene_03") != null:
 		$music_player.stream = load("res://sounds/music/City Chase Club Mix.mp3")

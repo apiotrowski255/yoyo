@@ -46,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="44_gas4i"]
 [ext_resource type="PackedScene" uid="uid://cgog887ogrwi3" path="res://platforming/meta/pressure_button_platform_01.tscn" id="45_ln7mn"]
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="46_xke8b"]
-[ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02.tscn" id="47_v24el"]
+[ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02-tmp.tscn" id="47_v24el"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="48_xn6kt"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="49_8ttli"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="50_jyd4s"]

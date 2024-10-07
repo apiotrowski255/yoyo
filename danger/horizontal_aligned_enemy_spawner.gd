@@ -10,7 +10,7 @@ var timer : Timer
 var line2d : Line2D
 var animationplayer : AnimationPlayer
 var particles : CPUParticles2D
-
+@export var line_length : float = 64
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	target = null
@@ -36,15 +36,17 @@ func _process(delta):
 		spawn_location.position.y = move_toward(spawn_location.position.y, spawn_location.position.y - 32,  spawner_move_speed * delta)
 	line2d.set_point_position(0, spawn_location.position)
 	var temp : Vector2 = spawn_location.position
-	temp.x += 200
+	temp.x += line_length
 	line2d.set_point_position(1, temp)
-	
+
 
 func _on_player_detection_area_body_entered(body):
 	if GlobalVariables.is_player(body):
 		target = body
 		timer.start()
-		line2d.add_point(body.global_position)
+		var temp : Vector2 = spawn_location.position
+		temp.x += line_length
+		line2d.add_point(temp)
 		animationplayer.play("line_colour_change")
 
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://k2dklpkn53sc"]
+[gd_scene load_steps=14 format=3 uid="uid://k2dklpkn53sc"]
 
+[ext_resource type="Script" path="res://platforming/meta/jump_tutorial_03.gd" id="1_rqowc"]
 [ext_resource type="PackedScene" uid="uid://msmhrilho24l" path="res://breaking_platforms.tscn" id="1_rwach"]
 [ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="2_qlnkf"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="3_6i1wh"]
@@ -54,7 +55,11 @@ func _on_body_exited(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d1as"]
 size = Vector2(4, 76)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uklk"]
+size = Vector2(16, 16)
+
 [node name="jump_tutorial_03" type="Node2D"]
+script = ExtResource("1_rqowc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 96)
@@ -93,11 +98,11 @@ position = Vector2(288, 104)
 start_position = Vector2(288, 104)
 end_position = Vector2(384, 104)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="wall jump" type="Area2D" parent="."]
 position = Vector2(590, 42)
 script = SubResource("GDScript_7k3xt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall jump"]
 shape = SubResource("RectangleShape2D_5d1as")
 debug_color = Color(1, 1, 0, 0.419608)
 
@@ -203,5 +208,14 @@ position = Vector2(216, 104)
 [node name="triggered_falling_spike3" parent="." instance=ExtResource("4_i4hwt")]
 position = Vector2(232, 104)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(88, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5uklk")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[connection signal="body_entered" from="wall jump" to="wall jump" method="_on_body_entered"]
+[connection signal="body_exited" from="wall jump" to="wall jump" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
