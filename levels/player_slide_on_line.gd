@@ -11,6 +11,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		local_player = body
 		
 		local_player.change_state(player.state.line_riding)
+		
 		# local_player.start_camera_smoothing_timer(3.0)
 		
 		# get_node("Path2D/PathFollow2D").add_child(local_player)
