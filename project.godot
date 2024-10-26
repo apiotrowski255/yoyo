@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="yoyo"
-run/main_scene="res://levels/scene_01.tscn"
+run/main_scene="res://levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://sprites/zozo/zozo jump_1.png"
 
 [autoload]
 

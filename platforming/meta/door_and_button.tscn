@@ -18,14 +18,12 @@ door = NodePath("../StaticBody2D/Door")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Door" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(52, 24)
 shape = SubResource("RectangleShape2D_3uaf4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StaticBody2D/Door"]
 stream = ExtResource("3_yhv70")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(52, 24)
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(0.125, 0.75)
 texture = ExtResource("2_2t12w")
 

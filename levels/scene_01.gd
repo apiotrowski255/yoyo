@@ -8,7 +8,7 @@ var flag_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player.start_camera_smoothing_timer()
+	$Player.start_camera_smoothing_timer(1.0)
 	timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)
 	
@@ -32,7 +32,7 @@ func _ready():
 		get_node("birds/bird2").queue_free()
 
 func _on_death_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		# print("do death animation")
 		body.die()
 		timer.start(1.5)

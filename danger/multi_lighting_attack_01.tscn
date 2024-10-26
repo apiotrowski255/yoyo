@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3 uid="uid://b03446qpiyf5t"]
+
+[ext_resource type="PackedScene" uid="uid://cmvc26ygr7c4v" path="res://lighting_attack_01.tscn" id="1_ihlj3"]
+[ext_resource type="Script" path="res://danger/multi_lighting_attack_01.gd" id="1_pnlpv"]
+
+[node name="multi_lighting_attack_01" type="Node2D"]
+script = ExtResource("1_pnlpv")
+
+[node name="lighting_container" type="Node2D" parent="."]
+
+[node name="lighting_attack_01" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(20, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_02" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(60, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_03" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(100, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_04" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(140, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_05" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(180, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_06" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(220, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_07" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(260, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_08" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(300, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_09" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(340, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_10" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(380, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_11" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(420, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_12" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(460, 272)
+sound_volume_adjust = -12.0
+
+[node name="lighting_attack_18" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(440, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_17" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(360, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_16" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(280, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_15" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(200, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_14" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(120, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_13" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(40, 272)
+scale = Vector2(2, 2)
+sound_volume_adjust = -9.0
+
+[node name="lighting_attack_26" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(3064, -4)
+sound_volume_adjust = -100.0
+
+[node name="lighting_attack_27" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(3064, -4)
+sound_volume_adjust = -100.0
+
+[node name="lighting_attack_19" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(80, 272)
+scale = Vector2(4, 4)
+sound_volume_adjust = -6.0
+
+[node name="lighting_attack_20" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(240, 272)
+scale = Vector2(4, 4)
+sound_volume_adjust = -6.0
+
+[node name="lighting_attack_21" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(400, 272)
+scale = Vector2(4, 4)
+sound_volume_adjust = -6.0
+
+[node name="lighting_attack_23" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(2912, 0)
+sound_volume_adjust = -100.0
+
+[node name="lighting_attack_24" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(2912, 0)
+sound_volume_adjust = -100.0
+
+[node name="lighting_attack_25" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(2912, 0)
+sound_volume_adjust = -100.0
+
+[node name="lighting_attack_22" parent="lighting_container" instance=ExtResource("1_ihlj3")]
+position = Vector2(240, 272)
+scale = Vector2(8, 8)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,162 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfw8pusjoagdx"]
+
+[ext_resource type="PackedScene" uid="uid://c7lcwv3ubnjle" path="res://chain.tscn" id="1_cilsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f4b3"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ieed"]
+size = Vector2(64, 4)
+
+[node name="vine" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_8f4b3")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 4)
+node_a = NodePath("../StaticBody2D2")
+node_b = NodePath("../chain")
+bias = 0.9
+
+[node name="chain" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(0, 12)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 20)
+node_a = NodePath("../chain")
+node_b = NodePath("../chain2")
+bias = 0.9
+
+[node name="chain2" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(0, 28)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 36)
+node_a = NodePath("../chain2")
+node_b = NodePath("../chain3")
+bias = 0.9
+
+[node name="chain3" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(0, 44)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 52)
+node_a = NodePath("../chain3")
+node_b = NodePath("../chain4")
+bias = 0.9
+
+[node name="chain4" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(0, 60)
+mass = 4.0
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(0, 68)
+node_a = NodePath("../chain4")
+node_b = NodePath("../chain5")
+bias = 0.9
+
+[node name="chain5" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(0, 76)
+mass = 4.0
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(0, 84)
+node_a = NodePath("../chain5")
+node_b = NodePath("../RigidBody2D")
+bias = 0.9
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(64, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("CircleShape2D_8f4b3")
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+position = Vector2(64, 4)
+node_a = NodePath("../StaticBody2D3")
+node_b = NodePath("../chain6")
+bias = 0.9
+
+[node name="chain6" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(64, 12)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2(64, 20)
+node_a = NodePath("../chain6")
+node_b = NodePath("../chain7")
+bias = 0.9
+
+[node name="chain7" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(64, 28)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D9" type="PinJoint2D" parent="."]
+position = Vector2(64, 36)
+node_a = NodePath("../chain7")
+node_b = NodePath("../chain8")
+bias = 0.9
+
+[node name="chain8" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(64, 44)
+collision_mask = 0
+mass = 4.0
+ignore = true
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="."]
+position = Vector2(64, 52)
+node_a = NodePath("../chain8")
+node_b = NodePath("../chain9")
+bias = 0.9
+
+[node name="chain9" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(64, 60)
+mass = 4.0
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="."]
+position = Vector2(64, 68)
+node_a = NodePath("../chain9")
+node_b = NodePath("../chain10")
+bias = 0.9
+
+[node name="chain10" parent="." instance=ExtResource("1_cilsb")]
+position = Vector2(64, 76)
+mass = 4.0
+
+[node name="PinJoint2D12" type="PinJoint2D" parent="."]
+position = Vector2(64, 84)
+node_a = NodePath("../chain10")
+node_b = NodePath("../RigidBody2D")
+bias = 0.9
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(32, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_8ieed")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 220.0
+offset_bottom = 60.0
+text = "NOT WORKING, DO NOT USE"

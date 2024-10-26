@@ -19,7 +19,7 @@ var jump_velocity = -75
 
 func _ready():
 	current_state = state.idle
-	animatedsprite = $AnimatedSprite2D
+	animatedsprite = $blue_animated_sprite
 	animatedsprite.play("idle")
 	timer = $Timer
 	velocity.x = -speed

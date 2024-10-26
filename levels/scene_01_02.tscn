@@ -46,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="44_jkxsu"]
 [ext_resource type="PackedScene" uid="uid://cgog887ogrwi3" path="res://platforming/meta/pressure_button_platform_01.tscn" id="45_77jdj"]
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="46_l01xa"]
-[ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02-tmp.tscn" id="47_1hxmr"]
+[ext_resource type="PackedScene" uid="uid://dbm1drwmihdql" path="res://levels/cutscenes/cutscene_02_01.tscn" id="47_yvh7y"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="48_sljcy"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="49_62t5t"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="50_unxyb"]
@@ -3763,7 +3763,7 @@ position = Vector2(4976, 232)
 position = Vector2(7776, 124)
 
 [node name="vertical_aligned_enemy_spawner" parent="." instance=ExtResource("32_to538")]
-position = Vector2(7184, 68)
+position = Vector2(8224, 86)
 
 [node name="spike container sprites" type="Node2D" parent="."]
 position = Vector2(7184, -144)
@@ -3896,7 +3896,7 @@ position = Vector2(6820, -120)
 
 [node name="Portal" parent="." instance=ExtResource("46_l01xa")]
 position = Vector2(7232, -22)
-new_scene = ExtResource("47_1hxmr")
+new_scene = ExtResource("47_yvh7y")
 
 [node name="triggered_falling_spike6" parent="." instance=ExtResource("48_sljcy")]
 position = Vector2(696, 296)

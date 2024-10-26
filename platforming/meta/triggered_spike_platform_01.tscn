@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://ys6mvwbli7rm"]
+
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="1_3sfq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8n7l"]
+size = Vector2(320, 16)
+
+[node name="triggered_spike_platform_01" type="Node2D"]
+
+[node name="triggered_falling_spike5" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(72, 104)
+
+[node name="triggered_falling_spike6" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(88, 104)
+
+[node name="triggered_falling_spike7" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(104, 104)
+
+[node name="triggered_falling_spike8" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(120, 104)
+
+[node name="triggered_falling_spike9" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(136, 104)
+
+[node name="triggered_falling_spike10" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(152, 104)
+
+[node name="triggered_falling_spike11" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(168, 104)
+
+[node name="triggered_falling_spike12" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(184, 104)
+
+[node name="triggered_falling_spike13" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(200, 104)
+
+[node name="triggered_falling_spike14" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(216, 104)
+
+[node name="triggered_falling_spike15" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(232, 104)
+
+[node name="triggered_falling_spike16" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(248, 104)
+
+[node name="triggered_falling_spike17" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(264, 104)
+
+[node name="triggered_falling_spike18" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(280, 104)
+
+[node name="triggered_falling_spike19" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(296, 104)
+
+[node name="triggered_falling_spike20" parent="." instance=ExtResource("1_3sfq8")]
+position = Vector2(312, 104)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(160, 120)
+shape = SubResource("RectangleShape2D_u8n7l")

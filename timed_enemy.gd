@@ -1,4 +1,4 @@
-extends Area2D
+class_name timed_enemy extends Area2D
 
 @export var time_to_die : float = 7.0
 @export var speed : float = 32.0

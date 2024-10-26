@@ -19,7 +19,6 @@ func _ready():
 	# https://www.reddit.com/r/godot/comments/11x54z2/how_to_get_tweens_to_loop_this_isnt_working_for/
 	tween.tween_property(path_follow, "progress_ratio", 1, time).set_ease(ease).set_trans(trans).as_relative()
 
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

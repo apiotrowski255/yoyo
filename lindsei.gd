@@ -35,4 +35,3 @@ func play_idle_animation():
 func _on_lindsei_sprite_animation_finished():
 	if lindsei_sprite.animation == "catch":
 		play_pat_animation()
-

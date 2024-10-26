@@ -13,7 +13,8 @@ var camera : Camera2D
 
 enum state {normal, climb, dying, sliding, in_air, jumping, 
 			wall_jump_left, wall_jump_right, teleporting, gliding, shell, cutscene
-			, wall_stick_left, wall_stick_right}
+			, wall_stick_left, wall_stick_right,
+			line_riding }
 # teleporting = pipe travelling?
 # invincible mode?
 var current_state = state.normal
@@ -88,6 +89,8 @@ func _physics_process(delta):
 		return
 	elif current_state == state.dying:
 		dying_state_process(delta)
+		return
+	elif current_state == state.line_riding:
 		return
 	elif current_state == state.teleporting:
 		# Maybe like a slow glide up?
@@ -227,11 +230,20 @@ func change_state(state_change):
 		noShellMode = true
 	# TODO - FIX THIS SHIT BELOW
 	# HOW CAN SOMETHING BE IN TWO STATES?
+	# I think it is supposed to be that i am not able to enter shell state while gliding
+	# It is not in two states at once dummy, state_change and current_state and two different things
 	elif state_change == state.gliding and current_state == state.shell:
 		current_state = state.gliding
 		zozosprite.self_modulate = Color(1, 1, 1)
 		jump_time_to_descent = 0.4
 		calculate_jump_parameters()
+	elif state_change == state.line_riding:
+		zozosprite.texture = load("res://sprites/zozo/zozo line ride.png")
+		zozosprite.scale = Vector2(0.25, 0.25)
+		current_state = state_change
+	elif current_state == state.line_riding and state_change != state.line_riding:
+		zozosprite.texture = load("res://sprites/zozo/zozo jump_1.png")
+		current_state = state_change
 	else:
 		current_state = state_change
 	return
@@ -460,8 +472,8 @@ func _on_cooldown_timer_timeout():
 
 # disables smoothing on the camera, and then on timeout will re-enable smoothing
 # Might use it for multiple things in the future - but will see
-func start_camera_smoothing_timer():
-	$Camera_smoothing_timer.start(1.0)
+func start_camera_smoothing_timer(time : float):
+	$Camera_smoothing_timer.start(time)
 	camera.position_smoothing_enabled = false
 
 func _on_camera_smoothing_timer_timeout():
@@ -490,6 +502,10 @@ func fade_to_clear():
 	tween.tween_property(zozosprite, "self_modulate", Color(1.0, 1.0, 1.0, 0.0), 2.0)
 	
 
-
 func set_camera_position(new_position : Vector2):
 	camera.position = new_position
+
+func camera_shake_01(duration : float, offset: Vector2) -> void:
+	var tween = create_tween()
+	self.camera.offset = offset
+	tween.tween_property(self.camera, "offset", Vector2(0,0), duration).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)

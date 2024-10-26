@@ -32,4 +32,3 @@ func _on_body_exited(body):
 
 func jump_animation() -> void:
 	$AnimationPlayer.play("jump")
-	pass

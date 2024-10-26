@@ -4,7 +4,7 @@ var sprite2d : Sprite2D
 var button : Area2D
 
 func _ready():
-	sprite2d = get_node("Sprite2D")
+	sprite2d = get_node("StaticBody2D/Sprite2D")
 	button = get_node("button")
 
 

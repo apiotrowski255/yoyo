@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://l8kysjii8kfi"]
+
+[ext_resource type="Script" path="res://danger/stepping_lighting_attack.gd" id="1_16upj"]
+[ext_resource type="PackedScene" uid="uid://cmvc26ygr7c4v" path="res://lighting_attack_01.tscn" id="1_r84fd"]
+
+[node name="stepping_lighting_attack" type="Node2D"]
+script = ExtResource("1_16upj")
+time_between_attacks = 0.05
+
+[node name="lighting_attack_container" type="Node2D" parent="."]
+
+[node name="lighting_attack_01" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(20, 272)
+
+[node name="lighting_attack_02" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(60, 272)
+
+[node name="lighting_attack_03" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(100, 272)
+
+[node name="lighting_attack_04" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(140, 272)
+
+[node name="lighting_attack_05" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(180, 272)
+
+[node name="lighting_attack_06" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(220, 272)
+
+[node name="lighting_attack_07" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(260, 272)
+
+[node name="lighting_attack_08" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(300, 272)
+
+[node name="lighting_attack_09" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(340, 272)
+
+[node name="lighting_attack_10" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(380, 272)
+
+[node name="lighting_attack_11" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(420, 272)
+
+[node name="lighting_attack_12" parent="lighting_attack_container" instance=ExtResource("1_r84fd")]
+position = Vector2(460, 272)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

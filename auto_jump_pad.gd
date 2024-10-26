@@ -7,11 +7,9 @@ extends Area2D
 func _ready():
 	pass # Replace with function body.
 
-
-
-
 func _on_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		body.velocity = target_velocity
 		if do_a_flip:
 			body.do_a_flip()
+		body.play_jump_sfx()

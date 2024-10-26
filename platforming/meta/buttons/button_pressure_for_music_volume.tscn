@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo6u7l2xub3x3"]
+
+[ext_resource type="Script" path="res://platforming/meta/buttons/button_pressure_for_music_volume.gd" id="1_qsy5m"]
+[ext_resource type="Texture2D" uid="uid://c31pd2oc62gfe" path="res://button_open.png" id="2_2kono"]
+[ext_resource type="AudioStream" uid="uid://b4f6hs6sb7xqv" path="res://sounds/sfx/UI_SFX_Set/switch1.wav" id="3_sjy6u"]
+[ext_resource type="AudioStream" uid="uid://crb1d5tm4fxso" path="res://sounds/sfx/UI_SFX_Set/switch2.wav" id="4_xk52e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iqic"]
+size = Vector2(8, 4)
+
+[node name="Button_pressure_for_music_volume" type="Area2D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_qsy5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2kono")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1iqic")
+debug_color = Color(1, 0, 0.545098, 0.419608)
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="button_on" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("3_sjy6u")
+max_distance = 100.0
+
+[node name="button_off" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("4_xk52e")
+max_distance = 100.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

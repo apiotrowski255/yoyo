@@ -29,25 +29,35 @@ func _process(delta):
 	if current_state == state.idle:
 		return
 	else:
-		move_and_collide(direction * speed * delta)
-		if position.distance_to(end_position) < 1:
+		#move_and_collide(direction * speed * delta)
+		position = position.move_toward(end_position, delta * speed)
+		if position.distance_to(end_position) == 0:
 			if current_type == type.once:
 				current_state = state.idle
-			var tmp = start_position
-			start_position = end_position
-			end_position = tmp
-			direction = -direction
+				return
+			swap_start_and_end_positions()
 
 
+func swap_start_and_end_positions():
+	var tmp = start_position
+	start_position = end_position
+	end_position = tmp
+	direction = -direction
 
 func _on_trigger_area_body_entered(body):
+	if not GlobalVariables.is_player(body):
+		return
+	if current_state == state.idle and position.distance_to(end_position) < 1:
+		return
 	if GlobalVariables.is_player(body):
 		current_state = state.moving
 
 
 
 func _on_trigger_area_body_exited(body):
-	if current_type == type.continous:
+	if not GlobalVariables.is_player(body):
+		return
+	if current_type == type.continous or current_type == type.once:
 		return
 	if GlobalVariables.is_player(body):
 		current_state = state.idle

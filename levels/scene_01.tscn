@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://sopyrg47pdxr" path="res://platforming/meta/moving_platform_tutorial.tscn" id="45_gdluj"]
 [ext_resource type="PackedScene" uid="uid://codumbgk0lf0j" path="res://platforming/meta/breaking_platform_tutorial.tscn" id="46_v4283"]
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="47_o7tme"]
+[ext_resource type="PackedScene" uid="uid://c81hy6ekekcnl" path="res://levels/scene_02.tscn" id="47_o53iq"]
 [ext_resource type="PackedScene" uid="uid://bp8waip6fdsv8" path="res://platforming/meta/tunnel_platform_01.tscn" id="47_uddt6"]
 [ext_resource type="PackedScene" uid="uid://dg22kfevxw1jl" path="res://platforming/meta/wall_jump_platform_01.tscn" id="48_6vvbu"]
 [ext_resource type="PackedScene" uid="uid://bfldecja4cixb" path="res://platforming/meta/moving_platforms_01.tscn" id="48_vwave"]
@@ -48,7 +49,6 @@
 [ext_resource type="PackedScene" uid="uid://cgog887ogrwi3" path="res://platforming/meta/pressure_button_platform_01.tscn" id="51_u7at7"]
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="52_ehomu"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="53_1yerg"]
-[ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02-tmp.tscn" id="53_egukd"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="54_3h8xj"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="55_2gvdk"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="56_m8vvo"]
@@ -3203,7 +3203,7 @@ texture = ExtResource("5_n2jkw")
 
 [node name="Player" parent="." instance=ExtResource("1_5ced8")]
 z_index = 1
-position = Vector2(4944, 532)
+position = Vector2(7196, -22)
 coyote_time = 0.2
 
 [node name="Timer" type="Timer" parent="."]
@@ -3791,6 +3791,9 @@ position = Vector2(688, 224)
 [node name="button" parent="door" index="0"]
 position = Vector2(8, -48)
 
+[node name="StaticBody2D" parent="door" index="1"]
+position = Vector2(52, 24)
+
 [node name="tunnel_platform_01" parent="." instance=ExtResource("47_uddt6")]
 position = Vector2(5760, -224)
 
@@ -3883,10 +3886,10 @@ position = Vector2(6736, -616)
 position = Vector2(2016, 32)
 
 [node name="StaticBody2D" parent="door2" index="1"]
-position = Vector2(256, 0)
+position = Vector2(308, 26)
 
-[node name="Sprite2D" parent="door2" index="2"]
-position = Vector2(308, 24)
+[node name="Door" parent="door2/StaticBody2D" index="0"]
+position = Vector2(0, -2)
 
 [node name="bird" parent="." instance=ExtResource("35_dx1bh")]
 position = Vector2(5496, 62)
@@ -3899,7 +3902,7 @@ position = Vector2(6820, -120)
 
 [node name="Portal" parent="." instance=ExtResource("52_ehomu")]
 position = Vector2(7232, -22)
-new_scene = ExtResource("53_egukd")
+new_scene = ExtResource("47_o53iq")
 
 [node name="triggered_falling_spike" parent="." instance=ExtResource("53_1yerg")]
 position = Vector2(6952, -8)

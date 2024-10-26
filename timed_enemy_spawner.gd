@@ -1,4 +1,5 @@
 class_name timed_enemy_spawner extends Node2D 
+
 @export var enemy_scene: PackedScene
 var timer : Timer
 @export var repeat_time : float = 2

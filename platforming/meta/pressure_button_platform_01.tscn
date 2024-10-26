@@ -68,6 +68,13 @@ shape = SubResource("RectangleShape2D_i4dei")
 position = Vector2(288, 96)
 shape = SubResource("RectangleShape2D_8m3v3")
 
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/Door5"]
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 4.0
+offset_bottom = 24.0
+color = Color(0.423651, 0.423651, 0.423651, 1)
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(36, 120)
 polygon = PackedVector2Array(4, -4, 4, 0, 0, 0)

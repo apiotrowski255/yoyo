@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dngkndhphu8s3"]
+
+[ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="1_naj2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b52uk"]
+size = Vector2(160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aexmr"]
+size = Vector2(288, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otmkt"]
+size = Vector2(16, 144)
+
+[sub_resource type="Curve2D" id="Curve2D_8sin0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 96, 0, 0, 0, 0, 152, 128, 0, 0, 0, 0, 264, 128, 0, 0, 0, 0, 360, 104, 0, 0, 0, 0, 432, 64, 0, 0, 0, 0, 464, 24, 0, 0, 0, 0, 480, -24, 0, 0, 0, 0, 480, -72, 0, 0, 0, 0, 456, -112, 0, 0, 0, 0, 408, -128, 0, 0, 0, 0, 352, -112, 0, 0, 0, 0, 320, -64, 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 352, 32, 0, 0, 0, 0, 416, 64, 0, 0, 0, 0, 488, 72, 0, 0, 0, 0, 568, 64, 0, 0, 0, 0, 632, 16, 0, 0, 0, 0, 672, -56, 0, 0, 0, 0, 704, -128)
+}
+point_count = 21
+
+[node name="line_ride_platformer_02" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(80, 136)
+shape = SubResource("RectangleShape2D_b52uk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(944, 8)
+shape = SubResource("RectangleShape2D_aexmr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(168, 72)
+shape = SubResource("RectangleShape2D_otmkt")
+
+[node name="player_slide_on_line" parent="." instance=ExtResource("1_naj2p")]
+position = Vector2(144, 120)
+time_to_finish_line_ride = 3.0
+exit_velocity = Vector2(100, -300)
+
+[node name="Path2D" parent="player_slide_on_line" index="0"]
+curve = SubResource("Curve2D_8sin0")
+
+[node name="PathFollow2D" parent="player_slide_on_line/Path2D" index="0"]
+rotation = 0.982794
+
+[editable path="player_slide_on_line"]

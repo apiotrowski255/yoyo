@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dul5rwnou4j1v"]
+
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_ccnvv"]
+[ext_resource type="Texture2D" uid="uid://cqlt7fqtonfv0" path="res://cage.png" id="2_n6vag"]
+
+[sub_resource type="Animation" id="Animation_d6kpy"]
+resource_name = "zozo_escape"
+length = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ccue"]
+_data = {
+"zozo_escape": SubResource("Animation_d6kpy")
+}
+
+[node name="cutscene_03_01" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ccue")
+}
+
+[node name="ZozoJump1" type="Sprite2D" parent="."]
+position = Vector2(240, 116)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ccnvv")
+
+[node name="Cage" type="Sprite2D" parent="."]
+position = Vector2(240, 92)
+scale = Vector2(0.0962142, 0.0962142)
+texture = ExtResource("2_n6vag")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 136)

@@ -9,6 +9,7 @@ size = Vector2(96, 16)
 size = Vector2(96, 4)
 
 [node name="triggered_moving_platform" type="AnimatableBody2D"]
+collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_5v3u6")
 

@@ -11,6 +11,7 @@ enemy_scene = ExtResource("2_rnrpu")
 time_to_die = 6.0
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="timed_enemy_spawner18" parent="." instance=ExtResource("1_2hgre")]
 position = Vector2(416, 160)
@@ -19,6 +20,7 @@ time_to_die = 5.5
 spawn_direction = Vector2(0, -1)
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="timed_enemy_spawner19" parent="." instance=ExtResource("1_2hgre")]
 position = Vector2(320, 0)
@@ -26,6 +28,7 @@ enemy_scene = ExtResource("2_rnrpu")
 time_to_die = 6.0
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="timed_enemy_spawner20" parent="." instance=ExtResource("1_2hgre")]
 position = Vector2(224, 160)
@@ -34,6 +37,7 @@ time_to_die = 5.5
 spawn_direction = Vector2(0, -1)
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="timed_enemy_spawner21" parent="." instance=ExtResource("1_2hgre")]
 position = Vector2(128, 0)
@@ -41,6 +45,7 @@ enemy_scene = ExtResource("2_rnrpu")
 time_to_die = 6.0
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="timed_enemy_spawner22" parent="." instance=ExtResource("1_2hgre")]
 position = Vector2(32, 160)
@@ -49,6 +54,7 @@ time_to_die = 5.5
 spawn_direction = Vector2(0, -1)
 first_wait_timer = 2.0
 play_spawn_sfx = false
+hide_cannon_sprite = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_rnrpu")]
 position = Vector2(32, 160)

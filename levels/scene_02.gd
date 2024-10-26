@@ -2,11 +2,33 @@ extends Node2D
 
 var timer : Timer
 
+# Default checkpoints_enabled to be true
+@export var checkpoints_enabled : bool = true
+var flag_container
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.start_camera_smoothing_timer(1.0)
+	timer = get_node("Timer")
+	timer.timeout.connect(_on_timer_timeout)
+	
 	# self.connect()
 	# $evil_wizard.evil_wizard_hit.connect(evil_wizard_hit)
 	timer = $Timer
+	
+	if checkpoints_enabled == false:
+		return
+	
+	flag_container = get_node("flags")
+
+	# Deactivate the already touched flags
+	var i = 0
+	while i <= GlobalVariables.checkpoint_counter:
+		flag_container.get_child(i).already_activate()
+		i += 1
+
+	# Set player position to be based off checkpoint_counter
+	$Player.global_position = flag_container.get_child(GlobalVariables.checkpoint_counter).get_player_spawn_position()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,7 +36,7 @@ func _process(delta):
 	pass
 
 func _on_death_body_entered(body):
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
 		# print("do death animation")
 		body.die()
 		timer.start(1.5)
@@ -34,3 +56,21 @@ func short_pause(time: float) -> void:
 	
 func evil_wizard_hit() -> void:
 	short_pause(0.1)
+
+
+func _on_start_cutscene_body_entered(body: Node2D) -> void:
+	if GlobalVariables.is_player(body):
+		# start fade to black
+		$AnimationPlayer.play("fade_to_black")
+		$Player.set_state_to_cutscene()
+		# stop global music music
+		GlobalMusicManager.stop()
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_to_black":
+		print("now play cutscene")
+		get_tree().change_scene_to_file("res://levels/cutscenes/yoyo_jump_to_lindsei.tscn")
+
+
+func _on_path_2d_kill_player(body) -> void:
+	_on_death_body_entered(body)

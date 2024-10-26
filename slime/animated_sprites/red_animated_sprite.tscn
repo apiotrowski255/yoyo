@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://lyxoy7kiqsv7"]
+
+[ext_resource type="Texture2D" uid="uid://cfne44h8g0fuc" path="res://enemies/Platformer Slimes v1.3/Red Slime Spritesheet.png" id="1_j4c3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uk2t"]
+atlas = ExtResource("1_j4c3g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdms0"]
+atlas = ExtResource("1_j4c3g")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yilg4"]
+atlas = ExtResource("1_j4c3g")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaqq6"]
+atlas = ExtResource("1_j4c3g")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jkhr"]
+atlas = ExtResource("1_j4c3g")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwgk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uk2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdms0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yilg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaqq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jkhr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="red_animated_sprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_uwgk3")
+autoplay = "default"

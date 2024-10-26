@@ -6,7 +6,6 @@
 [node name="moving_platforms_01" type="Node2D"]
 
 [node name="timed_enemy_spawner17" parent="." instance=ExtResource("1_22qhh")]
-visible = false
 position = Vector2(352, 0)
 enemy_scene = ExtResource("2_lnni5")
 time_to_die = 6.0

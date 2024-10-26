@@ -2048,6 +2048,16 @@ script = ExtResource("1_3qfjm")
 offset_right = 480.0
 offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to skip cutscene"
 
 [node name="tree_48x50" parent="." instance=ExtResource("2_mtn62")]
 z_index = -1
@@ -2100,4 +2110,7 @@ stream = ExtResource("15_4rmrs")
 [node name="landing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_wgxf1")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

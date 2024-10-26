@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://clchohyyb66tp"]
+
+[ext_resource type="Texture2D" uid="uid://b7eq5epwp7abs" path="res://enemies/Platformer Slimes v1.3/Green Slime Spritesheet.png" id="1_1w1fc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyjeo"]
+atlas = ExtResource("1_1w1fc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqw2q"]
+atlas = ExtResource("1_1w1fc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hyfu"]
+atlas = ExtResource("1_1w1fc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsool"]
+atlas = ExtResource("1_1w1fc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8qgy"]
+atlas = ExtResource("1_1w1fc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6mvp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyjeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqw2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hyfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsool")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8qgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="green_animated_sprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_c6mvp")
+autoplay = "default"

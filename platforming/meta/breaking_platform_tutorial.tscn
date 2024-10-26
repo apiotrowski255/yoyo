@@ -33,7 +33,7 @@ texture = ExtResource("1_yxo4q")
 
 [node name="climb5" parent="." instance=ExtResource("2_52nnn")]
 position = Vector2(24, 112)
-scale = Vector2(1, 0.871)
+scale = Vector2(1, 0.882)
 
 [node name="breaking_platforms" parent="." instance=ExtResource("3_qbesh")]
 position = Vector2(112, 0)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wy3hlkxoe2w"]
+
+[ext_resource type="Script" path="res://levels/player_slide_on_line.gd" id="1_oui0o"]
+[ext_resource type="AudioStream" uid="uid://ddxb1bqu3fs3n" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Climbing Ladder/sfx_movement_ladder2loop.wav" id="2_2cpob"]
+
+[sub_resource type="Curve2D" id="Curve2D_ar7p5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 96, 164, 0, 0, 0, 0, 112, 180, 0, 0, 0, 0, 128, 180, 0, 0, 0, 0, 138, 180, 0, 0, 0, 0, 224, 140, 0, 0, 0, 0, 259, 88, 0, 0, 0, 0, 256, 60, 0, 0, 0, 0, 244, 33, 0, 0, 0, 0, 216, 20, 0, 0, 0, 0, 186, 23, 0, 0, 0, 0, 160, 44, 0, 0, 0, 0, 160, 84, 0, 0, 0, 0, 176, 108, 0, 0, 0, 0, 203, 117, 0, 0, 0, 0, 237, 116, 0, 0, 0, 0, 281, 109, 0, 0, 0, 0, 351, 85, 0, 0, 0, 0, 392, 68, 0, 0, 0, 0, 432, 60, 0, 0, 0, 0, 472, 60, 0, 0, 0, 0, 560, 60, 0, 0, 0, 0, 600, 20)
+}
+point_count = 23
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ofo"]
+size = Vector2(8, 8)
+
+[node name="player_slide_on_line" type="Node2D"]
+script = ExtResource("1_oui0o")
+exit_velocity = Vector2(200, -200)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ar7p5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = 1.04121
+loop = false
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D"]
+stream = ExtResource("2_2cpob")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k5ofo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

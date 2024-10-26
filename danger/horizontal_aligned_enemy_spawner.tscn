@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3njvy425o2f1" path="res://timed_enemy.tscn" id="2_g3wya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dh8g2"]
-size = Vector2(352, 288)
+size = Vector2(504, 64)
 
 [sub_resource type="Gradient" id="Gradient_gllx0"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)

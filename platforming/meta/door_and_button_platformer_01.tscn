@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjgel7ud4g6ci"]
+
+[ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="1_kh2ml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7y5e"]
+size = Vector2(224, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hu3f"]
+size = Vector2(16, 80)
+
+[node name="door_and_button_platformer_01" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(112, 136)
+shape = SubResource("RectangleShape2D_l7y5e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(216, 40)
+shape = SubResource("RectangleShape2D_1hu3f")
+
+[node name="door" parent="." instance=ExtResource("1_kh2ml")]
+position = Vector2(128, 80)
+
+[node name="StaticBody2D" parent="door" index="1"]
+position = Vector2(84, 24)
+
+[editable path="door"]

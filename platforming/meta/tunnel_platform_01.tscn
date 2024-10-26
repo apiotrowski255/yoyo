@@ -110,33 +110,24 @@ rotation = -1.5708
 time_to_die = 4.0
 
 [node name="toggle_death_area2" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(176, 104)
-scale = Vector2(0.75, 0.5)
+position = Vector2(192, 100)
 time_on = 2.0
 
 [node name="toggle_death_area5" parent="." instance=ExtResource("3_obs0u")]
 position = Vector2(592, 52)
-scale = Vector2(0.5, 0.5)
 time_on = 2.0
 
 [node name="toggle_death_area3" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(368, 116)
-scale = Vector2(0.75, 0.5)
+position = Vector2(368, 120)
 time_on = 2.0
 
 [node name="toggle_death_area4" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(464, 64)
-scale = Vector2(0.35, 0.5)
+position = Vector2(448, 52)
+scale = Vector2(0.5, 0.5)
 time_on = 2.0
 
 [node name="toggle_death_area6" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(672, 104)
-scale = Vector2(0.4, 0.5)
-time_on = 2.0
-
-[node name="toggle_death_area7" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(744, 104)
-scale = Vector2(0.4, 0.5)
+position = Vector2(696, 104)
 time_on = 2.0
 
 [node name="Path2D5" type="Path2D" parent="."]
@@ -308,11 +299,17 @@ position = Vector2(656, 60)
 [node name="button" parent="door" index="0"]
 position = Vector2(8, -4)
 
+[node name="StaticBody2D" parent="door" index="1"]
+position = Vector2(52, 24)
+
 [node name="door2" parent="." instance=ExtResource("5_sedsf")]
 position = Vector2(856, 112)
 
 [node name="button" parent="door2" index="0"]
 position = Vector2(-136, 48)
+
+[node name="StaticBody2D" parent="door2" index="1"]
+position = Vector2(52, 24)
 
 [connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
 [connection signal="body_exited" from="NoDownZone" to="NoDownZone" method="_on_body_exited"]

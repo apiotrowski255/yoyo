@@ -1,0 +1,159 @@
+[gd_scene load_steps=15 format=3 uid="uid://dynno6acyp3ih"]
+
+[ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="1_it847"]
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="2_la6ku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4l8w"]
+size = Vector2(16, 272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7npw"]
+size = Vector2(464, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6rad"]
+size = Vector2(240, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8xlt"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1325"]
+size = Vector2(16, 272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icbkl"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7pws"]
+size = Vector2(288, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkq1j"]
+size = Vector2(16, 128)
+
+[sub_resource type="Curve2D" id="Curve2D_jqeww"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 336, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_tx60o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -336, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_najx1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -88, 0, 0, 0, 0, 0, -88, -136, 0, 0, 0, 0, 0, -136)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_0rh3i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 40, -144, 0, 0, 0, 0, 0, -144)
+}
+point_count = 4
+
+[node name="line_ride_platformer_01" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(472, 136)
+shape = SubResource("RectangleShape2D_t4l8w")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(776, 136)
+shape = SubResource("RectangleShape2D_t4l8w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(232, 264)
+shape = SubResource("RectangleShape2D_w7npw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(904, 264)
+shape = SubResource("RectangleShape2D_r6rad")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(824, 120)
+shape = SubResource("RectangleShape2D_q8xlt")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(984, 120)
+shape = SubResource("RectangleShape2D_q8xlt")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1032, 136)
+shape = SubResource("RectangleShape2D_u1325")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(392, 120)
+shape = SubResource("RectangleShape2D_icbkl")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, 120)
+shape = SubResource("RectangleShape2D_icbkl")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(336, -8)
+shape = SubResource("RectangleShape2D_o7pws")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 64)
+shape = SubResource("RectangleShape2D_wkq1j")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, -80)
+shape = SubResource("RectangleShape2D_wkq1j")
+
+[node name="player_slide_on_line4" parent="." instance=ExtResource("1_it847")]
+position = Vector2(1504, 348)
+
+[node name="player_slide_on_line" parent="." instance=ExtResource("1_it847")]
+position = Vector2(456, 248)
+time_to_finish_line_ride = 1.0
+exit_velocity = Vector2(125, -150)
+
+[node name="Path2D" parent="player_slide_on_line" index="0"]
+curve = SubResource("Curve2D_jqeww")
+
+[node name="PathFollow2D" parent="player_slide_on_line/Path2D" index="0"]
+rotation = 0.0
+
+[node name="player_slide_on_line3" parent="." instance=ExtResource("1_it847")]
+position = Vector2(792, 104)
+time_to_finish_line_ride = 1.0
+exit_velocity = Vector2(-100, -150)
+
+[node name="Path2D" parent="player_slide_on_line3" index="0"]
+curve = SubResource("Curve2D_tx60o")
+
+[node name="PathFollow2D" parent="player_slide_on_line3/Path2D" index="0"]
+rotation = 3.14159
+
+[node name="player_slide_on_line5" parent="." instance=ExtResource("1_it847")]
+position = Vector2(216, 104)
+time_to_finish_line_ride = 1.0
+exit_velocity = Vector2(150, -150)
+
+[node name="Path2D" parent="player_slide_on_line5" index="0"]
+curve = SubResource("Curve2D_najx1")
+
+[node name="PathFollow2D" parent="player_slide_on_line5/Path2D" index="0"]
+rotation = 3.14159
+
+[node name="player_slide_on_line2" parent="." instance=ExtResource("1_it847")]
+position = Vector2(1016, 248)
+time_to_finish_line_ride = 1.0
+exit_velocity = Vector2(-50, -100)
+
+[node name="Path2D" parent="player_slide_on_line2" index="0"]
+curve = SubResource("Curve2D_0rh3i")
+
+[node name="PathFollow2D" parent="player_slide_on_line2/Path2D" index="0"]
+rotation = 0.0
+
+[node name="Player" parent="." instance=ExtResource("2_la6ku")]
+position = Vector2(432, 224)
+
+[editable path="player_slide_on_line"]
+[editable path="player_slide_on_line3"]
+[editable path="player_slide_on_line5"]
+[editable path="player_slide_on_line2"]
