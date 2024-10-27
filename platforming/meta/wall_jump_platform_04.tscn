@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b83f3oafy4sla"]
+[gd_scene load_steps=13 format=3 uid="uid://b83f3oafy4sla"]
 
 [ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_fsvtg"]
 [ext_resource type="Script" path="res://platforming/meta/move_enemy_on_path.gd" id="2_3ug3u"]
 [ext_resource type="PackedScene" uid="uid://cocn87vfesomo" path="res://mine.tscn" id="3_sa0db"]
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="4_2bdkc"]
 
 [sub_resource type="GDScript" id="GDScript_gpvlb"]
 script/source = "extends Area2D
@@ -186,6 +187,9 @@ rotates = false
 script = ExtResource("2_3ug3u")
 
 [node name="Area2D" parent="Path2D/PathFollow2D" instance=ExtResource("3_sa0db")]
+
+[node name="Player" parent="." instance=ExtResource("4_2bdkc")]
+position = Vector2(32, 256)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

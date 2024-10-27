@@ -22,3 +22,12 @@ func _on_timer_timeout():
 	else:
 		sprite.texture = load("res://sprites/timed_enemy_1_1.png")
 	timer.start(change_texture_time)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if GlobalVariables.is_player(body):
+		var scene = get_node("/root/").get_child(2)
+		if scene.name.match("*scene*"):
+			get_node("/root/").get_child(2)._on_death_body_entered(body)
+		else: 
+			get_tree().reload_current_scene()
