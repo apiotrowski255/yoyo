@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=142 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://dynno6acyp3ih" path="res://platforming/meta/line_riding/line_ride_platformer_01.tscn" id="51_stltk"]
 [ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="52_ncmnk"]
 [ext_resource type="Texture2D" uid="uid://dtltp5ivqhwaj" path="res://sprites/vine.png" id="53_ahnue"]
+[ext_resource type="PackedScene" uid="uid://ys6mvwbli7rm" path="res://platforming/meta/triggered_spike_platform_01.tscn" id="54_qavaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -86,6 +87,9 @@ size = Vector2(80, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0b2y"]
 size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkkek"]
+size = Vector2(16, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbmpt"]
 size = Vector2(128, 16)
@@ -592,6 +596,10 @@ shape = SubResource("RectangleShape2D_qqx8m")
 [node name="CollisionShape2D97" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(5176, 24)
 shape = SubResource("RectangleShape2D_qqx8m")
+
+[node name="CollisionShape2D100" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(5144, 104)
+shape = SubResource("RectangleShape2D_nkkek")
 
 [node name="CollisionShape2D98" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(5280, 40)
@@ -3538,7 +3546,7 @@ position = Vector2(-80, 46)
 position = Vector2(24, -12)
 
 [node name="bird4" parent="birds" instance=ExtResource("25_5do0j")]
-position = Vector2(8224, -314)
+position = Vector2(8616, -314)
 
 [node name="Area2D" parent="birds/bird4" index="2"]
 position = Vector2(-80, 46)
@@ -3822,7 +3830,7 @@ offset_right = 2741.0
 offset_bottom = -179.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
-text = "These buttons can increase/decrease the volume of the music"
+text = "These buttons increase/decrease the volume of the music"
 
 [node name="avoid_spike message12" type="Label" parent="Messages"]
 layout_mode = 0
@@ -4749,7 +4757,7 @@ color = Color(0.611735, 0.611595, 0, 0.776471)
 position = Vector2(2336, -168)
 
 [node name="Player" parent="." instance=ExtResource("49_jbt15")]
-position = Vector2(3952, 128)
+position = Vector2(3936, 132)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("51_stltk")]
 position = Vector2(3680, -104)
@@ -4899,10 +4907,25 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("53_ahnue")
 
 [node name="vine10" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(3872, 56)
+position = Vector2(2344, 9)
+
+[node name="vine11" parent="." instance=ExtResource("24_lbp27")]
+position = Vector2(2352, 9)
+
+[node name="vine12" parent="." instance=ExtResource("24_lbp27")]
+position = Vector2(2360, 9)
+
+[node name="vine13" parent="." instance=ExtResource("24_lbp27")]
+position = Vector2(2376, 9)
 
 [node name="wall_jump_platform2" parent="." instance=ExtResource("35_uh2bi")]
-position = Vector2(5424, 16)
+position = Vector2(5880, 212)
+
+[node name="triggered_spike_platform_01" parent="." instance=ExtResource("54_qavaf")]
+position = Vector2(6688, 285)
+
+[node name="blue_slime2" parent="." instance=ExtResource("20_mil7j")]
+position = Vector2(4408, 144)
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
