@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjgel7ud4g6ci"]
+[gd_scene load_steps=5 format=3 uid="uid://cjgel7ud4g6ci"]
 
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="1_kh2ml"]
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="2_u370c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7y5e"]
 size = Vector2(224, 16)
@@ -25,5 +26,8 @@ position = Vector2(128, 80)
 
 [node name="StaticBody2D" parent="door" index="1"]
 position = Vector2(84, 24)
+
+[node name="Player" parent="." instance=ExtResource("2_u370c")]
+position = Vector2(64, 80)
 
 [editable path="door"]

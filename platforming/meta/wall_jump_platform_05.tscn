@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhp6xv8fvfkj0"]
+[gd_scene load_steps=11 format=3 uid="uid://dhp6xv8fvfkj0"]
 
 [ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_crxy6"]
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="2_yei3d"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="3_2h6ms"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="4_2qb0p"]
 
@@ -117,6 +116,7 @@ position = Vector2(240, 8)
 shape = SubResource("RectangleShape2D_ayvaa")
 
 [node name="sprites" type="Node2D" parent="."]
+visible = false
 
 [node name="interactive_wall_jump5" parent="sprites" instance=ExtResource("1_crxy6")]
 position = Vector2(192, 240)
@@ -174,81 +174,54 @@ rotation = -3.14159
 position = Vector2(112, 128)
 rotation = -3.14159
 
-[node name="Player" parent="." instance=ExtResource("2_yei3d")]
-position = Vector2(48, 168)
-
 [node name="death_boxes" type="Node2D" parent="."]
 
 [node name="16-bit-spike" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 168)
+position = Vector2(208, 168)
 rotation = -1.5708
 
 [node name="16-bit-spike2" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 152)
+position = Vector2(208, 152)
 rotation = -1.5708
 
 [node name="16-bit-spike3" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 136)
+position = Vector2(208, 136)
 rotation = -1.5708
 
 [node name="16-bit-spike4" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 56)
+position = Vector2(208, 56)
 rotation = -1.5708
 
 [node name="16-bit-spike5" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 40)
+position = Vector2(208, 40)
 rotation = -1.5708
 
 [node name="16-bit-spike6" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(224, 24)
+position = Vector2(208, 24)
 rotation = -1.5708
 
 [node name="16-bit-spike7" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(80, 104)
+position = Vector2(96, 104)
 rotation = -4.71239
 
 [node name="16-bit-spike8" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(80, 88)
+position = Vector2(96, 88)
 rotation = -4.71239
 
 [node name="16-bit-spike9" parent="death_boxes" instance=ExtResource("3_2h6ms")]
-position = Vector2(80, 72)
+position = Vector2(96, 72)
 rotation = -4.71239
-
-[node name="triggered_falling_spike" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(128, 168)
-rotation = 1.5708
 
 [node name="triggered_falling_spike2" parent="death_boxes" instance=ExtResource("4_2qb0p")]
 position = Vector2(128, 152)
-rotation = 1.5708
-
-[node name="triggered_falling_spike3" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(128, 136)
-rotation = 1.5708
-
-[node name="triggered_falling_spike4" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(128, 56)
 rotation = 1.5708
 
 [node name="triggered_falling_spike5" parent="death_boxes" instance=ExtResource("4_2qb0p")]
 position = Vector2(128, 40)
 rotation = 1.5708
 
-[node name="triggered_falling_spike6" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(128, 24)
-rotation = 1.5708
-
-[node name="triggered_falling_spike7" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(176, 104)
-rotation = 4.71239
-
 [node name="triggered_falling_spike8" parent="death_boxes" instance=ExtResource("4_2qb0p")]
 position = Vector2(176, 88)
-rotation = 4.71239
-
-[node name="triggered_falling_spike9" parent="death_boxes" instance=ExtResource("4_2qb0p")]
-position = Vector2(176, 72)
 rotation = 4.71239
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

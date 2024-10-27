@@ -110,24 +110,19 @@ rotation = -1.5708
 time_to_die = 4.0
 
 [node name="toggle_death_area2" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(192, 100)
+position = Vector2(176, 110)
 time_on = 2.0
 
 [node name="toggle_death_area5" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(592, 52)
+position = Vector2(568, 16)
 time_on = 2.0
 
 [node name="toggle_death_area3" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(368, 120)
-time_on = 2.0
-
-[node name="toggle_death_area4" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(448, 52)
-scale = Vector2(0.5, 0.5)
+position = Vector2(368, 112)
 time_on = 2.0
 
 [node name="toggle_death_area6" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(696, 104)
+position = Vector2(712, 110)
 time_on = 2.0
 
 [node name="Path2D5" type="Path2D" parent="."]

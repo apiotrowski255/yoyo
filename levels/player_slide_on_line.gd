@@ -43,4 +43,4 @@ func _on_tween_finished():
 
 # When doing this, we cannot have any local rotation to the object
 func get_global_position_of_last_point() -> Vector2:
-	return $Path2D.get_curve().sample($Path2D.get_curve().get_point_count(), 0) + position
+	return $Path2D.get_curve().sample($Path2D.get_curve().get_point_count(), 0) + global_position

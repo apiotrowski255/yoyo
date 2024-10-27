@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://co13h6s1aakh2"]
+
+[ext_resource type="PackedScene" uid="uid://bo6u7l2xub3x3" path="res://platforming/meta/buttons/button_pressure_for_music_volume.tscn" id="1_al3ff"]
+[ext_resource type="Texture2D" uid="uid://4g7yehw05xbg" path="res://minus.png" id="2_2cyxe"]
+[ext_resource type="Texture2D" uid="uid://m70akiulhswp" path="res://plus.png" id="3_c8tcs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr4kx"]
+size = Vector2(448, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mwbv"]
+size = Vector2(192, 16)
+
+[node name="music_button_platform" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(224, 256)
+shape = SubResource("RectangleShape2D_nr4kx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(224, 240)
+shape = SubResource("RectangleShape2D_1mwbv")
+
+[node name="Button_pressure_for_music_volume" parent="." instance=ExtResource("1_al3ff")]
+position = Vector2(184, 232)
+current_mode = 1
+
+[node name="Button_pressure_for_music_volume2" parent="." instance=ExtResource("1_al3ff")]
+position = Vector2(264, 232)
+
+[node name="Minus" type="Sprite2D" parent="."]
+position = Vector2(184, 208)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2cyxe")
+
+[node name="Plus" type="Sprite2D" parent="."]
+position = Vector2(264, 208)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_c8tcs")

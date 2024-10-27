@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="8_5m5nr"]
 [ext_resource type="PackedScene" uid="uid://msmhrilho24l" path="res://breaking_platforms.tscn" id="9_4ptrv"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="10_xv6vp"]
-[ext_resource type="PackedScene" uid="uid://dol4lp5evah8m" path="res://box.tscn" id="11_vou8i"]
 [ext_resource type="PackedScene" uid="uid://nltvatrwqi3i" path="res://rotating_platform.tscn" id="12_fbp6e"]
 [ext_resource type="PackedScene" uid="uid://dha1ehnay5h7e" path="res://enemy_rotating_around_platform.tscn" id="13_uhkwx"]
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="14_t5ndv"]
@@ -46,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://db75elyqwmday" path="res://levels/scene_02-tmp.tscn" id="47_v24el"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="49_8ttli"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="50_jyd4s"]
+[ext_resource type="PackedScene" uid="uid://co13h6s1aakh2" path="res://platforming/meta/music_button_platform.tscn" id="51_54yol"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="51_pnl63"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="52_qky51"]
 [ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="53_xdakc"]
@@ -3043,9 +3043,6 @@ position = Vector2(4360, 152)
 [node name="simple_enemy12" parent="." instance=ExtResource("10_xv6vp")]
 position = Vector2(5480, 400)
 
-[node name="box" parent="." instance=ExtResource("11_vou8i")]
-position = Vector2(2424, 72)
-
 [node name="rotating_platform" parent="." instance=ExtResource("12_fbp6e")]
 position = Vector2(2864, 88)
 
@@ -3649,6 +3646,9 @@ position = Vector2(256, 0)
 
 [node name="Door" parent="door2/StaticBody2D" index="0"]
 position = Vector2(52, 24)
+
+[node name="Sprite2D" parent="door2/StaticBody2D" index="1"]
+position = Vector2(52, 23)
 
 [node name="bird" parent="." instance=ExtResource("29_cp5pe")]
 position = Vector2(5496, 62)
@@ -4582,7 +4582,10 @@ offset_bottom = 144.0
 color = Color(0.611735, 0.611595, 0, 0.776471)
 
 [node name="Player" parent="." instance=ExtResource("5_grgc3")]
-position = Vector2(6840, -56)
+position = Vector2(2528, -72)
+
+[node name="music_button_platform" parent="." instance=ExtResource("51_54yol")]
+position = Vector2(2552, -312)
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]

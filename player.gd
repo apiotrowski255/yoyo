@@ -240,6 +240,7 @@ func change_state(state_change):
 	elif state_change == state.line_riding:
 		zozosprite.texture = load("res://sprites/zozo/zozo line ride.png")
 		zozosprite.scale = Vector2(0.25, 0.25)
+		zozosprite.rotation = 0
 		current_state = state_change
 	elif current_state == state.line_riding and state_change != state.line_riding:
 		zozosprite.texture = load("res://sprites/zozo/zozo jump_1.png")
