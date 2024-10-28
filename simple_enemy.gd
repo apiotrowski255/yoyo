@@ -9,6 +9,8 @@ var sprite : Sprite2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@export var player_launch_y_velocity : float = -250
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = direction * speed
@@ -62,7 +64,7 @@ func _on_stomp_body_entered(body):
 		get_node("/root/").get_child(2).add_child(death_particles)
 		# get_node("/root/scene_01").add_child(death_particles)
 		if body.current_state != body.state.shell:
-			body.velocity.y = -250
+			body.velocity.y = player_launch_y_velocity
 		# self.queue_free()
 		
 
