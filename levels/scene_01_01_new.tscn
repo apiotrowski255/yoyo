@@ -5012,7 +5012,7 @@ position = Vector2(2376, 9)
 position = Vector2(6456, 20)
 
 [node name="triggered_spike_platform_01" parent="." instance=ExtResource("54_qavaf")]
-position = Vector2(6848, 84)
+position = Vector2(6840, 112)
 
 [node name="blue_slime2" parent="." instance=ExtResource("20_mil7j")]
 position = Vector2(4408, 144)
