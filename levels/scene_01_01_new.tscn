@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=155 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -85,6 +85,9 @@ size = Vector2(160, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqx8m"]
 size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqwg"]
+size = Vector2(16, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0b2y"]
 size = Vector2(128, 16)
@@ -618,6 +621,14 @@ shape = SubResource("RectangleShape2D_oyxic")
 [node name="CollisionShape2D52" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2984, 88)
 shape = SubResource("RectangleShape2D_qqx8m")
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2776, 136)
+shape = SubResource("RectangleShape2D_hqqwg")
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3320, 136)
+shape = SubResource("RectangleShape2D_hqqwg")
 
 [node name="CollisionShape2D55" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(3376, 88)
@@ -4458,24 +4469,6 @@ position = Vector2(3288, 192)
 [node name="16-bit-spike128" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(3304, 192)
 
-[node name="16-bit-spike129" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3320, 192)
-
-[node name="16-bit-spike130" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3336, 192)
-
-[node name="16-bit-spike131" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3352, 192)
-
-[node name="16-bit-spike132" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3368, 192)
-
-[node name="16-bit-spike237" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3384, 192)
-
-[node name="16-bit-spike238" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(3400, 192)
-
 [node name="16-bit-spike133" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(3064, 192)
 
@@ -4536,15 +4529,6 @@ position = Vector2(3032, 192)
 [node name="16-bit-spike152" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(3048, 192)
 
-[node name="16-bit-spike153" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2744, 192)
-
-[node name="16-bit-spike154" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2760, 192)
-
-[node name="16-bit-spike155" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2776, 192)
-
 [node name="16-bit-spike156" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(2792, 192)
 
@@ -4565,36 +4549,6 @@ position = Vector2(2872, 192)
 
 [node name="16-bit-spike162" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(2888, 192)
-
-[node name="16-bit-spike163" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2584, 192)
-
-[node name="16-bit-spike164" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2600, 192)
-
-[node name="16-bit-spike165" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2616, 192)
-
-[node name="16-bit-spike166" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2632, 192)
-
-[node name="16-bit-spike167" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2648, 192)
-
-[node name="16-bit-spike168" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2664, 192)
-
-[node name="16-bit-spike169" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2680, 192)
-
-[node name="16-bit-spike170" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2696, 192)
-
-[node name="16-bit-spike171" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2712, 192)
-
-[node name="16-bit-spike172" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(2728, 192)
 
 [node name="16-bit-spike173" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(4136, 194)
