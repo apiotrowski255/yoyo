@@ -43,18 +43,6 @@ position = Vector2(232, 104)
 [node name="triggered_falling_spike16" parent="." instance=ExtResource("1_3sfq8")]
 position = Vector2(248, 104)
 
-[node name="triggered_falling_spike17" parent="." instance=ExtResource("1_3sfq8")]
-position = Vector2(264, 104)
-
-[node name="triggered_falling_spike18" parent="." instance=ExtResource("1_3sfq8")]
-position = Vector2(280, 104)
-
-[node name="triggered_falling_spike19" parent="." instance=ExtResource("1_3sfq8")]
-position = Vector2(296, 104)
-
-[node name="triggered_falling_spike20" parent="." instance=ExtResource("1_3sfq8")]
-position = Vector2(312, 104)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqlfn0tbk8ywn"]
+[gd_scene load_steps=8 format=3 uid="uid://dqlfn0tbk8ywn"]
 
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_2glps"]
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="2_bojev"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="3_w65hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapt5"]
-size = Vector2(256, 16)
+size = Vector2(96, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7uks"]
 size = Vector2(8, 120)
@@ -13,97 +12,152 @@ size = Vector2(8, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq7ct"]
 size = Vector2(80, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j58hf"]
-size = Vector2(288, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrwi0"]
 size = Vector2(16, 416)
+
+[sub_resource type="Gradient" id="Gradient_k6vaa"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="auto_jump_platform_01" type="Node2D"]
 
 [node name="auto_jump_pad" parent="." instance=ExtResource("1_2glps")]
-position = Vector2(728, 256)
+position = Vector2(88, 400)
 target_velocity = Vector2(300, -200)
 
 [node name="auto_jump_pad2" parent="." instance=ExtResource("1_2glps")]
-position = Vector2(936, 216)
+position = Vector2(296, 360)
 target_velocity = Vector2(-300, -300)
 
 [node name="auto_jump_pad3" parent="." instance=ExtResource("1_2glps")]
-position = Vector2(728, 112)
+position = Vector2(88, 256)
 target_velocity = Vector2(0, -350)
 
 [node name="auto_jump_pad4" parent="." instance=ExtResource("1_2glps")]
-position = Vector2(728, 0)
+position = Vector2(88, 144)
 target_velocity = Vector2(200, -400)
 do_a_flip = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(608, 264)
+position = Vector2(48, 408)
 shape = SubResource("RectangleShape2D_oapt5")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(716, 52)
+position = Vector2(76, 196)
 shape = SubResource("RectangleShape2D_r7uks")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(748, 40)
+position = Vector2(108, 184)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_eq7ct")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1008, -136)
-shape = SubResource("RectangleShape2D_j58hf")
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(968, 80)
+position = Vector2(328, 224)
 shape = SubResource("RectangleShape2D_jrwi0")
-
-[node name="Player" parent="." instance=ExtResource("2_bojev")]
-position = Vector2(696, 240)
 
 [node name="spike" type="Node2D" parent="."]
 
 [node name="16-bit-spike" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(744, 288)
+position = Vector2(104, 432)
 
 [node name="16-bit-spike2" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(760, 288)
+position = Vector2(120, 432)
 
 [node name="16-bit-spike3" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(776, 288)
+position = Vector2(136, 432)
 
 [node name="16-bit-spike4" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(792, 288)
+position = Vector2(152, 432)
 
 [node name="16-bit-spike5" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(808, 288)
+position = Vector2(168, 432)
 
 [node name="16-bit-spike6" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(824, 288)
+position = Vector2(184, 432)
 
 [node name="16-bit-spike7" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(840, 288)
+position = Vector2(200, 432)
 
 [node name="16-bit-spike8" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(856, 288)
+position = Vector2(216, 432)
 
 [node name="16-bit-spike9" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(872, 288)
+position = Vector2(232, 432)
 
 [node name="16-bit-spike10" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(888, 288)
+position = Vector2(248, 432)
 
 [node name="16-bit-spike11" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(904, 288)
+position = Vector2(264, 432)
 
 [node name="16-bit-spike12" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(920, 288)
+position = Vector2(280, 432)
 
 [node name="16-bit-spike13" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(936, 288)
+position = Vector2(296, 432)
 
 [node name="16-bit-spike14" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(952, 288)
+position = Vector2(312, 432)
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="jump pad particles" type="CPUParticles2D" parent="particles"]
+position = Vector2(88, 400)
+rotation = -2.35619
+amount = 64
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 280.0
+initial_velocity_max = 280.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_k6vaa")
+
+[node name="jump pad particles2" type="CPUParticles2D" parent="particles"]
+position = Vector2(296, 360)
+rotation = -3.92699
+amount = 64
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 350.0
+initial_velocity_max = 350.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_k6vaa")
+
+[node name="jump pad particles3" type="CPUParticles2D" parent="particles"]
+position = Vector2(88, 252)
+rotation = -3.14159
+amount = 64
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 260.0
+initial_velocity_max = 260.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_k6vaa")
+
+[node name="jump pad particles4" type="CPUParticles2D" parent="particles"]
+position = Vector2(88, 144)
+rotation = -2.70348
+amount = 64
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 350.0
+initial_velocity_max = 350.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_k6vaa")
