@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=171 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -56,6 +56,8 @@
 [ext_resource type="PackedScene" uid="uid://ys6mvwbli7rm" path="res://platforming/meta/triggered_spike_platform_01.tscn" id="54_qavaf"]
 [ext_resource type="PackedScene" uid="uid://bryv25fxnykwg" path="res://platforming/meta/jump_tutorial_02.tscn" id="55_x43vm"]
 [ext_resource type="PackedScene" uid="uid://dqlfn0tbk8ywn" path="res://platforming/meta/auto_jump_platform_01.tscn" id="56_85ukk"]
+[ext_resource type="PackedScene" uid="uid://drpnixiitdqx8" path="res://button_pressure.tscn" id="57_4hfqi"]
+[ext_resource type="PackedScene" uid="uid://dol4lp5evah8m" path="res://box.tscn" id="58_nuc22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -102,11 +104,23 @@ size = Vector2(128, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o306i"]
 size = Vector2(48, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sunq"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqq6u"]
+size = Vector2(16, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi3js"]
 size = Vector2(160, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoyj6"]
 size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d22br"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c00ji"]
+size = Vector2(48, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7s7dd"]
 size = Vector2(32, 48)
@@ -144,6 +158,21 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfp5f"]
 size = Vector2(240, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygvnu"]
+size = Vector2(224, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l6ww"]
+size = Vector2(16, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2bc7"]
+size = Vector2(16, 592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6nr"]
+size = Vector2(16, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym42k"]
+size = Vector2(16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h33sq"]
 size = Vector2(16, 16)
 
@@ -152,6 +181,9 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i10dr"]
 size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwiq8"]
+size = Vector2(224, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28en5"]
 size = Vector2(144, 16)
@@ -276,9 +308,12 @@ size = Vector2(48, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyyeq"]
 size = Vector2(8, 132)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5gx5"]
+size = Vector2(8, 48)
+
 [sub_resource type="Curve2D" id="Curve2D_ry04e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5320, 360, 0, 0, 0, 0, 5320, 520)
+"points": PackedVector2Array(0, 0, 0, 0, 5320, 520, 0, 0, 0, 0, 5320, 400)
 }
 point_count = 2
 
@@ -341,11 +376,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_ap8jd")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_p5wl3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7m7k"]
-size = Vector2(168, 504)
-
-[sub_resource type="Gradient" id="Gradient_w1nef"]
-offsets = PackedFloat32Array(0, 0.806228, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.760784, 1, 1, 1, 0)
+size = Vector2(176, 480)
 
 [sub_resource type="Gradient" id="Gradient_gvwe5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -526,7 +557,7 @@ checkpoints_enabled = false
 
 [node name="timed_enemy_spawner14" parent="." instance=ExtResource("2_6oftm")]
 z_index = 2
-position = Vector2(8424, 0)
+position = Vector2(10336, -12)
 rotation = 1.5708
 repeat_time = 1.5
 time_to_die = 7.0
@@ -672,6 +703,22 @@ shape = SubResource("RectangleShape2D_o306i")
 position = Vector2(7048, -168)
 shape = SubResource("RectangleShape2D_o306i")
 
+[node name="CollisionShape2D133" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7032, -144)
+shape = SubResource("RectangleShape2D_1sunq")
+
+[node name="CollisionShape2D135" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7336, -128)
+shape = SubResource("RectangleShape2D_1sunq")
+
+[node name="CollisionShape2D136" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7272, -136)
+shape = SubResource("RectangleShape2D_cqq6u")
+
+[node name="CollisionShape2D134" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6888, -144)
+shape = SubResource("RectangleShape2D_1sunq")
+
 [node name="CollisionShape2D121" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(7152, -152)
 shape = SubResource("RectangleShape2D_vi3js")
@@ -679,6 +726,14 @@ shape = SubResource("RectangleShape2D_vi3js")
 [node name="CollisionShape2D122" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(7256, -168)
 shape = SubResource("RectangleShape2D_yoyj6")
+
+[node name="CollisionShape2D123" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7352, -160)
+shape = SubResource("RectangleShape2D_d22br")
+
+[node name="CollisionShape2D131" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7624, -160)
+shape = SubResource("RectangleShape2D_c00ji")
 
 [node name="CollisionShape2D102" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(5488, 72)
@@ -749,99 +804,127 @@ position = Vector2(5784, 400)
 shape = SubResource("RectangleShape2D_gxecl")
 
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(7736, -16)
+position = Vector2(9648, -28)
 shape = SubResource("RectangleShape2D_qfp5f")
 
+[node name="CollisionShape2D137" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8144, -280)
+shape = SubResource("RectangleShape2D_ygvnu")
+
+[node name="CollisionShape2D141" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8368, 312)
+shape = SubResource("RectangleShape2D_ygvnu")
+
+[node name="CollisionShape2D140" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8440, -96)
+shape = SubResource("RectangleShape2D_8l6ww")
+
+[node name="CollisionShape2D144" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8248, 24)
+shape = SubResource("RectangleShape2D_y2bc7")
+
+[node name="CollisionShape2D138" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8040, -200)
+shape = SubResource("RectangleShape2D_yy6nr")
+
+[node name="CollisionShape2D139" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7640, -136)
+shape = SubResource("RectangleShape2D_ym42k")
+
 [node name="CollisionShape2D60" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(7976, -16)
+position = Vector2(9888, -28)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8216, -16)
+position = Vector2(10128, -28)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D83" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8136, -32)
+position = Vector2(10048, -44)
 shape = SubResource("RectangleShape2D_h33sq")
 
 [node name="CollisionShape2D84" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8264, -32)
+position = Vector2(10176, -44)
 shape = SubResource("RectangleShape2D_h33sq")
 
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8312, 16)
+position = Vector2(10224, 4)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D64" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8088, 48)
+position = Vector2(10000, 36)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D66" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8200, 32)
+position = Vector2(10112, 20)
 shape = SubResource("RectangleShape2D_x3rqr")
 
 [node name="CollisionShape2D65" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(7848, 48)
+position = Vector2(9760, 36)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D69" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8144, 256)
+position = Vector2(10056, 244)
 shape = SubResource("RectangleShape2D_i10dr")
 
+[node name="CollisionShape2D124" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7488, -136)
+shape = SubResource("RectangleShape2D_fwiq8")
+
 [node name="CollisionShape2D78" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8632, 96)
+position = Vector2(10544, 84)
 shape = SubResource("RectangleShape2D_28en5")
 
 [node name="CollisionShape2D79" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8696, -72)
+position = Vector2(10608, -84)
 shape = SubResource("RectangleShape2D_1h7fq")
 
 [node name="CollisionShape2D132" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9940, -600)
+position = Vector2(11852, -612)
 shape = SubResource("RectangleShape2D_g7086")
 
 [node name="CollisionShape2D125" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9764, -664)
+position = Vector2(11676, -676)
 shape = SubResource("RectangleShape2D_okni5")
 
 [node name="CollisionShape2D126" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9144, -548)
+position = Vector2(11056, -560)
 shape = SubResource("RectangleShape2D_8ph8f")
 
 [node name="CollisionShape2D128" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9684, -780)
+position = Vector2(11596, -792)
 shape = SubResource("RectangleShape2D_ckx0q")
 
 [node name="CollisionShape2D127" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9080, -652)
+position = Vector2(10992, -664)
 shape = SubResource("RectangleShape2D_7te80")
 
 [node name="CollisionShape2D129" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9196, -488)
+position = Vector2(11108, -500)
 shape = SubResource("RectangleShape2D_j7h7l")
 
 [node name="CollisionShape2D130" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9604, -720)
+position = Vector2(11516, -732)
 shape = SubResource("RectangleShape2D_5beer")
 
 [node name="CollisionShape2D80" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8616, -80)
+position = Vector2(10528, -92)
 shape = SubResource("RectangleShape2D_0cdsi")
 
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(7688, 160)
+position = Vector2(9600, 148)
 shape = SubResource("RectangleShape2D_ptfi0")
 
 [node name="CollisionShape2D63" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8440, -40)
+position = Vector2(10352, -52)
 shape = SubResource("RectangleShape2D_41u12")
 
 [node name="CollisionShape2D96" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8424, 0)
+position = Vector2(10336, -12)
 shape = SubResource("RectangleShape2D_eqset")
 
 [node name="CollisionShape2D82" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8616, -272)
+position = Vector2(10528, -284)
 shape = SubResource("RectangleShape2D_5c7wu")
 
 [node name="CollisionShape2D56" type="CollisionShape2D" parent="StaticBody2D"]
@@ -861,7 +944,7 @@ position = Vector2(3456, 80)
 shape = SubResource("RectangleShape2D_et7on")
 
 [node name="CollisionShape2D54" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8008, -352)
+position = Vector2(10264, -412)
 shape = SubResource("RectangleShape2D_oyxic")
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="StaticBody2D"]
@@ -967,12 +1050,12 @@ shape = SubResource("RectangleShape2D_ifywm")
 one_way_collision = true
 
 [node name="CollisionShape2D81" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8656, -230)
+position = Vector2(10568, -242)
 shape = SubResource("RectangleShape2D_16h5t")
 one_way_collision = true
 
 [node name="CollisionShape2D92" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9136, -678)
+position = Vector2(11048, -690)
 shape = SubResource("RectangleShape2D_7a12e")
 one_way_collision = true
 
@@ -1009,7 +1092,7 @@ position = Vector2(3596, 32)
 polygon = PackedVector2Array(-28, -64, -28, 128, 148, 128)
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(9604, -490)
+position = Vector2(11516, -502)
 shape = SubResource("RectangleShape2D_tyyeq")
 
 [node name="simple_enemy" parent="StaticBody2D" instance=ExtResource("10_l4i5n")]
@@ -1038,6 +1121,22 @@ speed = 100.0
 [node name="simple_enemy8" parent="StaticBody2D" instance=ExtResource("10_l4i5n")]
 position = Vector2(5768, 416)
 speed = 100.0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(8392, 304)
+polygon = PackedVector2Array(0, 0, -4, -4, -4, 0)
+
+[node name="Door5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8436, 280)
+shape = SubResource("RectangleShape2D_w5gx5")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/Door5"]
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 4.0
+offset_bottom = 24.0
+color = Color(0.423651, 0.423651, 0.423651, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="sprites" type="Node2D" parent="."]
 
@@ -1237,1958 +1336,1958 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform40" type="Sprite2D" parent="sprites"]
-position = Vector2(9736, -284)
+position = Vector2(11648, -296)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform54" type="Sprite2D" parent="sprites"]
-position = Vector2(9720, -284)
+position = Vector2(11632, -296)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform55" type="Sprite2D" parent="sprites"]
-position = Vector2(9712, -284)
+position = Vector2(11624, -296)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform41" type="Sprite2D" parent="sprites"]
-position = Vector2(9752, -284)
+position = Vector2(11664, -296)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform60" type="Sprite2D" parent="sprites"]
-position = Vector2(9592, -288)
+position = Vector2(11504, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform61" type="Sprite2D" parent="sprites"]
-position = Vector2(9576, -288)
+position = Vector2(11488, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform62" type="Sprite2D" parent="sprites"]
-position = Vector2(9608, -288)
+position = Vector2(11520, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform63" type="Sprite2D" parent="sprites"]
-position = Vector2(9544, -288)
+position = Vector2(11456, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform64" type="Sprite2D" parent="sprites"]
-position = Vector2(9528, -288)
+position = Vector2(11440, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform65" type="Sprite2D" parent="sprites"]
-position = Vector2(9560, -288)
+position = Vector2(11472, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform66" type="Sprite2D" parent="sprites"]
-position = Vector2(9368, -340)
+position = Vector2(11280, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform178" type="Sprite2D" parent="sprites"]
-position = Vector2(9176, -684)
+position = Vector2(11088, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform179" type="Sprite2D" parent="sprites"]
-position = Vector2(9160, -684)
+position = Vector2(11072, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform180" type="Sprite2D" parent="sprites"]
-position = Vector2(9144, -684)
+position = Vector2(11056, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform181" type="Sprite2D" parent="sprites"]
-position = Vector2(9128, -684)
+position = Vector2(11040, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform182" type="Sprite2D" parent="sprites"]
-position = Vector2(9112, -684)
+position = Vector2(11024, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform183" type="Sprite2D" parent="sprites"]
-position = Vector2(9096, -684)
+position = Vector2(11008, -696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform67" type="Sprite2D" parent="sprites"]
-position = Vector2(9352, -340)
+position = Vector2(11264, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform68" type="Sprite2D" parent="sprites"]
-position = Vector2(9384, -340)
+position = Vector2(11296, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform69" type="Sprite2D" parent="sprites"]
-position = Vector2(8728, -288)
+position = Vector2(10640, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform70" type="Sprite2D" parent="sprites"]
-position = Vector2(8712, -288)
+position = Vector2(10624, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform71" type="Sprite2D" parent="sprites"]
-position = Vector2(8744, -288)
+position = Vector2(10656, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform72" type="Sprite2D" parent="sprites"]
-position = Vector2(8776, -288)
+position = Vector2(10688, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform73" type="Sprite2D" parent="sprites"]
-position = Vector2(8760, -288)
+position = Vector2(10672, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform74" type="Sprite2D" parent="sprites"]
-position = Vector2(8792, -288)
+position = Vector2(10704, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform75" type="Sprite2D" parent="sprites"]
-position = Vector2(8728, -340)
+position = Vector2(10640, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform76" type="Sprite2D" parent="sprites"]
-position = Vector2(8712, -340)
+position = Vector2(10624, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform77" type="Sprite2D" parent="sprites"]
-position = Vector2(8744, -340)
+position = Vector2(10656, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform78" type="Sprite2D" parent="sprites"]
-position = Vector2(8776, -340)
+position = Vector2(10688, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform79" type="Sprite2D" parent="sprites"]
-position = Vector2(8760, -340)
+position = Vector2(10672, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform80" type="Sprite2D" parent="sprites"]
-position = Vector2(8792, -340)
+position = Vector2(10704, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform81" type="Sprite2D" parent="sprites"]
-position = Vector2(8824, -340)
+position = Vector2(10736, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform82" type="Sprite2D" parent="sprites"]
-position = Vector2(8808, -340)
+position = Vector2(10720, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform83" type="Sprite2D" parent="sprites"]
-position = Vector2(8840, -340)
+position = Vector2(10752, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform84" type="Sprite2D" parent="sprites"]
-position = Vector2(8872, -340)
+position = Vector2(10784, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform85" type="Sprite2D" parent="sprites"]
-position = Vector2(8856, -340)
+position = Vector2(10768, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform86" type="Sprite2D" parent="sprites"]
-position = Vector2(8888, -340)
+position = Vector2(10800, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform87" type="Sprite2D" parent="sprites"]
-position = Vector2(8920, -340)
+position = Vector2(10832, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform88" type="Sprite2D" parent="sprites"]
-position = Vector2(8904, -340)
+position = Vector2(10816, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform89" type="Sprite2D" parent="sprites"]
-position = Vector2(8936, -340)
+position = Vector2(10848, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform90" type="Sprite2D" parent="sprites"]
-position = Vector2(8968, -340)
+position = Vector2(10880, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform91" type="Sprite2D" parent="sprites"]
-position = Vector2(8952, -340)
+position = Vector2(10864, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform92" type="Sprite2D" parent="sprites"]
-position = Vector2(8984, -340)
+position = Vector2(10896, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform93" type="Sprite2D" parent="sprites"]
-position = Vector2(9016, -340)
+position = Vector2(10928, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform94" type="Sprite2D" parent="sprites"]
-position = Vector2(9000, -340)
+position = Vector2(10912, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform95" type="Sprite2D" parent="sprites"]
-position = Vector2(9032, -340)
+position = Vector2(10944, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform96" type="Sprite2D" parent="sprites"]
-position = Vector2(9064, -340)
+position = Vector2(10976, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform97" type="Sprite2D" parent="sprites"]
-position = Vector2(9048, -340)
+position = Vector2(10960, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform98" type="Sprite2D" parent="sprites"]
-position = Vector2(9080, -340)
+position = Vector2(10992, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform99" type="Sprite2D" parent="sprites"]
-position = Vector2(9112, -340)
+position = Vector2(11024, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform100" type="Sprite2D" parent="sprites"]
-position = Vector2(9096, -340)
+position = Vector2(11008, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform101" type="Sprite2D" parent="sprites"]
-position = Vector2(9128, -340)
+position = Vector2(11040, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform102" type="Sprite2D" parent="sprites"]
-position = Vector2(9160, -340)
+position = Vector2(11072, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform103" type="Sprite2D" parent="sprites"]
-position = Vector2(9144, -340)
+position = Vector2(11056, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform104" type="Sprite2D" parent="sprites"]
-position = Vector2(9176, -340)
+position = Vector2(11088, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform105" type="Sprite2D" parent="sprites"]
-position = Vector2(8808, -288)
+position = Vector2(10720, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform106" type="Sprite2D" parent="sprites"]
-position = Vector2(8840, -288)
+position = Vector2(10752, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform107" type="Sprite2D" parent="sprites"]
-position = Vector2(8824, -288)
+position = Vector2(10736, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform108" type="Sprite2D" parent="sprites"]
-position = Vector2(8856, -288)
+position = Vector2(10768, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform109" type="Sprite2D" parent="sprites"]
-position = Vector2(8888, -288)
+position = Vector2(10800, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform110" type="Sprite2D" parent="sprites"]
-position = Vector2(8872, -288)
+position = Vector2(10784, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform111" type="Sprite2D" parent="sprites"]
-position = Vector2(8904, -288)
+position = Vector2(10816, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform112" type="Sprite2D" parent="sprites"]
-position = Vector2(8936, -288)
+position = Vector2(10848, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform113" type="Sprite2D" parent="sprites"]
-position = Vector2(8920, -288)
+position = Vector2(10832, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform114" type="Sprite2D" parent="sprites"]
-position = Vector2(8952, -288)
+position = Vector2(10864, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform115" type="Sprite2D" parent="sprites"]
-position = Vector2(8968, -288)
+position = Vector2(10880, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform116" type="Sprite2D" parent="sprites"]
-position = Vector2(9000, -288)
+position = Vector2(10912, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform117" type="Sprite2D" parent="sprites"]
-position = Vector2(8984, -288)
+position = Vector2(10896, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform118" type="Sprite2D" parent="sprites"]
-position = Vector2(9016, -288)
+position = Vector2(10928, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform119" type="Sprite2D" parent="sprites"]
-position = Vector2(9048, -288)
+position = Vector2(10960, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform120" type="Sprite2D" parent="sprites"]
-position = Vector2(9032, -288)
+position = Vector2(10944, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform121" type="Sprite2D" parent="sprites"]
-position = Vector2(9064, -288)
+position = Vector2(10976, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform122" type="Sprite2D" parent="sprites"]
-position = Vector2(9096, -288)
+position = Vector2(11008, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform123" type="Sprite2D" parent="sprites"]
-position = Vector2(9080, -288)
+position = Vector2(10992, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform124" type="Sprite2D" parent="sprites"]
-position = Vector2(9112, -288)
+position = Vector2(11024, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform125" type="Sprite2D" parent="sprites"]
-position = Vector2(9128, -288)
+position = Vector2(11040, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform126" type="Sprite2D" parent="sprites"]
-position = Vector2(9160, -288)
+position = Vector2(11072, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform127" type="Sprite2D" parent="sprites"]
-position = Vector2(9144, -288)
+position = Vector2(11056, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform128" type="Sprite2D" parent="sprites"]
-position = Vector2(9176, -288)
+position = Vector2(11088, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform129" type="Sprite2D" parent="sprites"]
-position = Vector2(9208, -288)
+position = Vector2(11120, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform130" type="Sprite2D" parent="sprites"]
-position = Vector2(9192, -288)
+position = Vector2(11104, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform131" type="Sprite2D" parent="sprites"]
-position = Vector2(9224, -288)
+position = Vector2(11136, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform132" type="Sprite2D" parent="sprites"]
-position = Vector2(9256, -288)
+position = Vector2(11168, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform133" type="Sprite2D" parent="sprites"]
-position = Vector2(9240, -288)
+position = Vector2(11152, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform134" type="Sprite2D" parent="sprites"]
-position = Vector2(9272, -288)
+position = Vector2(11184, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform135" type="Sprite2D" parent="sprites"]
-position = Vector2(9288, -288)
+position = Vector2(11200, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform136" type="Sprite2D" parent="sprites"]
-position = Vector2(9320, -288)
+position = Vector2(11232, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform137" type="Sprite2D" parent="sprites"]
-position = Vector2(9304, -288)
+position = Vector2(11216, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform138" type="Sprite2D" parent="sprites"]
-position = Vector2(9336, -288)
+position = Vector2(11248, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform139" type="Sprite2D" parent="sprites"]
-position = Vector2(9368, -288)
+position = Vector2(11280, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform140" type="Sprite2D" parent="sprites"]
-position = Vector2(9352, -288)
+position = Vector2(11264, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform141" type="Sprite2D" parent="sprites"]
-position = Vector2(9384, -288)
+position = Vector2(11296, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform143" type="Sprite2D" parent="sprites"]
-position = Vector2(9400, -288)
+position = Vector2(11312, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform145" type="Sprite2D" parent="sprites"]
-position = Vector2(9400, -340)
+position = Vector2(11312, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform146" type="Sprite2D" parent="sprites"]
-position = Vector2(9432, -340)
+position = Vector2(11344, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform147" type="Sprite2D" parent="sprites"]
-position = Vector2(9416, -340)
+position = Vector2(11328, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform148" type="Sprite2D" parent="sprites"]
-position = Vector2(9448, -340)
+position = Vector2(11360, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform149" type="Sprite2D" parent="sprites"]
-position = Vector2(9480, -340)
+position = Vector2(11392, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform150" type="Sprite2D" parent="sprites"]
-position = Vector2(9464, -340)
+position = Vector2(11376, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform151" type="Sprite2D" parent="sprites"]
-position = Vector2(9496, -340)
+position = Vector2(11408, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform152" type="Sprite2D" parent="sprites"]
-position = Vector2(9528, -340)
+position = Vector2(11440, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform153" type="Sprite2D" parent="sprites"]
-position = Vector2(9512, -340)
+position = Vector2(11424, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform154" type="Sprite2D" parent="sprites"]
-position = Vector2(9544, -340)
+position = Vector2(11456, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform165" type="Sprite2D" parent="sprites"]
-position = Vector2(9560, -336)
+position = Vector2(11472, -348)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform166" type="Sprite2D" parent="sprites"]
-position = Vector2(9592, -336)
+position = Vector2(11504, -348)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform167" type="Sprite2D" parent="sprites"]
-position = Vector2(9576, -336)
+position = Vector2(11488, -348)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform168" type="Sprite2D" parent="sprites"]
-position = Vector2(9608, -336)
+position = Vector2(11520, -348)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform170" type="Sprite2D" parent="sprites"]
-position = Vector2(9496, -288)
+position = Vector2(11408, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform172" type="Sprite2D" parent="sprites"]
-position = Vector2(9512, -288)
+position = Vector2(11424, -300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform155" type="Sprite2D" parent="sprites"]
-position = Vector2(9192, -340)
+position = Vector2(11104, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform156" type="Sprite2D" parent="sprites"]
-position = Vector2(9224, -340)
+position = Vector2(11136, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform157" type="Sprite2D" parent="sprites"]
-position = Vector2(9208, -340)
+position = Vector2(11120, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform158" type="Sprite2D" parent="sprites"]
-position = Vector2(9240, -340)
+position = Vector2(11152, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform159" type="Sprite2D" parent="sprites"]
-position = Vector2(9272, -340)
+position = Vector2(11184, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform160" type="Sprite2D" parent="sprites"]
-position = Vector2(9256, -340)
+position = Vector2(11168, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform161" type="Sprite2D" parent="sprites"]
-position = Vector2(9288, -340)
+position = Vector2(11200, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform162" type="Sprite2D" parent="sprites"]
-position = Vector2(9320, -340)
+position = Vector2(11232, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform163" type="Sprite2D" parent="sprites"]
-position = Vector2(9304, -340)
+position = Vector2(11216, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform164" type="Sprite2D" parent="sprites"]
-position = Vector2(9336, -340)
+position = Vector2(11248, -352)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform42" type="Sprite2D" parent="sprites"]
-position = Vector2(9624, -332)
+position = Vector2(11536, -344)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform43" type="Sprite2D" parent="sprites"]
-position = Vector2(9640, -332)
+position = Vector2(11552, -344)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform53" type="Sprite2D" parent="sprites"]
-position = Vector2(9656, -332)
+position = Vector2(11568, -344)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform56" type="Sprite2D" parent="sprites"]
-position = Vector2(9664, -332)
+position = Vector2(11576, -344)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform44" type="Sprite2D" parent="sprites"]
-position = Vector2(9736, -380)
+position = Vector2(11648, -392)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform50" type="Sprite2D" parent="sprites"]
-position = Vector2(9720, -380)
+position = Vector2(11632, -392)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform57" type="Sprite2D" parent="sprites"]
-position = Vector2(9712, -380)
+position = Vector2(11624, -392)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform45" type="Sprite2D" parent="sprites"]
-position = Vector2(9752, -380)
+position = Vector2(11664, -392)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform46" type="Sprite2D" parent="sprites"]
-position = Vector2(9624, -428)
+position = Vector2(11536, -440)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform47" type="Sprite2D" parent="sprites"]
-position = Vector2(9640, -428)
+position = Vector2(11552, -440)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform52" type="Sprite2D" parent="sprites"]
-position = Vector2(9656, -428)
+position = Vector2(11568, -440)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform58" type="Sprite2D" parent="sprites"]
-position = Vector2(9712, -476)
+position = Vector2(11624, -488)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform59" type="Sprite2D" parent="sprites"]
-position = Vector2(9664, -428)
+position = Vector2(11576, -440)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform48" type="Sprite2D" parent="sprites"]
-position = Vector2(9736, -476)
+position = Vector2(11648, -488)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform51" type="Sprite2D" parent="sprites"]
-position = Vector2(9720, -476)
+position = Vector2(11632, -488)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform49" type="Sprite2D" parent="sprites"]
-position = Vector2(9752, -476)
+position = Vector2(11664, -488)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="WoodWall" type="Sprite2D" parent="sprites"]
-position = Vector2(8756, -240)
+position = Vector2(10668, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall2" type="Sprite2D" parent="sprites"]
-position = Vector2(8756, -256)
+position = Vector2(10668, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall3" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8756, -272)
+position = Vector2(10668, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall4" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -292)
+position = Vector2(10620, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall5" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -308)
+position = Vector2(10620, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall6" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -324)
+position = Vector2(10620, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall7" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8816, -292)
+position = Vector2(10728, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall8" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8816, -308)
+position = Vector2(10728, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall9" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8816, -324)
+position = Vector2(10728, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall10" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -240)
+position = Vector2(10792, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall11" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -256)
+position = Vector2(10792, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall12" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -272)
+position = Vector2(10792, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall13" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8944, -292)
+position = Vector2(10856, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall14" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8944, -308)
+position = Vector2(10856, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall15" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8944, -324)
+position = Vector2(10856, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall16" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -344)
+position = Vector2(10792, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall17" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -360)
+position = Vector2(10792, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall18" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8880, -376)
+position = Vector2(10792, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall19" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -344)
+position = Vector2(10620, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall20" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -360)
+position = Vector2(10620, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall21" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8708, -376)
+position = Vector2(10620, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall22" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -344)
+position = Vector2(10920, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall23" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -360)
+position = Vector2(10920, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall24" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -376)
+position = Vector2(10920, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall25" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -240)
+position = Vector2(10920, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall26" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -256)
+position = Vector2(10920, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall27" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9008, -272)
+position = Vector2(10920, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall28" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -292)
+position = Vector2(10984, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall29" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -308)
+position = Vector2(10984, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall30" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -324)
+position = Vector2(10984, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall31" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -344)
+position = Vector2(10984, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall32" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -360)
+position = Vector2(10984, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall33" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9072, -376)
+position = Vector2(10984, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall67" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9544, -388)
+position = Vector2(11456, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall127" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9528, -388)
+position = Vector2(11440, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall128" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9512, -388)
+position = Vector2(11424, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall129" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9496, -388)
+position = Vector2(11408, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall130" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9480, -388)
+position = Vector2(11392, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall131" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9464, -388)
+position = Vector2(11376, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall132" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9448, -388)
+position = Vector2(11360, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall133" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9432, -388)
+position = Vector2(11344, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall134" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9416, -388)
+position = Vector2(11328, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall135" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9400, -388)
+position = Vector2(11312, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall136" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9384, -388)
+position = Vector2(11296, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall137" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9368, -388)
+position = Vector2(11280, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall138" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9352, -388)
+position = Vector2(11264, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall139" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9336, -388)
+position = Vector2(11248, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall140" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9320, -388)
+position = Vector2(11232, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall141" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9304, -388)
+position = Vector2(11216, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall142" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9288, -388)
+position = Vector2(11200, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall143" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9272, -388)
+position = Vector2(11184, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall144" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9256, -388)
+position = Vector2(11168, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall145" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9240, -388)
+position = Vector2(11152, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall146" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9224, -388)
+position = Vector2(11136, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall147" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9208, -388)
+position = Vector2(11120, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall148" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9192, -388)
+position = Vector2(11104, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall149" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9176, -388)
+position = Vector2(11088, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall150" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9160, -388)
+position = Vector2(11072, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall151" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9144, -388)
+position = Vector2(11056, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall152" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9128, -388)
+position = Vector2(11040, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall153" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9112, -388)
+position = Vector2(11024, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall154" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9096, -388)
+position = Vector2(11008, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall155" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9080, -388)
+position = Vector2(10992, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall156" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9064, -388)
+position = Vector2(10976, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall157" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9048, -388)
+position = Vector2(10960, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall158" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9032, -388)
+position = Vector2(10944, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall159" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9016, -388)
+position = Vector2(10928, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall160" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9000, -388)
+position = Vector2(10912, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall161" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8984, -388)
+position = Vector2(10896, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall162" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8968, -388)
+position = Vector2(10880, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall163" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8952, -388)
+position = Vector2(10864, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall164" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8936, -388)
+position = Vector2(10848, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall165" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8920, -388)
+position = Vector2(10832, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall166" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8904, -388)
+position = Vector2(10816, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall174" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8776, -388)
+position = Vector2(10688, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall175" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8760, -388)
+position = Vector2(10672, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall176" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8744, -388)
+position = Vector2(10656, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall177" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8728, -388)
+position = Vector2(10640, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall178" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8712, -388)
+position = Vector2(10624, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall167" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8888, -388)
+position = Vector2(10800, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall168" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8872, -388)
+position = Vector2(10784, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall169" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8856, -388)
+position = Vector2(10768, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall170" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8840, -388)
+position = Vector2(10752, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall171" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8824, -388)
+position = Vector2(10736, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall172" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8808, -388)
+position = Vector2(10720, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall173" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(8792, -388)
+position = Vector2(10704, -400)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall34" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -292)
+position = Vector2(11048, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall35" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -308)
+position = Vector2(11048, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall36" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -324)
+position = Vector2(11048, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall37" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -240)
+position = Vector2(11048, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall38" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -256)
+position = Vector2(11048, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall39" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9136, -272)
+position = Vector2(11048, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall40" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9272, -240)
+position = Vector2(11184, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall41" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9272, -256)
+position = Vector2(11184, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall42" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9272, -272)
+position = Vector2(11184, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall43" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -292)
+position = Vector2(11112, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall44" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -308)
+position = Vector2(11112, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall45" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -324)
+position = Vector2(11112, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall46" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -344)
+position = Vector2(11112, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall47" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -360)
+position = Vector2(11112, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall48" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9200, -376)
+position = Vector2(11112, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall49" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -344)
+position = Vector2(11252, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall50" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -360)
+position = Vector2(11252, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall51" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -376)
+position = Vector2(11252, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall52" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -292)
+position = Vector2(11252, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall53" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -308)
+position = Vector2(11252, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall54" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9340, -324)
+position = Vector2(11252, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall55" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -240)
+position = Vector2(11324, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall56" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -256)
+position = Vector2(11324, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall57" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -272)
+position = Vector2(11324, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall68" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9448, -280)
+position = Vector2(11360, -292)
 rotation = -1.57079
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall71" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9432, -280)
+position = Vector2(11344, -292)
 rotation = -1.57079
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall72" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9416, -280)
+position = Vector2(11328, -292)
 rotation = -1.57079
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall69" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9464, -280)
+position = Vector2(11376, -292)
 rotation = -1.57079
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall70" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9480, -280)
+position = Vector2(11392, -292)
 rotation = -1.57079
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall58" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -344)
+position = Vector2(11324, -356)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall59" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -360)
+position = Vector2(11324, -372)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall60" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9412, -376)
+position = Vector2(11324, -388)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall61" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9484, -292)
+position = Vector2(11396, -304)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall62" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9484, -308)
+position = Vector2(11396, -320)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall63" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9484, -324)
+position = Vector2(11396, -336)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall64" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9612, -290)
+position = Vector2(11524, -302)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall65" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9612, -306)
+position = Vector2(11524, -318)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall66" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9612, -322)
+position = Vector2(11524, -334)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall120" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -672)
+position = Vector2(11516, -684)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall121" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -688)
+position = Vector2(11516, -700)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall122" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -704)
+position = Vector2(11516, -716)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall123" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -720)
+position = Vector2(11516, -732)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall124" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -736)
+position = Vector2(11516, -748)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall125" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -752)
+position = Vector2(11516, -764)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall126" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9604, -768)
+position = Vector2(11516, -780)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall78" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -240)
+position = Vector2(11676, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall111" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -224)
+position = Vector2(11676, -236)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall112" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -208)
+position = Vector2(11676, -220)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall113" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -192)
+position = Vector2(11676, -204)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall114" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -176)
+position = Vector2(11676, -188)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall116" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10052, -256)
+position = Vector2(11964, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall117" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10052, -240)
+position = Vector2(11964, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall118" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10052, -224)
+position = Vector2(11964, -236)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall179" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9940, -288)
+position = Vector2(11852, -300)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall219" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9952, -284)
+position = Vector2(11864, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall220" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9968, -284)
+position = Vector2(11880, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall221" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9984, -284)
+position = Vector2(11896, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall222" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10000, -284)
+position = Vector2(11912, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall223" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10016, -284)
+position = Vector2(11928, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall224" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10032, -284)
+position = Vector2(11944, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall225" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10048, -284)
+position = Vector2(11960, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall226" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10064, -284)
+position = Vector2(11976, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall227" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10080, -284)
+position = Vector2(11992, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall228" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10096, -284)
+position = Vector2(12008, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall229" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10112, -284)
+position = Vector2(12024, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall230" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10128, -284)
+position = Vector2(12040, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall231" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10144, -284)
+position = Vector2(12056, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall232" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10160, -284)
+position = Vector2(12072, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall233" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10176, -284)
+position = Vector2(12088, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall234" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10192, -284)
+position = Vector2(12104, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall235" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10208, -284)
+position = Vector2(12120, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall236" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10220, -284)
+position = Vector2(12132, -296)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall237" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -272)
+position = Vector2(12136, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall238" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -256)
+position = Vector2(12136, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall239" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -240)
+position = Vector2(12136, -252)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall240" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -224)
+position = Vector2(12136, -236)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall241" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -208)
+position = Vector2(12136, -220)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall243" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -192)
+position = Vector2(12136, -204)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall244" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -176)
+position = Vector2(12136, -188)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall245" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10216, -164)
+position = Vector2(12128, -176)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall242" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10224, -224)
+position = Vector2(12136, -236)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall79" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -256)
+position = Vector2(11676, -268)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall80" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -272)
+position = Vector2(11676, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall81" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -288)
+position = Vector2(11676, -300)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall119" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(10052, -272)
+position = Vector2(11964, -284)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall82" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -304)
+position = Vector2(11676, -316)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall83" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -320)
+position = Vector2(11676, -332)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall84" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -336)
+position = Vector2(11676, -348)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall85" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -352)
+position = Vector2(11676, -364)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall86" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -368)
+position = Vector2(11676, -380)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall87" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -384)
+position = Vector2(11676, -396)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall88" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -400)
+position = Vector2(11676, -412)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall89" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -416)
+position = Vector2(11676, -428)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall90" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -432)
+position = Vector2(11676, -444)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall91" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -448)
+position = Vector2(11676, -460)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall92" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -464)
+position = Vector2(11676, -476)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall93" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -480)
+position = Vector2(11676, -492)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall94" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -496)
+position = Vector2(11676, -508)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall95" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -512)
+position = Vector2(11676, -524)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall96" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -528)
+position = Vector2(11676, -540)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall97" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -544)
+position = Vector2(11676, -556)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall98" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -560)
+position = Vector2(11676, -572)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall99" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -576)
+position = Vector2(11676, -588)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall100" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -592)
+position = Vector2(11676, -604)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall101" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -608)
+position = Vector2(11676, -620)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall102" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -624)
+position = Vector2(11676, -636)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall103" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -640)
+position = Vector2(11676, -652)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall104" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -656)
+position = Vector2(11676, -668)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall105" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -672)
+position = Vector2(11676, -684)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall106" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -688)
+position = Vector2(11676, -700)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall107" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -704)
+position = Vector2(11676, -716)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall108" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -720)
+position = Vector2(11676, -732)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall109" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -736)
+position = Vector2(11676, -748)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall110" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -752)
+position = Vector2(11676, -764)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall115" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(9764, -768)
+position = Vector2(11676, -780)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -3218,43 +3317,43 @@ texture = ExtResource("5_d14s1")
 position = Vector2(104, 272)
 
 [node name="climb7" parent="climb_group" instance=ExtResource("6_tcrfo")]
-position = Vector2(9096, -552)
+position = Vector2(11008, -564)
 
 [node name="jump pad" parent="." instance=ExtResource("7_jy1vu")]
 position = Vector2(-80, 0)
 strength = Vector2(0, 1.5)
 
 [node name="jump pad2" parent="." instance=ExtResource("7_jy1vu")]
-position = Vector2(8656, 88)
+position = Vector2(10568, 76)
 strength = Vector2(0, 2.6)
 
 [node name="jump pad3" parent="." instance=ExtResource("7_jy1vu")]
-position = Vector2(9540, 128)
+position = Vector2(11452, 116)
 
 [node name="simple_moving_platform2" parent="." instance=ExtResource("8_voyx6")]
 position = Vector2(2240, 280)
 end_position = Vector2(2240, 88)
 
 [node name="breaking_platforms4" parent="." instance=ExtResource("9_l5b3g")]
-position = Vector2(9232, -712)
+position = Vector2(11144, -724)
 
 [node name="breaking_platforms5" parent="." instance=ExtResource("9_l5b3g")]
-position = Vector2(9312, -744)
+position = Vector2(11224, -756)
 
 [node name="breaking_platforms6" parent="." instance=ExtResource("9_l5b3g")]
-position = Vector2(9392, -776)
+position = Vector2(11304, -788)
 
 [node name="breaking_platforms7" parent="." instance=ExtResource("9_l5b3g")]
-position = Vector2(9472, -792)
+position = Vector2(11384, -804)
 
 [node name="breaking_platforms8" parent="." instance=ExtResource("9_l5b3g")]
-position = Vector2(9552, -820)
+position = Vector2(11464, -832)
 
 [node name="simple_enemy2" parent="." instance=ExtResource("10_l4i5n")]
-position = Vector2(8016, -368)
+position = Vector2(10272, -428)
 
 [node name="simple_enemy12" parent="." instance=ExtResource("10_l4i5n")]
-position = Vector2(8424, 232)
+position = Vector2(10336, 220)
 
 [node name="rotating_platform" parent="." instance=ExtResource("11_50iu2")]
 position = Vector2(2864, 88)
@@ -3269,13 +3368,13 @@ position = Vector2(3232, 88)
 position = Vector2(6944, -176)
 
 [node name="enemy_rotating_around_platform2" parent="." instance=ExtResource("12_dux4c")]
-position = Vector2(7688, -360)
+position = Vector2(9944, -420)
 
 [node name="enemy_rotating_around_platform3" parent="." instance=ExtResource("12_dux4c")]
-position = Vector2(7768, -360)
+position = Vector2(10024, -420)
 
 [node name="enemy_rotating_around_platform4" parent="." instance=ExtResource("12_dux4c")]
-position = Vector2(7848, -360)
+position = Vector2(10104, -420)
 
 [node name="auto_jump_pad" parent="." instance=ExtResource("13_gkmib")]
 position = Vector2(4584, -112)
@@ -3283,35 +3382,38 @@ target_velocity = Vector2(190, -250)
 do_a_flip = true
 
 [node name="multi_timed_enemy_spawner" parent="." instance=ExtResource("14_8m20x")]
-position = Vector2(7808, -216)
+position = Vector2(10008, -268)
 
 [node name="toggle_death_area" parent="." instance=ExtResource("15_0r7sv")]
-position = Vector2(8200, -32)
+position = Vector2(10112, -44)
 scale = Vector2(0.703, 1)
 
 [node name="toggle_death_area2" parent="." instance=ExtResource("15_0r7sv")]
 position = Vector2(7152, -168)
 
 [node name="Path2D" parent="." instance=ExtResource("16_tl5gy")]
-position = Vector2(8056, 240)
+position = Vector2(9968, 228)
+
+[node name="Path2D5" parent="." instance=ExtResource("16_tl5gy")]
+position = Vector2(7384, -152)
 
 [node name="Path2D3" parent="." instance=ExtResource("16_tl5gy")]
-position = Vector2(8056, 224)
+position = Vector2(9968, 212)
 trans = 11
 
 [node name="Path2D2" parent="." instance=ExtResource("16_tl5gy")]
-position = Vector2(8056, 208)
+position = Vector2(9968, 196)
 trans = 10
 
 [node name="Path2D4" type="Path2D" parent="."]
-position = Vector2(2312, -576)
+position = Vector2(5040, -764)
 curve = SubResource("Curve2D_ry04e")
 script = SubResource("GDScript_d86kc")
 trans = 0
 time = 5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-position = Vector2(5320, 360)
+position = Vector2(5320, 520)
 rotation = 3.14159
 rotates = false
 
@@ -3336,27 +3438,12 @@ autoplay = true
 max_distance = 250.0
 
 [node name="glide_area" type="Area2D" parent="."]
-position = Vector2(9772, -760)
+position = Vector2(11684, -772)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glide_area"]
-position = Vector2(80, 228)
+position = Vector2(-3340, 724)
 shape = SubResource("RectangleShape2D_e7m7k")
 debug_color = Color(0, 1, 0, 0.101961)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="glide_area"]
-position = Vector2(80, 480)
-amount = 256
-lifetime = 27.0
-emission_shape = 3
-emission_rect_extents = Vector2(80, 1)
-direction = Vector2(0, -1)
-spread = 0.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 25.0
-scale_amount_min = 2.0
-scale_amount_max = 5.0
-color_ramp = SubResource("Gradient_w1nef")
 
 [node name="jump pad particles" type="CPUParticles2D" parent="."]
 position = Vector2(4584, -112)
@@ -3397,69 +3484,69 @@ layer_0/tile_data = PackedInt32Array(1114121, 65536, 0, 1114122, 65536, 0, 11141
 scale = Vector2(0.25, 0.25)
 
 [node name="interactive_grass" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34336, 352)
+position = Vector2(41984, 304)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass16" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34464, 352)
+position = Vector2(42112, 304)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass2" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34272, 352)
+position = Vector2(41920, 304)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass3" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34208, 352)
+position = Vector2(41856, 304)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass4" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34400, 352)
+position = Vector2(42048, 304)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass5" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34016, 992)
+position = Vector2(41664, 944)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass9" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33824, 992)
+position = Vector2(41472, 944)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass6" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33952, 992)
+position = Vector2(41600, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass7" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33888, 992)
+position = Vector2(41536, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass8" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(34080, 992)
+position = Vector2(41728, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass10" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33696, 992)
+position = Vector2(41344, 944)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass11" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33504, 992)
+position = Vector2(41152, 944)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass12" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33632, 992)
+position = Vector2(41280, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass13" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33568, 992)
+position = Vector2(41216, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass14" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(33760, 992)
+position = Vector2(41408, 944)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass15" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
@@ -3620,49 +3707,49 @@ position = Vector2(15584, 640)
 scale = Vector2(4, 4)
 
 [node name="vine" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8720, -412)
+position = Vector2(10632, -424)
 
 [node name="vine2" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8740, -412)
+position = Vector2(10652, -424)
 
 [node name="vine3" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8756, -408)
+position = Vector2(10668, -420)
 
 [node name="vine4" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8776, -412)
+position = Vector2(10688, -424)
 
 [node name="vine5" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8792, -412)
+position = Vector2(10704, -424)
 
 [node name="vine6" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8808, -416)
+position = Vector2(10720, -428)
 
 [node name="vine7" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8824, -408)
+position = Vector2(10736, -420)
 
 [node name="vine8" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8840, -412)
+position = Vector2(10752, -424)
 
 [node name="vine9" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(8856, -420)
+position = Vector2(10768, -432)
 
 [node name="OneWayPlatform" type="Sprite2D" parent="."]
-position = Vector2(8680, -236)
+position = Vector2(10592, -248)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform2" type="Sprite2D" parent="."]
-position = Vector2(8664, -236)
+position = Vector2(10576, -248)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform3" type="Sprite2D" parent="."]
-position = Vector2(8648, -236)
+position = Vector2(10560, -248)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform4" type="Sprite2D" parent="."]
-position = Vector2(8632, -236)
+position = Vector2(10544, -248)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
@@ -3742,7 +3829,7 @@ position = Vector2(-80, 46)
 position = Vector2(24, -12)
 
 [node name="bird4" parent="birds" instance=ExtResource("25_5do0j")]
-position = Vector2(8616, -314)
+position = Vector2(10528, -326)
 
 [node name="Area2D" parent="birds/bird4" index="2"]
 position = Vector2(-80, 46)
@@ -3756,14 +3843,14 @@ position = Vector2(744, 62)
 fly_direction = Vector2(1, -1)
 
 [node name="bird13" parent="birds" instance=ExtResource("25_5do0j")]
-position = Vector2(8048, -106)
+position = Vector2(9960, -118)
 
 [node name="bird7" parent="birds" instance=ExtResource("25_5do0j")]
 position = Vector2(280, -130)
 fly_direction = Vector2(1, -1)
 
 [node name="bird14" parent="birds" instance=ExtResource("25_5do0j")]
-position = Vector2(8064, -106)
+position = Vector2(9976, -118)
 
 [node name="bird8" parent="birds" instance=ExtResource("25_5do0j")]
 position = Vector2(-344, -178)
@@ -3780,16 +3867,16 @@ position = Vector2(2008, -50)
 script = SubResource("GDScript_sklib")
 
 [node name="enemy_kill_zone2" parent="." instance=ExtResource("26_tjwx1")]
-position = Vector2(7920, 64)
+position = Vector2(9832, 52)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("27_g0ioh")]
-position = Vector2(10752, 96)
+position = Vector2(12664, 84)
 
 [node name="vertical_aligned_enemy_spawner" parent="." instance=ExtResource("28_10j3f")]
-position = Vector2(10744, -272)
+position = Vector2(12656, -284)
 
 [node name="spike container sprites" type="Node2D" parent="."]
-position = Vector2(10128, -312)
+position = Vector2(12040, -324)
 
 [node name="jump_tutorial" parent="." instance=ExtResource("29_1v0r8")]
 position = Vector2(832, 272)
@@ -3819,19 +3906,22 @@ position = Vector2(0, 48)
 position = Vector2(52, 24)
 
 [node name="tunnel_platform_01" parent="." instance=ExtResource("33_8ljw3")]
-position = Vector2(8704, -392)
+position = Vector2(10616, -404)
 
 [node name="moving_platforms_01" parent="." instance=ExtResource("34_o7vk7")]
-position = Vector2(9208, -648)
+position = Vector2(11120, -660)
+
+[node name="moving_platforms_02" parent="." instance=ExtResource("34_o7vk7")]
+position = Vector2(7648, -304)
 
 [node name="wall_jump_platform" parent="." instance=ExtResource("35_uh2bi")]
-position = Vector2(8352, 8)
+position = Vector2(10264, -4)
 
 [node name="seesaw_platform_01" parent="." instance=ExtResource("36_18jgk")]
-position = Vector2(7696, 264)
+position = Vector2(9608, 252)
 
 [node name="platform_up_jump_02" parent="." instance=ExtResource("37_w042p")]
-position = Vector2(9608, -556)
+position = Vector2(11520, -568)
 
 [node name="trees" type="Node2D" parent="."]
 
@@ -3865,12 +3955,12 @@ frame = 1
 
 [node name="tree_48x54" parent="trees" instance=ExtResource("38_uw8er")]
 z_index = -1
-position = Vector2(7800, 240)
+position = Vector2(9712, 228)
 scale = Vector2(3, 3)
 
 [node name="tree_48x55" parent="trees" instance=ExtResource("38_uw8er")]
 z_index = -1
-position = Vector2(8652, -304)
+position = Vector2(10564, -316)
 scale = Vector2(3, 3)
 frame = 2
 
@@ -3892,13 +3982,13 @@ position = Vector2(4368, -112)
 position = Vector2(6144, 384)
 
 [node name="flag5" parent="flags" instance=ExtResource("39_yrwhh")]
-position = Vector2(8656, -232)
+position = Vector2(8128, -288)
 
 [node name="flag6" parent="flags" instance=ExtResource("39_yrwhh")]
-position = Vector2(9648, -556)
+position = Vector2(11560, -568)
 
 [node name="flag7" parent="flags" instance=ExtResource("39_yrwhh")]
-position = Vector2(9680, -784)
+position = Vector2(11592, -796)
 
 [node name="door2" parent="." instance=ExtResource("32_ujl0f")]
 position = Vector2(2016, 32)
@@ -3913,10 +4003,10 @@ position = Vector2(52, 24)
 position = Vector2(52, 23)
 
 [node name="pressure_button_platform_01" parent="." instance=ExtResource("40_1fuka")]
-position = Vector2(9764, -288)
+position = Vector2(11676, -300)
 
 [node name="Portal" parent="." instance=ExtResource("41_jt70y")]
-position = Vector2(10176, -190)
+position = Vector2(12088, -202)
 new_scene = ExtResource("42_84l6e")
 
 [node name="16-bit-spike" parent="." instance=ExtResource("43_fj8ks")]
@@ -3968,30 +4058,30 @@ Don't touch spikes"
 
 [node name="avoid_spike message5" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = 8544.0
-offset_top = -44.0
-offset_right = 8654.0
-offset_bottom = -19.0
+offset_left = 10456.0
+offset_top = -56.0
+offset_right = 10566.0
+offset_bottom = -31.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "You can wall jump here"
 
 [node name="avoid_spike message8" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = 9875.0
-offset_top = -1048.0
-offset_right = 9985.0
-offset_bottom = -1023.0
+offset_left = 11632.0
+offset_top = -1080.0
+offset_right = 11742.0
+offset_bottom = -1055.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "Have fun gliding down."
 
 [node name="avoid_spike message6" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = 7820.0
-offset_top = -291.0
-offset_right = 7930.0
-offset_bottom = -266.0
+offset_left = 9876.0
+offset_top = -304.0
+offset_right = 9986.0
+offset_bottom = -279.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "Patience is key!
@@ -4153,361 +4243,361 @@ rotation = 3.14159
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="16-bit-spike12" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9208, -424)
+position = Vector2(11120, -436)
 
 [node name="16-bit-spike13" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9224, -424)
+position = Vector2(11136, -436)
 
 [node name="16-bit-spike14" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9240, -424)
+position = Vector2(11152, -436)
 
 [node name="16-bit-spike15" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9256, -424)
+position = Vector2(11168, -436)
 
 [node name="16-bit-spike16" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9272, -424)
+position = Vector2(11184, -436)
 
 [node name="16-bit-spike87" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8312, 376)
+position = Vector2(10224, 364)
 
 [node name="16-bit-spike88" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8328, 376)
+position = Vector2(10240, 364)
 
 [node name="16-bit-spike89" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8344, 376)
+position = Vector2(10256, 364)
 
 [node name="16-bit-spike90" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8360, 376)
+position = Vector2(10272, 364)
 
 [node name="16-bit-spike91" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8376, 376)
+position = Vector2(10288, 364)
 
 [node name="16-bit-spike92" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8392, 376)
+position = Vector2(10304, 364)
 
 [node name="16-bit-spike93" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8280, 376)
+position = Vector2(10192, 364)
 
 [node name="16-bit-spike94" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8296, 376)
+position = Vector2(10208, 364)
 
 [node name="16-bit-spike17" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9288, -424)
+position = Vector2(11200, -436)
 
 [node name="16-bit-spike18" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9304, -424)
+position = Vector2(11216, -436)
 
 [node name="16-bit-spike19" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9320, -424)
+position = Vector2(11232, -436)
 
 [node name="16-bit-spike20" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9336, -424)
+position = Vector2(11248, -436)
 
 [node name="16-bit-spike21" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9352, -424)
+position = Vector2(11264, -436)
 
 [node name="16-bit-spike22" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9368, -424)
+position = Vector2(11280, -436)
 
 [node name="16-bit-spike23" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9384, -424)
+position = Vector2(11296, -436)
 
 [node name="16-bit-spike24" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9400, -424)
+position = Vector2(11312, -436)
 
 [node name="16-bit-spike25" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9416, -424)
+position = Vector2(11328, -436)
 
 [node name="16-bit-spike26" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9432, -424)
+position = Vector2(11344, -436)
 
 [node name="16-bit-spike27" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9448, -424)
+position = Vector2(11360, -436)
 
 [node name="16-bit-spike28" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9464, -424)
+position = Vector2(11376, -436)
 
 [node name="16-bit-spike29" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9480, -424)
+position = Vector2(11392, -436)
 
 [node name="16-bit-spike30" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9496, -424)
+position = Vector2(11408, -436)
 
 [node name="16-bit-spike31" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9512, -424)
+position = Vector2(11424, -436)
 
 [node name="16-bit-spike32" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9528, -424)
+position = Vector2(11440, -436)
 
 [node name="16-bit-spike33" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9544, -424)
+position = Vector2(11456, -436)
 
 [node name="16-bit-spike34" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9560, -424)
+position = Vector2(11472, -436)
 
 [node name="16-bit-spike35" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9576, -424)
+position = Vector2(11488, -436)
 
 [node name="16-bit-spike36" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9592, -424)
+position = Vector2(11504, -436)
 
 [node name="16-bit-spike95" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9776, -280)
+position = Vector2(11688, -292)
 
 [node name="16-bit-spike96" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9792, -280)
+position = Vector2(11704, -292)
 
 [node name="16-bit-spike97" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9808, -280)
+position = Vector2(11720, -292)
 
 [node name="16-bit-spike98" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9824, -280)
+position = Vector2(11736, -292)
 
 [node name="16-bit-spike99" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9880, -280)
+position = Vector2(11792, -292)
 
 [node name="16-bit-spike100" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9896, -280)
+position = Vector2(11808, -292)
 
 [node name="16-bit-spike101" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9912, -280)
+position = Vector2(11824, -292)
 
 [node name="16-bit-spike102" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9928, -280)
+position = Vector2(11840, -292)
 
 [node name="16-bit-spike103" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9832, -392)
+position = Vector2(11744, -404)
 
 [node name="16-bit-spike104" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9848, -392)
+position = Vector2(11760, -404)
 
 [node name="16-bit-spike105" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9864, -392)
+position = Vector2(11776, -404)
 
 [node name="16-bit-spike106" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9880, -392)
+position = Vector2(11792, -404)
 
 [node name="16-bit-spike107" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9776, -500)
+position = Vector2(11688, -512)
 
 [node name="16-bit-spike108" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9792, -500)
+position = Vector2(11704, -512)
 
 [node name="16-bit-spike109" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9808, -500)
+position = Vector2(11720, -512)
 
 [node name="16-bit-spike110" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9824, -500)
+position = Vector2(11736, -512)
 
 [node name="16-bit-spike111" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9880, -580)
+position = Vector2(11792, -592)
 
 [node name="16-bit-spike112" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9896, -580)
+position = Vector2(11808, -592)
 
 [node name="16-bit-spike113" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9912, -580)
+position = Vector2(11824, -592)
 
 [node name="16-bit-spike114" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9928, -580)
+position = Vector2(11840, -592)
 
 [node name="16-bit-spike115" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9776, -660)
+position = Vector2(11688, -672)
 
 [node name="16-bit-spike116" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9792, -660)
+position = Vector2(11704, -672)
 
 [node name="16-bit-spike117" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9808, -660)
+position = Vector2(11720, -672)
 
 [node name="16-bit-spike118" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9824, -660)
+position = Vector2(11736, -672)
 
 [node name="16-bit-spike119" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9880, -740)
+position = Vector2(11792, -752)
 
 [node name="16-bit-spike120" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9896, -740)
+position = Vector2(11808, -752)
 
 [node name="16-bit-spike121" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9912, -740)
+position = Vector2(11824, -752)
 
 [node name="16-bit-spike122" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9928, -740)
+position = Vector2(11840, -752)
 
 [node name="16-bit-spike37" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9208, -680)
+position = Vector2(11120, -692)
 
 [node name="16-bit-spike38" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9224, -680)
+position = Vector2(11136, -692)
 
 [node name="16-bit-spike39" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9240, -680)
+position = Vector2(11152, -692)
 
 [node name="16-bit-spike40" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9256, -680)
+position = Vector2(11168, -692)
 
 [node name="16-bit-spike41" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9272, -680)
+position = Vector2(11184, -692)
 
 [node name="16-bit-spike42" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9288, -680)
+position = Vector2(11200, -692)
 
 [node name="16-bit-spike43" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9304, -680)
+position = Vector2(11216, -692)
 
 [node name="16-bit-spike44" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9320, -680)
+position = Vector2(11232, -692)
 
 [node name="16-bit-spike45" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9336, -680)
+position = Vector2(11248, -692)
 
 [node name="16-bit-spike46" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9352, -680)
+position = Vector2(11264, -692)
 
 [node name="16-bit-spike47" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9368, -680)
+position = Vector2(11280, -692)
 
 [node name="16-bit-spike48" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9384, -680)
+position = Vector2(11296, -692)
 
 [node name="16-bit-spike49" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9400, -680)
+position = Vector2(11312, -692)
 
 [node name="16-bit-spike50" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9416, -680)
+position = Vector2(11328, -692)
 
 [node name="16-bit-spike51" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9432, -680)
+position = Vector2(11344, -692)
 
 [node name="16-bit-spike52" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9448, -680)
+position = Vector2(11360, -692)
 
 [node name="16-bit-spike53" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9464, -680)
+position = Vector2(11376, -692)
 
 [node name="16-bit-spike54" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9480, -680)
+position = Vector2(11392, -692)
 
 [node name="16-bit-spike55" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9496, -680)
+position = Vector2(11408, -692)
 
 [node name="16-bit-spike56" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9512, -680)
+position = Vector2(11424, -692)
 
 [node name="16-bit-spike57" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9528, -680)
+position = Vector2(11440, -692)
 
 [node name="16-bit-spike58" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9544, -680)
+position = Vector2(11456, -692)
 
 [node name="16-bit-spike59" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9560, -680)
+position = Vector2(11472, -692)
 
 [node name="16-bit-spike60" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9576, -680)
+position = Vector2(11488, -692)
 
 [node name="16-bit-spike61" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9592, -680)
+position = Vector2(11504, -692)
 
 [node name="16-bit-spike62" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9208, -680)
+position = Vector2(11120, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike63" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9224, -680)
+position = Vector2(11136, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike64" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9240, -680)
+position = Vector2(11152, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike65" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9256, -680)
+position = Vector2(11168, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike66" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9272, -680)
+position = Vector2(11184, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike67" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9288, -680)
+position = Vector2(11200, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike68" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9304, -680)
+position = Vector2(11216, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike69" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9320, -680)
+position = Vector2(11232, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike70" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9336, -680)
+position = Vector2(11248, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike71" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9352, -680)
+position = Vector2(11264, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike72" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9368, -680)
+position = Vector2(11280, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike73" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9384, -680)
+position = Vector2(11296, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike74" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9400, -680)
+position = Vector2(11312, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike75" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9416, -680)
+position = Vector2(11328, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike76" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9432, -680)
+position = Vector2(11344, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike77" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9448, -680)
+position = Vector2(11360, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike78" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9464, -680)
+position = Vector2(11376, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike79" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9480, -680)
+position = Vector2(11392, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike80" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9496, -680)
+position = Vector2(11408, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike81" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9512, -680)
+position = Vector2(11424, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike82" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9528, -680)
+position = Vector2(11440, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike83" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9544, -680)
+position = Vector2(11456, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike84" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9560, -680)
+position = Vector2(11472, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike85" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9576, -680)
+position = Vector2(11488, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike86" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9592, -680)
+position = Vector2(11504, -692)
 rotation = 3.14159
 
 [node name="16-bit-spike2" parent="spikes" instance=ExtResource("43_fj8ks")]
@@ -4676,88 +4766,284 @@ position = Vector2(4296, 194)
 position = Vector2(4312, 194)
 
 [node name="16-bit-spike200" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9332, 176)
+position = Vector2(11244, 164)
 
 [node name="16-bit-spike201" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9348, 176)
+position = Vector2(11260, 164)
 
 [node name="16-bit-spike202" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9364, 176)
+position = Vector2(11276, 164)
 
 [node name="16-bit-spike203" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9380, 176)
+position = Vector2(11292, 164)
 
 [node name="16-bit-spike204" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9396, 176)
+position = Vector2(11308, 164)
 
 [node name="16-bit-spike205" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9412, 176)
+position = Vector2(11324, 164)
 
 [node name="16-bit-spike209" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9652, 176)
+position = Vector2(11564, 164)
 
 [node name="16-bit-spike210" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8944, 305)
+position = Vector2(10856, 293)
 
 [node name="16-bit-spike211" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8960, 305)
+position = Vector2(10872, 293)
 
 [node name="16-bit-spike212" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8976, 305)
+position = Vector2(10888, 293)
 
 [node name="16-bit-spike213" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(8992, 305)
+position = Vector2(10904, 293)
 
 [node name="16-bit-spike214" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(7624, 88)
+position = Vector2(6904, -114)
 
 [node name="16-bit-spike215" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(7640, 88)
+position = Vector2(6920, -114)
 
 [node name="16-bit-spike216" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(7656, 88)
+position = Vector2(6936, -114)
+
+[node name="16-bit-spike237" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(6952, -114)
+
+[node name="16-bit-spike238" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(6968, -114)
+
+[node name="16-bit-spike255" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(6984, -114)
+
+[node name="16-bit-spike256" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7000, -114)
+
+[node name="16-bit-spike257" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7016, -114)
+
+[node name="16-bit-spike261" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7656, -112)
+
+[node name="16-bit-spike262" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7672, -112)
+
+[node name="16-bit-spike263" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7688, -112)
+
+[node name="16-bit-spike264" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7704, -112)
+
+[node name="16-bit-spike265" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7720, -112)
+
+[node name="16-bit-spike266" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7736, -112)
+
+[node name="16-bit-spike267" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7752, -112)
+
+[node name="16-bit-spike268" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7768, -112)
+
+[node name="16-bit-spike269" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7784, -112)
+
+[node name="16-bit-spike270" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7800, -112)
+
+[node name="16-bit-spike271" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7816, -112)
+
+[node name="16-bit-spike272" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7832, -112)
+
+[node name="16-bit-spike273" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7848, -112)
+
+[node name="16-bit-spike274" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7864, -112)
+
+[node name="16-bit-spike275" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7880, -112)
+
+[node name="16-bit-spike276" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7896, -112)
+
+[node name="16-bit-spike277" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7912, -112)
+
+[node name="16-bit-spike278" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7928, -112)
+
+[node name="16-bit-spike279" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7944, -112)
+
+[node name="16-bit-spike280" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7960, -112)
+
+[node name="16-bit-spike281" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7976, -112)
+
+[node name="16-bit-spike282" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7992, -112)
+
+[node name="16-bit-spike283" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(8008, -112)
+
+[node name="16-bit-spike284" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(8024, -112)
+
+[node name="16-bit-spike285" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7656, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike286" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7672, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike287" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7688, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike288" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7704, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike289" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7720, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike290" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7736, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike291" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7752, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike292" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7768, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike293" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7784, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike294" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7800, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike295" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7816, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike296" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7832, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike297" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7848, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike298" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7864, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike299" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7880, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike300" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7896, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike301" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7912, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike302" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7928, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike303" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7944, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike304" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7960, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike305" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7976, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike306" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7992, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike307" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(8008, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike308" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(8024, -336)
+rotation = 3.14159
+
+[node name="16-bit-spike258" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7288, -96)
+
+[node name="16-bit-spike259" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7304, -96)
+
+[node name="16-bit-spike309" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(8264, 236)
+rotation = 3.14159
+
+[node name="16-bit-spike260" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(7320, -96)
 
 [node name="16-bit-spike217" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9524, 176)
+position = Vector2(11436, 164)
 
 [node name="16-bit-spike218" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9540, 176)
+position = Vector2(11452, 164)
 
 [node name="16-bit-spike219" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9556, 176)
+position = Vector2(11468, 164)
 
 [node name="16-bit-spike225" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9476, 176)
+position = Vector2(11388, 164)
 
 [node name="16-bit-spike226" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9492, 176)
+position = Vector2(11404, 164)
 
 [node name="16-bit-spike227" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9508, 176)
+position = Vector2(11420, 164)
 
 [node name="16-bit-spike228" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9428, 176)
+position = Vector2(11340, 164)
 
 [node name="16-bit-spike229" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9444, 176)
+position = Vector2(11356, 164)
 
 [node name="16-bit-spike230" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9460, 176)
+position = Vector2(11372, 164)
 
 [node name="16-bit-spike220" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9572, 176)
+position = Vector2(11484, 164)
 
 [node name="16-bit-spike221" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9588, 176)
+position = Vector2(11500, 164)
 
 [node name="16-bit-spike222" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9604, 176)
+position = Vector2(11516, 164)
 
 [node name="16-bit-spike223" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9620, 176)
+position = Vector2(11532, 164)
 
 [node name="16-bit-spike224" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(9636, 176)
+position = Vector2(11548, 164)
 
 [node name="16-bit-spike206" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(4088, 194)
@@ -4880,17 +5166,17 @@ position = Vector2(4616, 192)
 position = Vector2(4632, 192)
 
 [node name="OneWayPlatform5" type="Sprite2D" parent="."]
-position = Vector2(9608, -560)
+position = Vector2(11520, -572)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="SmallPlatform4" type="Sprite2D" parent="."]
-position = Vector2(9684, -784)
+position = Vector2(11596, -796)
 scale = Vector2(5.25, 0.5)
 texture = ExtResource("48_e0go2")
 
 [node name="start_cutscene" type="Area2D" parent="."]
-position = Vector2(10104, -176)
+position = Vector2(12016, -188)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
@@ -4936,7 +5222,7 @@ color = Color(0.611735, 0.611595, 0, 0.776471)
 position = Vector2(2336, -168)
 
 [node name="Player" parent="." instance=ExtResource("49_jbt15")]
-position = Vector2(6592, -212)
+position = Vector2(8392, 244)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("51_stltk")]
 position = Vector2(3680, -104)
@@ -5128,11 +5414,20 @@ position = Vector2(5792, 384)
 position = Vector2(6144, -16)
 
 [node name="timed_enemy_spawner" parent="." instance=ExtResource("2_6oftm")]
-position = Vector2(7464, -124)
+position = Vector2(7304, -130)
 rotation = 3.14159
-time_to_die = 4.0
+repeat_time = 3.0
+time_to_die = 6.0
+
+[node name="Button_pressure" parent="." node_paths=PackedStringArray("door") instance=ExtResource("57_4hfqi")]
+position = Vector2(8264, 304)
+door = NodePath("../StaticBody2D/Door5")
+
+[node name="box" parent="." instance=ExtResource("58_nuc22")]
+position = Vector2(8344, 296)
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
+[connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D2" to="." method="_on_path_2d_kill_player"]
 [connection signal="body_entered" from="Path2D4/PathFollow2D/Area2D" to="Path2D4" method="_on_area_2d_body_entered"]

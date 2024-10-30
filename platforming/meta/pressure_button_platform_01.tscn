@@ -74,6 +74,7 @@ offset_top = -24.0
 offset_right = 4.0
 offset_bottom = 24.0
 color = Color(0.423651, 0.423651, 0.423651, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(36, 120)
