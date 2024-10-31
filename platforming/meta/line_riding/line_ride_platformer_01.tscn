@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dynno6acyp3ih"]
+[gd_scene load_steps=16 format=3 uid="uid://dynno6acyp3ih"]
 
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="1_it847"]
 
@@ -28,6 +28,9 @@ size = Vector2(272, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkq1j"]
 size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5y8w"]
+size = Vector2(16, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_jqeww"]
 _data = {
@@ -106,8 +109,8 @@ position = Vector2(72, 72)
 shape = SubResource("RectangleShape2D_wkq1j")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(72, -72)
-shape = SubResource("RectangleShape2D_wkq1j")
+position = Vector2(72, -16)
+shape = SubResource("RectangleShape2D_w5y8w")
 
 [node name="player_slide_on_line" parent="." instance=ExtResource("1_it847")]
 position = Vector2(328, 256)
