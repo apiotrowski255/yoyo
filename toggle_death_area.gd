@@ -29,7 +29,7 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
-	if body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+	if GlobalVariables.is_player(body):
 		# Again shit code
 		# get_node("/root/scene_01")._on_death_body_entered(body)
 		# print("kill player")

@@ -24,14 +24,21 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _process(delta: float) -> void:
+	
+	
 	# sucks so much we are doing this check every frame...
-	# But reparenting the player does not work since it screws up the camerad d d d
+	# But reparenting the player does not work since it screws up the camera
 	if local_player != null and local_player.current_state == player.state.line_riding:
 		local_player.global_position = $Path2D/PathFollow2D.global_position
 		# print($Path2D/PathFollow2D.rotation)
 		local_player.rotation = $Path2D/PathFollow2D.rotation
 
+
 func _on_tween_finished():
+	if local_player.current_state == player.state.dying:
+		$Path2D/PathFollow2D/sfx.stop()
+		return
+	
 	local_player.position = get_global_position_of_last_point()
 	local_player.reparent(get_node("/root").get_child(2))
 	local_player.change_state(player.state.in_air)

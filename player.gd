@@ -429,6 +429,7 @@ func handle_jump():
 func die():
 	if current_state == state.dying:	# We are already dying damn it!
 		return
+	
 	# print("play death glitch animation")
 	# var random_scale = (randf() + 1)
 	var random_scale = 1
@@ -441,6 +442,7 @@ func die():
 	$sfx/death.play()
 	$Control.visible = true # This is what makes the glitch effect!
 							# Might need to change the Shake Rate
+							# Maybe possible to disable via options menu
 	$death_particles.emitting = true
 	
 func do_a_flip():
