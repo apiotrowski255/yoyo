@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://environment/enemy_kill_zone.gd" id="1_7ajhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uan7r"]
-size = Vector2(328, 16)
+size = Vector2(240, 8)
 
 [node name="enemy_kill_zone" type="Area2D"]
 collision_layer = 8

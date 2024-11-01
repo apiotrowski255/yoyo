@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=131 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
 [ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://5cntbbypvrxp" path="res://platforming/meta/moving_platforms_02.tscn" id="31_b0by2"]
 [ext_resource type="Script" path="res://levels/activate_on_player_enter.gd" id="32_sog7a"]
 [ext_resource type="PackedScene" uid="uid://bp3pmwluccqnp" path="res://enemies/meta/electric_ball_pathed.tscn" id="33_3uttv"]
+[ext_resource type="PackedScene" uid="uid://bpcv68xo85thi" path="res://down_arrow.tscn" id="34_gykh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af6qh"]
 texture = ExtResource("15_hkl2i")
@@ -3358,6 +3359,23 @@ position = Vector2(4456, 600.001)
 process_mode = 4
 position = Vector2(4664, 584.001)
 rotation = -3.14159
+
+[node name="temp messages" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="temp messages"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 25.5
+offset_right = 1336.0
+offset_bottom = 119.5
+text = "This might be might be bullshit because the platform adds its velocity to yours."
+
+[node name="down_arrow" parent="temp messages" instance=ExtResource("34_gykh2")]
+position = Vector2(1792, -96)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="game_pause_timer" to="." method="_on_game_pause_timer_timeout"]
