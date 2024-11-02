@@ -1,4 +1,4 @@
-[gd_scene load_steps=206 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=210 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -246,6 +246,18 @@ size = Vector2(80, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fdlc"]
 size = Vector2(16, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luin3"]
+size = Vector2(224, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ad7b"]
+size = Vector2(176, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrrnh"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1hjx"]
+size = Vector2(16, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsis"]
 size = Vector2(16, 48)
 
@@ -268,7 +280,7 @@ size = Vector2(16, 320)
 size = Vector2(8, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okni5"]
-size = Vector2(8, 224)
+size = Vector2(16, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ph8f"]
 size = Vector2(112, 8)
@@ -386,7 +398,7 @@ size = Vector2(8, 48)
 
 [sub_resource type="Curve2D" id="Curve2D_ry04e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 5320, 520, 0, 0, 0, 0, 5320, 400)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
@@ -422,10 +434,9 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == \"CharacterBody2D\" and body.name == \"Player\" and body.current_state != body.state.dying:
+	if GlobalVariables.is_player(body):
 		# Another piece of shit code
 		get_node(\"/root/scene_01\")._on_death_body_entered(body)
-
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv3e0"]
@@ -939,7 +950,7 @@ position = Vector2(5784, 400)
 shape = SubResource("RectangleShape2D_gxecl")
 
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11464, -374)
+position = Vector2(10600, -988)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D137" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1124,19 +1135,19 @@ position = Vector2(7640, -136)
 shape = SubResource("RectangleShape2D_ym42k")
 
 [node name="CollisionShape2D60" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11704, -374)
+position = Vector2(10840, -988)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11944, -374)
+position = Vector2(11080, -988)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D83" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11864, -390)
+position = Vector2(11000, -1004)
 shape = SubResource("RectangleShape2D_h33sq")
 
 [node name="CollisionShape2D84" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11992, -390)
+position = Vector2(11128, -1004)
 shape = SubResource("RectangleShape2D_h33sq")
 
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1164,12 +1175,24 @@ position = Vector2(11336, 40)
 shape = SubResource("RectangleShape2D_562q1")
 
 [node name="CollisionShape2D187" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11608, -24)
-shape = SubResource("RectangleShape2D_g0o41")
+position = Vector2(11664, -24)
+shape = SubResource("RectangleShape2D_luin3")
 
 [node name="CollisionShape2D191" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12104, 136)
-shape = SubResource("RectangleShape2D_g0o41")
+position = Vector2(11944, -24)
+shape = SubResource("RectangleShape2D_3ad7b")
+
+[node name="CollisionShape2D192" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12064, -8)
+shape = SubResource("RectangleShape2D_wrrnh")
+
+[node name="CollisionShape2D193" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11864, 8)
+shape = SubResource("RectangleShape2D_k1hjx")
+
+[node name="CollisionShape2D194" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11768, 8)
+shape = SubResource("RectangleShape2D_k1hjx")
 
 [node name="CollisionShape2D185" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11560, 24)
@@ -1180,19 +1203,19 @@ position = Vector2(11544, -8)
 shape = SubResource("RectangleShape2D_qtsis")
 
 [node name="CollisionShape2D64" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11816, -310)
+position = Vector2(10952, -924)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D66" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11928, -326)
+position = Vector2(11064, -940)
 shape = SubResource("RectangleShape2D_x3rqr")
 
 [node name="CollisionShape2D65" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11576, -310)
+position = Vector2(10712, -924)
 shape = SubResource("RectangleShape2D_qfp5f")
 
 [node name="CollisionShape2D69" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11856, -238)
+position = Vector2(10992, -852)
 shape = SubResource("RectangleShape2D_i10dr")
 
 [node name="CollisionShape2D124" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1200,19 +1223,19 @@ position = Vector2(7488, -136)
 shape = SubResource("RectangleShape2D_fwiq8")
 
 [node name="CollisionShape2D78" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12360, -262)
+position = Vector2(11496, -876)
 shape = SubResource("RectangleShape2D_28en5")
 
 [node name="CollisionShape2D79" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12424, -430)
+position = Vector2(11560, -1044)
 shape = SubResource("RectangleShape2D_1h7fq")
 
 [node name="CollisionShape2D132" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(13668, -958)
+position = Vector2(12724, -386)
 shape = SubResource("RectangleShape2D_g7086")
 
 [node name="CollisionShape2D125" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(13492, -1022)
+position = Vector2(12544, -450)
 shape = SubResource("RectangleShape2D_okni5")
 
 [node name="CollisionShape2D126" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1236,7 +1259,7 @@ position = Vector2(13332, -1078)
 shape = SubResource("RectangleShape2D_5beer")
 
 [node name="CollisionShape2D80" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12344, -438)
+position = Vector2(11480, -1052)
 shape = SubResource("RectangleShape2D_0cdsi")
 
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1252,7 +1275,7 @@ position = Vector2(11176, -96)
 shape = SubResource("RectangleShape2D_eqset")
 
 [node name="CollisionShape2D82" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12344, -630)
+position = Vector2(11480, -1244)
 shape = SubResource("RectangleShape2D_5c7wu")
 
 [node name="CollisionShape2D56" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1272,7 +1295,7 @@ position = Vector2(3456, 80)
 shape = SubResource("RectangleShape2D_et7on")
 
 [node name="CollisionShape2D54" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12080, -758)
+position = Vector2(11216, -1372)
 shape = SubResource("RectangleShape2D_oyxic")
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1378,7 +1401,7 @@ shape = SubResource("RectangleShape2D_ifywm")
 one_way_collision = true
 
 [node name="CollisionShape2D81" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12384, -588)
+position = Vector2(11520, -1202)
 shape = SubResource("RectangleShape2D_16h5t")
 one_way_collision = true
 
@@ -1759,137 +1782,77 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform69" type="Sprite2D" parent="sprites"]
-position = Vector2(12456, -646)
+position = Vector2(11592, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform70" type="Sprite2D" parent="sprites"]
-position = Vector2(12440, -646)
+position = Vector2(11576, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform71" type="Sprite2D" parent="sprites"]
-position = Vector2(12472, -646)
+position = Vector2(11608, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform72" type="Sprite2D" parent="sprites"]
-position = Vector2(12504, -646)
+position = Vector2(11640, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform73" type="Sprite2D" parent="sprites"]
-position = Vector2(12488, -646)
+position = Vector2(11624, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform74" type="Sprite2D" parent="sprites"]
-position = Vector2(12520, -646)
+position = Vector2(11656, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform75" type="Sprite2D" parent="sprites"]
-position = Vector2(12456, -698)
+position = Vector2(11592, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform76" type="Sprite2D" parent="sprites"]
-position = Vector2(12440, -698)
+position = Vector2(11576, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform77" type="Sprite2D" parent="sprites"]
-position = Vector2(12472, -698)
+position = Vector2(11608, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform78" type="Sprite2D" parent="sprites"]
-position = Vector2(12504, -698)
+position = Vector2(11640, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform79" type="Sprite2D" parent="sprites"]
-position = Vector2(12488, -698)
+position = Vector2(11624, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform80" type="Sprite2D" parent="sprites"]
-position = Vector2(12520, -698)
+position = Vector2(11656, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform81" type="Sprite2D" parent="sprites"]
-position = Vector2(12552, -698)
+position = Vector2(11688, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform82" type="Sprite2D" parent="sprites"]
-position = Vector2(12536, -698)
+position = Vector2(11672, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform83" type="Sprite2D" parent="sprites"]
-position = Vector2(12568, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform84" type="Sprite2D" parent="sprites"]
-position = Vector2(12600, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform85" type="Sprite2D" parent="sprites"]
-position = Vector2(12584, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform86" type="Sprite2D" parent="sprites"]
-position = Vector2(12616, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform87" type="Sprite2D" parent="sprites"]
-position = Vector2(12648, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform88" type="Sprite2D" parent="sprites"]
-position = Vector2(12632, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform89" type="Sprite2D" parent="sprites"]
-position = Vector2(12664, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform90" type="Sprite2D" parent="sprites"]
-position = Vector2(12696, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform91" type="Sprite2D" parent="sprites"]
-position = Vector2(12680, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform92" type="Sprite2D" parent="sprites"]
-position = Vector2(12712, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform93" type="Sprite2D" parent="sprites"]
-position = Vector2(12744, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform94" type="Sprite2D" parent="sprites"]
-position = Vector2(12728, -698)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform95" type="Sprite2D" parent="sprites"]
-position = Vector2(12760, -698)
+position = Vector2(11704, -1312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
@@ -1939,82 +1902,22 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform105" type="Sprite2D" parent="sprites"]
-position = Vector2(12536, -646)
+position = Vector2(11672, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform106" type="Sprite2D" parent="sprites"]
-position = Vector2(12568, -646)
+position = Vector2(11704, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform107" type="Sprite2D" parent="sprites"]
-position = Vector2(12552, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform108" type="Sprite2D" parent="sprites"]
-position = Vector2(12584, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform109" type="Sprite2D" parent="sprites"]
-position = Vector2(12616, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform110" type="Sprite2D" parent="sprites"]
-position = Vector2(12600, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform111" type="Sprite2D" parent="sprites"]
-position = Vector2(12632, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform112" type="Sprite2D" parent="sprites"]
-position = Vector2(12664, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform113" type="Sprite2D" parent="sprites"]
-position = Vector2(12648, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform114" type="Sprite2D" parent="sprites"]
-position = Vector2(12680, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform115" type="Sprite2D" parent="sprites"]
-position = Vector2(12696, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform116" type="Sprite2D" parent="sprites"]
-position = Vector2(12728, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform117" type="Sprite2D" parent="sprites"]
-position = Vector2(12712, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform118" type="Sprite2D" parent="sprites"]
-position = Vector2(12744, -646)
+position = Vector2(11688, -1260)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform119" type="Sprite2D" parent="sprites"]
 position = Vector2(12776, -646)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_j7ou1")
-
-[node name="OneWayPlatform120" type="Sprite2D" parent="sprites"]
-position = Vector2(12760, -646)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
@@ -2339,162 +2242,72 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="WoodWall" type="Sprite2D" parent="sprites"]
-position = Vector2(12484, -598)
+position = Vector2(11620, -1212)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall2" type="Sprite2D" parent="sprites"]
-position = Vector2(12484, -614)
+position = Vector2(11620, -1228)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall3" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12484, -630)
+position = Vector2(11620, -1244)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall4" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -650)
+position = Vector2(11572, -1264)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall5" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -666)
+position = Vector2(11572, -1280)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall6" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -682)
+position = Vector2(11572, -1296)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall7" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12544, -650)
+position = Vector2(11680, -1264)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall8" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12544, -666)
+position = Vector2(11680, -1280)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall9" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12544, -682)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall10" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -598)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall11" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -614)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall12" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -630)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall13" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12672, -650)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall14" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12672, -666)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall15" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12672, -682)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall16" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -702)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall17" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -718)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall18" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12608, -734)
+position = Vector2(11680, -1296)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall19" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -702)
+position = Vector2(11572, -1316)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall20" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -718)
+position = Vector2(11572, -1332)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall21" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12436, -734)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall22" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -702)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall23" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -718)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall24" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -734)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall25" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -598)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall26" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -614)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall27" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12736, -630)
+position = Vector2(11572, -1348)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -2758,149 +2571,65 @@ rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
-[node name="WoodWall158" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12760, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall159" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12744, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall160" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12728, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall161" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12712, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall162" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12696, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall163" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12680, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall164" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12664, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall165" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12648, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall166" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12632, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
 [node name="WoodWall174" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12504, -746)
+position = Vector2(11640, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall175" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12488, -746)
+position = Vector2(11624, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall176" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12472, -746)
+position = Vector2(11608, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall177" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12456, -746)
+position = Vector2(11592, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall178" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12440, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall167" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12616, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall168" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12600, -746)
-rotation = 1.5708
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall169" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(12584, -746)
+position = Vector2(11576, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall170" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12568, -746)
+position = Vector2(11704, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall171" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12552, -746)
+position = Vector2(11688, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall172" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12536, -746)
+position = Vector2(11672, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall173" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12520, -746)
+position = Vector2(11656, -1360)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
@@ -3212,206 +2941,199 @@ texture = ExtResource("4_kn40c")
 
 [node name="WoodWall116" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13780, -614)
+position = Vector2(12836, -42)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall117" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13780, -598)
+position = Vector2(12836, -26)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall118" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13780, -582)
+position = Vector2(12836, -10)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall179" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13668, -646)
+position = Vector2(12724, -74)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall219" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13680, -642)
+position = Vector2(12736, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall220" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13696, -642)
+position = Vector2(12752, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall221" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13712, -642)
+position = Vector2(12768, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall222" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13728, -642)
+position = Vector2(12784, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall223" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13744, -642)
+position = Vector2(12800, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall224" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13760, -642)
+position = Vector2(12816, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall225" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13776, -642)
+position = Vector2(12832, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall226" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13792, -642)
+position = Vector2(12848, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall227" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13808, -642)
+position = Vector2(12864, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall228" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13824, -642)
+position = Vector2(12880, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall229" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13840, -642)
+position = Vector2(12896, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall230" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13856, -642)
+position = Vector2(12912, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall231" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13872, -642)
+position = Vector2(12928, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall232" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13888, -642)
+position = Vector2(12944, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall233" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13904, -642)
+position = Vector2(12960, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall234" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13920, -642)
+position = Vector2(12976, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall235" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13936, -642)
+position = Vector2(12992, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall236" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13948, -642)
+position = Vector2(13004, -70)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall237" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -630)
+position = Vector2(13008, -58)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall238" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -614)
+position = Vector2(13008, -42)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall239" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -598)
+position = Vector2(13008, -26)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall240" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -582)
+position = Vector2(13008, -10)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall241" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -566)
+position = Vector2(13008, 6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall243" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -550)
+position = Vector2(13008, 22)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall244" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -534)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kn40c")
-
-[node name="WoodWall245" type="Sprite2D" parent="sprites"]
-z_index = -1
-position = Vector2(13944, -522)
-rotation = 1.5708
+position = Vector2(13008, 38)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall242" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13952, -582)
+position = Vector2(13008, -10)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -3435,7 +3157,7 @@ texture = ExtResource("4_kn40c")
 
 [node name="WoodWall119" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13780, -630)
+position = Vector2(12836, -58)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -3652,11 +3374,12 @@ position = Vector2(-80, 0)
 strength = Vector2(0, 1.5)
 
 [node name="jump pad2" parent="." instance=ExtResource("7_jy1vu")]
-position = Vector2(12384, -270)
+position = Vector2(11520, -884)
 strength = Vector2(0, 2.6)
 
 [node name="jump pad3" parent="." instance=ExtResource("7_jy1vu")]
-position = Vector2(13268, -230)
+position = Vector2(11768, -32)
+strength = Vector2(0, 1.5)
 
 [node name="simple_moving_platform2" parent="." instance=ExtResource("8_voyx6")]
 position = Vector2(2240, 280)
@@ -3678,7 +3401,7 @@ position = Vector2(13200, -1150)
 position = Vector2(13280, -1178)
 
 [node name="simple_enemy2" parent="." instance=ExtResource("10_l4i5n")]
-position = Vector2(12088, -774)
+position = Vector2(11224, -1388)
 
 [node name="simple_enemy12" parent="." instance=ExtResource("10_l4i5n")]
 position = Vector2(9400, 96)
@@ -3710,7 +3433,7 @@ target_velocity = Vector2(190, -250)
 do_a_flip = true
 
 [node name="multi_timed_enemy_spawner" parent="." instance=ExtResource("14_8m20x")]
-position = Vector2(11824, -614)
+position = Vector2(10960, -1228)
 
 [node name="toggle_death_area" parent="." instance=ExtResource("15_0r7sv")]
 position = Vector2(10400, -68)
@@ -3745,14 +3468,15 @@ position = Vector2(10856, -168)
 trans = 10
 
 [node name="Path2D4" type="Path2D" parent="."]
-position = Vector2(6856, -1110)
+position = Vector2(11272, -746)
+rotation = 3.14159
 curve = SubResource("Curve2D_ry04e")
 script = SubResource("GDScript_d86kc")
 trans = 0
 time = 5
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-position = Vector2(5320, 520)
+position = Vector2(0, 120)
 rotation = 3.14159
 rotates = false
 
@@ -3769,8 +3493,75 @@ offset_top = -12.0
 offset_right = 13.0
 offset_bottom = 12.0
 color = Color(0, 0.576471, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D4/PathFollow2D"]
+stream = ExtResource("18_y5ywl")
+volume_db = -15.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Path2D6" type="Path2D" parent="."]
+position = Vector2(11256, -870)
+curve = SubResource("Curve2D_ry04e")
+script = SubResource("GDScript_d86kc")
+trans = 0
+time = 5
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
+position = Vector2(0, 120)
+rotation = 3.14159
+rotates = false
+
+[node name="Area2D" type="Area2D" parent="Path2D6/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D6/PathFollow2D/Area2D"]
+shape = SubResource("RectangleShape2D_pv3e0")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Path2D6/PathFollow2D"]
+material = SubResource("ShaderMaterial_3wksg")
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 13.0
+offset_bottom = 12.0
+color = Color(0, 0.576471, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D6/PathFollow2D"]
+stream = ExtResource("18_y5ywl")
+volume_db = -15.0
+autoplay = true
+max_distance = 250.0
+
+[node name="Path2D7" type="Path2D" parent="."]
+position = Vector2(11288, -870)
+curve = SubResource("Curve2D_ry04e")
+script = SubResource("GDScript_d86kc")
+trans = 0
+time = 5
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D7"]
+position = Vector2(0, 120)
+rotation = 3.14159
+rotates = false
+
+[node name="Area2D" type="Area2D" parent="Path2D7/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D7/PathFollow2D/Area2D"]
+shape = SubResource("RectangleShape2D_pv3e0")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Path2D7/PathFollow2D"]
+material = SubResource("ShaderMaterial_3wksg")
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 13.0
+offset_bottom = 12.0
+color = Color(0, 0.576471, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D7/PathFollow2D"]
 stream = ExtResource("18_y5ywl")
 volume_db = -15.0
 autoplay = true
@@ -3880,69 +3671,69 @@ layer_0/tile_data = PackedInt32Array(1114121, 65536, 0, 1114122, 65536, 0, 11141
 scale = Vector2(0.25, 0.25)
 
 [node name="interactive_grass" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(49248, -1080)
+position = Vector2(45792, -3536)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass16" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(49376, -1080)
+position = Vector2(45920, -3536)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass2" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(49184, -1080)
+position = Vector2(45728, -3536)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass3" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(49120, -1080)
+position = Vector2(45664, -3536)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass4" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(49312, -1080)
+position = Vector2(45856, -3536)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass5" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48928, -440)
+position = Vector2(45472, -2896)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass9" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48736, -440)
+position = Vector2(45280, -2896)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass6" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48864, -440)
+position = Vector2(45408, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass7" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48800, -440)
+position = Vector2(45344, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass8" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48992, -440)
+position = Vector2(45536, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass10" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48608, -440)
+position = Vector2(45152, -2896)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass11" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48416, -440)
+position = Vector2(44960, -2896)
 scale = Vector2(4, 4)
 type = 2
 
 [node name="interactive_grass12" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48544, -440)
+position = Vector2(45088, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass13" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48480, -440)
+position = Vector2(45024, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass14" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
-position = Vector2(48672, -440)
+position = Vector2(45216, -2896)
 scale = Vector2(4, 4)
 
 [node name="interactive_grass15" parent="interactive_grass_container" instance=ExtResource("23_xehod")]
@@ -4103,49 +3894,49 @@ position = Vector2(15584, 640)
 scale = Vector2(4, 4)
 
 [node name="vine" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12448, -770)
+position = Vector2(11584, -1384)
 
 [node name="vine2" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12468, -770)
+position = Vector2(11604, -1384)
 
 [node name="vine3" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12484, -766)
+position = Vector2(11620, -1380)
 
 [node name="vine4" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12504, -770)
+position = Vector2(11640, -1384)
 
 [node name="vine5" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12520, -770)
+position = Vector2(11656, -1384)
 
 [node name="vine6" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12536, -774)
+position = Vector2(11672, -1388)
 
 [node name="vine7" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12552, -766)
+position = Vector2(11688, -1380)
 
 [node name="vine8" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12568, -770)
+position = Vector2(11704, -1384)
 
 [node name="vine9" parent="." instance=ExtResource("24_lbp27")]
-position = Vector2(12584, -778)
+position = Vector2(11720, -1392)
 
 [node name="OneWayPlatform" type="Sprite2D" parent="."]
-position = Vector2(12408, -594)
+position = Vector2(11544, -1208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform2" type="Sprite2D" parent="."]
-position = Vector2(12392, -594)
+position = Vector2(11528, -1208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform3" type="Sprite2D" parent="."]
-position = Vector2(12376, -594)
+position = Vector2(11512, -1208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
 [node name="OneWayPlatform4" type="Sprite2D" parent="."]
-position = Vector2(12360, -594)
+position = Vector2(11496, -1208)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_j7ou1")
 
@@ -4225,7 +4016,7 @@ position = Vector2(-80, 46)
 position = Vector2(24, -12)
 
 [node name="bird4" parent="birds" instance=ExtResource("25_5do0j")]
-position = Vector2(12344, -672)
+position = Vector2(11480, -1286)
 
 [node name="Area2D" parent="birds/bird4" index="2"]
 position = Vector2(-80, 46)
@@ -4287,7 +4078,7 @@ position = Vector2(-100, 47)
 position = Vector2(-4, -40)
 
 [node name="spike container sprites" type="Node2D" parent="."]
-position = Vector2(13856, -670)
+position = Vector2(12912, -98)
 
 [node name="jump_tutorial" parent="." instance=ExtResource("29_1v0r8")]
 position = Vector2(832, 272)
@@ -4317,16 +4108,16 @@ position = Vector2(0, 48)
 position = Vector2(52, 24)
 
 [node name="tunnel_platform_01" parent="." instance=ExtResource("33_8ljw3")]
-position = Vector2(12432, -750)
+position = Vector2(11568, -1364)
 
 [node name="moving_platforms_01" parent="." instance=ExtResource("34_o7vk7")]
-position = Vector2(11664, -32)
+position = Vector2(13448, -72)
 
 [node name="moving_platforms_02" parent="." instance=ExtResource("34_o7vk7")]
 position = Vector2(7648, -304)
 
 [node name="wall_jump_platform" parent="." instance=ExtResource("35_uh2bi")]
-position = Vector2(12080, -350)
+position = Vector2(11216, -964)
 
 [node name="seesaw_platform_01" parent="." instance=ExtResource("36_18jgk")]
 position = Vector2(8640, 128)
@@ -4399,7 +4190,7 @@ position = Vector2(8688, 176)
 position = Vector2(10288, -112)
 
 [node name="flag7" parent="flags" instance=ExtResource("39_yrwhh")]
-position = Vector2(12096, 128)
+position = Vector2(12872, 46)
 
 [node name="door2" parent="." instance=ExtResource("32_ujl0f")]
 position = Vector2(2016, 32)
@@ -4414,10 +4205,10 @@ position = Vector2(52, 24)
 position = Vector2(52, 23)
 
 [node name="pressure_button_platform_01" parent="." instance=ExtResource("40_1fuka")]
-position = Vector2(13492, -646)
+position = Vector2(12548, -74)
 
 [node name="Portal" parent="." instance=ExtResource("41_jt70y")]
-position = Vector2(13904, -548)
+position = Vector2(13120, 336)
 new_scene = ExtResource("42_84l6e")
 
 [node name="16-bit-spike" parent="." instance=ExtResource("43_fj8ks")]
@@ -4469,10 +4260,10 @@ Don't touch spikes"
 
 [node name="avoid_spike message5" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = 12272.0
-offset_top = -402.0
-offset_right = 12382.0
-offset_bottom = -377.0
+offset_left = 11408.0
+offset_top = -1016.0
+offset_right = 11518.0
+offset_bottom = -991.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "You can wall jump here"
@@ -4489,10 +4280,10 @@ text = "Have fun gliding down."
 
 [node name="avoid_spike message6" type="Label" parent="Messages"]
 layout_mode = 0
-offset_left = 11692.0
-offset_top = -650.0
-offset_right = 11802.0
-offset_bottom = -625.0
+offset_left = 10828.0
+offset_top = -1264.0
+offset_right = 10938.0
+offset_bottom = -1239.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "Patience is key!
@@ -4537,6 +4328,29 @@ theme_override_font_sizes/font_size = 7
 text = "Some enemies cannot be destroyed. 
 And simply must be avoided.
 Like this one - Don't try to stomp on it"
+
+[node name="avoid_spike message20" type="Label" parent="Messages"]
+z_index = 1
+layout_mode = 0
+offset_left = 11492.0
+offset_top = -241.0
+offset_right = 11614.0
+offset_bottom = -219.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "Use the enemy to jump up to higher
+platforms"
+
+[node name="avoid_spike message21" type="Label" parent="Messages"]
+z_index = 1
+layout_mode = 0
+offset_left = 11692.0
+offset_top = -342.0
+offset_right = 11719.0
+offset_bottom = -331.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "Danger!"
 
 [node name="avoid_spike message19" type="Label" parent="Messages"]
 z_index = 1
@@ -5106,88 +4920,88 @@ position = Vector2(13304, -782)
 position = Vector2(13320, -782)
 
 [node name="16-bit-spike95" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13504, -638)
+position = Vector2(12560, -66)
 
 [node name="16-bit-spike96" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13520, -638)
+position = Vector2(12576, -66)
 
 [node name="16-bit-spike97" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13536, -638)
+position = Vector2(12592, -66)
 
 [node name="16-bit-spike98" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13552, -638)
+position = Vector2(12608, -66)
 
 [node name="16-bit-spike99" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13608, -638)
+position = Vector2(12664, -66)
 
 [node name="16-bit-spike100" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13624, -638)
+position = Vector2(12680, -66)
 
 [node name="16-bit-spike101" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13640, -638)
+position = Vector2(12696, -66)
 
 [node name="16-bit-spike102" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13656, -638)
+position = Vector2(12712, -66)
 
 [node name="16-bit-spike103" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13560, -750)
+position = Vector2(12616, -178)
 
 [node name="16-bit-spike104" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13576, -750)
+position = Vector2(12632, -178)
 
 [node name="16-bit-spike105" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13592, -750)
+position = Vector2(12648, -178)
 
 [node name="16-bit-spike106" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13608, -750)
+position = Vector2(12664, -178)
 
 [node name="16-bit-spike107" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13504, -858)
+position = Vector2(12560, -286)
 
 [node name="16-bit-spike108" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13520, -858)
+position = Vector2(12576, -286)
 
 [node name="16-bit-spike109" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13536, -858)
+position = Vector2(12592, -286)
 
 [node name="16-bit-spike110" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13552, -858)
+position = Vector2(12608, -286)
 
 [node name="16-bit-spike111" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13608, -938)
+position = Vector2(12664, -366)
 
 [node name="16-bit-spike112" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13624, -938)
+position = Vector2(12680, -366)
 
 [node name="16-bit-spike113" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13640, -938)
+position = Vector2(12696, -366)
 
 [node name="16-bit-spike114" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13656, -938)
+position = Vector2(12712, -366)
 
 [node name="16-bit-spike115" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13504, -1018)
+position = Vector2(12560, -446)
 
 [node name="16-bit-spike116" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13520, -1018)
+position = Vector2(12576, -446)
 
 [node name="16-bit-spike117" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13536, -1018)
+position = Vector2(12592, -446)
 
 [node name="16-bit-spike118" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13552, -1018)
+position = Vector2(12608, -446)
 
 [node name="16-bit-spike119" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13608, -1098)
+position = Vector2(12664, -526)
 
 [node name="16-bit-spike120" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13624, -1098)
+position = Vector2(12680, -526)
 
 [node name="16-bit-spike121" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13640, -1098)
+position = Vector2(12696, -526)
 
 [node name="16-bit-spike122" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13656, -1098)
+position = Vector2(12712, -526)
 
 [node name="16-bit-spike37" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(12936, -1038)
@@ -5561,6 +5375,21 @@ position = Vector2(11416, 64)
 
 [node name="16-bit-spike213" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(11432, 64)
+
+[node name="16-bit-spike419" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11784, 48)
+
+[node name="16-bit-spike420" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11800, 48)
+
+[node name="16-bit-spike421" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11816, 48)
+
+[node name="16-bit-spike422" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11832, 48)
+
+[node name="16-bit-spike423" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11848, 48)
 
 [node name="16-bit-spike415" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(11240, 64)
@@ -6000,7 +5829,7 @@ scale = Vector2(5.25, 0.5)
 texture = ExtResource("48_e0go2")
 
 [node name="start_cutscene" type="Area2D" parent="."]
-position = Vector2(13832, -534)
+position = Vector2(13048, 350)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
@@ -6062,7 +5891,7 @@ color = Color(0.611735, 0.611595, 0, 0.776471)
 position = Vector2(2336, -168)
 
 [node name="Player" parent="." instance=ExtResource("49_jbt15")]
-position = Vector2(11572, -60)
+position = Vector2(11720, -60)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("51_stltk")]
 position = Vector2(3680, -104)
@@ -6318,6 +6147,15 @@ debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 [node name="triggered_falling_spike" parent="." instance=ExtResource("65_wddnx")]
 position = Vector2(11368, 24)
 
+[node name="triggered_falling_spike6" parent="." instance=ExtResource("65_wddnx")]
+position = Vector2(11656, -40)
+spawn_adjacent_projectiles = true
+
+[node name="triggered_falling_spike8" parent="." instance=ExtResource("65_wddnx")]
+position = Vector2(11944, -40)
+time_to_fall = 0.7
+spawn_radial_projectiles = true
+
 [node name="triggered_falling_spike2" parent="." instance=ExtResource("65_wddnx")]
 position = Vector2(11352, 24)
 
@@ -6330,11 +6168,17 @@ position = Vector2(11320, 24)
 [node name="triggered_falling_spike5" parent="." instance=ExtResource("65_wddnx")]
 position = Vector2(11304, 24)
 
+[node name="down_arrow5" parent="." instance=ExtResource("21_c0v4c")]
+position = Vector2(11516, -16)
+rotation = 3.14159
+
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D2" to="." method="_on_path_2d_kill_player"]
 [connection signal="body_entered" from="Path2D4/PathFollow2D/Area2D" to="Path2D4" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Path2D6/PathFollow2D/Area2D" to="Path2D6" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Path2D7/PathFollow2D/Area2D" to="Path2D7" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="glide_area" to="." method="_on_area_2d_4_body_entered"]
 [connection signal="body_exited" from="glide_area" to="." method="_on_area_2d_4_body_exited"]
 [connection signal="body_entered" from="start_cutscene" to="." method="_on_start_cutscene_body_entered"]

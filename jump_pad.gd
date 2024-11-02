@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var strength : Vector2 = Vector2.ZERO
+@export var strength : Vector2 = Vector2.UP
 # Called when the node enters the scene tree for the first time.
 
 var cpuparticles : CPUParticles2D
@@ -25,7 +25,12 @@ func _on_body_exited(body):
 		jump_animation()
 		$AudioStreamPlayer2D.play()
 	# This is the case for the player walking off the jump pad
-	if body.get_class() == "CharacterBody2D":
+	if GlobalVariables.is_player(body):
+		
+		if strength.y == 0:
+			body.jump_height = 50.0
+			body.calculate_jump_parameters()
+			return
 		body.jump_height = body.jump_height / strength.y # return Jump_Velocity back to normal value.
 		body.calculate_jump_parameters()
 

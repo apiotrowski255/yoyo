@@ -34,7 +34,7 @@ var zozosprite : Sprite2D
 
 
 # https://www.youtube.com/watch?v=IOe1aGY6hXA
-@export var jump_height : float = 50.0
+@export var jump_height : float = 50
 @export var jump_time_to_peak : float = 0.5
 @export var jump_time_to_descent : float = 0.4
 

@@ -3,6 +3,7 @@ extends Node2D
 @onready var death_hit_box = $death_hit_box
 @export var time_to_fall: float = 1.0
 @export var spawn_adjacent_projectiles : bool = false
+@export var spawn_radial_projectiles : bool = false
 var tween
 # Called when the node enters the scene tree for the first time.
 
@@ -32,6 +33,17 @@ func tween_finished():
 	if spawn_adjacent_projectiles == true:
 		spawn_timed_enemy(Vector2.RIGHT)
 		spawn_timed_enemy(Vector2.LEFT)
+		# Spawn sound too
+		spawn_sound("res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon2.wav", 0.0)
+	elif spawn_radial_projectiles == true:
+		spawn_timed_enemy(Vector2.RIGHT)
+		spawn_timed_enemy(Vector2.LEFT)
+		spawn_timed_enemy(Vector2.UP)
+		spawn_timed_enemy(Vector2.DOWN)
+		spawn_timed_enemy(Vector2(0.5, 0.5).normalized())
+		spawn_timed_enemy(Vector2(-0.5, 0.5).normalized())
+		spawn_timed_enemy(Vector2(0.5, -0.5).normalized())
+		spawn_timed_enemy(Vector2(-0.5, -0.5).normalized())
 		# Spawn sound too
 		spawn_sound("res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon2.wav", 0.0)
 
