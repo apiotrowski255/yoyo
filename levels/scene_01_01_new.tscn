@@ -1,4 +1,4 @@
-[gd_scene load_steps=210 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=215 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -65,6 +65,7 @@
 [ext_resource type="PackedScene" uid="uid://cmlh7gi841i8" path="res://simple_enemy_once_spawner.tscn" id="63_01mh7"]
 [ext_resource type="Script" path="res://levels/change_player_camera.gd" id="64_d0go2"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="65_wddnx"]
+[ext_resource type="PackedScene" uid="uid://de5byr8rc1x46" path="res://radial_timed_enemy_spawner.tscn" id="66_aemyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -253,7 +254,10 @@ size = Vector2(224, 16)
 size = Vector2(176, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrrnh"]
-size = Vector2(64, 16)
+size = Vector2(576, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a43nq"]
+size = Vector2(16, 240)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1hjx"]
 size = Vector2(16, 48)
@@ -542,6 +546,12 @@ func _on_area_2d_body_entered(body):
 
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amunq"]
+size = Vector2(464, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpss2"]
+size = Vector2(16, 224)
+
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3mwoo"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uplhw"]
@@ -648,11 +658,17 @@ size = Vector2(64, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hdnp"]
 size = Vector2(312, 63.9999)
 
-[sub_resource type="Curve2D" id="Curve2D_s53fk"]
+[sub_resource type="Curve2D" id="Curve2D_c5she"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 72, 144, 0, 0, 0, 0, 136, 144)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 72, 144, 0, 0, 0, 0, 152, 144)
 }
 point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_s53fk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 40, 144, 0, 0, 0, 0, -440, 144, 0, 0, 0, 0, -440, 184)
+}
+point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65knt"]
 size = Vector2(48, 8)
@@ -1179,15 +1195,19 @@ position = Vector2(11664, -24)
 shape = SubResource("RectangleShape2D_luin3")
 
 [node name="CollisionShape2D191" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11944, -24)
+position = Vector2(11976, -24)
 shape = SubResource("RectangleShape2D_3ad7b")
 
 [node name="CollisionShape2D192" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12064, -8)
+position = Vector2(11872, 376)
 shape = SubResource("RectangleShape2D_wrrnh")
 
+[node name="CollisionShape2D195" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(11576, 264)
+shape = SubResource("RectangleShape2D_a43nq")
+
 [node name="CollisionShape2D193" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(11864, 8)
+position = Vector2(11896, 8)
 shape = SubResource("RectangleShape2D_k1hjx")
 
 [node name="CollisionShape2D194" type="CollisionShape2D" parent="StaticBody2D"]
@@ -4068,6 +4088,25 @@ position = Vector2(11120, -80)
 [node name="CollisionShape2D" parent="enemy_kill_zone2" index="0"]
 position = Vector2(-40, -4)
 
+[node name="enemy_kill_zone3" parent="." instance=ExtResource("26_tjwx1")]
+position = Vector2(11792, 148)
+
+[node name="CollisionShape2D" parent="enemy_kill_zone3" index="0"]
+position = Vector2(72, -8)
+shape = SubResource("RectangleShape2D_amunq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemy_kill_zone3"]
+position = Vector2(72, 232)
+shape = SubResource("RectangleShape2D_amunq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="enemy_kill_zone3"]
+position = Vector2(-152, 108)
+shape = SubResource("RectangleShape2D_fpss2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="enemy_kill_zone3"]
+position = Vector2(296, 108)
+shape = SubResource("RectangleShape2D_fpss2")
+
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("27_g0ioh")]
 position = Vector2(9832, -87)
 
@@ -4190,7 +4229,7 @@ position = Vector2(8688, 176)
 position = Vector2(10288, -112)
 
 [node name="flag7" parent="flags" instance=ExtResource("39_yrwhh")]
-position = Vector2(12872, 46)
+position = Vector2(11567, -32)
 
 [node name="door2" parent="." instance=ExtResource("32_ujl0f")]
 position = Vector2(2016, 32)
@@ -5391,6 +5430,12 @@ position = Vector2(11832, 48)
 [node name="16-bit-spike423" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(11848, 48)
 
+[node name="16-bit-spike424" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11864, 48)
+
+[node name="16-bit-spike425" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(11880, 48)
+
 [node name="16-bit-spike415" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(11240, 64)
 
@@ -5891,7 +5936,7 @@ color = Color(0.611735, 0.611595, 0, 0.776471)
 position = Vector2(2336, -168)
 
 [node name="Player" parent="." instance=ExtResource("49_jbt15")]
-position = Vector2(11720, -60)
+position = Vector2(11728, -54)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("51_stltk")]
 position = Vector2(3680, -104)
@@ -6102,9 +6147,19 @@ time_to_finish_line_ride = 1.0
 exit_velocity = Vector2(50, -50)
 
 [node name="Path2D" parent="player_slide_on_line" index="0"]
-curve = SubResource("Curve2D_s53fk")
+curve = SubResource("Curve2D_c5she")
 
 [node name="PathFollow2D" parent="player_slide_on_line/Path2D" index="0"]
+rotation = 0.0
+
+[node name="player_slide_on_line2" parent="." instance=ExtResource("62_ll74d")]
+position = Vector2(12056, -40)
+exit_velocity = Vector2(0, 100)
+
+[node name="Path2D" parent="player_slide_on_line2" index="0"]
+curve = SubResource("Curve2D_s53fk")
+
+[node name="PathFollow2D" parent="player_slide_on_line2/Path2D" index="0"]
 rotation = 0.0
 
 [node name="simple_enemy" parent="." instance=ExtResource("10_l4i5n")]
@@ -6172,6 +6227,15 @@ position = Vector2(11304, 24)
 position = Vector2(11516, -16)
 rotation = 3.14159
 
+[node name="radial_timed_enemy_spawner" parent="." instance=ExtResource("66_aemyk")]
+position = Vector2(11872, 256)
+repeat_time = 1.0
+time_to_die = 4
+timed_enemy_speed = 64
+master_time_to_die = 0
+rotate_spawn = true
+master_rotation_speed = 0.005
+
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D3" to="." method="_on_path_2d_kill_player"]
@@ -6208,9 +6272,11 @@ rotation = 3.14159
 [editable path="birds/bird1"]
 [editable path="birds/bird4"]
 [editable path="enemy_kill_zone2"]
+[editable path="enemy_kill_zone3"]
 [editable path="directed_enemy_spawner"]
 [editable path="door"]
 [editable path="door3"]
 [editable path="door2"]
 [editable path="horizontal_aligned_enemy_spawner4"]
 [editable path="player_slide_on_line"]
+[editable path="player_slide_on_line2"]
