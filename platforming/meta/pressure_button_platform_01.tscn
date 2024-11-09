@@ -5,19 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://fyrcppdw20kr" path="res://sprites/slope_4_4.png" id="4_mnhp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkb1m"]
-size = Vector2(460, 4)
+size = Vector2(464, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptnu2"]
-size = Vector2(284, 8)
+size = Vector2(272, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an5s4"]
-size = Vector2(4, 64)
+size = Vector2(16, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dipuf"]
-size = Vector2(8, 112)
+size = Vector2(16, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4dei"]
-size = Vector2(8, 64)
+size = Vector2(8, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m3v3"]
 size = Vector2(8, 48)
@@ -25,19 +25,19 @@ size = Vector2(8, 48)
 [node name="pressure_button_platform_01" type="Node2D"]
 
 [node name="Button_pressure" parent="." node_paths=PackedStringArray("door") instance=ExtResource("2_kpn4g")]
-position = Vector2(196, 120)
+position = Vector2(196, 112)
 door = NodePath("../StaticBody2D/Door5")
 
 [node name="box" parent="." instance=ExtResource("3_56qqs")]
 position = Vector2(64, 78)
 
 [node name="Slope49" type="Sprite2D" parent="."]
-position = Vector2(38, 118)
+position = Vector2(38, 110)
 scale = Vector2(0.0624962, 0.0625)
 texture = ExtResource("4_mnhp3")
 
 [node name="Slope50" type="Sprite2D" parent="."]
-position = Vector2(238, 118)
+position = Vector2(238, 110)
 scale = Vector2(0.0624975, 0.0625)
 texture = ExtResource("4_mnhp3")
 flip_h = true
@@ -45,27 +45,27 @@ flip_h = true
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D131" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(234, 122)
+position = Vector2(232, 120)
 shape = SubResource("RectangleShape2D_rkb1m")
 
 [node name="CollisionShape2D134" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(322, 4)
+position = Vector2(328, 8)
 shape = SubResource("RectangleShape2D_ptnu2")
 
 [node name="CollisionShape2D133" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2, 92)
+position = Vector2(8, 88)
 shape = SubResource("RectangleShape2D_an5s4")
 
 [node name="CollisionShape2D135" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(460, 64)
+position = Vector2(456, 64)
 shape = SubResource("RectangleShape2D_dipuf")
 
 [node name="CollisionShape2D136" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(288, 40)
+position = Vector2(292, 40)
 shape = SubResource("RectangleShape2D_i4dei")
 
 [node name="Door5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(288, 96)
+position = Vector2(292, 88)
 shape = SubResource("RectangleShape2D_8m3v3")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/Door5"]
@@ -77,9 +77,9 @@ color = Color(0.423651, 0.423651, 0.423651, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(36, 120)
+position = Vector2(36, 112)
 polygon = PackedVector2Array(4, -4, 4, 0, 0, 0)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(240, 120)
+position = Vector2(240, 112)
 polygon = PackedVector2Array(0, 0, -4, -4, -4, 0)

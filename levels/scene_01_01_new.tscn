@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=222 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="PackedScene" uid="uid://dxvg3eylul26r" path="res://tilesets/tileset_pack/bush_tileset.tscn" id="1_djn83"]
 [ext_resource type="Script" path="res://levels/scene_01.gd" id="1_mgapa"]
@@ -253,11 +253,32 @@ size = Vector2(224, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ad7b"]
 size = Vector2(176, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltq7e"]
+size = Vector2(16, 127)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrrnh"]
 size = Vector2(576, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a43nq"]
 size = Vector2(16, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed7li"]
+size = Vector2(416, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtfr5"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xt0a"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksrnw"]
+size = Vector2(160, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5q2h"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkflg"]
+size = Vector2(96, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1hjx"]
 size = Vector2(16, 48)
@@ -1198,6 +1219,10 @@ shape = SubResource("RectangleShape2D_luin3")
 position = Vector2(11976, -24)
 shape = SubResource("RectangleShape2D_3ad7b")
 
+[node name="CollisionShape2D196" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12072, -80.5)
+shape = SubResource("RectangleShape2D_ltq7e")
+
 [node name="CollisionShape2D192" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11872, 376)
 shape = SubResource("RectangleShape2D_wrrnh")
@@ -1205,6 +1230,31 @@ shape = SubResource("RectangleShape2D_wrrnh")
 [node name="CollisionShape2D195" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11576, 264)
 shape = SubResource("RectangleShape2D_a43nq")
+
+[node name="CollisionShape2D197" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12528, 88)
+shape = SubResource("RectangleShape2D_ed7li")
+
+[node name="CollisionShape2D199" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12728, 152)
+shape = SubResource("RectangleShape2D_xtfr5")
+
+[node name="CollisionShape2D202" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12920, 120)
+shape = SubResource("RectangleShape2D_5xt0a")
+
+[node name="CollisionShape2D198" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12912, 88)
+shape = SubResource("RectangleShape2D_ksrnw")
+
+[node name="CollisionShape2D201" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12984, 56)
+shape = SubResource("RectangleShape2D_i5q2h")
+
+[node name="CollisionShape2D200" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12784, 84)
+shape = SubResource("RectangleShape2D_nkflg")
+one_way_collision = true
 
 [node name="CollisionShape2D193" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(11896, 8)
@@ -1251,7 +1301,7 @@ position = Vector2(11560, -1044)
 shape = SubResource("RectangleShape2D_1h7fq")
 
 [node name="CollisionShape2D132" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12724, -386)
+position = Vector2(13592, -472)
 shape = SubResource("RectangleShape2D_g7086")
 
 [node name="CollisionShape2D125" type="CollisionShape2D" parent="StaticBody2D"]
@@ -1480,6 +1530,9 @@ position = Vector2(5560, 384)
 
 [node name="simple_enemy6" parent="StaticBody2D" instance=ExtResource("10_l4i5n")]
 position = Vector2(5656, 384)
+
+[node name="simple_enemy9" parent="StaticBody2D" instance=ExtResource("10_l4i5n")]
+position = Vector2(12952, 80)
 
 [node name="simple_enemy4" parent="StaticBody2D" instance=ExtResource("10_l4i5n")]
 position = Vector2(5432, 384)
@@ -2961,19 +3014,19 @@ texture = ExtResource("4_kn40c")
 
 [node name="WoodWall116" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12836, -42)
+position = Vector2(13524, -36)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall117" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12836, -26)
+position = Vector2(13524, -20)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall118" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12836, -10)
+position = Vector2(13524, -3.99997)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -2999,161 +3052,161 @@ texture = ExtResource("4_kn40c")
 
 [node name="WoodWall221" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12768, -70)
+position = Vector2(13456, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall222" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12784, -70)
+position = Vector2(13472, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall223" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12800, -70)
+position = Vector2(13488, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall224" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12816, -70)
+position = Vector2(13504, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall225" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12832, -70)
+position = Vector2(13520, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall226" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12848, -70)
+position = Vector2(13536, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall227" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12864, -70)
+position = Vector2(13552, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall228" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12880, -70)
+position = Vector2(13568, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall229" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12896, -70)
+position = Vector2(13584, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall230" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12912, -70)
+position = Vector2(13600, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall231" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12928, -70)
+position = Vector2(13616, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall232" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12944, -70)
+position = Vector2(13632, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall233" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12960, -70)
+position = Vector2(13648, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall234" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12976, -70)
+position = Vector2(13664, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall235" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12992, -70)
+position = Vector2(13680, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall236" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13004, -70)
+position = Vector2(13692, -64)
 rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall237" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, -58)
+position = Vector2(13696, -52)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall238" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, -42)
+position = Vector2(13696, -36)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall239" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, -26)
+position = Vector2(13696, -20)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall240" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, -10)
+position = Vector2(13696, -3.99997)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall241" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, 6)
+position = Vector2(13696, 12)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall243" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, 22)
+position = Vector2(13008, 38)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall244" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, 38)
+position = Vector2(13008, 54)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
 [node name="WoodWall242" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(13008, -10)
+position = Vector2(13696, -3.99997)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -3177,7 +3230,7 @@ texture = ExtResource("4_kn40c")
 
 [node name="WoodWall119" type="Sprite2D" parent="sprites"]
 z_index = -1
-position = Vector2(12836, -58)
+position = Vector2(13524, -52)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kn40c")
 
@@ -4117,7 +4170,7 @@ position = Vector2(-100, 47)
 position = Vector2(-4, -40)
 
 [node name="spike container sprites" type="Node2D" parent="."]
-position = Vector2(12912, -98)
+position = Vector2(13016, -344)
 
 [node name="jump_tutorial" parent="." instance=ExtResource("29_1v0r8")]
 position = Vector2(832, 272)
@@ -4150,7 +4203,7 @@ position = Vector2(52, 24)
 position = Vector2(11568, -1364)
 
 [node name="moving_platforms_01" parent="." instance=ExtResource("34_o7vk7")]
-position = Vector2(13448, -72)
+position = Vector2(11928, -670)
 
 [node name="moving_platforms_02" parent="." instance=ExtResource("34_o7vk7")]
 position = Vector2(7648, -304)
@@ -4162,7 +4215,7 @@ position = Vector2(11216, -964)
 position = Vector2(8640, 128)
 
 [node name="platform_up_jump_02" parent="." instance=ExtResource("37_w042p")]
-position = Vector2(13336, -914)
+position = Vector2(12160, 60)
 
 [node name="trees" type="Node2D" parent="."]
 
@@ -4244,10 +4297,10 @@ position = Vector2(52, 24)
 position = Vector2(52, 23)
 
 [node name="pressure_button_platform_01" parent="." instance=ExtResource("40_1fuka")]
-position = Vector2(12548, -74)
+position = Vector2(12720, 144)
 
 [node name="Portal" parent="." instance=ExtResource("41_jt70y")]
-position = Vector2(13120, 336)
+position = Vector2(13136, 236)
 new_scene = ExtResource("42_84l6e")
 
 [node name="16-bit-spike" parent="." instance=ExtResource("43_fj8ks")]
@@ -4958,18 +5011,6 @@ position = Vector2(13304, -782)
 [node name="16-bit-spike36" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(13320, -782)
 
-[node name="16-bit-spike95" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(12560, -66)
-
-[node name="16-bit-spike96" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(12576, -66)
-
-[node name="16-bit-spike97" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(12592, -66)
-
-[node name="16-bit-spike98" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(12608, -66)
-
 [node name="16-bit-spike99" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(12664, -66)
 
@@ -5383,25 +5424,32 @@ position = Vector2(4296, 194)
 position = Vector2(4312, 194)
 
 [node name="16-bit-spike200" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13060, -182)
+position = Vector2(12328, 7.15256e-07)
+rotation = -3.14159
 
 [node name="16-bit-spike201" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13076, -182)
+position = Vector2(12344, 7.15256e-07)
+rotation = -3.14159
 
 [node name="16-bit-spike202" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13092, -182)
+position = Vector2(12360, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike203" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13108, -182)
+position = Vector2(12376, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike204" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13124, -182)
+position = Vector2(12392, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike205" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13140, -182)
+position = Vector2(12408, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike209" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13380, -182)
+position = Vector2(12648, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike210" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(11384, 64)
@@ -5702,46 +5750,144 @@ position = Vector2(8280, 128)
 position = Vector2(8296, 128)
 
 [node name="16-bit-spike217" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13252, -182)
+position = Vector2(12520, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike218" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13268, -182)
+position = Vector2(12536, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike219" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13284, -182)
+position = Vector2(12552, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike225" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13204, -182)
+position = Vector2(12472, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike226" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13220, -182)
+position = Vector2(12488, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike227" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13236, -182)
+position = Vector2(12504, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike228" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13156, -182)
+position = Vector2(12424, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike229" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13172, -182)
+position = Vector2(12440, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike230" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13188, -182)
+position = Vector2(12456, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike220" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13300, -182)
+position = Vector2(12568, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike221" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13316, -182)
+position = Vector2(12584, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike222" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13332, -182)
+position = Vector2(12600, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike223" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13348, -182)
+position = Vector2(12616, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike224" parent="spikes" instance=ExtResource("43_fj8ks")]
-position = Vector2(13364, -182)
+position = Vector2(12632, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike426" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12760, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike427" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12664, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike428" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12680, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike429" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12696, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike430" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12712, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike431" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12728, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike432" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12744, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike433" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12872, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike434" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12776, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike435" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12792, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike436" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12808, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike437" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12824, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike438" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12840, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike439" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12856, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike440" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12984, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike441" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12888, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike442" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12904, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike443" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12920, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike444" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12936, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike445" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12952, 16)
+rotation = -3.14159
+
+[node name="16-bit-spike446" parent="spikes" instance=ExtResource("43_fj8ks")]
+position = Vector2(12968, 16)
+rotation = -3.14159
 
 [node name="16-bit-spike206" parent="spikes" instance=ExtResource("43_fj8ks")]
 position = Vector2(4088, 194)
@@ -5874,14 +6020,13 @@ scale = Vector2(5.25, 0.5)
 texture = ExtResource("48_e0go2")
 
 [node name="start_cutscene" type="Area2D" parent="."]
-position = Vector2(13048, 350)
+position = Vector2(13068, 266)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_va7a8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="blackRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 480.0
@@ -5936,7 +6081,7 @@ color = Color(0.611735, 0.611595, 0, 0.776471)
 position = Vector2(2336, -168)
 
 [node name="Player" parent="." instance=ExtResource("49_jbt15")]
-position = Vector2(11728, -54)
+position = Vector2(12264, 24)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("51_stltk")]
 position = Vector2(3680, -104)
