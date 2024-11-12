@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pyrmoi68v5ja"]
+[gd_scene load_steps=17 format=3 uid="uid://pyrmoi68v5ja"]
 
 [ext_resource type="Script" path="res://levels/scene_03.gd" id="1_nxnwx"]
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_yhi22"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cmvc26ygr7c4v" path="res://lighting_attack_01.tscn" id="7_ka4qa"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="8_q2m87"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="9_5oo7b"]
+[ext_resource type="PackedScene" uid="uid://0uq3spak0ewj" path="res://danger/lighting_attack_01_triggered.tscn" id="10_62lf8"]
+[ext_resource type="PackedScene" uid="uid://6wodh1cu2tdg" path="res://danger/stepping_lighting_attack_triggered.tscn" id="11_boc8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yt06y"]
 size = Vector2(464, 16)
@@ -44,7 +46,7 @@ position = Vector2(712, 264)
 shape = SubResource("RectangleShape2D_yt06y")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="environment"]
-position = Vector2(1352, 296)
+position = Vector2(1176, 264)
 shape = SubResource("RectangleShape2D_yt06y")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="environment"]
@@ -68,13 +70,16 @@ position = Vector2(240, 264)
 shape = SubResource("RectangleShape2D_rfg56")
 
 [node name="Player" parent="." instance=ExtResource("1_yhi22")]
-position = Vector2(622, 222)
+position = Vector2(864, 222)
 
 [node name="timed_laser_follow" parent="." instance=ExtResource("2_875xq")]
 position = Vector2(-464, -16)
 
 [node name="area_and_door-close" parent="." instance=ExtResource("3_v38je")]
 position = Vector2(0, 192)
+
+[node name="area_and_door-close2" parent="." instance=ExtResource("3_v38je")]
+position = Vector2(944, 192)
 
 [node name="lighting_attack_01" parent="." instance=ExtResource("7_ka4qa")]
 position = Vector2(336, 256)
@@ -87,5 +92,11 @@ spawn_adjacent_projectiles = true
 
 [node name="player_slide_on_line" parent="." instance=ExtResource("9_5oo7b")]
 position = Vector2(648, 248)
+
+[node name="lighting_attack_01_triggered" parent="." instance=ExtResource("10_62lf8")]
+position = Vector2(712, 192)
+
+[node name="stepping_lighting_attack_triggered" parent="." instance=ExtResource("11_boc8a")]
+position = Vector2(960, -16)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
