@@ -46,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="44_4bf56"]
 [ext_resource type="PackedScene" uid="uid://cgog887ogrwi3" path="res://platforming/meta/pressure_button_platform_01.tscn" id="45_lvpgk"]
 [ext_resource type="PackedScene" uid="uid://cad33gervuno6" path="res://portal.tscn" id="46_qfcg5"]
-[ext_resource type="PackedScene" uid="uid://c81hy6ekekcnl" path="res://levels/scene_02.tscn" id="47_k0kwd"]
+[ext_resource type="PackedScene" uid="uid://c81hy6ekekcnl" path="res://levels/scene_02_01.tscn" id="47_k0kwd"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="48_oh4bx"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="49_h8ov5"]
 [ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="50_x6x7d"]
@@ -3794,9 +3794,6 @@ position = Vector2(8, -48)
 [node name="StaticBody2D" parent="door" index="1"]
 position = Vector2(52, 24)
 
-[node name="Sprite2D" parent="door" index="2"]
-position = Vector2(52, 24)
-
 [node name="tunnel_platform_01" parent="." instance=ExtResource("38_1skbu")]
 position = Vector2(5760, -224)
 
@@ -3893,9 +3890,6 @@ position = Vector2(308, 26)
 
 [node name="Door" parent="door2/StaticBody2D" index="0"]
 position = Vector2(0, -2)
-
-[node name="Sprite2D" parent="door2" index="2"]
-position = Vector2(308, 24)
 
 [node name="bird" parent="." instance=ExtResource("29_7kpj7")]
 position = Vector2(5496, 62)

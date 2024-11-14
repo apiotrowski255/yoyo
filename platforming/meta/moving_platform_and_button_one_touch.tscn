@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7llb1qw7pveu"]
+[gd_scene load_steps=4 format=3 uid="uid://c7llb1qw7pveu"]
 
+[ext_resource type="Script" path="res://platforming/meta/moving_platform_and_button_one_touch.gd" id="1_8taux"]
 [ext_resource type="PackedScene" uid="uid://kwijy4no3e0r" path="res://button_one_touch.tscn" id="1_hlak3"]
 [ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="2_g5pi0"]
 
 [node name="moving_platform_and_button_one_touch" type="Node2D"]
+script = ExtResource("1_8taux")
 
 [node name="button" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("1_hlak3")]
 position = Vector2(8, 16)

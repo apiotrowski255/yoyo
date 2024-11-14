@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bp8waip6fdsv8"]
+[gd_scene load_steps=21 format=3 uid="uid://bp8waip6fdsv8"]
 
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="1_t57oa"]
 [ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="2_4o2qf"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://brepltf7qjbnr" path="res://sprites/Sprite-0003.png" id="4_av1tb"]
 [ext_resource type="Script" path="res://NoDownZone.gd" id="4_dyas1"]
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="5_sedsf"]
+[ext_resource type="PackedScene" uid="uid://drk7v6xllm73e" path="res://toggle_death_area_148.tscn" id="7_b24yl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oofkr"]
+size = Vector2(120, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33hcd"]
+size = Vector2(120, 8)
 
 [sub_resource type="Curve2D" id="Curve2D_d2mcm"]
 _data = {
@@ -75,6 +82,9 @@ size = Vector2(912, 4)
 [node name="simple_enemy3" parent="." instance=ExtResource("1_t57oa")]
 position = Vector2(76, 104)
 
+[node name="simple_enemy12" parent="." instance=ExtResource("1_t57oa")]
+position = Vector2(16, 56)
+
 [node name="simple_enemy4" parent="." instance=ExtResource("1_t57oa")]
 position = Vector2(160, 156)
 
@@ -109,21 +119,74 @@ position = Vector2(176, 152)
 rotation = -1.5708
 time_to_die = 4.0
 
-[node name="toggle_death_area2" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(176, 110)
+[node name="toggle_death_area5" parent="." instance=ExtResource("3_obs0u")]
+position = Vector2(432, 48)
 time_on = 2.0
 
-[node name="toggle_death_area5" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(568, 16)
-time_on = 2.0
+[node name="CollisionShape2D" parent="toggle_death_area5" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_oofkr")
+
+[node name="AudioStreamPlayer2D" parent="toggle_death_area5" index="3"]
+position = Vector2(0, 3)
+
+[node name="Sprite2D" parent="toggle_death_area5" index="4"]
+position = Vector2(56, 3)
+scale = Vector2(0.125, 0.125)
+
+[node name="Sprite2D2" parent="toggle_death_area5" index="5"]
+position = Vector2(-56, 3)
+scale = Vector2(0.125, 0.125)
 
 [node name="toggle_death_area3" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(368, 112)
+position = Vector2(344, 120)
 time_on = 2.0
 
-[node name="toggle_death_area6" parent="." instance=ExtResource("3_obs0u")]
-position = Vector2(712, 110)
+[node name="CollisionShape2D" parent="toggle_death_area3" index="0"]
+position = Vector2(24, -4)
+shape = SubResource("RectangleShape2D_33hcd")
+
+[node name="ColorRect" parent="toggle_death_area3" index="2"]
+offset_left = -36.0
+offset_top = -12.0
+offset_right = 84.0
+offset_bottom = 4.0
+
+[node name="AudioStreamPlayer2D" parent="toggle_death_area3" index="3"]
+position = Vector2(24, -4)
+
+[node name="Sprite2D" parent="toggle_death_area3" index="4"]
+position = Vector2(80, -4)
+scale = Vector2(0.130634, 0.130634)
+
+[node name="Sprite2D2" parent="toggle_death_area3" index="5"]
+position = Vector2(-32, -4)
+scale = Vector2(0.125, 0.125)
+
+[node name="toggle_death_area4" parent="." instance=ExtResource("3_obs0u")]
+position = Vector2(152, 108)
 time_on = 2.0
+
+[node name="CollisionShape2D" parent="toggle_death_area4" index="0"]
+position = Vector2(24, -4)
+shape = SubResource("RectangleShape2D_33hcd")
+
+[node name="ColorRect" parent="toggle_death_area4" index="2"]
+offset_left = -36.0
+offset_top = -12.0
+offset_right = 84.0
+offset_bottom = 4.0
+
+[node name="AudioStreamPlayer2D" parent="toggle_death_area4" index="3"]
+position = Vector2(24, -4)
+
+[node name="Sprite2D" parent="toggle_death_area4" index="4"]
+position = Vector2(80, -4)
+scale = Vector2(0.130634, 0.130634)
+
+[node name="Sprite2D2" parent="toggle_death_area4" index="5"]
+position = Vector2(-32, -4)
+scale = Vector2(0.125, 0.125)
 
 [node name="Path2D5" type="Path2D" parent="."]
 position = Vector2(-5760, 216)
@@ -306,8 +369,14 @@ position = Vector2(-136, 48)
 [node name="StaticBody2D" parent="door2" index="1"]
 position = Vector2(52, 24)
 
+[node name="toggle_death_area" parent="." instance=ExtResource("7_b24yl")]
+position = Vector2(708, 100)
+
 [connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
 [connection signal="body_exited" from="NoDownZone" to="NoDownZone" method="_on_body_exited"]
 
+[editable path="toggle_death_area5"]
+[editable path="toggle_death_area3"]
+[editable path="toggle_death_area4"]
 [editable path="door"]
 [editable path="door2"]

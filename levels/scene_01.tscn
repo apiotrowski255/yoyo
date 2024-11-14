@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://sopyrg47pdxr" path="res://platforming/meta/moving_platform_tutorial.tscn" id="45_gdluj"]
 [ext_resource type="PackedScene" uid="uid://codumbgk0lf0j" path="res://platforming/meta/breaking_platform_tutorial.tscn" id="46_v4283"]
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="47_o7tme"]
-[ext_resource type="PackedScene" uid="uid://c81hy6ekekcnl" path="res://levels/scene_02.tscn" id="47_o53iq"]
+[ext_resource type="PackedScene" uid="uid://c81hy6ekekcnl" path="res://levels/scene_02_01.tscn" id="47_o53iq"]
 [ext_resource type="PackedScene" uid="uid://bp8waip6fdsv8" path="res://platforming/meta/tunnel_platform_01.tscn" id="47_uddt6"]
 [ext_resource type="PackedScene" uid="uid://dg22kfevxw1jl" path="res://platforming/meta/wall_jump_platform_01.tscn" id="48_6vvbu"]
 [ext_resource type="PackedScene" uid="uid://bfldecja4cixb" path="res://platforming/meta/moving_platforms_01.tscn" id="48_vwave"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://drk7v6xllm73e"]
+
+[ext_resource type="Script" path="res://toggle_death_area.gd" id="1_72y4b"]
+[ext_resource type="Shader" path="res://toggle_death_area.gdshader" id="2_a1y61"]
+[ext_resource type="AudioStream" uid="uid://djqaf0siduplw" path="res://sounds/sfx/charge.wav" id="3_og1n8"]
+[ext_resource type="Texture2D" uid="uid://dpaknhql1i6vo" path="res://sprites/cannon.png" id="4_nvgon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c5j4"]
+size = Vector2(144, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e56df"]
+shader = ExtResource("2_a1y61")
+shader_parameter/beams = 2
+shader_parameter/energy = 3.0
+shader_parameter/roughness = 3
+shader_parameter/frequency = 10
+shader_parameter/speed = 1.0
+shader_parameter/thickness = 0.1
+shader_parameter/outline_thickness = 0.1
+shader_parameter/beam_difference = 0.0
+shader_parameter/glow = 0.0
+shader_parameter/outline_glow = 0.0
+shader_parameter/color = Color(0.91, 1, 1, 1)
+shader_parameter/outline_color = Color(1, 0, 0, 1)
+shader_parameter/progress = 1.0
+shader_parameter/y_offset = 0.0
+shader_parameter/fixed_edge_size = 0.18
+shader_parameter/noise_scale = Vector2(1, 1)
+
+[node name="toggle_death_area" type="Area2D"]
+script = ExtResource("1_72y4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6c5j4")
+disabled = true
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_e56df")
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_og1n8")
+volume_db = -10.0
+max_distance = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nvgon")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-64, 0)
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_nvgon")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

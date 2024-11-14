@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=4 uid="uid://db75elyqwmday"]
 
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_d7u7g"]
-[ext_resource type="Script" path="res://levels/scene_02.gd" id="1_ubvbn"]
+[ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_ubvbn"]
 [ext_resource type="Texture2D" uid="uid://cqlt7fqtonfv0" path="res://cage.png" id="2_hc8r2"]
 [ext_resource type="PackedScene" uid="uid://b5m7eecicnyge" path="res://environment/Glacial-mountains-parallax-background_vnitti/snow_mountain_parallax.tscn" id="4_solhx"]
 [ext_resource type="PackedScene" uid="uid://bwqh41o24hh85" path="res://tilesets/tileset_pack/snow_tileset.tscn" id="5_4cslr"]
