@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://2wy3hlkxoe2w"]
+[gd_scene load_steps=6 format=3 uid="uid://2wy3hlkxoe2w"]
 
-[ext_resource type="Script" path="res://levels/player_slide_on_line.gd" id="1_oui0o"]
+[ext_resource type="Script" path="res://platforming/meta/line_riding/player_slide_on_line.gd" id="1_oui0o"]
 [ext_resource type="AudioStream" uid="uid://ddxb1bqu3fs3n" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Climbing Ladder/sfx_movement_ladder2loop.wav" id="2_2cpob"]
 
 [sub_resource type="Curve2D" id="Curve2D_ar7p5"]
@@ -11,6 +11,10 @@ point_count = 23
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ofo"]
 size = Vector2(8, 8)
+
+[sub_resource type="Gradient" id="Gradient_f3y48"]
+offsets = PackedFloat32Array(0, 0.492683, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="player_slide_on_line" type="Node2D"]
 script = ExtResource("1_oui0o")
@@ -30,5 +34,17 @@ stream = ExtResource("2_2cpob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k5ofo")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D"]
+amount = 16
+emission_shape = 2
+emission_sphere_radius = 32.0
+gravity = Vector2(0, 0)
+radial_accel_min = -40.0
+radial_accel_max = -40.0
+damping_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_f3y48")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

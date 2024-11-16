@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkavimy0fbwa8"]
 
-[ext_resource type="Script" path="res://triggered_falling_spike.gd" id="1_8b2b8"]
+[ext_resource type="Script" path="res://danger/triggered_falling_spike.gd" id="1_8b2b8"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="1_oaj3p"]
 [ext_resource type="Texture2D" uid="uid://cp6l521m4xlit" path="res://sprites/timed_enemy.png" id="3_arohw"]
 [ext_resource type="AudioStream" uid="uid://qxqj1sk8x26j" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Explosions/Shortest/sfx_exp_shortest_soft1.wav" id="4_amon0"]
@@ -16,6 +16,13 @@ script = ExtResource("1_8b2b8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger"]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_xapf1")
+
+[node name="ColorRect" type="ColorRect" parent="trigger"]
+offset_left = -4.0
+offset_top = -88.0
+offset_right = 4.0
+offset_bottom = 8.0
+color = Color(1, 1, 1, 0.392157)
 
 [node name="death_hit_box" parent="." instance=ExtResource("1_oaj3p")]
 position = Vector2(0, -96)

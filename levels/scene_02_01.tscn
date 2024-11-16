@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
 [ext_resource type="Texture2D" uid="uid://w1k32ap83qni" path="res://environment/mk_16_16_nature_tileset_godot/tileset_mk_16_16_nature_tileset_godot.png" id="3_aefkp"]
-[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="4_0ed5q"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="4_0ed5q"]
 [ext_resource type="PackedScene" uid="uid://bp8waip6fdsv8" path="res://platforming/meta/tunnel_platform_01.tscn" id="5_iucs8"]
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="5_jarrm"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="6_se4qc"]

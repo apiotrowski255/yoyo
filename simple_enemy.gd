@@ -42,12 +42,15 @@ func apply_gravity(delta):
 func _on_area_2d_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
 		print("collided with player - but player is in shell state")
-	elif body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying:
+	elif GlobalVariables.is_player(body):
 		# need to dynamically get the level the player is on
 		# the number 2 might need to change depending on how many global
 		# scripts there are.
-		get_node("/root").get_child(2)._on_death_body_entered(body)
-		print("most likely the player - gotta kill the player")
+		var scene = get_node("/root/").get_child(2)
+		if scene.name.match("*scene*"):
+			get_node("/root/").get_child(2)._on_death_body_entered(body)
+		else: 
+			get_tree().reload_current_scene()
 
 
 func _on_stomp_body_entered(body):
@@ -58,7 +61,7 @@ func _on_stomp_body_entered(body):
 		var death_particles_scene = preload("res://particle_effects/enemy_die_particle_effect.tscn")
 		var death_particles = death_particles_scene.instantiate()
 		death_particles.global_position = self.global_position
-		death_particles.emitting = true
+		death_particles.emitting = true 
 		# print(death_particles.position)
 		# print(get_node("/root/scene_01")) # This will need to change depending on the scene number - TODO for later.
 		get_node("/root/").get_child(2).add_child(death_particles)

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5m7eecicnyge" path="res://environment/Glacial-mountains-parallax-background_vnitti/snow_mountain_parallax.tscn" id="4_hfph2"]
 [ext_resource type="PackedScene" uid="uid://bwqh41o24hh85" path="res://tilesets/tileset_pack/snow_tileset.tscn" id="5_wnjgf"]
 [ext_resource type="PackedScene" uid="uid://cmvc26ygr7c4v" path="res://lighting_attack_01.tscn" id="7_ka4qa"]
-[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="8_q2m87"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="8_q2m87"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="9_5oo7b"]
 [ext_resource type="PackedScene" uid="uid://0uq3spak0ewj" path="res://danger/lighting_attack_01_triggered.tscn" id="10_62lf8"]
 [ext_resource type="PackedScene" uid="uid://6wodh1cu2tdg" path="res://danger/stepping_lighting_attack_triggered.tscn" id="11_boc8a"]

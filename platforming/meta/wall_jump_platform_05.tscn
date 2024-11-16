@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="1_crxy6"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="3_2h6ms"]
-[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="4_2qb0p"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="4_2qb0p"]
 
 [sub_resource type="GDScript" id="GDScript_6b7tt"]
 script/source = "extends Area2D

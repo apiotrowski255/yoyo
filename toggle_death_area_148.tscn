@@ -38,11 +38,10 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_e56df")
-offset_left = -80.0
+offset_left = -72.0
 offset_top = -16.0
-offset_right = 80.0
+offset_right = 72.0
 offset_bottom = 16.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

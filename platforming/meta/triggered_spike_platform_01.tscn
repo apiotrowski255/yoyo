@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ys6mvwbli7rm"]
 
-[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://triggered_falling_spike.tscn" id="1_3sfq8"]
+[ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="1_3sfq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8n7l"]
 size = Vector2(320, 16)

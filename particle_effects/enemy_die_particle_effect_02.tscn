@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://by1g4smhmsb5x"]
+
+[ext_resource type="Script" path="res://particle_effects/enemy_die_particle_effect.gd" id="1_6w1j4"]
+
+[sub_resource type="Gradient" id="Gradient_7668d"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="enemy_die_particle_effect_02" type="CPUParticles2D"]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.2
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 128.0
+initial_velocity_max = 128.0
+damping_min = 30.0
+damping_max = 50.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_7668d")
+script = ExtResource("1_6w1j4")
