@@ -3202,7 +3202,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_1shwv")
 
 [node name="Player" parent="." instance=ExtResource("5_kyd3a")]
-z_index = 1
 position = Vector2(7196, -22)
 coyote_time = 0.2
 

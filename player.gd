@@ -440,7 +440,7 @@ func die():
 		velocity = Vector2.UP * 175
 	current_state = state.dying
 	$sfx/death.play()
-	$Control.visible = true # This is what makes the glitch effect!
+	$Control.visible = GlobalVariables.play_glitch_effect # This is what makes the glitch effect!
 							# Might need to change the Shake Rate
 							# Maybe possible to disable via options menu
 	$death_particles.emitting = true

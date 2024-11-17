@@ -29,7 +29,7 @@ position = Vector2(196, 112)
 door = NodePath("../StaticBody2D/Door5")
 
 [node name="box" parent="." instance=ExtResource("3_56qqs")]
-position = Vector2(64, 78)
+position = Vector2(64, 104)
 
 [node name="Slope49" type="Sprite2D" parent="."]
 position = Vector2(38, 110)

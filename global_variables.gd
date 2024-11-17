@@ -7,7 +7,8 @@ var prev_scene
 
 # On player die, if this is set to false, it will play the glitch effect
 # Thank you @sorachu for suggesting the idea to disable glitch effect
-var disable_glitch_effect = false 
+var play_glitch_effect = true 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -13,4 +13,10 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_toe5r")
 debug_color = Color(1, 1, 0, 0.419608)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+color = Color(0.831373, 0.831373, 0, 0.580392)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

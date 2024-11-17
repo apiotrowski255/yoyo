@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://de5byr8rc1x46"]
+[gd_scene load_steps=3 format=3 uid="uid://de5byr8rc1x46"]
 
 [ext_resource type="Script" path="res://radial_timed_enemy_spawner.gd" id="1_oq5jg"]
+[ext_resource type="AudioStream" uid="uid://cbctywraw6vd4" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Weapons/Cannon/sfx_wpn_cannon2.wav" id="2_v1ket"]
 
 [node name="radial_timed_enemy_spawner" type="Node2D"]
 script = ExtResource("1_oq5jg")
@@ -10,5 +11,10 @@ master_time_to_die = 2
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_v1ket")
+volume_db = -3.0
+max_distance = 400.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

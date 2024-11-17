@@ -15,6 +15,8 @@ var timed_enemy_spawner_object = preload("res://timed_enemy_spawner.tscn")
 @export var rotate_spawn : bool = false
 @export var master_rotation_speed : float = 0.0
 
+@export var play_sfx : bool = false
+
 var timer : Timer
 var rays_array = []
 
@@ -54,6 +56,7 @@ func _process(delta):
 func _timeout():
 	for ray in rays_array:
 		ray.spawn_direction = ray.spawn_direction.rotated(PI / rays)
+	$AudioStreamPlayer2D.play()
 
 
 func _on_timer_timeout():

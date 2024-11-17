@@ -7,7 +7,7 @@ func _ready():
 	$music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
 	
 	
-	if get_node("/root/scene_01") != null:
+	if get_node("/root/scene_01_01") != null:
 		$music_player.play()
 	elif get_node("/root/scene_02") != null:
 		$music_player.stream = load("res://sounds/music/Rainoth Unmissed.mp3")
