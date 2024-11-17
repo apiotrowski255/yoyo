@@ -1939,7 +1939,7 @@ position = Vector2(744, 62)
 fly_direction = Vector2(1, -1)
 
 [node name="bird13" parent="birds" instance=ExtResource("20_vn7oh")]
-position = Vector2(8688, 168)
+position = Vector2(8688, 174)
 
 [node name="bird18" parent="birds" instance=ExtResource("20_vn7oh")]
 position = Vector2(6464, -18)
@@ -1949,7 +1949,7 @@ position = Vector2(280, -130)
 fly_direction = Vector2(1, -1)
 
 [node name="bird14" parent="birds" instance=ExtResource("20_vn7oh")]
-position = Vector2(8704, 168)
+position = Vector2(8704, 174)
 
 [node name="bird15" parent="birds" instance=ExtResource("20_vn7oh")]
 position = Vector2(4352, 158)

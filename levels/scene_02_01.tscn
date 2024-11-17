@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=140 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
@@ -1250,9 +1250,11 @@ _data = {
 "fade_to_black": SubResource("Animation_squlr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ssev"]
+size = Vector2(16, 112)
+
 [node name="scene_02" type="Node2D"]
 script = ExtResource("1_fvc36")
-checkpoints_enabled = false
 
 [node name="mountainParallaxBackground" parent="." instance=ExtResource("2_w4v1x")]
 
@@ -1937,7 +1939,6 @@ shape = SubResource("RectangleShape2D_pe8yf")
 position = Vector2(5856, 80)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-z_index = 1
 position = Vector2(5320, 528)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
@@ -3418,6 +3419,13 @@ scale = Vector2(4, 4)
 position = Vector2(22320, 1328)
 scale = Vector2(4, 4)
 
+[node name="start_cutscene" type="Area2D" parent="."]
+position = Vector2(6776, 232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_3ssev")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="game_pause_timer" to="." method="_on_game_pause_timer_timeout"]
 [connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
@@ -3454,6 +3462,7 @@ scale = Vector2(4, 4)
 [connection signal="body_entered" from="activate_on_player_enter6" to="activate_on_player_enter6" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
+[connection signal="body_entered" from="start_cutscene" to="." method="_on_start_cutscene_body_entered"]
 
 [editable path="horizontal_aligned_enemy_spawner"]
 [editable path="directed_enemy_spawner"]

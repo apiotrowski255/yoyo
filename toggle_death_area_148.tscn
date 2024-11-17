@@ -38,6 +38,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_e56df")
 offset_left = -72.0
 offset_top = -16.0
