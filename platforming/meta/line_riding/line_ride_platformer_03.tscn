@@ -54,7 +54,7 @@ shape = SubResource("RectangleShape2D_chbec")
 
 [node name="player_slide_on_line" parent="." instance=ExtResource("1_11vx8")]
 position = Vector2(184, 248)
-time_to_finish_line_ride = 1.0
+time_to_finish_line_ride = 0.75
 
 [node name="Path2D" parent="player_slide_on_line" index="0"]
 position = Vector2(-8, 0)
@@ -66,7 +66,7 @@ rotation = 0.0
 
 [node name="player_slide_on_line2" parent="." instance=ExtResource("1_11vx8")]
 position = Vector2(424, 168)
-time_to_finish_line_ride = 1.0
+time_to_finish_line_ride = 0.75
 exit_velocity = Vector2(-200, -200)
 
 [node name="Path2D" parent="player_slide_on_line2" index="0"]

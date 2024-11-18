@@ -1,9 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://xmaewvt3copf"]
+[gd_scene load_steps=25 format=3 uid="uid://xmaewvt3copf"]
 
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_0ww2d"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="2_vr7nn"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="3_265hk"]
-[ext_resource type="PackedScene" uid="uid://s1pdm0tf167m" path="res://danger/triggered_tracking_spike.tscn" id="4_y777d"]
 [ext_resource type="PackedScene" uid="uid://drk7v6xllm73e" path="res://toggle_death_area_148.tscn" id="5_vt38w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqt03"]
@@ -210,12 +208,6 @@ position = Vector2(952, 4)
 shape = SubResource("RectangleShape2D_3kehn")
 one_way_collision = true
 
-[node name="Player" parent="." instance=ExtResource("1_0ww2d")]
-position = Vector2(128, 424)
-
-[node name="triggered_falling_spike" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(488, 376)
-
 [node name="triggered_falling_spike8" parent="." instance=ExtResource("2_vr7nn")]
 position = Vector2(904, 136)
 rotation = 1.57079
@@ -223,24 +215,6 @@ rotation = 1.57079
 [node name="triggered_falling_spike9" parent="." instance=ExtResource("2_vr7nn")]
 position = Vector2(1000, 88)
 rotation = -1.57079
-
-[node name="triggered_falling_spike7" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(392, 376)
-
-[node name="triggered_falling_spike2" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(408, 376)
-
-[node name="triggered_falling_spike3" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(424, 376)
-
-[node name="triggered_falling_spike4" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(440, 376)
-
-[node name="triggered_falling_spike5" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(456, 376)
-
-[node name="triggered_falling_spike6" parent="." instance=ExtResource("2_vr7nn")]
-position = Vector2(472, 376)
 
 [node name="simple_enemy" parent="." instance=ExtResource("3_265hk")]
 position = Vector2(520, 380)
@@ -256,15 +230,6 @@ position = Vector2(944, 188)
 
 [node name="simple_enemy5" parent="." instance=ExtResource("3_265hk")]
 position = Vector2(304, 380)
-
-[node name="triggered_tracking_spike" parent="." instance=ExtResource("4_y777d")]
-position = Vector2(264, 408)
-
-[node name="triggered_tracking_spike2" parent="." instance=ExtResource("4_y777d")]
-position = Vector2(616, 248)
-
-[node name="triggered_tracking_spike3" parent="." instance=ExtResource("4_y777d")]
-position = Vector2(872, 120)
 
 [node name="toggle_death_area2" parent="." instance=ExtResource("5_vt38w")]
 position = Vector2(568, 328)

@@ -19,6 +19,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			$death_hit_box/AudioStreamPlayer2D.pitch_scale = randf_range(1.5, 2)
 			$death_hit_box/AudioStreamPlayer2D.play()
 			$death_hit_box/Sprite2D/ColorRect.self_modulate = Color(160, 0, 0, 160)
+			$Line2D.add_point(target_position)
 
 func calculate_target_position(player_position : Vector2):
 	target_position = -(self.position - player_position)

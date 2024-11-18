@@ -1,9 +1,10 @@
-[gd_scene load_steps=140 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=144 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
 [ext_resource type="Texture2D" uid="uid://w1k32ap83qni" path="res://environment/mk_16_16_nature_tileset_godot/tileset_mk_16_16_nature_tileset_godot.png" id="3_aefkp"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="4_0ed5q"]
+[ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="4_ggcy2"]
 [ext_resource type="PackedScene" uid="uid://bp8waip6fdsv8" path="res://platforming/meta/tunnel_platform_01.tscn" id="5_iucs8"]
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="5_jarrm"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="6_se4qc"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://k2dklpkn53sc" path="res://platforming/meta/jump_tutorial_03.tscn" id="13_qmy8n"]
 [ext_resource type="PackedScene" uid="uid://dcfcmkbkud2ph" path="res://climb.tscn" id="14_huqba"]
 [ext_resource type="PackedScene" uid="uid://dya7epagu74m5" path="res://vertical_aligned_enemy_spawner.tscn" id="15_b0fc6"]
+[ext_resource type="PackedScene" uid="uid://b60hy845mdb4" path="res://environment/interactive_wall_jump.tscn" id="15_kfqvf"]
 [ext_resource type="Script" path="res://NoDownZone.gd" id="16_f5f7q"]
 [ext_resource type="Script" path="res://levels/change_player_camera.gd" id="17_arx7u"]
 [ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="18_8k5ne"]
@@ -36,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://bp3pmwluccqnp" path="res://enemies/meta/electric_ball_pathed.tscn" id="33_06pmw"]
 [ext_resource type="PackedScene" uid="uid://bpcv68xo85thi" path="res://down_arrow.tscn" id="34_l8nol"]
 [ext_resource type="PackedScene" uid="uid://bmrykqr0sx516" path="res://environment/interactive_grass.tscn" id="35_1m56o"]
+[ext_resource type="PackedScene" uid="uid://xmaewvt3copf" path="res://platforming/meta/stair_platform_01.tscn" id="39_7t2wq"]
+[ext_resource type="PackedScene" uid="uid://s1pdm0tf167m" path="res://danger/triggered_tracking_spike.tscn" id="40_g2mr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af6qh"]
 texture = ExtResource("3_aefkp")
@@ -1342,12 +1346,25 @@ position = Vector2(1024, 306)
 shape = SubResource("RectangleShape2D_ts5d2")
 one_way_collision = true
 
-[node name="ColorRect" type="ColorRect" parent="environment_body/CollisionShape2D21"]
-offset_left = -32.0
-offset_top = -2.0
-offset_right = 32.0
-offset_bottom = 2.0
-color = Color(0.552956, 0.552956, 0.552956, 1)
+[node name="Sprite2D" type="Sprite2D" parent="environment_body/CollisionShape2D21"]
+position = Vector2(24, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ggcy2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="environment_body/CollisionShape2D21"]
+position = Vector2(8, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ggcy2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="environment_body/CollisionShape2D21"]
+position = Vector2(-8, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ggcy2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="environment_body/CollisionShape2D21"]
+position = Vector2(-24, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ggcy2")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="environment_body"]
 position = Vector2(3088, 536)
@@ -1940,7 +1957,7 @@ shape = SubResource("RectangleShape2D_pe8yf")
 position = Vector2(5856, 80)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-position = Vector2(1088, 100)
+position = Vector2(6124, 32)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
 position = Vector2(920, 192)
@@ -2037,12 +2054,20 @@ offset_right = 608.0
 offset_bottom = 112.0
 color = Color(0.871327, 0.12352, 1.44392e-06, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="jump_tutorial_03"]
-offset_left = 588.0
-offset_top = 4.0
-offset_right = 592.0
-offset_bottom = 80.0
-color = Color(0.731163, 0.730913, 3.85046e-07, 1)
+[node name="interactive_wall_jump" parent="jump_tutorial_03" instance=ExtResource("15_kfqvf")]
+position = Vector2(592, 80)
+
+[node name="interactive_wall_jump2" parent="jump_tutorial_03" instance=ExtResource("15_kfqvf")]
+position = Vector2(592, 64)
+
+[node name="interactive_wall_jump3" parent="jump_tutorial_03" instance=ExtResource("15_kfqvf")]
+position = Vector2(592, 48)
+
+[node name="interactive_wall_jump4" parent="jump_tutorial_03" instance=ExtResource("15_kfqvf")]
+position = Vector2(592, 32)
+
+[node name="interactive_wall_jump5" parent="jump_tutorial_03" instance=ExtResource("15_kfqvf")]
+position = Vector2(592, 16)
 
 [node name="game_pause_timer" type="Timer" parent="."]
 process_mode = 3
@@ -3426,6 +3451,12 @@ position = Vector2(6776, 232)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_3ssev")
+
+[node name="stair_platform_01" parent="." instance=ExtResource("39_7t2wq")]
+position = Vector2(6912, 0)
+
+[node name="triggered_tracking_spike" parent="." instance=ExtResource("40_g2mr7")]
+position = Vector2(6320, -40)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="game_pause_timer" to="." method="_on_game_pause_timer_timeout"]

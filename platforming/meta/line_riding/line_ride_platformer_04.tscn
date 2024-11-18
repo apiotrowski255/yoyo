@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://6smqvf5tur3e"]
+
+[ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_f6xcv"]
+[ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="2_a1y2b"]
+[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="3_eosx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hync"]
+size = Vector2(128, 16)
+
+[node name="line_ride_platformer_04" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64, 264)
+shape = SubResource("RectangleShape2D_6hync")
+
+[node name="auto_jump_pad" parent="." instance=ExtResource("1_f6xcv")]
+position = Vector2(120, 256)
+target_velocity = Vector2(300, -300)
+
+[node name="player_slide_on_line" parent="." instance=ExtResource("2_a1y2b")]
+position = Vector2(344, 144)
+
+[node name="Player" parent="." instance=ExtResource("3_eosx0")]
+position = Vector2(72, 184)
