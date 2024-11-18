@@ -2567,6 +2567,26 @@ theme_override_font_sizes/font_size = 7
 text = "General rule of thumb:
 Don't touch spikes"
 
+[node name="avoid_spike message4" type="Label" parent="Messages"]
+layout_mode = 0
+offset_left = -580.0
+offset_top = -104.0
+offset_right = -470.0
+offset_bottom = -79.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "AD/arrow keys to move"
+
+[node name="avoid_spike message5" type="Label" parent="Messages"]
+layout_mode = 0
+offset_left = -428.0
+offset_top = -104.0
+offset_right = -318.0
+offset_bottom = -79.0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 7
+text = "Space to jump"
+
 [node name="avoid_spike message16" type="Label" parent="Messages"]
 z_index = 1
 layout_mode = 0
@@ -2591,7 +2611,7 @@ theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "These blocks will fall when you 
 are under them.
-But don't worry! Just keepy moving
+But don't worry! Just keep moving
 and you will be fine!"
 
 [node name="avoid_spike message18" type="Label" parent="Messages"]
@@ -3764,6 +3784,10 @@ position = Vector2(13068, 266)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_va7a8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="start_cutscene"]
+position = Vector2(-9140, -162)
 shape = SubResource("RectangleShape2D_va7a8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

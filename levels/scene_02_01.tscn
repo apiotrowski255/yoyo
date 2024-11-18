@@ -1137,7 +1137,7 @@ size = Vector2(32, 4)
 size = Vector2(64, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgh3x"]
-size = Vector2(144, 512)
+size = Vector2(128, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsw4n"]
 size = Vector2(208, 672)
@@ -1255,6 +1255,7 @@ size = Vector2(16, 112)
 
 [node name="scene_02" type="Node2D"]
 script = ExtResource("1_fvc36")
+checkpoints_enabled = false
 
 [node name="mountainParallaxBackground" parent="." instance=ExtResource("2_w4v1x")]
 
@@ -1939,7 +1940,7 @@ shape = SubResource("RectangleShape2D_pe8yf")
 position = Vector2(5856, 80)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-position = Vector2(5320, 528)
+position = Vector2(1088, 100)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
 position = Vector2(920, 192)
@@ -2121,7 +2122,7 @@ position = Vector2(1736, -72)
 script = ExtResource("17_arx7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="change_player_camera"]
-position = Vector2(48, 248)
+position = Vector2(56, 248)
 shape = SubResource("RectangleShape2D_wgh3x")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 
