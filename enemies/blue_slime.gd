@@ -17,13 +17,15 @@ var jump_velocity = -75
 @onready var raycast_up = $raycast_up
 
 
+@export var time_to_change_state : float = 3.0
+
 func _ready():
 	current_state = state.idle
 	animatedsprite = $blue_animated_sprite
 	animatedsprite.play("idle")
 	timer = $Timer
 	velocity.x = -speed
-	timer.start(3.0)
+	timer.start(time_to_change_state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

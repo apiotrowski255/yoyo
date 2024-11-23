@@ -1,26 +1,355 @@
-[gd_scene load_steps=5 format=3 uid="uid://6smqvf5tur3e"]
+[gd_scene load_steps=21 format=3 uid="uid://6smqvf5tur3e"]
 
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_f6xcv"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="2_a1y2b"]
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="3_eosx0"]
+[ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="4_yy3wk"]
+[ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="5_cwjqc"]
+[ext_resource type="PackedScene" uid="uid://bc075rbisueiy" path="res://platforming/16_bit_spike_repeating.tscn" id="6_kwh1e"]
+[ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="6_wgdju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hync"]
-size = Vector2(128, 16)
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ens1"]
+size = Vector2(16, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grko3"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk64o"]
+size = Vector2(16, 368)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf3xv"]
+size = Vector2(16, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6l7w"]
+size = Vector2(16, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cedjq"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lj13a"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cxxm"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyji2"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv3o7"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs2mj"]
+size = Vector2(16, 112)
+
+[sub_resource type="Gradient" id="Gradient_faccd"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_338c1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -384)
+}
+point_count = 2
 
 [node name="line_ride_platformer_04" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(64, 264)
+position = Vector2(128, 264)
 shape = SubResource("RectangleShape2D_6hync")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 392)
+shape = SubResource("RectangleShape2D_3ens1")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240, 504)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1120, 168)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(368, 504)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(416, 488)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(464, 472)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(608, 424)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(672, 648)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(288, 648)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(160, 648)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(32, 648)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 456)
+shape = SubResource("RectangleShape2D_bk64o")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(632, 504)
+shape = SubResource("RectangleShape2D_mf3xv")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(712, 480)
+shape = SubResource("RectangleShape2D_u6l7w")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(832, 312)
+shape = SubResource("RectangleShape2D_cedjq")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(952, 248)
+shape = SubResource("RectangleShape2D_lj13a")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(560, 440)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(328, 328)
+shape = SubResource("RectangleShape2D_5cxxm")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(288, 376)
+shape = SubResource("RectangleShape2D_tyji2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(288, 268)
+shape = SubResource("RectangleShape2D_cv3o7")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(328, 216)
+shape = SubResource("RectangleShape2D_bs2mj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(328, 56)
+shape = SubResource("RectangleShape2D_bs2mj")
 
 [node name="auto_jump_pad" parent="." instance=ExtResource("1_f6xcv")]
 position = Vector2(120, 256)
 target_velocity = Vector2(300, -300)
 
+[node name="jump pad particles3" type="CPUParticles2D" parent="auto_jump_pad"]
+rotation = -2.62847
+amount = 64
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 330.0
+initial_velocity_max = 330.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_faccd")
+
 [node name="player_slide_on_line" parent="." instance=ExtResource("2_a1y2b")]
 position = Vector2(344, 144)
 
-[node name="Player" parent="." instance=ExtResource("3_eosx0")]
-position = Vector2(72, 184)
+[node name="Line2D" type="Line2D" parent="player_slide_on_line"]
+points = PackedVector2Array(0, 0, 112, 176, 136, 176, 224, 136, 256, 88, 248, 40, 216, 24, 184, 24, 160, 40, 160, 80, 176, 104, 200, 120, 264, 112, 320, 96, 400, 64, 472, 56, 560, 56, 600, 24)
+width = 6.0
+
+[node name="player_slide_on_line2" parent="." instance=ExtResource("2_a1y2b")]
+position = Vector2(24, 632)
+time_to_finish_line_ride = 1.0
+exit_velocity = Vector2(0, -200)
+
+[node name="Path2D" parent="player_slide_on_line2" index="0"]
+curve = SubResource("Curve2D_338c1")
+
+[node name="PathFollow2D" parent="player_slide_on_line2/Path2D" index="0"]
+rotation = -1.5708
+
+[node name="Line2D" type="Line2D" parent="player_slide_on_line2"]
+points = PackedVector2Array(0, 0, 0, -384)
+width = 4.0
+
+[node name="door" parent="." instance=ExtResource("4_yy3wk")]
+position = Vector2(324, 136)
+
+[node name="button" parent="door" index="0"]
+position = Vector2(-268, 504)
+
+[node name="triggered_moving_platform" parent="." instance=ExtResource("5_cwjqc")]
+position = Vector2(528, 648)
+start_position = Vector2(528, 648)
+end_position = Vector2(368, 648)
+current_type = 1
+
+[node name="spikes" type="Node2D" parent="."]
+
+[node name="16-bit-spike" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(200, 672)
+
+[node name="16-bit-spike2" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(216, 672)
+
+[node name="16-bit-spike3" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(232, 672)
+
+[node name="16-bit-spike4" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(248, 672)
+
+[node name="16-bit-spike5" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(72, 672)
+
+[node name="16-bit-spike6" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(88, 672)
+
+[node name="16-bit-spike7" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(104, 672)
+
+[node name="16-bit-spike8" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(120, 672)
+
+[node name="16-bit-spike9" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(280, 528)
+
+[node name="16-bit-spike10" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(296, 528)
+
+[node name="16-bit-spike11" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(312, 528)
+
+[node name="16-bit-spike12" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(328, 528)
+
+[node name="16-bit-spike37" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1032, 192)
+
+[node name="16-bit-spike38" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1048, 192)
+
+[node name="16-bit-spike39" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1064, 192)
+
+[node name="16-bit-spike40" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1080, 192)
+
+[node name="16-bit-spike41" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(968, 192)
+
+[node name="16-bit-spike42" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(984, 192)
+
+[node name="16-bit-spike43" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1000, 192)
+
+[node name="16-bit-spike44" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(1016, 192)
+
+[node name="16-bit-spike15" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(584, 672)
+
+[node name="16-bit-spike18" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(600, 672)
+
+[node name="16-bit-spike19" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(616, 672)
+
+[node name="16-bit-spike20" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(632, 672)
+
+[node name="16-bit-spike21" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(520, 672)
+
+[node name="16-bit-spike22" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(536, 672)
+
+[node name="16-bit-spike23" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(552, 672)
+
+[node name="16-bit-spike24" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(568, 672)
+
+[node name="16-bit-spike25" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(456, 672)
+
+[node name="16-bit-spike26" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(472, 672)
+
+[node name="16-bit-spike27" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(488, 672)
+
+[node name="16-bit-spike28" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(504, 672)
+
+[node name="16-bit-spike29" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(392, 672)
+
+[node name="16-bit-spike30" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(408, 672)
+
+[node name="16-bit-spike31" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(424, 672)
+
+[node name="16-bit-spike32" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(440, 672)
+
+[node name="16-bit-spike33" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(328, 672)
+
+[node name="16-bit-spike34" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(344, 672)
+
+[node name="16-bit-spike35" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(360, 672)
+
+[node name="16-bit-spike36" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(376, 672)
+
+[node name="16-bit-spike13" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(504, 480)
+
+[node name="16-bit-spike14" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(520, 480)
+
+[node name="16-bit-spike16" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(544, 456)
+rotation = -1.57079
+
+[node name="16-bit-spike17" parent="spikes" instance=ExtResource("6_wgdju")]
+position = Vector2(544, 472)
+rotation = -1.57079
+
+[node name="16_bit_spike_repeating" parent="." instance=ExtResource("6_kwh1e")]
+position = Vector2(184, 640)
+
+[node name="16_bit_spike_repeating2" parent="." instance=ExtResource("6_kwh1e")]
+position = Vector2(168, 640)
+
+[node name="16_bit_spike_repeating3" parent="." instance=ExtResource("6_kwh1e")]
+position = Vector2(152, 640)
+
+[node name="16_bit_spike_repeating4" parent="." instance=ExtResource("6_kwh1e")]
+position = Vector2(136, 640)
+
+[editable path="player_slide_on_line"]
+[editable path="player_slide_on_line2"]
+[editable path="door"]

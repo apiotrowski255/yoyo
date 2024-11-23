@@ -58,4 +58,3 @@ func _on_timer_timeout():
 	elif state == "down":
 		spike_up()
 	
-

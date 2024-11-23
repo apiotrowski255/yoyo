@@ -12,6 +12,7 @@ collision_mask = 11
 script = ExtResource("1_od8fh")
 
 [node name="blue_animated_sprite" parent="." instance=ExtResource("2_ng7l0")]
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 

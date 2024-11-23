@@ -1957,7 +1957,7 @@ shape = SubResource("RectangleShape2D_pe8yf")
 position = Vector2(5856, 80)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-position = Vector2(6124, 32)
+position = Vector2(6832, 204)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
 position = Vector2(920, 192)
@@ -3446,14 +3446,14 @@ position = Vector2(22320, 1328)
 scale = Vector2(4, 4)
 
 [node name="start_cutscene" type="Area2D" parent="."]
-position = Vector2(6776, 232)
+position = Vector2(6872, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_3ssev")
 
 [node name="stair_platform_01" parent="." instance=ExtResource("39_7t2wq")]
-position = Vector2(6912, 0)
+position = Vector2(7024, -80)
 
 [node name="triggered_tracking_spike" parent="." instance=ExtResource("40_g2mr7")]
 position = Vector2(6320, -40)
