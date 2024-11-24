@@ -307,6 +307,7 @@ size = Vector2(160, 128)
 
 [node name="scene_01_01" type="Node2D"]
 script = ExtResource("1_p1yfr")
+checkpoints_enabled = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -1572,7 +1573,7 @@ position = Vector2(88, -56)
 shape = SubResource("RectangleShape2D_xx54y")
 
 [node name="Player" parent="." instance=ExtResource("41_im44s")]
-position = Vector2(-528, -312)
+position = Vector2(2448, 8)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="start_cutscene" to="." method="_on_start_cutscene_body_entered"]
