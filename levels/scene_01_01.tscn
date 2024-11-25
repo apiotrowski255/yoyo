@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://e807urydbdej"]
+[gd_scene load_steps=82 format=3 uid="uid://e807urydbdej"]
 
 [ext_resource type="Script" path="res://levels/scene_01_01.gd" id="1_p1yfr"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="4_vwgoy"]
@@ -28,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="41_im44s"]
 [ext_resource type="PackedScene" uid="uid://dynno6acyp3ih" path="res://platforming/meta/line_riding/line_ride_platformer_01.tscn" id="42_81o2l"]
 [ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="43_tfvv5"]
-[ext_resource type="PackedScene" uid="uid://dq0e3xs4aan06" path="res://environment/props/vine.tscn" id="45_so5bb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybbpc"]
 size = Vector2(16, 592)
@@ -1168,6 +1167,7 @@ offset_left = 6824.0
 offset_top = -616.0
 offset_right = 6992.0
 offset_bottom = -112.0
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -1177,6 +1177,7 @@ offset_left = 848.0
 offset_top = 288.0
 offset_right = 1168.0
 offset_bottom = 384.0
+mouse_filter = 1
 
 [node name="reflective_water" type="Sprite2D" parent="."]
 visible = false
@@ -1489,6 +1490,7 @@ position = Vector2(4072, 194)
 [node name="blackRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 480.0
 offset_bottom = 272.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
@@ -1504,13 +1506,6 @@ default_color = Color(0.538407, 0.523195, 0.39903, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="temp_color_rects" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="music_button_platform" parent="." instance=ExtResource("40_v7esx")]
 position = Vector2(2336, -168)
@@ -1548,22 +1543,9 @@ offset_left = -48.0
 offset_top = -8.0
 offset_right = 48.0
 offset_bottom = 8.0
+mouse_filter = 1
 color = Color(0.556863, 0.541176, 0.486275, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="vine_sprites" type="Node2D" parent="."]
-
-[node name="vine10" parent="." instance=ExtResource("45_so5bb")]
-position = Vector2(2344, 9)
-
-[node name="vine11" parent="." instance=ExtResource("45_so5bb")]
-position = Vector2(2352, 9)
-
-[node name="vine12" parent="." instance=ExtResource("45_so5bb")]
-position = Vector2(2360, 9)
-
-[node name="vine13" parent="." instance=ExtResource("45_so5bb")]
-position = Vector2(2376, 9)
 
 [node name="start_cutscene" type="Area2D" parent="."]
 position = Vector2(3752, 152)
@@ -1573,7 +1555,7 @@ position = Vector2(88, -56)
 shape = SubResource("RectangleShape2D_xx54y")
 
 [node name="Player" parent="." instance=ExtResource("41_im44s")]
-position = Vector2(2448, 8)
+position = Vector2(-112, 232)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="start_cutscene" to="." method="_on_start_cutscene_body_entered"]

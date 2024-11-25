@@ -35,3 +35,11 @@ func set_current_level():
 
 func is_player(body):
 	return body.get_class() == "CharacterBody2D" and body.name == "Player" and body.current_state != body.state.dying
+
+func get_game_scene():
+	var scene = get_node("/root").get_child(3)
+	if scene.name.match("*cutscene"):
+		return null
+	if scene.name.match("*scene*"):
+		return scene 
+	return null

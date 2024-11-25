@@ -19,3 +19,5 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 	else:
 		$Label2.text = "Enabled"
 	GlobalVariables.play_glitch_effect = toggled_on
+
+	

@@ -33,7 +33,7 @@ func _input(event):
 		decrease_music_volume()
 	elif event.is_action_pressed("music_more"):
 		increase_music_volume()
-	elif event.is_action_pressed("music_pause"):
+	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false:
 		pause_music()
 
 func increase_music_volume():
@@ -49,7 +49,14 @@ func decrease_music_volume():
 func pause_music():
 	$music_player.stream_paused = !$music_player.get_stream_paused()
 
+func pause_music_2():
+	$music_player.stream_paused = true
+	
+func resume_music():
+	$music_player.stream_paused = false
 
+func is_music_paused():
+	return $music_player.get_stream_paused()
 
 # Rainoth Earth - Set import to loop
 func scene_changed(new_scene: PackedScene):

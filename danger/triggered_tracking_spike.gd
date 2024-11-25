@@ -65,7 +65,7 @@ func spawn_sound(sound_resource_name : String, volume_db: float):
 	sound.max_distance = 400
 	# sound.play()
 	sound.connect("finished", sound.queue_free)
-	get_node("/root/").get_child(2).add_child(sound)
+	get_node("/root/").get_child(3).add_child(sound)
 
 func spawn_timed_enemy(direction : Vector2):
 	var obj = load("res://timed_enemy.tscn")
@@ -74,4 +74,4 @@ func spawn_timed_enemy(direction : Vector2):
 	obj1.direction = direction
 	obj1.speed = 256
 	obj1.time_to_die = 1.0
-	get_node("/root/").get_child(2).add_child(obj1)
+	get_node("/root/").get_child(3).add_child(obj1)

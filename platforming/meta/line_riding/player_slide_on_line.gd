@@ -40,7 +40,7 @@ func _on_tween_finished():
 		return
 	
 	local_player.position = get_global_position_of_last_point()
-	local_player.reparent(get_node("/root").get_child(2))
+	local_player.reparent(get_node("/root").get_child(3)) # reparent to scene node
 	local_player.change_state(player.state.in_air)
 	local_player.velocity = exit_velocity
 	local_player.rotation = 0

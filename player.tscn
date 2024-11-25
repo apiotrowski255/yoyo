@@ -148,6 +148,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="glitch_effect" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_armnl")
@@ -156,6 +157,7 @@ offset_left = -408.0
 offset_top = -254.0
 offset_right = 422.0
 offset_bottom = 266.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
@@ -164,6 +166,7 @@ offset_left = -222.0
 offset_top = -120.0
 offset_right = 258.0
 offset_bottom = 152.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="rain_snow particles" type="CPUParticles2D" parent="."]
@@ -226,6 +229,7 @@ editor_draw_drag_margin = true
 material = SubResource("ShaderMaterial_gkww6")
 offset_right = 480.0
 offset_bottom = 272.0
+mouse_filter = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

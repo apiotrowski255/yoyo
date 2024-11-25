@@ -14,12 +14,88 @@ script = ExtResource("1_nagc0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 141.0
-offset_bottom = 23.0
-text = "options menu test"
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 480.0
 offset_bottom = 272.0
+mouse_filter = 1
 color = Color(0.431373, 0.431373, 0.431373, 0.392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+offset_right = 480.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+text = "Options menu"
+
+[node name="glitch_effect" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 80.0
+
+[node name="glitch_effect_label" type="Label" parent="CanvasLayer/glitch_effect"]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 23.0
+text = "Disable glitch effect on death"
+
+[node name="glitch_effect_status" type="Label" parent="CanvasLayer/glitch_effect"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = -1.0
+offset_right = 362.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "false"
+
+[node name="CheckButton_for_glitch_effect" type="CheckButton" parent="CanvasLayer/glitch_effect"]
+layout_mode = 0
+offset_left = 237.0
+offset_right = 281.0
+offset_bottom = 24.0
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 112.0
+offset_right = 456.0
+offset_bottom = 128.0
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+rounded = true
+tick_count = 8
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 212.0
+offset_bottom = 127.0
+text = "music volume"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 168.0
+offset_right = 212.0
+offset_bottom = 191.0
+text = "music paused"
+
+[node name="CheckButton_for_glitch_effect2" type="CheckButton" parent="CanvasLayer"]
+offset_left = 341.0
+offset_top = 168.0
+offset_right = 385.0
+offset_bottom = 192.0
+
+[node name="pause_label" type="Label" parent="CanvasLayer"]
+offset_left = 399.0
+offset_top = 168.0
+offset_right = 466.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "false"
+
+[connection signal="toggled" from="CanvasLayer/glitch_effect/CheckButton_for_glitch_effect" to="." method="_on_check_button_for_glitch_effect_toggled"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="CanvasLayer/CheckButton_for_glitch_effect2" to="." method="_on_check_button_for_glitch_effect_2_toggled"]
