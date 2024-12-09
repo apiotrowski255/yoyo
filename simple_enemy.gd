@@ -43,12 +43,13 @@ func _on_area_2d_body_entered(body):
 	if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
 		print("collided with player - but player is in shell state")
 	elif GlobalVariables.is_player(body):
-		# need to dynamically get the level the player is on
-		# the number 2 might need to change depending on how many global
-		# scripts there are.
-		var scene = get_node("/root/").get_child(2)
+		
+		# Still pretty bad code, because it means that the scene script needs to 
+		# handle the player's death. Which is kind of true.
+		# print(get_node("/root/*scene*"))
+		var scene = GlobalVariables.get_game_scene()
 		if scene.name.match("*scene*"):
-			get_node("/root/").get_child(2)._on_death_body_entered(body)
+			scene._on_death_body_entered(body)
 		else: 
 			get_tree().reload_current_scene()
 

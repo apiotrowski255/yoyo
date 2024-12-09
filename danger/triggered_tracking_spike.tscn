@@ -36,6 +36,6 @@ shape = SubResource("CircleShape2D_04w6b")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0)
-width = 4.0
+width = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
