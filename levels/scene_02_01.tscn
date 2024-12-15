@@ -2002,7 +2002,7 @@ shape = SubResource("RectangleShape2D_pe8yf")
 position = Vector2(5856, 80)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-position = Vector2(9464, -88)
+position = Vector2(4360, 164)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
 position = Vector2(920, 192)
@@ -3632,10 +3632,9 @@ position = Vector2(22320, 1328)
 scale = Vector2(4, 4)
 
 [node name="start_cutscene" type="Area2D" parent="."]
-position = Vector2(6872, 232)
+position = Vector2(10072, -248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
-position = Vector2(1488, 401.5)
 shape = SubResource("RectangleShape2D_3ssev")
 
 [node name="stair_platform_01" parent="." instance=ExtResource("39_7t2wq")]

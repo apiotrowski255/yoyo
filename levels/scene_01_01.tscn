@@ -1551,11 +1551,11 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(3752, 152)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start_cutscene"]
-position = Vector2(88, -56)
+position = Vector2(72, -56)
 shape = SubResource("RectangleShape2D_xx54y")
 
 [node name="Player" parent="." instance=ExtResource("41_im44s")]
-position = Vector2(-112, 232)
+position = Vector2(3544, -76)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="start_cutscene" to="." method="_on_start_cutscene_body_entered"]

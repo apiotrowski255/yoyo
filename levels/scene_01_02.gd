@@ -8,6 +8,7 @@ var flag_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalMusicManager.fade_music(-10, 1.5)
 	$Player.start_camera_smoothing_timer(1.0)
 	timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)

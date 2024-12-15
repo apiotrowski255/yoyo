@@ -30,9 +30,9 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	if GlobalVariables.is_player(body):
-		var scene = get_node("/root/").get_child(2)
+		var scene = get_node("/root/").get_child(3)
 		if scene.name.match("*scene*"):
-			get_node("/root/").get_child(2)._on_death_body_entered(body)
+			get_node("/root/").get_child(3)._on_death_body_entered(body)
 		else: 
 			get_tree().reload_current_scene()
 

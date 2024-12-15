@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://cslhxr4h8jo1c"]
+[gd_scene load_steps=138 format=3 uid="uid://cslhxr4h8jo1c"]
 
 [ext_resource type="Script" path="res://levels/scene_01_02.gd" id="1_be4ds"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="2_nt5si"]
@@ -40,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="49_62t5t"]
 [ext_resource type="PackedScene" uid="uid://bryv25fxnykwg" path="res://platforming/meta/jump_tutorial_02.tscn" id="49_hpn6p"]
 [ext_resource type="PackedScene" uid="uid://dqlfn0tbk8ywn" path="res://platforming/meta/auto_jump_platform_01.tscn" id="50_31wdi"]
-[ext_resource type="Shader" path="res://levels/waterfall.gdshader" id="50_unxyb"]
 [ext_resource type="Shader" path="res://levels/water_reflective.gdshader" id="51_70sbn"]
 [ext_resource type="PackedScene" uid="uid://drpnixiitdqx8" path="res://button_pressure.tscn" id="51_lycdi"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="52_85byw"]
@@ -254,24 +253,6 @@ size = Vector2(464, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpss2"]
 size = Vector2(16, 224)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3mwoo"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uplhw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8328a"]
-shader = ExtResource("50_unxyb")
-shader_parameter/level = 0.5
-shader_parameter/water_albedo = Color(0.26, 0.23, 0.73, 1)
-shader_parameter/water_opacity = 0.35
-shader_parameter/water_speed = 0.05
-shader_parameter/wave_distortion = 0.2
-shader_parameter/wave_multiplyer = 7
-shader_parameter/water_texture_on = true
-shader_parameter/reflection_X_offset = 0.0
-shader_parameter/reflection_Y_offset = 0.0
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_3mwoo")
-shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_uplhw")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ae2ar"]
 
@@ -1619,16 +1600,6 @@ texture = ExtResource("2_nt5si")
 position = Vector2(13136, 236)
 new_scene = ExtResource("34_aomnx")
 
-[node name="water_shader" type="ColorRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-z_index = -1
-material = SubResource("ShaderMaterial_8328a")
-offset_left = 6824.0
-offset_top = -616.0
-offset_right = 6992.0
-offset_bottom = -112.0
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = 4
@@ -2538,6 +2509,7 @@ shape = SubResource("RectangleShape2D_va7a8")
 [node name="blackRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 480.0
 offset_bottom = 272.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 

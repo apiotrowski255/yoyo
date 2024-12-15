@@ -10,3 +10,5 @@ script = ExtResource("1_sqe7r")
 stream = ExtResource("2_urqa6")
 volume_db = -10.0
 bus = &"music"
+
+[node name="sfx_player" type="AudioStreamPlayer" parent="."]

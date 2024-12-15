@@ -998,7 +998,19 @@ metadata/_edit_use_anchors_ = true
 offset_left = 260.0
 offset_right = 656.0
 offset_bottom = 52.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "The End for now. 
 Still a lot more work to do!"
+
+[node name="TextEdit2" type="RichTextLabel" parent="."]
+offset_left = 12.0
+offset_top = 80.0
+offset_right = 208.0
+offset_bottom = 274.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Hi Lessmod and Shuriken!
+I hope you enjoyed this small demo
+Wishing you a happy anniversary.
+My only regret is that I wish i met you sooner. "
 
 [node name="mountainParallaxBackground" parent="." instance=ExtResource("5_jup3m")]
