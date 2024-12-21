@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6ws2yivs74cv"]
+[gd_scene load_steps=28 format=3 uid="uid://b6ws2yivs74cv"]
 
 [ext_resource type="Script" path="res://levels/cutscenes/cutscene_01_01.gd" id="1_3qfjm"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_g1ehg"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://ikh6cfoxhhcd" path="res://sounds/sfx/Jump 1.wav" id="14_o4g6d"]
 [ext_resource type="AudioStream" uid="uid://8c650ot2qq4y" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Neutral Sounds/sfx_sound_neutral1.wav" id="15_4rmrs"]
 [ext_resource type="AudioStream" uid="uid://bq8esosjethbs" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump13_landing.wav" id="16_wgxf1"]
+[ext_resource type="PackedScene" uid="uid://b7d0aekf16ipe" path="res://bird.tscn" id="17_f8prc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vjnd"]
 texture = ExtResource("4_d3hus")
@@ -1910,7 +1911,7 @@ tracks/3/path = NodePath("ZozoJump1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(7, 8, 11.5333, 12.2333, 18.2333, 18.5333, 18.8333),
+"times": PackedFloat32Array(7, 8.2, 11.5333, 12.2333, 18.2333, 18.5333, 18.8333),
 "transitions": PackedFloat32Array(2, 2, 1, 1, 0.5, 2, 2),
 "update": 0,
 "values": [Vector2(-612, -208), Vector2(-612, 168), Vector2(-612, 168), Vector2(-580, 168), Vector2(-580, 168), Vector2(-580, 120.705), Vector2(-580, 168)]
@@ -2011,7 +2012,7 @@ tracks/11/path = NodePath("landing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(7.86667),
+"times": PackedFloat32Array(8.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -2030,6 +2031,20 @@ tracks/12/keys = {
 "values": [{
 "args": [0.0],
 "method": &"play"
+}]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("bird")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(8.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fly_away"
 }]
 }
 
@@ -2112,6 +2127,9 @@ stream = ExtResource("15_4rmrs")
 stream = ExtResource("16_wgxf1")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="bird" parent="." instance=ExtResource("17_f8prc")]
+position = Vector2(-537, 63)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

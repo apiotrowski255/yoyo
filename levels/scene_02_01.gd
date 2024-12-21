@@ -4,7 +4,6 @@ var timer : Timer
 
 # Default checkpoints_enabled to be true
 @export var checkpoints_enabled : bool = true
-var flag_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,20 +14,19 @@ func _ready():
 	# self.connect()
 	# $evil_wizard.evil_wizard_hit.connect(evil_wizard_hit)
 	timer = $Timer
-	
-	if checkpoints_enabled == false:
-		return
-	
-	flag_container = get_node("flags")
 
+func set_player_position_for_checkpoint() -> void:
 	# Deactivate the already touched flags
 	var i = 0
+	var flag_container = get_node("flags")
 	while i <= GlobalVariables.checkpoint_counter:
 		flag_container.get_child(i).already_activate()
 		i += 1
 
-	# Set player position to be based off checkpoint_counter
+	# Set player position to be based off checkpoint_counterd 
 	$Player.global_position = flag_container.get_child(GlobalVariables.checkpoint_counter).get_player_spawn_position()
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

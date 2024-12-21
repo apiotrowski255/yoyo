@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://2h4181f1veqc"]
+[gd_scene load_steps=5 format=3 uid="uid://2h4181f1veqc"]
 
 [ext_resource type="Script" path="res://global_music_manager.gd" id="1_sqe7r"]
 [ext_resource type="AudioStream" uid="uid://daidum7h07ac6" path="res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3" id="2_urqa6"]
+[ext_resource type="AudioStream" uid="uid://c81iubi2bc7jo" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Coins/sfx_coin_double3.wav" id="3_rdlr2"]
+[ext_resource type="AudioStream" uid="uid://bj822kqhhpxof" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Menu Sounds/sfx_menu_move1.wav" id="4_8mblj"]
 
 [node name="global_music_manager" type="Node2D"]
 script = ExtResource("1_sqe7r")
@@ -12,3 +14,9 @@ volume_db = -10.0
 bus = &"music"
 
 [node name="sfx_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rdlr2")
+volume_db = -10.0
+
+[node name="menu_over_button_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8mblj")
+volume_db = -10.0

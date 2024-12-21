@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcf8p6slso8sg"]
+[gd_scene load_steps=3 format=3 uid="uid://bcf8p6slso8sg"]
 
 [ext_resource type="Script" path="res://levels/options_menu.gd" id="1_m8do1"]
+[ext_resource type="PackedScene" uid="uid://cstlxbop5s1pp" path="res://mountain_dusk_parallax.tscn" id="2_8uapr"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -50,6 +51,54 @@ offset_top = 224.0
 offset_right = 326.0
 offset_bottom = 255.0
 text = "Return to Main menu"
+
+[node name="mountain_dusk_parallax" parent="." instance=ExtResource("2_8uapr")]
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 112.0
+offset_right = 456.0
+offset_bottom = 128.0
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+rounded = true
+tick_count = 8
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 212.0
+offset_bottom = 127.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "music volume"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 168.0
+offset_right = 212.0
+offset_bottom = 191.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "music paused"
+
+[node name="CheckButton_for_glitch_effect2" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 168.0
+offset_right = 385.0
+offset_bottom = 192.0
+
+[node name="pause_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 168.0
+offset_right = 466.0
+offset_bottom = 191.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "false"
 
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

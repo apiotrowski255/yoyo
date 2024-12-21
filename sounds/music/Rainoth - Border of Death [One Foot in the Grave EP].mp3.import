@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfdd4e33atvb"
+path="res://.godot/imported/Rainoth - Border of Death [One Foot in the Grave EP].mp3-e81e1ccfd801436adcd38d7b1e6f3439.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Rainoth - Border of Death [One Foot in the Grave EP].mp3"
+dest_files=["res://.godot/imported/Rainoth - Border of Death [One Foot in the Grave EP].mp3-e81e1ccfd801436adcd38d7b1e6f3439.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

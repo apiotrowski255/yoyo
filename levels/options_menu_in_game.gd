@@ -11,15 +11,20 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("option_menu"):
 		if in_gameplay():
 			if $CanvasLayer.visible == false:
-				print("present options menu")
+				# print("present options menu")
 				$CanvasLayer.visible = true
 				GlobalVariables.get_game_scene().process_mode = Node.PROCESS_MODE_DISABLED
 				set_options()
+				$CanvasLayer/pause_in.play()
 			elif $CanvasLayer.visible == true:
-				print("hide options menu - resume gameplay")
+				# print("hide options menu - resume gameplay")
 				$CanvasLayer.visible = false
 				GlobalVariables.get_game_scene().process_mode = Node.PROCESS_MODE_INHERIT
-				
+				$CanvasLayer/AudioStreamPlayer.play()
+	elif event.is_action_pressed("esc") and $CanvasLayer.visible == true:
+		$CanvasLayer.visible = false
+		GlobalVariables.get_game_scene().process_mode = Node.PROCESS_MODE_INHERIT
+		$CanvasLayer/AudioStreamPlayer.play()
 
 
 func in_gameplay() -> bool:
@@ -44,6 +49,9 @@ func set_options():
 	else:
 		$CanvasLayer/CheckButton_for_glitch_effect2.button_pressed = false
 		$CanvasLayer/pause_label.text = "false"
+		
+	# if volume is already set to -20, then it should be reflected in the HSlider
+	$CanvasLayer/HSlider.value = GlobalMusicManager.music_player.volume_db
 
 
 func _on_check_button_for_glitch_effect_toggled(toggled_on: bool) -> void:

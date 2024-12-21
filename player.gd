@@ -62,9 +62,11 @@ func _ready():
 	timer = get_node("Timer")
 	cooldown_timer = get_node("cooldown_timer")
 	noDown = false
-	noShellMode = false
+	noShellMode = true
 	jump_particles = $CPUParticles2D
 	randomize()
+	get_parent().set_player_position_for_checkpoint()
+	start_camera_smoothing_timer(1.0)
 
 func set_camera():
 	camera.zoom = Vector2(0.5, 0.5)

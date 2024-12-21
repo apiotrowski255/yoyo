@@ -8,10 +8,14 @@ var sfx_player: AudioStreamPlayer
 func _ready():
 	music_player = get_node("music_player")
 	# Default to Earth song
-	music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
+	# music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
 	
-	
+	if get_node("/root/main_menu") != null:
+		music_player.stream = load("res://sounds/music/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3")
+		music_player.play()
+
 	if get_node("/root/scene_01_01") != null:
+		music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
 		music_player.play()
 	elif get_node("/root/scene_02") != null:
 		music_player.stream = load("res://sounds/music/Rainoth Unmissed.mp3")
@@ -26,10 +30,14 @@ func _ready():
 func stop():
 	music_player.stop()
 
-func load_music(string : String):
-	music_player.stream = load(string)
+func load_music(music : String):
+	music_player.stream = load(music)
 
 func play():
+	music_player.play()
+
+func load_and_play_music(music) -> void:
+	music_player.stream = load(music)
 	music_player.play()
 
 func _input(event):
@@ -79,5 +87,9 @@ func scene_changed(new_scene: PackedScene):
 	pass
 	
 	
-func play_menu_button_sfx():
-	pass
+func play_menu_button_pressed_sfx():
+	$sfx_player.play()
+	
+
+func play_mouse_over_button_sfx():
+	$menu_over_button_sfx.play()

@@ -36,15 +36,6 @@ position = Vector2(0, -8)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_5ehwi")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -28.0
-offset_top = -28.0
-offset_right = 23.0
-offset_bottom = -5.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Spawner"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4ct04")

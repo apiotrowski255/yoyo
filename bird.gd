@@ -53,19 +53,20 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == "CharacterBody2D" and current_state != state.flying:
-		# play sound effect of bird flying away?
-		current_state = state.flying
-		animatedsprite.play("flying")
-		timer.stop()
-		timer.start(5)
-		fly_speed = randi_range(80, 100)
-		fly_direction.y = randf_range(-0.4, -1.0)
-		fly_direction.x = randf_range(-1.0, 1.0)
-		fly_direction = fly_direction.normalized()
-		if fly_direction.x > 0:
-			animatedsprite.flip_h = true
-		else:
-			animatedsprite.flip_h = false
-		$fly_away.play()
+	if GlobalVariables.is_player(body) and current_state != state.flying:
+		fly_away()
 
+func fly_away() -> void:
+	current_state = state.flying
+	animatedsprite.play("flying")
+	timer.stop()
+	timer.start(5)
+	fly_speed = randi_range(80, 100)
+	fly_direction.y = randf_range(-0.4, -1.0)
+	fly_direction.x = randf_range(-1.0, 1.0)
+	fly_direction = fly_direction.normalized()
+	if fly_direction.x > 0:
+		animatedsprite.flip_h = true
+	else:
+		animatedsprite.flip_h = false
+	$fly_away.play()

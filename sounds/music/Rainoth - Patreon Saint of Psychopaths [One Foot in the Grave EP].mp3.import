@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bek82jmdjnnr2"
+path="res://.godot/imported/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3-e97b973ff1832f39485c5630bfb0d1a8.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3"
+dest_files=["res://.godot/imported/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3-e97b973ff1832f39485c5630bfb0d1a8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -202,6 +202,13 @@ start_position = Vector2(528, 648)
 end_position = Vector2(368, 648)
 current_type = 1
 
+[node name="ColorRect" type="ColorRect" parent="triggered_moving_platform"]
+offset_left = -48.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 8.0
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="16-bit-spike" parent="spikes" instance=ExtResource("6_wgdju")]

@@ -4,32 +4,30 @@ var timer
 
 # Default checkpoints_enabled to be true
 @export var checkpoints_enabled : bool = true
-var flag_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	# $Player.start_camera_smoothing_timer(1.0)
 	timer = get_node("Timer")
 	timer.timeout.connect(_on_timer_timeout)
-	
-	if checkpoints_enabled == false:
-		return
-	
-	flag_container = get_node("flags")
 
+	if GlobalVariables.checkpoint_counter >= 1:
+		get_node("birds/bird11").queue_free()
+		get_node("birds/bird3").queue_free()
+		get_node("birds/bird2").queue_free()
+
+
+func set_player_position_for_checkpoint() -> void:
 	# Deactivate the already touched flags
 	var i = 0
+	var flag_container = get_node("flags")
 	while i <= GlobalVariables.checkpoint_counter:
 		flag_container.get_child(i).already_activate()
 		i += 1
 
 	# Set player position to be based off checkpoint_counter
 	$Player.global_position = flag_container.get_child(GlobalVariables.checkpoint_counter).get_player_spawn_position()
-	
-	if GlobalVariables.checkpoint_counter >= 1:
-		get_node("birds/bird11").queue_free()
-		get_node("birds/bird3").queue_free()
-		get_node("birds/bird2").queue_free()
 
 func _on_death_body_entered(body):
 	if GlobalVariables.is_player(body):

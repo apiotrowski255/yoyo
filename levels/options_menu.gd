@@ -8,6 +8,8 @@ func _ready() -> void:
 	else:
 		$Label2.text = "Enabled"
 		$CheckButton.button_pressed = true
+	var mouse_position = get_viewport().get_mouse_position() / 10
+	$mountain_dusk_parallax.scroll_offset = mouse_position
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/main_menu.tscn")
@@ -20,4 +22,6 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		$Label2.text = "Enabled"
 	GlobalVariables.play_glitch_effect = toggled_on
 
-	
+func _process(delta: float) -> void:
+	var mouse_position = get_viewport().get_mouse_position() / 10
+	$mountain_dusk_parallax.scroll_offset = mouse_position
