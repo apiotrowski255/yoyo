@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://dsjuue3cmkfum"]
+[gd_scene load_steps=37 format=3 uid="uid://dsjuue3cmkfum"]
 
 [ext_resource type="Script" path="res://levels/scene_01_03.gd" id="1_5uxab"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="4_4prvj"]
+[ext_resource type="PackedScene" uid="uid://uqnej155cn08" path="res://flag.tscn" id="4_tb4qs"]
 [ext_resource type="PackedScene" uid="uid://dbm1drwmihdql" path="res://levels/cutscenes/cutscene_02_01.tscn" id="8_21mo8"]
 [ext_resource type="PackedScene" uid="uid://cstlxbop5s1pp" path="res://mountain_dusk_parallax.tscn" id="14_1bsa3"]
 [ext_resource type="PackedScene" uid="uid://bpcv68xo85thi" path="res://down_arrow.tscn" id="16_vsioq"]
@@ -185,6 +186,9 @@ scale = Vector2(0.25, 0.25)
 [node name="trees" type="Node2D" parent="."]
 
 [node name="flags" type="Node2D" parent="."]
+
+[node name="flag" parent="flags" instance=ExtResource("4_tb4qs")]
+position = Vector2(13056, 256)
 
 [node name="pressure_button_platform_01" parent="." instance=ExtResource("32_pa1ds")]
 position = Vector2(12720, 144)

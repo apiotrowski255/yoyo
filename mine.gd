@@ -26,8 +26,8 @@ func _on_timer_timeout():
 
 func _on_body_entered(body: Node2D) -> void:
 	if GlobalVariables.is_player(body):
-		var scene = get_node("/root/").get_child(2)
+		var scene = GlobalVariables.get_game_scene()
 		if scene.name.match("*scene*"):
-			get_node("/root/").get_child(2)._on_death_body_entered(body)
+			scene._on_death_body_entered(body)
 		else: 
 			get_tree().reload_current_scene()

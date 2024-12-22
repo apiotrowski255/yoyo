@@ -29,5 +29,3 @@ position = Vector2(-8, -8)
 rotates = false
 
 [node name="Area2D" parent="Path2D/PathFollow2D" instance=ExtResource("2_3x3wr")]
-
-[connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]

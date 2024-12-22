@@ -889,6 +889,28 @@ scale = Vector2(4, 4)
 position = Vector2(10976, 320)
 scale = Vector2(4, 4)
 
+[node name="interactive_grass62" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(11872, 320)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass63" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(11936, 320)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass64" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(11808, 320)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass65" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(12064, 320)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass66" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(12000, 320)
+scale = Vector2(4, 4)
+
 [node name="interactive_grass20" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
 position = Vector2(4960, 1088)
 scale = Vector2(4, 4)
@@ -977,22 +999,6 @@ scale = Vector2(4, 4)
 
 [node name="interactive_grass52" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
 position = Vector2(15584, 640)
-scale = Vector2(4, 4)
-
-[node name="interactive_grass57" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
-position = Vector2(15968, -448)
-scale = Vector2(4, 4)
-
-[node name="interactive_grass58" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
-position = Vector2(16032, -448)
-scale = Vector2(4, 4)
-
-[node name="interactive_grass59" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
-position = Vector2(15840, -448)
-scale = Vector2(4, 4)
-
-[node name="interactive_grass60" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
-position = Vector2(15904, -448)
 scale = Vector2(4, 4)
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
@@ -1247,17 +1253,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 7
 text = "Space to jump"
-
-[node name="avoid_spike message9" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = 3584.0
-offset_top = -284.0
-offset_right = 3721.0
-offset_bottom = -259.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "Jumping on lines will cause you to slide."
 
 [node name="avoid_spike message11" type="Label" parent="Messages"]
 layout_mode = 0

@@ -3,6 +3,7 @@ extends Node2D
 
 var music_player: AudioStreamPlayer
 var sfx_player: AudioStreamPlayer
+var is_fading = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,12 +50,20 @@ func _input(event):
 		pause_music()
 
 func increase_music_volume():
-	if$music_player.volume_db >= 0:
+	if music_player.volume_db >= 0:
+		return
+	if is_fading == true:
+		return
+	if GlobalVariables.get_game_scene() == null:
 		return
 	music_player.volume_db += 5
 	
 func decrease_music_volume():
 	if music_player.volume_db <= -40:
+		return
+	if is_fading == true:
+		return
+	if GlobalVariables.get_game_scene() == null:
 		return
 	music_player.volume_db -= 5
 
@@ -62,7 +71,11 @@ func fade_music(new_volume: float, time:float):
 	var tween = create_tween()
 	tween.tween_property(music_player, "volume_db", new_volume, time)
 	tween.play()
+	is_fading = true
+	tween.connect("finished", _tween_finished)
 	
+func _tween_finished():
+	is_fading = false
 
 func pause_music():
 	music_player.stream_paused = !music_player.get_stream_paused()

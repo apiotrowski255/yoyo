@@ -19,6 +19,7 @@ func _on_trigger_body_entered(body):
 			$death_hit_box/AudioStreamPlayer2D.pitch_scale = randf_range(1.5, 2)
 			$death_hit_box/AudioStreamPlayer2D.play()
 			$death_hit_box/Sprite2D/ColorRect.self_modulate = Color(160, 0, 0, 160)
+			$trigger/ColorRect.visible = false
 
 func tween_finished():
 	var death_particles_scene = preload("res://particle_effects/enemy_die_particle_effect.tscn")

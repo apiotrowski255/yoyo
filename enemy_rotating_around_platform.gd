@@ -10,13 +10,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	path_follow.progress += speed * delta
-
-
-
-func _on_area_2d_body_entered(body):
-	if GlobalVariables.is_player(body):
-		var scene = get_node("/root/").get_child(3)
-		if scene.name.match("*scene*"):
-			get_node("/root/").get_child(3)._on_death_body_entered(body)
-		else: 
-			get_tree().reload_current_scene()
