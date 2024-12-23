@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://k2dklpkn53sc"]
+[gd_scene load_steps=20 format=3 uid="uid://k2dklpkn53sc"]
 
 [ext_resource type="Script" path="res://platforming/meta/jump_tutorial_03.gd" id="1_rqowc"]
 [ext_resource type="PackedScene" uid="uid://msmhrilho24l" path="res://breaking_platforms.tscn" id="1_rwach"]
 [ext_resource type="PackedScene" uid="uid://bgyolk7d8wbg1" path="res://simple_moving_platform.tscn" id="2_qlnkf"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="3_6i1wh"]
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="4_i4hwt"]
+[ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="6_5m2v0"]
+[ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="7_5ernf"]
+[ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="8_5ubrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8fvy"]
 size = Vector2(48, 16)
@@ -57,6 +60,18 @@ size = Vector2(4, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uklk"]
 size = Vector2(16, 16)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y13ee"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bu5id"]
+seamless = true
+noise = SubResource("FastNoiseLite_y13ee")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4vxq"]
+shader = ExtResource("6_5m2v0")
+shader_parameter/water_color = Color(0.0962351, 0.186038, 0.344948, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_bu5id")
 
 [node name="jump_tutorial_03" type="Node2D"]
 script = ExtResource("1_rqowc")
@@ -193,12 +208,6 @@ position = Vector2(584, 120)
 [node name="death_hit_box29" parent="." instance=ExtResource("3_6i1wh")]
 position = Vector2(600, 120)
 
-[node name="death_hit_box30" parent="." instance=ExtResource("3_6i1wh")]
-position = Vector2(600, 104)
-
-[node name="death_hit_box31" parent="." instance=ExtResource("3_6i1wh")]
-position = Vector2(600, 88)
-
 [node name="triggered_falling_spike" parent="." instance=ExtResource("4_i4hwt")]
 position = Vector2(200, 104)
 
@@ -214,6 +223,21 @@ position = Vector2(88, 88)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_5uklk")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[node name="reflective_water" type="Sprite2D" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_m4vxq")
+position = Vector2(351.5, 145)
+scale = Vector2(1.00586, 0.125)
+texture = ExtResource("7_5ernf")
+
+[node name="16-bit-spike" parent="." instance=ExtResource("8_5ubrp")]
+position = Vector2(608, 104)
+rotation = -1.57079
+
+[node name="16-bit-spike2" parent="." instance=ExtResource("8_5ubrp")]
+position = Vector2(608, 88)
+rotation = -1.57079
 
 [connection signal="body_entered" from="wall jump" to="wall jump" method="_on_body_entered"]
 [connection signal="body_exited" from="wall jump" to="wall jump" method="_on_body_exited"]

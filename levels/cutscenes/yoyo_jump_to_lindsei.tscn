@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://76ltwkqjmawg"]
+[gd_scene load_steps=12 format=4 uid="uid://76ltwkqjmawg"]
 
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="1_6raff"]
+[ext_resource type="Script" path="res://levels/cutscenes/yoyo_jump_to_lindsei.gd" id="1_drn0m"]
 [ext_resource type="PackedScene" uid="uid://0f5ad8cx84en" path="res://lindsei.tscn" id="2_1slq1"]
 [ext_resource type="Texture2D" uid="uid://w1k32ap83qni" path="res://environment/mk_16_16_nature_tileset_godot/tileset_mk_16_16_nature_tileset_godot.png" id="3_xti06"]
 [ext_resource type="AudioStream" uid="uid://ikh6cfoxhhcd" path="res://sounds/sfx/Jump 1.wav" id="4_yb7me"]
@@ -961,6 +962,7 @@ _data = {
 }
 
 [node name="yoyo_jump_to_lindsei" type="Node2D"]
+script = ExtResource("1_drn0m")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
@@ -1008,9 +1010,18 @@ offset_top = 80.0
 offset_right = 208.0
 offset_bottom = 274.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Hi Lessmod and Shuriken!
+text = "Hello Shuriken255 and Lessmod
 I hope you enjoyed this small demo
 Wishing you a happy anniversary.
 My only regret is that I wish i met you sooner. "
 
 [node name="mountainParallaxBackground" parent="." instance=ExtResource("5_jup3m")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 48.0
+offset_right = 437.0
+offset_bottom = 79.0
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

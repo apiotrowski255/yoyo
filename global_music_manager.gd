@@ -14,6 +14,8 @@ func _ready():
 	if get_node("/root/main_menu") != null:
 		music_player.stream = load("res://sounds/music/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3")
 		music_player.play()
+		music_player.volume_db = -40
+		fade_music(-10, 1.5)
 
 	if get_node("/root/scene_01_01") != null:
 		music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
@@ -46,7 +48,7 @@ func _input(event):
 		decrease_music_volume()
 	elif event.is_action_pressed("music_more"):
 		increase_music_volume()
-	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false:
+	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
 		pause_music()
 
 func increase_music_volume():

@@ -127,6 +127,12 @@ time_on = 2.0
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_oofkr")
 
+[node name="ColorRect" parent="toggle_death_area5" index="2"]
+offset_left = -60.0
+offset_top = -9.0
+offset_right = 60.0
+offset_bottom = 15.0
+
 [node name="AudioStreamPlayer2D" parent="toggle_death_area5" index="3"]
 position = Vector2(0, 3)
 

@@ -805,6 +805,10 @@ scale = Vector2(0.25, 0.25)
 position = Vector2(8288, 1088)
 scale = Vector2(4, 4)
 
+[node name="interactive_grass16" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(8480, 1088)
+scale = Vector2(4, 4)
+
 [node name="interactive_grass25" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
 position = Vector2(8416, 1088)
 scale = Vector2(4, 4)

@@ -163,8 +163,6 @@ position = Vector2(12784, 84)
 shape = SubResource("RectangleShape2D_nkflg")
 one_way_collision = true
 
-[node name="sprites" type="Node2D" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="climb_group" type="Node2D" parent="."]
@@ -255,14 +253,6 @@ scale = Vector2(0.625, 0.191406)
 texture = ExtResource("39_cv7p6")
 
 [node name="spikes" type="Node2D" parent="."]
-
-[node name="16-bit-spike200" parent="spikes" instance=ExtResource("35_ypaor")]
-position = Vector2(12328, 7.15256e-07)
-rotation = -3.14159
-
-[node name="16-bit-spike201" parent="spikes" instance=ExtResource("35_ypaor")]
-position = Vector2(12344, 7.15256e-07)
-rotation = -3.14159
 
 [node name="16-bit-spike202" parent="spikes" instance=ExtResource("35_ypaor")]
 position = Vector2(12360, 16)

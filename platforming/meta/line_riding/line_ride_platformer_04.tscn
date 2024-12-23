@@ -173,7 +173,7 @@ position = Vector2(344, 144)
 
 [node name="Line2D" type="Line2D" parent="player_slide_on_line"]
 points = PackedVector2Array(0, 0, 112, 176, 136, 176, 224, 136, 256, 88, 248, 40, 216, 24, 184, 24, 160, 40, 160, 80, 176, 104, 200, 120, 264, 112, 320, 96, 400, 64, 472, 56, 560, 56, 600, 24)
-width = 6.0
+width = 4.0
 
 [node name="player_slide_on_line2" parent="." instance=ExtResource("2_a1y2b")]
 position = Vector2(24, 632)

@@ -38,7 +38,7 @@ func is_player(body):
 
 func get_game_scene():
 	var scene = get_node("/root").get_child(3)
-	if scene.name.match("*cutscene"):
+	if scene.name.match("*cutscene*"):
 		return null
 	if scene.name.match("*scene*"):
 		return scene 
