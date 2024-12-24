@@ -44,9 +44,9 @@ func load_and_play_music(music) -> void:
 	music_player.play()
 
 func _input(event):
-	if event.is_action_pressed("music_less"):
+	if event.is_action_pressed("music_less") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
 		decrease_music_volume()
-	elif event.is_action_pressed("music_more"):
+	elif event.is_action_pressed("music_more") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
 		increase_music_volume()
 	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
 		pause_music()

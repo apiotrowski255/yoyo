@@ -47,7 +47,7 @@ offset_bottom = 16.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dahi6")
-volume_db = -5.0
+volume_db = -3.0
 max_distance = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

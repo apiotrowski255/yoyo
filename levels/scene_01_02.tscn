@@ -1079,6 +1079,13 @@ scale_amount_min = 2.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_4po2g")
 
+[node name="ColorRect" type="ColorRect" parent="glide_area"]
+offset_left = -88.0
+offset_top = -240.0
+offset_right = 88.0
+offset_bottom = 240.0
+color = Color(1, 1, 1, 0.392157)
+
 [node name="jump pad particles" type="CPUParticles2D" parent="."]
 position = Vector2(4584, -112)
 rotation = -2.62847
@@ -1217,6 +1224,109 @@ scale = Vector2(4, 4)
 
 [node name="interactive_grass60" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
 position = Vector2(15904, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass74" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(17760, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass75" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(17824, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass76" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(17696, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass77" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(17952, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass78" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(18016, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass79" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(17888, -448)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass80" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32672, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass81" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32736, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass82" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32864, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass83" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32928, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass84" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32800, -1152)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass85" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32352, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass86" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32416, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass87" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32544, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass88" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32608, -1152)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass89" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(32480, -1152)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass65" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15712, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass66" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15776, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass67" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15648, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass68" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15520, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass69" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15584, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass70" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15456, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass71" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15328, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass72" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15392, -448)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass73" parent="interactive_grass_container" instance=ExtResource("27_ujvgx")]
+position = Vector2(15264, -448)
 scale = Vector2(4, 4)
 
 [node name="birds" type="Node2D" parent="."]
