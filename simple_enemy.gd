@@ -40,13 +40,10 @@ func apply_gravity(delta):
 		velocity.y += gravity * delta / 2
 
 func _on_area_2d_body_entered(body):
-	if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
-		print("collided with player - but player is in shell state")
-	elif GlobalVariables.is_player(body):
-		
-		# Still pretty bad code, because it means that the scene script needs to 
-		# handle the player's death. Which is kind of true.
-		# print(get_node("/root/*scene*"))
+	#if body.get_class() == "CharacterBody2D" and body.current_state == body.state.shell:
+	#	print("collided with player - but player is in shell state")
+	#elif 
+	if GlobalVariables.is_player(body) and body.current_state != player.state.dying:
 		var scene = GlobalVariables.get_game_scene()
 		if scene.name.match("*scene*"):
 			scene._on_death_body_entered(body)

@@ -1011,9 +1011,9 @@ offset_right = 208.0
 offset_bottom = 274.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Hello Shuriken255 and Lessmod
-I hope you enjoyed this small demo
+I hope you enjoyed this small demo. I hope it gives you an idea of what Zozo could become.
 Wishing you a happy anniversary.
-My only regret is that I wish i met you sooner. "
+"
 
 [node name="mountainParallaxBackground" parent="." instance=ExtResource("5_jup3m")]
 

@@ -2053,7 +2053,7 @@ _data = {
 "cutscene_01_03": SubResource("Animation_qftf2")
 }
 
-[node name="cutscene_02_02" type="Node2D"]
+[node name="cutscene_01_03" type="Node2D"]
 script = ExtResource("1_u81r2")
 
 [node name="Heart" type="Sprite2D" parent="."]
@@ -2085,6 +2085,16 @@ visible = false
 offset_right = 480.0
 offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Press E to skip cutscene"
 
 [node name="mountain_dusk_parallax" parent="." instance=ExtResource("8_jwlkp")]
 
@@ -2145,6 +2155,9 @@ position = Vector2(12912, 248)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("18_7xkef")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Portal"]

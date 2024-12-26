@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1j4q1cu1woyj"]
+[gd_scene load_steps=19 format=3 uid="uid://c1j4q1cu1woyj"]
 
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_axr6u"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="2_edwli"]
 [ext_resource type="Script" path="res://wall_jump.gd" id="3_loplv"]
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="4_tx3dh"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="5_2a4bw"]
 
 [sub_resource type="Gradient" id="Gradient_grege"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -41,6 +42,9 @@ size = Vector2(32, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0btq"]
 size = Vector2(48, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xojou"]
+size = Vector2(96, 16)
+
 [node name="wall_jump_platform_06" type="Node2D"]
 
 [node name="auto_jump_pad3" parent="." instance=ExtResource("1_axr6u")]
@@ -62,18 +66,6 @@ initial_velocity_max = 260.0
 scale_amount_min = 1.5
 scale_amount_max = 2.5
 color_ramp = SubResource("Gradient_grege")
-
-[node name="16-bit-spike392" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(136, 368)
-
-[node name="16-bit-spike393" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(152, 368)
-
-[node name="16-bit-spike396" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(168, 368)
-
-[node name="16-bit-spike397" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(184, 368)
 
 [node name="16-bit-spike398" parent="." instance=ExtResource("2_edwli")]
 position = Vector2(208, 296)
@@ -142,12 +134,6 @@ rotation = -1.57079
 [node name="16-bit-spike401" parent="." instance=ExtResource("2_edwli")]
 position = Vector2(208, 344)
 rotation = -1.57079
-
-[node name="16-bit-spike394" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(104, 368)
-
-[node name="16-bit-spike395" parent="." instance=ExtResource("2_edwli")]
-position = Vector2(120, 368)
 
 [node name="16-bit-spike377" parent="." instance=ExtResource("2_edwli")]
 position = Vector2(40, 192)
@@ -277,6 +263,13 @@ position = Vector2(56, 258)
 shape = SubResource("RectangleShape2D_f0btq")
 one_way_collision = true
 
+[node name="death_hit_box" parent="." instance=ExtResource("5_2a4bw")]
+position = Vector2(104, 360)
+
+[node name="CollisionShape2D" parent="death_hit_box" index="0"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_xojou")
+
 [connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D3" to="Area2D3" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
@@ -285,3 +278,5 @@ one_way_collision = true
 [connection signal="body_exited" from="Area2D4" to="Area2D4" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D6" to="Area2D6" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D6" to="Area2D6" method="_on_body_exited"]
+
+[editable path="death_hit_box"]

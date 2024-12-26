@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://6smqvf5tur3e"]
+[gd_scene load_steps=23 format=3 uid="uid://6smqvf5tur3e"]
 
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_f6xcv"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="2_a1y2b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://nhkwpyacfnng" path="res://platforming/triggered_moving_platform.tscn" id="5_cwjqc"]
 [ext_resource type="PackedScene" uid="uid://bc075rbisueiy" path="res://platforming/16_bit_spike_repeating.tscn" id="6_kwh1e"]
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="6_wgdju"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="7_rkmo6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hync"]
 size = Vector2(256, 16)
@@ -51,6 +52,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -384)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmmim"]
+size = Vector2(320, 16)
 
 [node name="line_ride_platformer_04" type="Node2D"]
 
@@ -126,6 +130,10 @@ shape = SubResource("RectangleShape2D_lj13a")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(560, 440)
+shape = SubResource("RectangleShape2D_grko3")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 456)
 shape = SubResource("RectangleShape2D_grko3")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
@@ -271,79 +279,14 @@ position = Vector2(1000, 192)
 [node name="16-bit-spike44" parent="spikes" instance=ExtResource("6_wgdju")]
 position = Vector2(1016, 192)
 
-[node name="16-bit-spike15" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(584, 672)
-
-[node name="16-bit-spike18" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(600, 672)
-
-[node name="16-bit-spike19" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(616, 672)
-
-[node name="16-bit-spike20" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(632, 672)
-
-[node name="16-bit-spike21" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(520, 672)
-
-[node name="16-bit-spike22" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(536, 672)
-
-[node name="16-bit-spike23" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(552, 672)
-
-[node name="16-bit-spike24" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(568, 672)
-
-[node name="16-bit-spike25" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(456, 672)
-
-[node name="16-bit-spike26" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(472, 672)
-
-[node name="16-bit-spike27" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(488, 672)
-
-[node name="16-bit-spike28" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(504, 672)
-
-[node name="16-bit-spike29" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(392, 672)
-
-[node name="16-bit-spike30" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(408, 672)
-
-[node name="16-bit-spike31" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(424, 672)
-
-[node name="16-bit-spike32" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(440, 672)
-
-[node name="16-bit-spike33" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(328, 672)
-
-[node name="16-bit-spike34" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(344, 672)
-
-[node name="16-bit-spike35" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(360, 672)
-
-[node name="16-bit-spike36" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(376, 672)
-
 [node name="16-bit-spike13" parent="spikes" instance=ExtResource("6_wgdju")]
 position = Vector2(504, 480)
 
 [node name="16-bit-spike14" parent="spikes" instance=ExtResource("6_wgdju")]
 position = Vector2(520, 480)
 
-[node name="16-bit-spike16" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(544, 456)
-rotation = -1.57079
-
 [node name="16-bit-spike17" parent="spikes" instance=ExtResource("6_wgdju")]
-position = Vector2(544, 472)
-rotation = -1.57079
+position = Vector2(536, 480)
 
 [node name="16_bit_spike_repeating" parent="." instance=ExtResource("6_kwh1e")]
 position = Vector2(184, 640)
@@ -357,6 +300,14 @@ position = Vector2(152, 640)
 [node name="16_bit_spike_repeating4" parent="." instance=ExtResource("6_kwh1e")]
 position = Vector2(136, 640)
 
+[node name="death_hit_box" parent="." instance=ExtResource("7_rkmo6")]
+position = Vector2(328, 664)
+
+[node name="CollisionShape2D" parent="death_hit_box" index="0"]
+position = Vector2(152, 0)
+shape = SubResource("RectangleShape2D_wmmim")
+
 [editable path="player_slide_on_line"]
 [editable path="player_slide_on_line2"]
 [editable path="door"]
+[editable path="death_hit_box"]

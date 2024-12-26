@@ -44,11 +44,11 @@ func load_and_play_music(music) -> void:
 	music_player.play()
 
 func _input(event):
-	if event.is_action_pressed("music_less") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
+	if event.is_action_pressed("music_less") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null and GlobalVariables.get_game_scene().get_node("Player").current_state != player.state.cutscene:
 		decrease_music_volume()
-	elif event.is_action_pressed("music_more") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
+	elif event.is_action_pressed("music_more") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null and GlobalVariables.get_game_scene().get_node("Player").current_state != player.state.cutscene:
 		increase_music_volume()
-	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null:
+	elif event.is_action_pressed("music_pause") and get_node("/root/OptionsMenuInGame").get_node("CanvasLayer").visible == false and GlobalVariables.get_game_scene() != null and GlobalVariables.get_game_scene().get_node("Player").current_state != player.state.cutscene:
 		pause_music()
 
 func increase_music_volume():

@@ -61,8 +61,8 @@ func _on_start_cutscene_body_entered(body: Node2D) -> void:
 		# start fade to black
 		$AnimationPlayer.play("fade_to_black")
 		$Player.set_state_to_cutscene()
-		# stop global music music
-		GlobalMusicManager.stop()
+		# fade global music
+		GlobalMusicManager.fade_music(-40, 1.0)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_to_black":

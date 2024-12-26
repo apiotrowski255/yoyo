@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqlfn0tbk8ywn"]
+[gd_scene load_steps=9 format=3 uid="uid://dqlfn0tbk8ywn"]
 
 [ext_resource type="PackedScene" uid="uid://vjb666ygbxi7" path="res://auto_jump_pad.tscn" id="1_2glps"]
-[ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="3_w65hp"]
+[ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="2_uy5pf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oapt5"]
 size = Vector2(96, 16)
@@ -17,6 +17,9 @@ size = Vector2(16, 416)
 
 [sub_resource type="Gradient" id="Gradient_k6vaa"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5xi5"]
+size = Vector2(224, 16)
 
 [node name="auto_jump_platform_01" type="Node2D"]
 
@@ -57,48 +60,6 @@ position = Vector2(328, 224)
 shape = SubResource("RectangleShape2D_jrwi0")
 
 [node name="spike" type="Node2D" parent="."]
-
-[node name="16-bit-spike" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(104, 432)
-
-[node name="16-bit-spike2" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(120, 432)
-
-[node name="16-bit-spike3" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(136, 432)
-
-[node name="16-bit-spike4" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(152, 432)
-
-[node name="16-bit-spike5" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(168, 432)
-
-[node name="16-bit-spike6" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(184, 432)
-
-[node name="16-bit-spike7" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(200, 432)
-
-[node name="16-bit-spike8" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(216, 432)
-
-[node name="16-bit-spike9" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(232, 432)
-
-[node name="16-bit-spike10" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(248, 432)
-
-[node name="16-bit-spike11" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(264, 432)
-
-[node name="16-bit-spike12" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(280, 432)
-
-[node name="16-bit-spike13" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(296, 432)
-
-[node name="16-bit-spike14" parent="spike" instance=ExtResource("3_w65hp")]
-position = Vector2(312, 432)
 
 [node name="particles" type="Node2D" parent="."]
 
@@ -161,3 +122,12 @@ initial_velocity_max = 350.0
 scale_amount_min = 1.5
 scale_amount_max = 2.5
 color_ramp = SubResource("Gradient_k6vaa")
+
+[node name="death_hit_box" parent="." instance=ExtResource("2_uy5pf")]
+position = Vector2(104, 424)
+
+[node name="CollisionShape2D" parent="death_hit_box" index="0"]
+position = Vector2(104, 0)
+shape = SubResource("RectangleShape2D_b5xi5")
+
+[editable path="death_hit_box"]

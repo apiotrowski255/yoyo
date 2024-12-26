@@ -303,6 +303,7 @@ position = Vector2(52, 24)
 
 [node name="toggle_death_area" parent="." instance=ExtResource("7_b24yl")]
 position = Vector2(708, 100)
+time_on = 2.0
 
 [connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
 [connection signal="body_exited" from="NoDownZone" to="NoDownZone" method="_on_body_exited"]

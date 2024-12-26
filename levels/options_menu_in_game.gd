@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("option_menu"):
-		if in_gameplay():
+		if in_gameplay() and GlobalVariables.get_game_scene() != null and GlobalVariables.get_game_scene().get_node("Player").current_state != player.state.cutscene:
 			if $CanvasLayer.visible == false:
 				# print("present options menu")
 				$CanvasLayer.visible = true
