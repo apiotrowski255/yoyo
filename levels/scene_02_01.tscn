@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=160 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
@@ -1165,6 +1165,9 @@ size = Vector2(128, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsw4n"]
 size = Vector2(208, 672)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnsj8"]
+size = Vector2(64, 16)
 
 [sub_resource type="GDScript" id="GDScript_mb4ux"]
 script/source = "extends Area2D
@@ -3086,6 +3089,11 @@ debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="change_player_camera"]
 position = Vector2(1040, 168)
 shape = SubResource("RectangleShape2D_vsw4n")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="change_player_camera"]
+position = Vector2(6680, 136)
+shape = SubResource("RectangleShape2D_dnsj8")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 
 [node name="wall jump2" type="Area2D" parent="."]

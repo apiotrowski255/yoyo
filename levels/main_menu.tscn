@@ -83,6 +83,7 @@ position = Vector2(68, 142)
 texture = ExtResource("2_aau61")
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 168.0
 offset_top = 69.0
 offset_right = 315.0

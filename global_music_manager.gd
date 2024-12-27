@@ -17,18 +17,13 @@ func _ready():
 		music_player.volume_db = -40
 		fade_music(-10, 1.5)
 
-	if get_node("/root/scene_01_01") != null:
-		music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
-		music_player.play()
-	elif get_node("/root/scene_02") != null:
+	if get_node("/root/scene_02") != null:
 		music_player.stream = load("res://sounds/music/Rainoth Unmissed.mp3")
 		music_player.play()
 	elif get_node("/root/scene_03") != null:
 		music_player.stream = load("res://sounds/music/City Chase Club Mix.mp3")
 		music_player.play()
-	elif get_node("/root/main_menu") != null:
-		# We need main menu music
-		pass
+
 
 func stop():
 	music_player.stop()

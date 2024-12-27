@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://cslhxr4h8jo1c"]
+[gd_scene load_steps=155 format=3 uid="uid://cslhxr4h8jo1c"]
 
 [ext_resource type="Script" path="res://levels/scene_01_02.gd" id="1_be4ds"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="2_nt5si"]
@@ -451,6 +451,9 @@ point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqh3u"]
 size = Vector2(80, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riq15"]
+size = Vector2(336, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nq03"]
 size = Vector2(160, 16)
@@ -3280,6 +3283,11 @@ script = ExtResource("55_pnlvh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="change_player_camera"]
 position = Vector2(32, 0.5)
 shape = SubResource("RectangleShape2D_eqh3u")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="change_player_camera"]
+position = Vector2(-6240, -63)
+shape = SubResource("RectangleShape2D_riq15")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 
 [node name="death_hit_box" parent="." instance=ExtResource("56_p481i")]

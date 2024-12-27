@@ -219,8 +219,10 @@ color_ramp = SubResource("Gradient_t0ejd")
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+drag_left_margin = 0.1
 drag_top_margin = 0.0
-drag_bottom_margin = 0.6
+drag_right_margin = 0.1
+drag_bottom_margin = 0.5
 editor_draw_drag_margin = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

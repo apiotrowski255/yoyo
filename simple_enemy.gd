@@ -50,9 +50,11 @@ func _on_area_2d_body_entered(body):
 		else: 
 			get_tree().reload_current_scene()
 
+func _exiting_tree():
+	$"kill zone".disconnect("body_entered", _on_area_2d_body_entered)
 
 func _on_stomp_body_entered(body):
-	if GlobalVariables.is_player(body):
+	if GlobalVariables.is_player(body) and body.current_state != player.state.dying:
 		
 		# print("enemy die animation")
 		# Or we can do a particle effect for when an enemy dies? 
@@ -62,7 +64,7 @@ func _on_stomp_body_entered(body):
 		death_particles.emitting = true 
 		# print(death_particles.position)
 		# print(get_node("/root/scene_01")) # This will need to change depending on the scene number - TODO for later.
-		get_node("/root/").get_child(2).add_child(death_particles)
+		get_node("/root/").get_child(3).add_child(death_particles)
 		# get_node("/root/scene_01").add_child(death_particles)
 		if body.current_state != body.state.shell:
 			body.velocity.y = player_launch_y_velocity

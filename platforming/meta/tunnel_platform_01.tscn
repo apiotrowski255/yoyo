@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp8waip6fdsv8"]
+[gd_scene load_steps=18 format=3 uid="uid://bp8waip6fdsv8"]
 
 [ext_resource type="PackedScene" uid="uid://bd8gyopbmk7fv" path="res://simple_enemy.tscn" id="1_t57oa"]
 [ext_resource type="PackedScene" uid="uid://ckuwxow7aedcn" path="res://timed_enemy_spawner.tscn" id="2_4o2qf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://NoDownZone.gd" id="4_dyas1"]
 [ext_resource type="PackedScene" uid="uid://cyy5qvp0m5wvp" path="res://platforming/meta/door_and_button.tscn" id="5_sedsf"]
 [ext_resource type="PackedScene" uid="uid://drk7v6xllm73e" path="res://toggle_death_area_148.tscn" id="7_b24yl"]
+[ext_resource type="Script" path="res://levels/change_player_camera.gd" id="7_fyy2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oofkr"]
 size = Vector2(120, 10)
@@ -33,6 +34,9 @@ size = Vector2(912, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmlim"]
 size = Vector2(912, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydxl2"]
+size = Vector2(120, 16)
 
 [node name="tunnel_platform_01" type="Node2D"]
 
@@ -304,6 +308,14 @@ position = Vector2(52, 24)
 [node name="toggle_death_area" parent="." instance=ExtResource("7_b24yl")]
 position = Vector2(708, 100)
 time_on = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(792, 100)
+script = ExtResource("7_fyy2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(52, 4)
+shape = SubResource("RectangleShape2D_ydxl2")
 
 [connection signal="body_entered" from="NoDownZone" to="NoDownZone" method="_on_body_entered"]
 [connection signal="body_exited" from="NoDownZone" to="NoDownZone" method="_on_body_exited"]
