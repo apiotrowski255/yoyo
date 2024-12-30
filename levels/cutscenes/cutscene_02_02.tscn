@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg0b712scwmgs"]
+[gd_scene load_steps=13 format=3 uid="uid://cg0b712scwmgs"]
 
-[ext_resource type="Script" path="res://levels/cutscenes/cutscene_02_02.gd" id="1_248v5"]
 [ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="1_sk1dv"]
 [ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="2_2kj6a"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="3_j6dfk"]
@@ -354,7 +353,6 @@ _data = {
 }
 
 [node name="cutscene_02_02" type="Node2D"]
-script = ExtResource("1_248v5")
 
 [node name="Heart" type="Sprite2D" parent="."]
 position = Vector2(56, 236)

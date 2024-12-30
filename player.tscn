@@ -161,6 +161,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = -222.0
 offset_top = -120.0

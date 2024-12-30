@@ -73,3 +73,7 @@ func _on_check_button_for_glitch_effect_2_toggled(toggled_on: bool) -> void:
 	else:
 		$CanvasLayer/pause_label.text = "false"
 		GlobalMusicManager.resume_music()
+
+
+func _on_button_pressed() -> void:
+	GlobalVariables.save_game_state()

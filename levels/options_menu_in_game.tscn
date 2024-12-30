@@ -119,6 +119,14 @@ volume_db = -10.0
 stream = ExtResource("3_dqm3r")
 volume_db = -10.0
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 320.0
+offset_top = 216.0
+offset_right = 453.0
+offset_bottom = 247.0
+text = "save game state"
+
 [connection signal="toggled" from="CanvasLayer/glitch_effect/CheckButton_for_glitch_effect" to="." method="_on_check_button_for_glitch_effect_toggled"]
 [connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="CanvasLayer/CheckButton_for_glitch_effect2" to="." method="_on_check_button_for_glitch_effect_2_toggled"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

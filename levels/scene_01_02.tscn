@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://cslhxr4h8jo1c"]
+[gd_scene load_steps=158 format=3 uid="uid://cslhxr4h8jo1c"]
 
 [ext_resource type="Script" path="res://levels/scene_01_02.gd" id="1_be4ds"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="2_nt5si"]
@@ -50,6 +50,7 @@
 [ext_resource type="Script" path="res://levels/change_player_camera.gd" id="55_pnlvh"]
 [ext_resource type="PackedScene" uid="uid://bh851k0f7p28x" path="res://timed_one_way_platform.tscn" id="56_ayrl3"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="56_p481i"]
+[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="57_ag41a"]
 [ext_resource type="PackedScene" uid="uid://bxul5s8d2a7bo" path="res://platforming/meta/wall_jump_platform_02.tscn" id="57_n2u58"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="58_0b5jn"]
 [ext_resource type="PackedScene" uid="uid://cmlh7gi841i8" path="res://simple_enemy_once_spawner.tscn" id="59_ekldt"]
@@ -454,6 +455,12 @@ size = Vector2(80, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riq15"]
 size = Vector2(336, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msv01"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76a47"]
+size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nq03"]
 size = Vector2(160, 16)
@@ -3290,6 +3297,16 @@ position = Vector2(-6240, -63)
 shape = SubResource("RectangleShape2D_riq15")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="change_player_camera"]
+position = Vector2(-5880, 289)
+shape = SubResource("RectangleShape2D_msv01")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="change_player_camera"]
+position = Vector2(-5608, 161)
+shape = SubResource("RectangleShape2D_76a47")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
 [node name="death_hit_box" parent="." instance=ExtResource("56_p481i")]
 position = Vector2(8488, 336)
 
@@ -3345,6 +3362,26 @@ position = Vector2(6904, -136)
 [node name="CollisionShape2D" parent="death_hit_box3" index="0"]
 position = Vector2(56, 0)
 shape = SubResource("RectangleShape2D_4fjgu")
+
+[node name="ZozoJump1" type="Sprite2D" parent="."]
+position = Vector2(8728, 168)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("57_ag41a")
+
+[node name="ZozoJump2" type="Sprite2D" parent="."]
+position = Vector2(8728, 152)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("57_ag41a")
+
+[node name="ZozoJump3" type="Sprite2D" parent="."]
+position = Vector2(8728, 136)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("57_ag41a")
+
+[node name="ZozoJump4" type="Sprite2D" parent="."]
+position = Vector2(8728, 120)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("57_ag41a")
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]

@@ -10,6 +10,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _on_animation_player_animation_finished(anim_name):
 	get_tree().change_scene_to_file("res://levels/scene_01_01.tscn")
+	GlobalVariables.checkpoint_counter = 0
+	GlobalVariables.current_level = 1
+	GlobalVariables.current_sub_level = 1
 	GlobalMusicManager.fade_music(-10, 1.5)
 	GlobalMusicManager.load_and_play_music("res://sounds/music/Rainoth - Border of Death [One Foot in the Grave EP].mp3")
 

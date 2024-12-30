@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://ck2r7jbqeskxu"]
 
-[ext_resource type="Script" path="res://levels/cutscenes/cutscene_02_02.gd" id="1_u81r2"]
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_01_03.gd" id="1_u81r2"]
 [ext_resource type="Texture2D" uid="uid://bpdmwfcfg0t2v" path="res://sprites/Hearts/PNG/basic/heart.png" id="2_qbv0c"]
 [ext_resource type="Texture2D" uid="uid://chsb5g0gobjlo" path="res://sprites/Hearts/PNG/basic/border.png" id="3_1ke4w"]
 [ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="4_af4pj"]

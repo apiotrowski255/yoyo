@@ -13,8 +13,9 @@ func _ready() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "cutscene_01_02":
-		# Need to save seperate stats from the same scene 01
 		GlobalVariables.checkpoint_counter = 0
+		GlobalVariables.current_level = 1
+		GlobalVariables.current_sub_level = 2
 		GlobalMusicManager.fade_music(-10, 1.0)
 		get_tree().change_scene_to_file("res://levels/scene_01_02.tscn")
 		

@@ -893,6 +893,40 @@ scale = Vector2(4, 4)
 position = Vector2(10976, 320)
 scale = Vector2(4, 4)
 
+[node name="interactive_grass57" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(96, -256)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass58" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(160, -256)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass67" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(32, -256)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass59" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(288, -256)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass60" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(224, -256)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass68" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(416, -256)
+scale = Vector2(4, 4)
+type = 2
+
+[node name="interactive_grass69" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(480, -256)
+scale = Vector2(4, 4)
+
+[node name="interactive_grass70" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
+position = Vector2(352, -256)
+scale = Vector2(4, 4)
+
 [node name="interactive_grass62" parent="interactive_grass_container" instance=ExtResource("19_ug8w6")]
 position = Vector2(11872, 320)
 scale = Vector2(4, 4)

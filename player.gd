@@ -55,7 +55,7 @@ func calculate_jump_parameters() -> void:
 
 func _ready():
 	# gravity = 300
-	camera = $Camera2D
+	camera = get_node("Camera2D")
 	raycast_up = $RayCast2D
 	raycast_down = $RayCast2D2
 	zozosprite = $"Zozo Sprite"
@@ -107,20 +107,10 @@ func _physics_process(delta):
 			change_state(state.shell)
 		elif Input.is_action_just_pressed("ui_accept"):
 			jump_buffer_timer = 0.15
-			
-			
-			
+		
 		apply_gravity(delta)
 		
-		var direction = Input.get_axis("ui_left", "ui_right")
-		if direction != 0 and abs(velocity.x) < SPEED:
-			velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION * delta)
-		elif is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-		elif not is_on_floor() and Input.is_action_just_pressed("ui_left") and velocity.x > 0:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-		elif not is_on_floor() and Input.is_action_just_pressed("ui_right") and velocity.x < 0:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
+		move_x_velocity(delta)
 		
 		move_and_slide()
 		
@@ -181,16 +171,15 @@ func _physics_process(delta):
 		handle_jump()
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction = Input.get_axis("ui_left", "ui_right")
-		if direction != 0 and abs(velocity.x) < SPEED:
-			velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION * delta)
+		move_x_velocity(delta)
+		'''
 		elif is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 		elif not is_on_floor() and Input.is_action_just_pressed("ui_left") and velocity.x > 0:
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 		elif not is_on_floor() and Input.is_action_just_pressed("ui_right") and velocity.x < 0:
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-
+		'''
 		move_and_slide()
 		
 		# go through a one way platform. 
@@ -218,6 +207,20 @@ func _physics_process(delta):
 	# I might have to remove this part
 	# if is_on_floor_only():
 	# 	zozosprite.rotation = get_floor_normal().angle() + PI/2
+
+func move_x_velocity(delta):
+	var input_direction = Input.get_axis("ui_left", "ui_right")
+	if input_direction != 0 and abs(velocity.x) < SPEED:
+		print("speed up")
+		velocity.x = move_toward(velocity.x, SPEED * input_direction, ACCELERATION * delta)
+	elif input_direction == 0 and abs(velocity.x) > 0:
+		print("slow down")
+		# slow down two times faster
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta * 2)
+	elif input_direction != 0 and abs(velocity.x) == SPEED:
+		# we have to check if we are going the right way or the wrong way
+		print("max speed")
+	
 
 func change_state(state_change):
 	if state_change == state.shell:
