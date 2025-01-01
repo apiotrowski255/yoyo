@@ -12,9 +12,9 @@ func _ready():
 	# music_player.stream = load("res://sounds/music/Rainoth - Earth [ELEMENTS EP] (320).mp3")
 	
 	if get_node("/root/main_menu") != null:
-		music_player.stream = load("res://sounds/music/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3")
+		music_player.stream = load("res://sounds/music/Untitled - Main Menu.mp3")
 		music_player.play()
-		music_player.volume_db = -40
+		music_player.volume_db = -20
 		fade_music(-10, 1.5)
 
 	if get_node("/root/scene_02") != null:

@@ -12,6 +12,7 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	GlobalMusicManager.play_menu_button_pressed_sfx()
 	$CenterContainer/MarginContainer/VBoxContainer/Play.disabled = true
+	$CenterContainer/MarginContainer/VBoxContainer/continue.disabled = true
 	$CenterContainer/MarginContainer/VBoxContainer/Options.disabled = true
 	$CenterContainer/MarginContainer/VBoxContainer/Exit.disabled = true
 	GlobalMusicManager.fade_music(-100, 1.0)
@@ -41,6 +42,7 @@ func fade_to_black() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_to_black":
+		GlobalMusicManager.stop()
 		get_tree().change_scene_to_file("res://levels/cutscenes/cutscene_01_01.tscn")
 
 

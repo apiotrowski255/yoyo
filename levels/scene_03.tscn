@@ -1,7 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://pyrmoi68v5ja"]
 
 [ext_resource type="Script" path="res://levels/scene_03.gd" id="1_nxnwx"]
-[ext_resource type="PackedScene" uid="uid://b7t2km6oqfkhf" path="res://player.tscn" id="1_yhi22"]
 [ext_resource type="PackedScene" uid="uid://2wteeq0d1tir" path="res://timed_laser_follow.tscn" id="2_875xq"]
 [ext_resource type="PackedScene" uid="uid://re6tlcy7a7l7" path="res://platforming/meta/area_and_door_close.tscn" id="3_v38je"]
 [ext_resource type="PackedScene" uid="uid://b5m7eecicnyge" path="res://environment/Glacial-mountains-parallax-background_vnitti/snow_mountain_parallax.tscn" id="4_hfph2"]
@@ -10,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkavimy0fbwa8" path="res://danger/triggered_falling_spike.tscn" id="8_q2m87"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="9_5oo7b"]
 [ext_resource type="PackedScene" uid="uid://0uq3spak0ewj" path="res://danger/lighting_attack_01_triggered.tscn" id="10_62lf8"]
+[ext_resource type="PackedScene" uid="uid://bc7o0xfwmnmxw" path="res://test_character.tscn" id="11_3hocc"]
 [ext_resource type="PackedScene" uid="uid://6wodh1cu2tdg" path="res://danger/stepping_lighting_attack_triggered.tscn" id="11_boc8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yt06y"]
@@ -65,12 +65,13 @@ shape = SubResource("RectangleShape2D_mjh2k")
 position = Vector2(472, 128)
 shape = SubResource("RectangleShape2D_x75g0")
 
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="environment"]
+position = Vector2(192, 80)
+shape = SubResource("RectangleShape2D_x75g0")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="environment"]
 position = Vector2(240, 264)
 shape = SubResource("RectangleShape2D_rfg56")
-
-[node name="Player" parent="." instance=ExtResource("1_yhi22")]
-position = Vector2(864, 222)
 
 [node name="timed_laser_follow" parent="." instance=ExtResource("2_875xq")]
 position = Vector2(-464, -16)
@@ -98,5 +99,11 @@ position = Vector2(712, 192)
 
 [node name="stepping_lighting_attack_triggered" parent="." instance=ExtResource("11_boc8a")]
 position = Vector2(960, -16)
+
+[node name="test-character" parent="." instance=ExtResource("11_3hocc")]
+position = Vector2(160, 182)
+maxSpeed = 150.0
+timeToReachMaxSpeed = 0.1
+timeToReachZeroSpeed = 0.1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

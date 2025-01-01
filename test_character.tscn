@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc7o0xfwmnmxw"]
+
+[ext_resource type="Script" path="res://test_character.gd" id="1_wiw5i"]
+[ext_resource type="Texture2D" uid="uid://b0mws25p2m0ad" path="res://sprites/zozo/zozo jump.png" id="2_4nv2o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0476"]
+atlas = ExtResource("2_4nv2o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cas6"]
+atlas = ExtResource("2_4nv2o")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hrmi"]
+atlas = ExtResource("2_4nv2o")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kana4"]
+atlas = ExtResource("2_4nv2o")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl817"]
+atlas = ExtResource("2_4nv2o")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ep2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0476")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cas6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hrmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kana4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl817")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8633h"]
+size = Vector2(12, 12)
+
+[node name="test-player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider", "leftRaycast", "middleRaycast", "rightRaycast")]
+collision_mask = 15
+script = ExtResource("1_wiw5i")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D2")
+terminalVelocity = 400.0
+wallJump = true
+inputPauseAfterWallJump = 0.5
+wallSliding = 20.0
+wallLatching = true
+wallLatchingModifer = true
+cornerCutting = true
+correctionAmount = 5.0
+leftRaycast = NodePath("RayCast2D_left")
+middleRaycast = NodePath("RayCast2D_middle")
+rightRaycast = NodePath("RayCast2D_right")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_6ep2b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -32)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.6
+editor_draw_drag_margin = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_8633h")
+
+[node name="RayCast2D_left" type="RayCast2D" parent="."]
+position = Vector2(-6, 0)
+target_position = Vector2(0, -16)
+
+[node name="RayCast2D_middle" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+
+[node name="RayCast2D_right" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(0, -16)

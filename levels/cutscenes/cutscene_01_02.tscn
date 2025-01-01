@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dsbicia2s2fsp"]
+[gd_scene load_steps=27 format=3 uid="uid://dsbicia2s2fsp"]
 
 [ext_resource type="Script" path="res://levels/cutscenes/cutscene_01_02.gd" id="1_4q07x"]
 [ext_resource type="Texture2D" uid="uid://dsykbguh6oqdb" path="res://tilesets/tileset_pack/Bush_tileset.png" id="3_fjfeg"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b3ndbv2ewb4tf" path="res://slime/animated_sprites/blue_animated_sprite.tscn" id="12_d52c0"]
 [ext_resource type="AudioStream" uid="uid://ddxb1bqu3fs3n" path="res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Climbing Ladder/sfx_movement_ladder2loop.wav" id="12_vuwpe"]
 [ext_resource type="AudioStream" uid="uid://ikh6cfoxhhcd" path="res://sounds/sfx/Jump 1.wav" id="13_kvgfe"]
+[ext_resource type="Texture2D" uid="uid://b8b04ssmq5cft" path="res://enemies/Platformer Slimes v1.3/Blue Slime line ride.png" id="14_1hhn0"]
+[ext_resource type="PackedScene" uid="uid://b7d0aekf16ipe" path="res://bird.tscn" id="15_dmabr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsgax"]
 texture = ExtResource("3_fjfeg")
@@ -1825,6 +1827,30 @@ tracks/6/keys = {
 "update": 1,
 "values": []
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D/BlueSlimeLineRide:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 90)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D/blue_animated_sprite:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_c7nk2"]
 resource_name = "cutscene_01_02"
@@ -1897,10 +1923,10 @@ tracks/5/path = NodePath("Node2D:scale")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3, 3.033, 8.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(3, 3.033, 6.1, 7, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -1935,6 +1961,30 @@ tracks/7/keys = {
 "args": [0.0],
 "method": &"play"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D/BlueSlimeLineRide:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6.1, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 90), Vector2(0, -8), Vector2(0, 90)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node2D/blue_animated_sprite:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6.1, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -8), Vector2(0, 90), Vector2(0, -8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ga3dc"]
@@ -2031,10 +2081,19 @@ stream = ExtResource("13_kvgfe")
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(3848, 152)
 
+[node name="BlueSlimeLineRide" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 90)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("14_1hhn0")
+
 [node name="blue_animated_sprite" parent="Node2D" instance=ExtResource("12_d52c0")]
 animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="bird" parent="." instance=ExtResource("15_dmabr")]
+position = Vector2(3968, 14)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

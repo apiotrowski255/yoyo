@@ -13,8 +13,8 @@ func _on_animation_player_animation_finished(anim_name):
 	GlobalVariables.checkpoint_counter = 0
 	GlobalVariables.current_level = 1
 	GlobalVariables.current_sub_level = 1
-	GlobalMusicManager.fade_music(-10, 1.5)
-	GlobalMusicManager.load_and_play_music("res://sounds/music/Rainoth - Border of Death [One Foot in the Grave EP].mp3")
+	GlobalMusicManager.load_and_play_music("res://sounds/music/Untitled - Level 1.mp3")
+	GlobalMusicManager.music_player.volume_db = -10
 
 
 func _on_timer_timeout() -> void:

@@ -60,7 +60,7 @@ func load_level_from_save():
 	var level = "scene_0" + str(current_level) + "_0" + str(current_sub_level)
 	get_tree().change_scene_to_file("res://levels/" + level + ".tscn")
 	if current_level == 1:
-		GlobalMusicManager.load_and_play_music("res://sounds/music/Rainoth - Border of Death [One Foot in the Grave EP].mp3")
+		GlobalMusicManager.load_and_play_music("res://sounds/music/Untitled - Level 1.mp3")
 	elif current_level == 2:
 		GlobalMusicManager.load_and_play_music("res://sounds/music/Rainoth Unmissed.mp3")
 

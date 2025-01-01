@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://nicmnei565vp"]
+
+[ext_resource type="Script" path="res://player/set_player_camera.gd" id="1_qlawn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u2an"]
+size = Vector2(16, 16)
+
+[node name="set_player_camera" type="Area2D"]
+script = ExtResource("1_qlawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5u2an")
+debug_color = Color(0.838175, 0.00120019, 0.927274, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

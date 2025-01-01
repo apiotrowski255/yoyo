@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://cslhxr4h8jo1c"]
+[gd_scene load_steps=157 format=3 uid="uid://cslhxr4h8jo1c"]
 
 [ext_resource type="Script" path="res://levels/scene_01_02.gd" id="1_be4ds"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="2_nt5si"]
@@ -50,7 +50,6 @@
 [ext_resource type="Script" path="res://levels/change_player_camera.gd" id="55_pnlvh"]
 [ext_resource type="PackedScene" uid="uid://bh851k0f7p28x" path="res://timed_one_way_platform.tscn" id="56_ayrl3"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="56_p481i"]
-[ext_resource type="Texture2D" uid="uid://bu25nklx7vdgn" path="res://sprites/zozo/zozo jump_1.png" id="57_ag41a"]
 [ext_resource type="PackedScene" uid="uid://bxul5s8d2a7bo" path="res://platforming/meta/wall_jump_platform_02.tscn" id="57_n2u58"]
 [ext_resource type="PackedScene" uid="uid://2wy3hlkxoe2w" path="res://platforming/meta/line_riding/player_slide_on_line.tscn" id="58_0b5jn"]
 [ext_resource type="PackedScene" uid="uid://cmlh7gi841i8" path="res://simple_enemy_once_spawner.tscn" id="59_ekldt"]
@@ -1035,11 +1034,6 @@ rotation = 1.57079
 scale = Vector2(1.24972, 1)
 texture = ExtResource("2_nt5si")
 
-[node name="OneWayPlatform35" type="Sprite2D" parent="sprites"]
-position = Vector2(72, 140)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_nt5si")
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="climb_group" type="Node2D" parent="."]
@@ -1944,10 +1938,6 @@ position = Vector2(1008, 335)
 scale = Vector2(0.625, 0.191406)
 texture = ExtResource("53_ftv5g")
 
-[node name="down_arrow3" parent="." instance=ExtResource("25_7jdho")]
-position = Vector2(64, 214)
-rotation = 3.14159
-
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="16-bit-spike131" parent="spikes" instance=ExtResource("49_62t5t")]
@@ -2621,7 +2611,7 @@ offset_bottom = 304.0
 color = Color(0.611735, 0.611595, 0, 0.776471)
 
 [node name="Player" parent="." instance=ExtResource("5_r62xy")]
-position = Vector2(3760, -148)
+position = Vector2(8712, 118)
 
 [node name="line_ride_platformer_01" parent="." instance=ExtResource("42_vrukp")]
 position = Vector2(3680, -104)
@@ -3111,38 +3101,6 @@ offset_top = 216.0
 offset_right = -36.0
 offset_bottom = 256.0
 
-[node name="avoid_spike message" type="Label" parent="Messages"]
-layout_mode = 0
-offset_right = 110.0
-offset_bottom = 25.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "General rule of thumb:
-Don't touch spikes"
-
-[node name="avoid_spike message4" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = -580.0
-offset_top = -104.0
-offset_right = -470.0
-offset_bottom = -79.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "AD/arrow keys to move"
-
-[node name="avoid_spike message5" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = -428.0
-offset_top = -104.0
-offset_right = -318.0
-offset_bottom = -79.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "Space to jump"
-
 [node name="avoid_spike message16" type="Label" parent="Messages"]
 z_index = 1
 layout_mode = 0
@@ -3249,40 +3207,6 @@ theme_override_font_sizes/font_size = 7
 text = "These pads will automatically Launch you"
 horizontal_alignment = 1
 
-[node name="avoid_spike message10" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = 308.0
-offset_top = 8.0
-offset_right = 445.0
-offset_bottom = 33.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "Buttons open up doors!"
-
-[node name="avoid_spike message2" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = -56.0
-offset_top = -256.0
-offset_right = 34.0
-offset_bottom = -245.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "Jump pads increase height"
-
-[node name="avoid_spike message3" type="Label" parent="Messages"]
-layout_mode = 0
-offset_left = 212.0
-offset_top = -340.0
-offset_right = 329.0
-offset_bottom = -315.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 7
-text = "Press Down to go through
-One way platforms"
-
 [node name="change_player_camera" type="Area2D" parent="."]
 position = Vector2(11160, -25)
 script = ExtResource("55_pnlvh")
@@ -3362,26 +3286,6 @@ position = Vector2(6904, -136)
 [node name="CollisionShape2D" parent="death_hit_box3" index="0"]
 position = Vector2(56, 0)
 shape = SubResource("RectangleShape2D_4fjgu")
-
-[node name="ZozoJump1" type="Sprite2D" parent="."]
-position = Vector2(8728, 168)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("57_ag41a")
-
-[node name="ZozoJump2" type="Sprite2D" parent="."]
-position = Vector2(8728, 152)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("57_ag41a")
-
-[node name="ZozoJump3" type="Sprite2D" parent="."]
-position = Vector2(8728, 136)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("57_ag41a")
-
-[node name="ZozoJump4" type="Sprite2D" parent="."]
-position = Vector2(8728, 120)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("57_ag41a")
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]

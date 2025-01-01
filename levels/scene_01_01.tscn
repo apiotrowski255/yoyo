@@ -1220,7 +1220,7 @@ position = Vector2(52, 24)
 position = Vector2(52, 23)
 
 [node name="16-bit-spike" parent="." instance=ExtResource("35_wvgld")]
-position = Vector2(-40, 272)
+position = Vector2(-40, 271)
 
 [node name="water_shader" type="ColorRect" parent="."]
 visible = false

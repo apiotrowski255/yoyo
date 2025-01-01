@@ -1,13 +1,19 @@
 class_name player extends CharacterBody2D
 
 
-@export var coyote_time : float = 0.15
-const SPEED = 100.0
+
+#INFO HORIZONTAL MOVEMENT 
+@export_category("L/R Movement")
+@export var SPEED = 100.0
+
+#INFO JUMPING 
+@export_category("Jumping and Gravity")
+## A brief period after walking off a ledge or platform during which a character is still able to jump.
+@export_range(0, 0.5) var coyote_time: float = 0.25
+
 var ACCELERATION = 1000.0
 
 var push_force = 80.0
-
-var platform_velocity = Vector2.ZERO
 
 var camera : Camera2D 
 
@@ -17,8 +23,8 @@ enum state {normal, climb, dying, sliding, in_air, jumping,
 			line_riding }
 # teleporting = pipe travelling?
 # invincible mode?
-var current_state = state.normal
 
+var current_state = state.normal
 var coyote_timer : float  = 0.0
 var jump_buffer_timer : float = 0.0
 var raycast_up : RayCast2D
@@ -211,16 +217,25 @@ func _physics_process(delta):
 func move_x_velocity(delta):
 	var input_direction = Input.get_axis("ui_left", "ui_right")
 	if input_direction != 0 and abs(velocity.x) < SPEED:
-		print("speed up")
+		# print("speed up")
 		velocity.x = move_toward(velocity.x, SPEED * input_direction, ACCELERATION * delta)
 	elif input_direction == 0 and abs(velocity.x) > 0:
-		print("slow down")
+		# print("slow down")
 		# slow down two times faster
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta * 2)
-	elif input_direction != 0 and abs(velocity.x) == SPEED:
-		# we have to check if we are going the right way or the wrong way
-		print("max speed")
-	
+	elif input_direction != 0 and abs(velocity.x) >= SPEED:
+		# we could consider slowing the player down back to max speed
+		if input_direction == 1 and velocity.x >= SPEED:
+			# print("max speed or more - moving right")
+			pass
+		elif input_direction == -1 and velocity.x <= -SPEED:
+			# print("max speed or more - moving left")
+			pass
+		else:
+			# print("slow down/speed up to new speed")
+			velocity.x = move_toward(velocity.x, SPEED * input_direction, ACCELERATION * delta)
+			
+
 
 func change_state(state_change):
 	if state_change == state.shell:
