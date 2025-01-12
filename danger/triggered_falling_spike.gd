@@ -26,7 +26,7 @@ func tween_finished():
 	var death_particles = death_particles_scene.instantiate()
 	death_particles.global_position = self.global_position
 	death_particles.emitting = true
-	get_node("/root/").get_child(2).add_child(death_particles)
+	GlobalVariables.get_game_scene().add_child(death_particles)
 	
 	
 	spawn_sound("res://sounds/sfx/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Jumping and Landing/sfx_movement_jump9_landing.wav", 15.0)
@@ -62,7 +62,7 @@ func spawn_sound(sound_resource_name : String, volume_db: float):
 	sound.max_distance = 400
 	# sound.play()
 	sound.connect("finished", sound.queue_free)
-	get_node("/root/").get_child(2).add_child(sound)
+	GlobalVariables.get_game_scene().add_child(sound)
 
 func spawn_timed_enemy(direction : Vector2):
 	var obj = load("res://timed_enemy.tscn")
@@ -71,4 +71,4 @@ func spawn_timed_enemy(direction : Vector2):
 	obj1.direction = direction
 	obj1.speed = 256
 	obj1.time_to_die = 1.0
-	get_node("/root/").get_child(2).add_child(obj1)
+	GlobalVariables.get_game_scene().add_child(obj1)

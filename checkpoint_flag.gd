@@ -17,6 +17,7 @@ func activate():
 	collision_shape_2d.set_deferred("disabled", true)
 	$CPUParticles2D3.emitting = true
 	GlobalVariables.checkpoint_counter += 1
+	GlobalVariables.save_game_state()
 
 func _on_area_2d_body_entered(body):
 	# This might screw me up if a simple enemy encounters a flag

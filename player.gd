@@ -10,6 +10,11 @@ class_name player extends CharacterBody2D
 @export_category("Jumping and Gravity")
 ## A brief period after walking off a ledge or platform during which a character is still able to jump.
 @export_range(0, 0.5) var coyote_time: float = 0.25
+@export var jump_height : float = 50
+@export var jump_time_to_peak : float = 0.5
+@export var jump_time_to_descent : float = 0.4
+
+
 
 var ACCELERATION = 1000.0
 
@@ -32,18 +37,12 @@ var raycast_down : RayCast2D
 var timer : Timer
 var cooldown_timer : Timer
 var jump_particles : CPUParticles2D
-
 var noDown : bool # boolean variable to determine if the player can move through a one way platform. 
 var noShellMode : bool
-
 var zozosprite : Sprite2D
 
 
 # https://www.youtube.com/watch?v=IOe1aGY6hXA
-@export var jump_height : float = 50
-@export var jump_time_to_peak : float = 0.5
-@export var jump_time_to_descent : float = 0.4
-
 @onready var jump_velocity :float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
@@ -131,7 +130,6 @@ func _physics_process(delta):
 		sliding_state_process(delta)
 		return
 	elif current_state == state.cutscene:
-		# Maybe apply gravity? 
 		apply_gravity(delta)
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
 		move_and_slide()
@@ -150,6 +148,7 @@ func _physics_process(delta):
 		move_and_slide()
 	else: 
 		# The normal state?
+		# Normal state meaning being on the ground. 
 		
 		# Jump buffer 
 		if jump_buffer_timer > 0:
@@ -178,14 +177,7 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		move_x_velocity(delta)
-		'''
-		elif is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-		elif not is_on_floor() and Input.is_action_just_pressed("ui_left") and velocity.x > 0:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-		elif not is_on_floor() and Input.is_action_just_pressed("ui_right") and velocity.x < 0:
-			velocity.x = move_toward(velocity.x, 0, ACCELERATION * delta)
-		'''
+
 		move_and_slide()
 		
 		# go through a one way platform. 

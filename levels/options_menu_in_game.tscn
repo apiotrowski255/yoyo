@@ -120,6 +120,7 @@ stream = ExtResource("3_dqm3r")
 volume_db = -10.0
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 320.0
 offset_top = 216.0
 offset_right = 453.0

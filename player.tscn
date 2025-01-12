@@ -217,6 +217,7 @@ color = Color(0.290196, 0.815686, 0.341176, 1)
 color_ramp = SubResource("Gradient_t0ejd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

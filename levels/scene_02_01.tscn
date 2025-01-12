@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=162 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dvsmfj6tiuey7" path="res://16_bit_spike.tscn" id="21_c3n5s"]
 [ext_resource type="PackedScene" uid="uid://codmxlkvok14y" path="res://toggle_death_area.tscn" id="22_bi6e2"]
 [ext_resource type="Shader" path="res://levels/water_reflective_02.gdshader" id="23_0c0i7"]
+[ext_resource type="Script" path="res://levels/change_player_camera_limits.gd" id="23_qjm86"]
 [ext_resource type="Texture2D" uid="uid://57wsgwbpaeh2" path="res://environment/Sprite-0002.png" id="24_tx3dc"]
 [ext_resource type="PackedScene" uid="uid://chhqcrmrb3k1n" path="res://death_hit_box.tscn" id="25_vglu8"]
 [ext_resource type="PackedScene" uid="uid://2y87tlmp11qn" path="res://jump_pad.tscn" id="26_aod3r"]
@@ -1168,6 +1169,9 @@ size = Vector2(208, 672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnsj8"]
 size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv4hm"]
+size = Vector2(1104, 160)
 
 [sub_resource type="GDScript" id="GDScript_mb4ux"]
 script/source = "extends Area2D
@@ -2870,7 +2874,7 @@ position = Vector2(0, 560)
 position = Vector2(1007, 160)
 
 [node name="flag3" parent="flags" instance=ExtResource("18_8k5ne")]
-position = Vector2(1696, -64)
+position = Vector2(1560, -64)
 
 [node name="flag4" parent="flags" instance=ExtResource("18_8k5ne")]
 position = Vector2(2208, 16)
@@ -2900,7 +2904,7 @@ position = Vector2(9240, -32)
 position = Vector2(10088, -192)
 
 [node name="Player" parent="." instance=ExtResource("5_jarrm")]
-position = Vector2(4136, -47)
+position = Vector2(5808, 164)
 
 [node name="simple_enemy" parent="." instance=ExtResource("6_se4qc")]
 position = Vector2(920, 192)
@@ -2922,6 +2926,7 @@ offset_left = -16.0
 offset_top = -40.0
 offset_right = 488.0
 offset_bottom = 24.0
+mouse_filter = 2
 color = Color(1, 1, 1, 0.392157)
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("9_awugj")]
@@ -3080,6 +3085,7 @@ debug_color = Color(0, 1, 0.415686, 0.419608)
 [node name="change_player_camera" type="Area2D" parent="."]
 position = Vector2(1736, -72)
 script = ExtResource("17_arx7u")
+new_position = Vector2(0, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="change_player_camera"]
 position = Vector2(56, 248)
@@ -3094,6 +3100,17 @@ debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="change_player_camera"]
 position = Vector2(6680, 136)
 shape = SubResource("RectangleShape2D_dnsj8")
+debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
+
+[node name="change_player_camera_limits" type="Area2D" parent="."]
+position = Vector2(5760, 80)
+script = ExtResource("23_qjm86")
+new_bottom_limit = 288
+new_top_limit = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_player_camera_limits"]
+position = Vector2(552, 80)
+shape = SubResource("RectangleShape2D_mv4hm")
 debug_color = Color(0.648211, 0.520769, 1.92523e-07, 0.42)
 
 [node name="wall jump2" type="Area2D" parent="."]
@@ -4234,6 +4251,7 @@ color = Color(0.447811, 0.447804, 0.436639, 1)
 [node name="blackRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 480.0
 offset_bottom = 272.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 

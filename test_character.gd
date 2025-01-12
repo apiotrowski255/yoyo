@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name PlatformerController2D
+class_name PlatformerController2Dtest
 
 #INFO READEME 
 #IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' in the project settings input map. THIS IS REQUIRED
