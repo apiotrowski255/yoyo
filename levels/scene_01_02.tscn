@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://cslhxr4h8jo1c"]
+[gd_scene load_steps=158 format=3 uid="uid://cslhxr4h8jo1c"]
 
 [ext_resource type="Script" path="res://levels/scene_01_02.gd" id="1_be4ds"]
 [ext_resource type="Texture2D" uid="uid://1khdh3onevga" path="res://sprites/one_way_platform.png" id="2_nt5si"]
@@ -481,6 +481,9 @@ size = Vector2(992, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fjgu"]
 size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgkuy"]
+size = Vector2(208, 512)
 
 [node name="scene_01_02" type="Node2D"]
 script = ExtResource("1_be4ds")
@@ -3286,6 +3289,16 @@ position = Vector2(6904, -136)
 [node name="CollisionShape2D" parent="death_hit_box3" index="0"]
 position = Vector2(56, 0)
 shape = SubResource("RectangleShape2D_4fjgu")
+
+[node name="player_camera_look_down" type="Area2D" parent="."]
+position = Vector2(8256, -288)
+script = ExtResource("55_pnlvh")
+new_position = Vector2(0, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_camera_look_down"]
+position = Vector2(72, 224)
+shape = SubResource("RectangleShape2D_fgkuy")
+debug_color = Color(0.687701, 0.499427, 0, 0.42)
 
 [connection signal="kill_player" from="Path2D" to="." method="_on_path_2d_kill_player"]
 [connection signal="kill_player" from="Path2D5" to="." method="_on_path_2d_kill_player"]

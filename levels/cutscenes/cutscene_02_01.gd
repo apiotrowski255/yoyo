@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.keycode == KEY_E:
-		_on_animation_player_animation_finished("cutscene_01_03")
+		_on_animation_player_animation_finished("zozo_call")
 	else:
 		$CanvasLayer/RichTextLabel.visible = true
 		$Timer.start(3.0)

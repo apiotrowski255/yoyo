@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=4 uid="uid://c81hy6ekekcnl"]
+[gd_scene load_steps=161 format=4 uid="uid://c81hy6ekekcnl"]
 
 [ext_resource type="Script" path="res://levels/scene_02_01.gd" id="1_fvc36"]
 [ext_resource type="PackedScene" uid="uid://2qk1l13sil0x" path="res://mountain_parallax_background.tscn" id="2_w4v1x"]
@@ -1145,9 +1145,6 @@ size = Vector2(16, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe8yf"]
 size = Vector2(80, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfmco"]
-size = Vector2(64, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvtgt"]
 size = Vector2(256, 16)
@@ -2953,24 +2950,6 @@ platform_speed = 35.0
 [node name="button" parent="moving_platform_and_button_one_touch" index="0"]
 position = Vector2(0, -96)
 
-[node name="enemy_kill_zone6" parent="." instance=ExtResource("11_beoko")]
-position = Vector2(2352, 24)
-
-[node name="CollisionShape2D" parent="enemy_kill_zone6" index="0"]
-shape = SubResource("RectangleShape2D_wfmco")
-
-[node name="enemy_kill_zone7" parent="." instance=ExtResource("11_beoko")]
-position = Vector2(2480, 24)
-
-[node name="CollisionShape2D" parent="enemy_kill_zone7" index="0"]
-shape = SubResource("RectangleShape2D_wfmco")
-
-[node name="enemy_kill_zone8" parent="." instance=ExtResource("11_beoko")]
-position = Vector2(2592, -8)
-
-[node name="CollisionShape2D" parent="enemy_kill_zone8" index="0"]
-shape = SubResource("RectangleShape2D_wfmco")
-
 [node name="jump_tutorial_02" parent="." instance=ExtResource("12_m0754")]
 position = Vector2(384, 464)
 
@@ -3471,12 +3450,12 @@ position = Vector2(2712, 0)
 [node name="16-bit-spike85" parent="spikes" instance=ExtResource("21_c3n5s")]
 position = Vector2(2696, 0)
 
-[node name="16-bit-spike86" parent="spikes" instance=ExtResource("21_c3n5s")]
-position = Vector2(2592, 8)
-rotation = -1.57079
-
 [node name="16-bit-spike87" parent="spikes" instance=ExtResource("21_c3n5s")]
 position = Vector2(2592, 24)
+rotation = -1.57079
+
+[node name="16-bit-spike198" parent="spikes" instance=ExtResource("21_c3n5s")]
+position = Vector2(2592, 8)
 rotation = -1.57079
 
 [node name="16-bit-spike82" parent="spikes" instance=ExtResource("21_c3n5s")]
@@ -4793,9 +4772,6 @@ texture = ExtResource("4_ggcy2")
 [editable path="horizontal_aligned_enemy_spawner"]
 [editable path="directed_enemy_spawner"]
 [editable path="moving_platform_and_button_one_touch"]
-[editable path="enemy_kill_zone6"]
-[editable path="enemy_kill_zone7"]
-[editable path="enemy_kill_zone8"]
 [editable path="enemy_kill_zone2"]
 [editable path="horizontal_aligned_enemy_spawner2"]
 [editable path="horizontal_aligned_enemy_spawner4"]

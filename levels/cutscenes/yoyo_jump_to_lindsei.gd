@@ -6,3 +6,5 @@ func _on_button_pressed() -> void:
 	GlobalMusicManager.load_and_play_music("res://sounds/music/Rainoth - Patreon Saint of Psychopaths [One Foot in the Grave EP].mp3")
 	GlobalMusicManager.fade_music(-10, 1.0)
 	GlobalVariables.checkpoint_counter = 0
+	GlobalVariables.current_level = 1
+	GlobalVariables.current_sub_level = 1
