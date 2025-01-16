@@ -1465,6 +1465,8 @@ shape = SubResource("RectangleShape2D_fpss2")
 
 [node name="directed_enemy_spawner" parent="." instance=ExtResource("31_pt7t0")]
 position = Vector2(9832, -87)
+shoot_time = 3.0
+projectile_speed = 128
 
 [node name="Area2D" parent="directed_enemy_spawner" index="0"]
 position = Vector2(-100, 47)
